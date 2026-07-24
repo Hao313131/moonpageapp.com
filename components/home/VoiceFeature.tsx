@@ -6,7 +6,7 @@ export function VoiceFeature() {
           <Waveform />
         </div>
         <div className="order-1 lg:order-2">
-          <p className="text-sm font-semibold uppercase tracking-wide text-gold">
+          <p className="text-base font-semibold uppercase tracking-wide text-gold">
             The MoonPage difference
           </p>
           <h2 className="mt-2 font-display text-3xl font-semibold sm:text-4xl">

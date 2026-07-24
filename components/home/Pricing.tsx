@@ -1,4 +1,4 @@
-import { AppStoreButton } from "@/components/AppStoreButton";
+import { StoreButtons } from "@/components/StoreButtons";
 
 export function Pricing() {
   return (
@@ -9,11 +9,11 @@ export function Pricing() {
         </h2>
         <p className="mt-4 text-ink-muted">
           A monthly or yearly MoonPage Premium plan unlocks the full library.
-          Cancel anytime from your App Store account — exact pricing (and any
-          free trial) is shown before you subscribe.
+          Cancel anytime from your App Store or Google Play account — exact
+          pricing (and any free trial) is shown before you subscribe.
         </p>
         <div className="mt-8 flex justify-center">
-          <AppStoreButton campaign="website_pricing" />
+          <StoreButtons campaign="website_pricing" />
         </div>
       </div>
     </section>

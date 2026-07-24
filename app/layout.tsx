@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Fredoka, Nunito } from "next/font/google";
+import { Fraunces, Nunito } from "next/font/google";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const fredoka = Fredoka({
-  variable: "--font-fredoka",
+/** Soft optical serif — a step more formal than Fredoka’s rounded display, still storybook-warm. */
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
@@ -38,6 +39,38 @@ export const metadata: Metadata = {
   },
 };
 
+// Structured data for search engines and AI/LLM crawlers — plain facts only,
+// deliberately no aggregateRating (MoonPage is pre-launch with no real
+// reviews yet; see components/home/Trust.tsx for the same principle).
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE.operator,
+  url: SITE.domain,
+  logo: `${SITE.domain}/icon.png`,
+  sameAs: [SITE.instagramUrl],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.name,
+  url: SITE.domain,
+  publisher: { "@type": "Organization", name: SITE.operator },
+};
+
+const appJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  name: SITE.name,
+  operatingSystem: "iOS, Android",
+  applicationCategory: "EducationalApplication",
+  description:
+    "Original, illustrated bedtime stories for toddlers and preschoolers — professional narration, device read-aloud, or your own recorded voice.",
+  publisher: { "@type": "Organization", name: SITE.operator },
+  offers: { "@type": "Offer", category: "subscription" },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fredoka.variable} ${nunito.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${nunito.variable} h-full antialiased`}
     >
       <head>
         {/*
@@ -60,6 +93,18 @@ export default function RootLayout({
             TODO: sign up at dash.cloudflare.com → Web Analytics, paste the
             generated beacon token below (works without moving DNS to Cloudflare). */}
         {/* <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_ME"}'></script> */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }}
+        />
       </head>
       <body className="flex min-h-full flex-col bg-cream text-ink">
         {children}

@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { AppStoreButton } from "@/components/AppStoreButton";
-import { NotifyForm } from "@/components/NotifyForm";
+import { StoreButtons } from "@/components/StoreButtons";
 
 export function Hero() {
   return (
@@ -11,21 +10,12 @@ export function Hero() {
             Bedtime stories that actually get them to sleep.
           </h1>
           <p className="mt-5 max-w-md text-lg text-ink-muted">
-            Hand-picked original picture books to gently ease little ones to
-            sleep — narrated by a pro, or read in your own voice.
+            Original picture books to gently ease little ones to sleep —
+            narrated by a pro, or read in your own voice.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <AppStoreButton campaign="website_hero" />
-          </div>
-
-          <div className="mt-5 max-w-sm">
-            <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted/70">
-              On Android? MoonPage is on its way.
-            </p>
-            <div className="mt-2">
-              <NotifyForm />
-            </div>
+          <div id="download" className="mt-8 scroll-mt-24">
+            <StoreButtons campaign="website_hero" />
           </div>
         </div>
 
@@ -48,14 +38,24 @@ export function Hero() {
           </div>
           <div
             aria-hidden
-            className="absolute -bottom-6 -right-4 h-24 w-24 rounded-3xl bg-accent shadow-lg sm:h-28 sm:w-28"
+            className="absolute -bottom-6 -right-4 h-24 w-24 rotate-6 rounded-3xl bg-accent shadow-lg sm:h-28 sm:w-28"
           />
           <div
             aria-hidden
-            className="absolute -top-5 -left-4 h-16 w-16 rounded-2xl bg-sage/80 shadow-lg"
+            className="absolute -top-5 -left-4 h-16 w-16 -rotate-6 rounded-2xl bg-sage/80 shadow-lg"
           />
+          <Sparkle className="absolute -top-8 right-10 h-8 w-8 text-gold" />
+          <Sparkle className="absolute bottom-10 -left-7 h-5 w-5 text-accent-strong" />
         </div>
       </div>
     </section>
+  );
+}
+
+function Sparkle({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M12 0c.6 4.6 2.2 8 5.4 9.6C14.2 11.2 12.6 14.6 12 19.2c-.6-4.6-2.2-8-5.4-9.6C9.8 8 11.4 4.6 12 0z" />
+    </svg>
   );
 }

@@ -32,14 +32,14 @@ export function FreeTier() {
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {STEPS.map((s) => (
             <div key={s.n} className="flex gap-4">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-display text-sm font-semibold text-ink">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-display text-base font-semibold text-ink">
                 {s.n}
               </span>
               <div>
-                <h3 className="font-display text-base font-semibold text-ink">
+                <h3 className="font-display text-lg font-semibold text-ink">
                   {s.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed text-ink-muted">
+                <p className="mt-1 text-base leading-relaxed text-ink-muted">
                   {s.body}
                 </p>
               </div>

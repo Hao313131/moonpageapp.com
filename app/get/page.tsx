@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { AppStoreButton } from "@/components/AppStoreButton";
+import { StoreButtons } from "@/components/StoreButtons";
 import { MinimalFooter } from "@/components/Footer";
 import { SITE } from "@/lib/site";
 
@@ -57,7 +57,7 @@ export default function GetPage() {
         </p>
 
         <div className="mt-8">
-          <AppStoreButton campaign="get_lp_hero" />
+          <StoreButtons campaign="get_lp_hero" />
         </div>
 
         <div className="mt-14 grid w-full max-w-3xl gap-4 sm:grid-cols-3">
@@ -80,16 +80,16 @@ export default function GetPage() {
         <div className="mt-14 grid w-full max-w-3xl gap-6 text-left sm:grid-cols-3">
           {OUTCOMES.map((o) => (
             <div key={o.title} className="rounded-2xl bg-paper p-5">
-              <h2 className="font-display text-base font-semibold text-ink">
+              <h2 className="font-display text-lg font-semibold text-ink">
                 {o.title}
               </h2>
-              <p className="mt-1 text-sm text-ink-muted">{o.body}</p>
+              <p className="mt-1 text-base text-ink-muted">{o.body}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-14">
-          <AppStoreButton campaign="get_lp_footer" />
+          <StoreButtons campaign="get_lp_footer" />
         </div>
       </main>
       <MinimalFooter />

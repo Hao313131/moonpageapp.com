@@ -4,7 +4,11 @@ import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Privacy Choices" };
 
-/** Ported verbatim from the moonpage-legal repo (privacy-choices/en.html). */
+/**
+ * Ported from the moonpage-legal repo (privacy-choices/en.html), with the
+ * "Subscriptions & purchases" section extended to cover Android/Google Play
+ * (the source only documented iOS, from before Android was on the roadmap).
+ */
 export default function PrivacyChoicesPage() {
   const email = SITE.contactEmail;
   return (
@@ -49,16 +53,20 @@ export default function PrivacyChoicesPage() {
 
       <LegalSection title="Subscriptions & purchases">
         <p>
-          Subscription and payment records are managed by Apple App Store
-          (and RevenueCat, our subscription partner). To cancel or manage
-          billing:
+          Subscription and payment records are managed by Apple App Store or
+          Google Play (and RevenueCat, our subscription partner). To cancel
+          or manage billing:
         </p>
-        <ol className="list-decimal space-y-1 pl-5">
+        <ul className="list-disc space-y-1 pl-5">
           <li>
-            On iPhone or iPad: <strong>Settings → [your name] → Subscriptions</strong>.
+            <strong>iPhone or iPad:</strong> Settings → [your name] →
+            Subscriptions → select MoonPage Premium.
           </li>
-          <li>Select MoonPage Premium to cancel or change your plan.</li>
-        </ol>
+          <li>
+            <strong>Android:</strong> Play Store app → your profile →
+            Payments &amp; subscriptions → select MoonPage Premium.
+          </li>
+        </ul>
         <p>
           Deleting the app does <strong>not</strong> cancel a subscription.
         </p>

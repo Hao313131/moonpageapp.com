@@ -30,7 +30,7 @@
   --color-night-ink: #f4ead2;
   --color-night-muted: #a6b7da;
 
-  --font-display: var(--font-fredoka);
+  --font-display: var(--font-fraunces);
   --font-body: var(--font-nunito);
 }
 
@@ -44,6 +44,8 @@ body {
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-body);
+  font-size: 1.0625rem; /* 17px — slightly roomier than browser 16px default */
+  line-height: 1.6;
 }
 
 h1,

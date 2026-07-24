@@ -13,7 +13,7 @@ export const SITE = {
   contactEmail: "moonpageapp@gmail.com",
   instagramUrl: "https://www.instagram.com/moonpageapp/",
   instagramHandle: "@moonpageapp",
-  operator: "Hao Xin",
+  operator: "EchoRealm",
   bundleId: "com.echorealmmedia.moonpage",
 } as const;
 
@@ -40,14 +40,22 @@ export function appStoreLink(campaign: string): string {
   return `https://apps.apple.com/app/${APP_STORE_SLUG}/${APP_STORE_ID}?${params.toString()}`;
 }
 
-// Android isn't released yet (RevenueCat Android key is still a placeholder in
-// moonpage-app/.env.example) — Play Store link kept for when it's ready.
-export const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.echorealmmedia.moonpage";
+/**
+ * Google Play's equivalent of a campaign link — the `referrer` param is read
+ * by the Play Install Referrer API and shows up in Play Console's
+ * acquisition reports, same idea as Apple's pt/ct above.
+ */
+export function playStoreLink(campaign: string): string {
+  const referrer = `utm_source=website&utm_medium=cta&utm_campaign=${campaign}`;
+  const params = new URLSearchParams({
+    id: SITE.bundleId,
+    referrer,
+  });
+  return `https://play.google.com/store/apps/details?${params.toString()}`;
+}
 
 export const FREE_BOOKS = 2;
 export const SHARE_UNLOCK_BOOKS = 2; // books 3–4
-export const TOTAL_STORIES = 42;
 
 export const ASO_KEYWORDS = [
   "bedtime stories",

@@ -16,12 +16,16 @@ const FAQS = [
     a: "The first 2 stories are completely free. Sharing MoonPage unlocks 2 more — the rest are part of MoonPage Premium.",
   },
   {
-    q: "When is Android coming?",
-    a: "MoonPage is launching on iOS first. Android is on the way — leave your email above and we'll let you know the moment it's ready.",
+    q: "Do I need to create an account?",
+    a: "No — MoonPage never requires an account or login. Purchases are tied to your App Store or Google Play account and restore automatically wherever you're signed in.",
+  },
+  {
+    q: "Can I record my own voice for a story?",
+    a: "Yes — every story can be read by a professional narrator, read aloud by your device, or recorded in your own voice from within the story. Recordings stay on your device.",
   },
   {
     q: "How do I cancel my subscription?",
-    a: "Manage or cancel anytime from your Apple ID subscription settings (Settings → your name → Subscriptions on iPhone/iPad). Deleting the app does not cancel a subscription — see our Support page for details.",
+    a: "Manage or cancel anytime from your App Store or Google Play account settings (on iPhone/iPad: Settings → your name → Subscriptions; on Android: Play Store → profile → Payments & subscriptions). Deleting the app does not cancel a subscription — see our Support page for details.",
   },
 ];
 
@@ -44,7 +48,7 @@ export function Faq() {
       <div className="mt-8 divide-y divide-wood/20 rounded-3xl border border-wood/20 bg-paper">
         {FAQS.map((f) => (
           <details key={f.q} className="group p-5 open:pb-5">
-            <summary className="cursor-pointer list-none font-display text-base font-semibold text-ink marker:hidden">
+            <summary className="cursor-pointer list-none font-display text-lg font-semibold text-ink marker:hidden">
               <span className="flex items-center justify-between gap-4">
                 {f.q}
                 <span className="text-accent-strong transition-transform group-open:rotate-45">
@@ -52,7 +56,7 @@ export function Faq() {
                 </span>
               </span>
             </summary>
-            <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+            <p className="mt-2 text-base leading-relaxed text-ink-muted">
               {f.a}
             </p>
           </details>

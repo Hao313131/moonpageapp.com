@@ -23,17 +23,23 @@ export default function SupportPage() {
       <LegalSection title="Canceling or managing your subscription">
         <p>
           MoonPage subscriptions are billed and managed through the App
-          Store, not through us directly:
+          Store or Google Play, not through us directly:
         </p>
-        <ol className="list-decimal space-y-1 pl-5">
+        <ul className="list-disc space-y-1 pl-5">
           <li>
-            On iPhone or iPad: <strong>Settings → [your name] → Subscriptions</strong>.
+            <strong>iPhone or iPad:</strong> Settings → [your name] →
+            Subscriptions → select MoonPage Premium.
           </li>
-          <li>Select MoonPage Premium to cancel, change plan, or view your billing date.</li>
-        </ol>
+          <li>
+            <strong>Android:</strong> Play Store app → your profile →
+            Payments &amp; subscriptions → Subscriptions → select MoonPage
+            Premium.
+          </li>
+        </ul>
         <p>
-          Deleting the app does <strong>not</strong> cancel a subscription —
-          cancel from Settings first.
+          From there you can cancel, change plan, or view your next billing
+          date. Deleting the app does <strong>not</strong> cancel a
+          subscription — cancel from your store account first.
         </p>
       </LegalSection>
 

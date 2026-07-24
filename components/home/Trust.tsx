@@ -1,7 +1,7 @@
 const FACTS = [
   "No account or login required — just download and start reading.",
   "No ads, no third-party trackers, no advertising profiles built on you or your child.",
-  "Restore purchases anytime from Settings using the same App Store account.",
+  "Restore purchases anytime from Settings using the same App Store or Google Play account.",
   "Parent-directed by design, with COPPA and GDPR-K–conscious data practices.",
 ];
 
@@ -20,7 +20,7 @@ export function Trust() {
         {FACTS.map((f) => (
           <li
             key={f}
-            className="flex items-start gap-3 rounded-2xl bg-paper p-5 text-sm text-ink-muted"
+            className="flex items-start gap-3 rounded-2xl bg-paper p-5 text-base text-ink-muted"
           >
             <span className="mt-0.5 text-accent-strong" aria-hidden>
               ✓

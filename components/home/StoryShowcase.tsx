@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 /**
  * Real cover art + real titles from moonpage-app/data/stories/*.ts — the hook
@@ -45,7 +46,7 @@ export function StoryShowcase() {
         A peek at the bookshelf
       </h2>
       <p className="mt-3 max-w-xl text-ink-muted">
-        42 original, hand-painted stories — here are a few.
+        Original, beautifully illustrated stories — the shelf keeps growing.
       </p>
       <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
         {STORIES.map((s) => (
@@ -60,14 +61,20 @@ export function StoryShowcase() {
               />
             </div>
             <figcaption className="mt-2">
-              <p className="font-display text-sm font-semibold text-ink">
+              <p className="font-display text-base font-semibold text-ink">
                 {s.title}
               </p>
-              <p className="text-xs leading-snug text-ink-muted">{s.hook}</p>
+              <p className="text-sm leading-snug text-ink-muted">{s.hook}</p>
             </figcaption>
           </figure>
         ))}
       </div>
+      <Link
+        href="/stories"
+        className="mt-8 inline-flex items-center gap-1.5 font-semibold text-accent-strong hover:underline"
+      >
+        See the full shelf →
+      </Link>
     </section>
   );
 }
