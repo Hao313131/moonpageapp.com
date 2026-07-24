@@ -32,23 +32,19 @@ const STORIES = [
     title: "A Secret in the Night",
     hook: "A gentle nighttime mystery, perfect for winding down before sleep.",
   },
-  {
-    file: "wp_b06_1_went_park_cover.webp",
-    title: "Sam's Park Friend",
-    hook: "A shy afternoon at the park turns into the start of a new friendship.",
-  },
 ];
 
 export function StoryShowcase() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
       <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
-        A peek at the bookshelf
+        Just a few of our stories
       </h2>
       <p className="mt-3 max-w-xl text-ink-muted">
-        Original, beautifully illustrated stories — the shelf keeps growing.
+        A small sample of original, beautifully illustrated bedtime stories —
+        new ones keep arriving.
       </p>
-      <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
         {STORIES.map((s) => (
           <figure key={s.file} className="group">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-md">
@@ -56,7 +52,7 @@ export function StoryShowcase() {
                 src={`/covers/${s.file}`}
                 alt={`Cover art for "${s.title}"`}
                 fill
-                sizes="(min-width: 1024px) 16vw, 45vw"
+                sizes="(min-width: 1024px) 18vw, 45vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -73,7 +69,7 @@ export function StoryShowcase() {
         href="/stories"
         className="mt-8 inline-flex items-center gap-1.5 font-semibold text-accent-strong hover:underline"
       >
-        See the full shelf →
+        See more stories →
       </Link>
     </section>
   );

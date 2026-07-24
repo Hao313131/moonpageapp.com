@@ -7,16 +7,15 @@ import { BackHomeLink } from "@/components/BackLink";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "The Shelf Keeps Growing",
+  title: "Just a Few of Our Stories",
   description:
-    "New original bedtime stories for kids, added all the time — here's a peek at what's on the MoonPage shelf right now.",
+    "A small sample of original bedtime stories for kids — new ones keep arriving on MoonPage.",
 };
 
 /**
- * A sample, not the full catalog (see plan follow-up: only show ~10, framed
- * as an ever-growing shelf rather than a static index). Hooks are written to
- * pull a reader in, not just summarize — original copy, not quotes from the
- * stories themselves. Titles/cover art verified against
+ * A sample, not the full catalog — framed as a small selection of stories.
+ * Hooks are written to pull a reader in, not just summarize — original copy,
+ * not quotes from the stories themselves. Titles/cover art verified against
  * moonpage-app/data/stories/*.ts book-by-book.
  */
 const STORIES = [
@@ -95,13 +94,13 @@ export default function StoriesPage() {
         <div className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
           <BackHomeLink />
           <h1 className="mt-4 font-display text-4xl font-semibold text-ink sm:text-5xl">
-            The shelf keeps growing.
+            Just a few of our stories
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-ink-muted">
-            MoonPage adds new, original bedtime stories all the time — gentle
-            tales about kindness, courage, and curiosity, read aloud by a
-            narrator, your device, or your own voice. Here&apos;s a peek at
-            what&apos;s on the shelf right now.
+            This is only a small sample — MoonPage adds new, original bedtime
+            stories all the time. Gentle tales about kindness, courage, and
+            curiosity, read aloud by a narrator, your device, or your own
+            voice.
           </p>
 
           <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">

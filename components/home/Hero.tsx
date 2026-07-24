@@ -22,19 +22,22 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Landscape device mockup — app is used in forced landscape orientation,
-            so the hero visual deliberately isn't the usual portrait phone frame.
+        {/* iPad-proportioned device mockup (4:3 landscape) — app is used in
+            forced landscape orientation and supports tablets, so the hero
+            visual deliberately isn't the usual portrait phone frame.
+            object-contain (not cover) so the full illustration always shows,
+            never cropped, regardless of its native aspect ratio.
             TODO: swap the cover art below for a real in-app reader screenshot
             once one is available. */}
         <div className="relative mx-auto w-full max-w-lg">
-          <div className="aspect-[16/10] w-full rounded-[28px] bg-ink p-3 shadow-2xl">
-            <div className="relative h-full w-full overflow-hidden rounded-2xl">
+          <div className="aspect-[4/3] w-full rounded-[28px] bg-ink p-3 shadow-2xl">
+            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-ink">
               <Image
                 src="/covers/wp_b01_1_blue_sea_cover.webp"
                 alt="MoonPage storybook illustration"
                 fill
                 sizes="(min-width: 1024px) 32rem, 90vw"
-                className="object-cover"
+                className="object-contain"
                 priority
               />
             </div>
