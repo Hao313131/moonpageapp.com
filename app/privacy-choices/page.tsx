@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { LegalLayout, LegalSection } from "@/components/legal/LegalLayout";
-import { SITE } from "@/lib/site";
+import { SITE, pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Privacy Choices" };
+export const metadata: Metadata = pageMetadata({
+  path: "/privacy-choices",
+  title: "Privacy Choices",
+  description:
+    "How to view, export, or delete your data in MoonPage, and how to cancel a subscription on iOS or Android.",
+});
 
 /**
  * Ported from the moonpage-legal repo (privacy-choices/en.html), with the
@@ -12,7 +17,7 @@ export const metadata: Metadata = { title: "Privacy Choices" };
 export default function PrivacyChoicesPage() {
   const email = SITE.contactEmail;
   return (
-    <LegalLayout title="Your Privacy Choices" updated="July 19, 2026">
+    <LegalLayout title="Your Privacy Choices" path="/privacy-choices" updated="July 19, 2026">
       <LegalSection title="Overview">
         <p>
           MoonPage is designed for parents and guardians to use with their

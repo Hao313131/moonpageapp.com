@@ -5,15 +5,15 @@ const FAQS = [
   },
   {
     q: "Do I need an internet connection?",
-    a: "Stories you've opened are available for offline reading — a connection is only needed the first time you open a new story.",
+    a: "Once MoonPage is installed, stories work offline — including illustrations and narration. An internet connection is only needed to download or update the app, or to manage your subscription.",
   },
   {
     q: "Is there any advertising in the app?",
     a: "No. MoonPage contains no third-party ads, and we don't build advertising profiles on you or your child.",
   },
   {
-    q: "How many stories are free?",
-    a: "The first 2 stories are completely free. Sharing MoonPage unlocks 2 more. MoonPage Premium is an auto-renewing subscription for ongoing access to our continually updated library (current Premium titles plus new stories we add while you subscribe).",
+    q: "Are any stories free?",
+    a: "Yes — some stories are free to read. You can unlock a few more by sharing MoonPage or following us. MoonPage Premium is an auto-renewing subscription for ongoing access to our continually updated library (current Premium titles plus new stories we add while you subscribe).",
   },
   {
     q: "Do I need to create an account?",
@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: "Can I record my own voice for a story?",
-    a: "Yes — every story can be read by a professional narrator, read aloud by your device, or recorded in your own voice from within the story. Recordings stay on your device.",
+    a: "Yes — every story can be read by a professional narrator, or recorded in your own voice from within the story. Recordings stay on your device.",
   },
   {
     q: "How do I cancel my subscription?",
@@ -41,17 +41,17 @@ export function Faq() {
   };
 
   return (
-    <section className="mx-auto max-w-3xl px-5 py-16 sm:py-20">
-      <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+    <section className="page-gutter mx-auto max-w-4xl py-12 sm:py-16 md:py-20">
+      <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
         Questions, answered
       </h2>
-      <div className="mt-8 divide-y divide-wood/20 rounded-3xl border border-wood/20 bg-paper">
+      <div className="mt-6 divide-y divide-wood/20 rounded-2xl border border-wood/20 bg-paper sm:mt-8 sm:rounded-3xl">
         {FAQS.map((f) => (
-          <details key={f.q} className="group p-5 open:pb-5">
-            <summary className="cursor-pointer list-none font-display text-lg font-semibold text-ink marker:hidden">
-              <span className="flex items-center justify-between gap-4">
-                {f.q}
-                <span className="text-accent-strong transition-transform group-open:rotate-45">
+          <details key={f.q} className="group p-4 open:pb-4 sm:p-5 sm:open:pb-5">
+            <summary className="cursor-pointer list-none font-display text-base font-semibold text-ink marker:hidden sm:text-lg">
+              <span className="flex items-start justify-between gap-3 sm:items-center sm:gap-4">
+                <span className="min-w-0">{f.q}</span>
+                <span className="shrink-0 text-accent-strong transition-transform group-open:rotate-45">
                   +
                 </span>
               </span>

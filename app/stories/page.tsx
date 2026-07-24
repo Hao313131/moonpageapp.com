@@ -4,13 +4,14 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
-import { SITE } from "@/lib/site";
+import { SITE, pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/stories",
   title: "Just a Few of Our Stories",
   description:
     "A small sample of original bedtime stories for kids — new ones keep arriving on MoonPage.",
-};
+});
 
 /**
  * A sample, not the full catalog — framed as a small selection of stories.
@@ -87,39 +88,52 @@ export default function StoriesPage() {
     })),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Stories",
+        item: `${SITE.domain}/stories`,
+      },
+    ],
+  };
+
   return (
     <>
       <Header />
       <main>
-        <div className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
+        <div className="page-gutter mx-auto max-w-6xl py-10 sm:py-14 md:py-20">
           <BackHomeLink />
-          <h1 className="mt-4 font-display text-4xl font-semibold text-ink sm:text-5xl">
+          <h1 className="mt-4 font-display text-[1.875rem] font-semibold leading-[1.15] text-ink sm:text-4xl md:text-5xl">
             Just a few of our stories
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-ink-muted">
+          <p className="mt-3 max-w-3xl text-base text-ink-muted sm:mt-4 sm:text-lg">
             This is only a small sample — MoonPage adds new, original bedtime
             stories all the time. Gentle tales about kindness, courage, and
-            curiosity, read aloud by a narrator, your device, or your own
-            voice.
+            curiosity, read aloud by a narrator or your own voice.
           </p>
 
-          <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5">
             {STORIES.map((s) => (
-              <figure key={s.file}>
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-md">
+              <figure key={s.file} className="min-w-0">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
                   <Image
                     src={`/covers/${s.file}`}
                     alt={`Cover art for "${s.title}"`}
                     fill
-                    sizes="(min-width: 1024px) 18vw, 45vw"
+                    sizes="(min-width: 1024px) 18vw, (min-width: 768px) 22vw, (min-width: 640px) 30vw, 45vw"
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="mt-2">
-                  <p className="font-display text-base font-semibold text-ink">
+                  <p className="font-display text-base font-semibold text-ink sm:text-lg">
                     {s.title}
                   </p>
-                  <p className="text-base leading-snug text-ink-muted">
+                  <p className="text-sm leading-snug text-ink-muted sm:text-base">
                     {s.hook}
                   </p>
                 </figcaption>
@@ -127,15 +141,15 @@ export default function StoriesPage() {
             ))}
           </div>
 
-          <div className="mt-16 flex flex-col items-center gap-4 rounded-3xl bg-paper p-10 text-center">
-            <h2 className="font-display text-2xl font-semibold text-ink">
+          <div className="mt-12 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:mt-16 sm:gap-4 sm:rounded-3xl sm:p-10">
+            <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">
               Read tonight&apos;s story in MoonPage
             </h2>
-            <p className="max-w-md text-ink-muted">
-              Start with 2 stories completely free — no account needed, and
-              new ones keep arriving.
+            <p className="max-w-xl text-base text-ink-muted">
+              Some stories are free to read — no account needed, and new ones
+              keep arriving.
             </p>
-            <StoreButtons campaign="stories_page" />
+            <StoreButtons campaign="stories_page" className="justify-center" />
           </div>
         </div>
       </main>
@@ -143,6 +157,10 @@ export default function StoriesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
     </>
   );

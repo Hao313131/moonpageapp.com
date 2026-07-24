@@ -1,23 +1,27 @@
 import type { SVGProps } from "react";
 
+/**
+ * Product experience — kept distinct from Trust (privacy / compliance / restore).
+ * These four used to live under “The MoonPage difference.”
+ */
 const BENEFITS = [
   {
-    title: "Kindness · Courage · Curiosity",
-    body: "Original picture stories, each with a gentle lesson your little one grows with.",
+    title: "Hear it in your voice",
+    body: "Record yourself reading any story — saved on your device, never uploaded. Away for the night? They can still hear Mom or Dad.",
     color: "bg-accent-strong",
-    Icon: HeartIcon,
+    Icon: MicIcon,
   },
   {
-    title: "A library that keeps growing",
-    body: "New original tales are always being added, in a warm storybook style.",
+    title: "Narrated by a pro",
+    body: "Every story also comes with calm, professional narration — ready the moment you open the book.",
     color: "bg-sage",
-    Icon: BookIcon,
+    Icon: WaveIcon,
   },
   {
-    title: "No ads. No login. No tracking.",
-    body: "No account is ever required, and MoonPage doesn't build advertising profiles on you or your child.",
+    title: "Stories that work offline",
+    body: "Illustrations and narration travel with the app — bedtime doesn’t depend on Wi‑Fi once MoonPage is installed.",
     color: "bg-gold",
-    Icon: ShieldIcon,
+    Icon: OfflineIcon,
   },
   {
     title: "Read together, at their pace",
@@ -29,22 +33,22 @@ const BENEFITS = [
 
 export function Benefits() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
+      <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {BENEFITS.map(({ title, body, color, Icon }) => (
           <div
             key={title}
-            className="rounded-3xl border border-wood/25 bg-paper p-6 shadow-sm transition-transform hover:-translate-y-1"
+            className="rounded-2xl border border-wood/25 bg-paper p-5 shadow-sm transition-transform hover:-translate-y-1 sm:rounded-3xl sm:p-6"
           >
             <span
-              className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${color} text-ink`}
+              className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl ${color} text-ink sm:h-11 sm:w-11`}
             >
-              <Icon className="h-5.5 w-5.5" />
+              <Icon className="h-5 w-5 sm:h-5.5 sm:w-5.5" />
             </span>
-            <h3 className="mt-4 font-display text-lg font-semibold text-ink">
+            <h3 className="mt-3 font-display text-base font-semibold text-ink sm:mt-4 sm:text-lg">
               {title}
             </h3>
-            <p className="mt-2 text-base leading-relaxed text-ink-muted">
+            <p className="mt-1.5 text-base leading-relaxed text-ink-muted sm:mt-2">
               {body}
             </p>
           </div>
@@ -54,28 +58,37 @@ export function Benefits() {
   );
 }
 
-function HeartIcon(props: SVGProps<SVGSVGElement>) {
+function MicIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M12 21s-7.5-4.6-10-9.3C.4 8 2 4.5 5.4 4c2-.3 3.9.6 5 2.2A5.9 5.9 0 0 1 15.4 4c3.4.5 5 4 3.4 7.7C19.5 16.4 12 21 12 21z" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="9" y="2" width="6" height="12" rx="3" />
+      <path d="M5 10a7 7 0 0 0 14 0" />
+      <path d="M12 17v5" />
+      <path d="M8 22h8" />
     </svg>
   );
 }
 
-function BookIcon(props: SVGProps<SVGSVGElement>) {
+function WaveIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z" />
-      <path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z" />
+      <path d="M2 12h2" />
+      <path d="M6 8v8" />
+      <path d="M10 5v14" />
+      <path d="M14 8v8" />
+      <path d="M18 10v4" />
+      <path d="M20 12h2" />
     </svg>
   );
 }
 
-function ShieldIcon(props: SVGProps<SVGSVGElement>) {
+function OfflineIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z" />
-      <path d="m9 12 2 2 4-4" />
+      <path d="M2 2l20 20" />
+      <path d="M5.8 5.8A6 6 0 0 0 6 17h10" />
+      <path d="M17.5 10a4.5 4.5 0 0 1 2.2 8.3" />
+      <path d="M12 6a6 6 0 0 1 5.7 4.1" />
     </svg>
   );
 }

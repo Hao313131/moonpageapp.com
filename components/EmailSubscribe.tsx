@@ -1,81 +1,76 @@
-import { SITE } from "@/lib/site";
+import { InstagramLink } from "./SocialLinks";
 
 /**
  * Plain HTML form POST straight to Buttondown's embed-subscribe endpoint —
  * no JS, no backend of our own. `target="popupwindow"` is a native HTML
- * form attribute (Buttondown's own documented embed pattern): the browser
- * opens the confirmation in a small popup instead of navigating away, with
- * zero client-side code required. See README for account setup.
+ * form attribute (Buttondown's own documented embed pattern).
+ *
+ * Email capture is paused for now (early-stage store-first funnel). Restore
+ * the form below when waitlist / Android launch / Web2App needs it.
  */
-const ACTION = (username: string) =>
-  `https://buttondown.com/api/emails/embed-subscribe/${username}`;
+// const ACTION = (username: string) =>
+//   `https://buttondown.com/api/emails/embed-subscribe/${username}`;
 
-export function EmailSubscribeCompact({ className = "" }: { className?: string }) {
+/** Instagram follow CTA — email subscribe paused. */
+export const FOLLOW_HEADLINE =
+  "Follow for parenting tips and story updates";
+
+/** @deprecated Use FOLLOW_HEADLINE — kept so older imports keep working. */
+export const SUBSCRIBE_HEADLINE = FOLLOW_HEADLINE;
+
+type Tone = "cream" | "night";
+
+/**
+ * Follow copy + IG glyph. IG box matches BrandMark icon height so the header
+ * row aligns. Email form kept commented below for a later restore.
+ */
+export function SubscribeCluster({
+  className = "",
+  tone = "cream",
+  inputId: _inputId,
+  igSize = "responsive",
+}: {
+  className?: string;
+  tone?: Tone;
+  /** Unused while email is paused; kept so Header/Footer call sites stay stable. */
+  inputId: string;
+  igSize?: "md" | "lg" | "responsive";
+}) {
+  const night = tone === "night";
+
   return (
-    <form
-      action={ACTION(SITE.buttondownUsername)}
-      method="post"
-      target="popupwindow"
-      className={`flex h-11 items-center overflow-hidden rounded-full bg-paper pl-4 pr-1 shadow-[0_2px_0_0_rgba(0,0,0,0.08)] ${className}`}
+    <div
+      className={`inline-flex min-w-0 max-w-full items-center gap-2.5 sm:gap-3 ${className}`}
     >
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="Email for updates"
-        className="w-24 min-w-0 bg-transparent text-base text-ink outline-none placeholder:text-ink-muted sm:w-44"
-      />
-      <button
-        type="submit"
-        aria-label="Subscribe"
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink text-white transition-transform hover:-translate-y-0.5"
+      <p
+        className={`max-w-[14rem] text-right text-sm font-semibold leading-snug sm:max-w-none sm:text-base ${
+          night ? "text-night-ink" : "text-ink"
+        }`}
       >
-        <ArrowIcon className="h-4 w-4" />
-      </button>
-    </form>
-  );
-}
+        {FOLLOW_HEADLINE}
+      </p>
+      <InstagramLink size={igSize} title={FOLLOW_HEADLINE} />
 
-/** Fuller version with a label + supporting line, for the footer / stories page. */
-export function EmailSubscribeCard({ className = "" }: { className?: string }) {
-  return (
-    <form
-      action={ACTION(SITE.buttondownUsername)}
-      method="post"
-      target="popupwindow"
-      className={`flex flex-col gap-3 rounded-3xl bg-paper p-6 sm:flex-row sm:items-center sm:justify-between ${className}`}
-    >
-      <div>
-        <p className="font-display text-lg font-semibold text-ink">
-          New stories in your inbox
-        </p>
-        <p className="text-base text-ink-muted">
-          A short, occasional email — new stories, gentle parenting tips, no spam.
-        </p>
-      </div>
-      <div className="flex h-12 items-center overflow-hidden rounded-full bg-cream pl-4 pr-1 shadow-inner">
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="you@email.com"
-          className="w-40 min-w-0 bg-transparent text-base text-ink outline-none placeholder:text-ink-muted sm:w-52"
-        />
-        <button
-          type="submit"
-          className="flex h-10 shrink-0 items-center justify-center rounded-full bg-ink px-4 text-base font-semibold text-white transition-transform hover:-translate-y-0.5"
-        >
-          Subscribe
-        </button>
-      </div>
-    </form>
-  );
-}
+      {/*
+      Email subscribe (Buttondown) — restore when needed:
 
-function ArrowIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
+      <div className="inline-flex min-w-0 max-w-full flex-col gap-1.5 sm:gap-2">
+        <p className={`text-center text-base font-semibold ...`}>
+          Subscribe/follow for parenting tips and story updates
+        </p>
+        <div className="flex w-full items-center gap-2 sm:gap-3">
+          <form
+            action={ACTION(SITE.buttondownUsername)}
+            method="post"
+            target="popupwindow"
+            className="flex h-12 min-w-0 flex-1 ..."
+          >
+            ...
+          </form>
+          <InstagramLink size="responsive" />
+        </div>
+      </div>
+      */}
+    </div>
   );
 }

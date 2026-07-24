@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { LegalLayout, LegalSection } from "@/components/legal/LegalLayout";
-import { SITE } from "@/lib/site";
+import { SITE, pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Terms of Use" };
+export const metadata: Metadata = pageMetadata({
+  path: "/terms",
+  title: "Terms of Use",
+  description:
+    "The terms governing use of the MoonPage app, including MoonPage Premium subscriptions, cancellations, and refunds.",
+});
 
 /**
  * Ported verbatim from the moonpage-legal repo (terms-of-use/en.html) —
@@ -13,7 +18,7 @@ export const metadata: Metadata = { title: "Terms of Use" };
 export default function TermsOfUsePage() {
   const email = SITE.contactEmail;
   return (
-    <LegalLayout title="Terms of Use" updated="July 24, 2026">
+    <LegalLayout title="Terms of Use" path="/terms" updated="July 24, 2026">
       <LegalSection title="Agreement">
         <p>
           These Terms of Use (&ldquo;Terms&rdquo;) govern your use of the

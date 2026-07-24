@@ -36,38 +36,41 @@ const STORIES = [
 
 export function StoryShowcase() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
-      <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+    <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
+      <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
         Just a few of our stories
       </h2>
-      <p className="mt-3 max-w-xl text-ink-muted">
+      <p className="mt-3 max-w-2xl text-base text-ink-muted sm:max-w-3xl sm:text-lg">
         A small sample of original, beautifully illustrated bedtime stories —
         new ones keep arriving.
       </p>
-      <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+      {/* phone 2 → tablet 3 → desktop 5 */}
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-5 lg:grid-cols-5">
         {STORIES.map((s) => (
-          <figure key={s.file} className="group">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-md">
+          <figure key={s.file} className="group min-w-0">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
               <Image
                 src={`/covers/${s.file}`}
                 alt={`Cover art for "${s.title}"`}
                 fill
-                sizes="(min-width: 1024px) 18vw, 45vw"
+                sizes="(min-width: 1024px) 18vw, (min-width: 768px) 22vw, (min-width: 640px) 30vw, 45vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <figcaption className="mt-2">
-              <p className="font-display text-base font-semibold text-ink">
+              <p className="font-display text-base font-semibold text-ink sm:text-lg">
                 {s.title}
               </p>
-              <p className="text-base leading-snug text-ink-muted">{s.hook}</p>
+              <p className="text-sm leading-snug text-ink-muted sm:text-base">
+                {s.hook}
+              </p>
             </figcaption>
           </figure>
         ))}
       </div>
       <Link
         href="/stories"
-        className="mt-8 inline-flex items-center gap-1.5 font-semibold text-accent-strong hover:underline"
+        className="mt-6 inline-flex items-center gap-1.5 text-base font-bold text-link hover:text-link-hover hover:underline sm:mt-8 sm:text-lg"
       >
         See more stories →
       </Link>

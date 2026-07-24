@@ -1,7 +1,7 @@
 import { appStoreLink, playStoreLink } from "@/lib/site";
 
 const BADGE =
-  "inline-flex items-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)]";
+  "inline-flex items-center justify-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)]";
 
 type StoreSize = "lg" | "md" | "sm";
 
@@ -9,6 +9,9 @@ type StoreSize = "lg" | "md" | "sm";
  * Both platforms are presented as equal, real CTAs — MoonPage is launching
  * iOS first but Android is right behind it, and the site deliberately never
  * singles one out in copy (see plan follow-up: "都写或者都不写").
+ *
+ * Size "lg" scales down on phone so two badges can sit side-by-side from
+ * ~400px up; below that they stack full-width.
  */
 export function AppStoreLink({
   campaign,
@@ -18,18 +21,25 @@ export function AppStoreLink({
   size?: StoreSize;
 }) {
   const padding =
-    size === "lg" ? "gap-2.5 px-6 py-3.5 shadow-[0_8px_0_0_rgba(0,0,0,0.25)]" : size === "md" ? "px-5 py-2.5" : "px-3 py-1.5";
-  const icon = size === "sm" ? "h-5 w-5" : "h-7 w-7";
+    size === "lg"
+      ? "gap-2 px-4 py-3 shadow-[0_6px_0_0_rgba(0,0,0,0.25)] sm:gap-2.5 sm:px-6 sm:py-3.5 sm:shadow-[0_8px_0_0_rgba(0,0,0,0.25)]"
+      : size === "md"
+        ? "px-4 py-2.5 sm:px-5"
+        : "px-3 py-1.5";
+  const icon =
+    size === "sm" ? "h-5 w-5" : size === "lg" ? "h-6 w-6 sm:h-7 sm:w-7" : "h-7 w-7";
   const label = size === "sm" ? "text-xs" : "text-sm";
   const title =
     size === "sm"
       ? "font-display text-sm font-semibold tracking-tight"
-      : "font-display text-xl font-semibold tracking-tight";
+      : size === "lg"
+        ? "font-display text-lg font-semibold tracking-tight sm:text-xl"
+        : "font-display text-xl font-semibold tracking-tight";
   return (
     <a href={appStoreLink(`${campaign}_ios`)} className={`${BADGE} ${padding}`}>
       <AppleGlyph className={`${icon} shrink-0`} />
-      <span className="leading-tight">
-        <span className={`block ${label} opacity-80`}>Download on the</span>
+      <span className="leading-tight text-left">
+        <span className={`block ${label} opacity-90`}>Download on the</span>
         <span className={`block ${title}`}>App Store</span>
       </span>
     </a>
@@ -44,25 +54,36 @@ export function PlayStoreLink({
   size?: StoreSize;
 }) {
   const padding =
-    size === "lg" ? "gap-2.5 px-6 py-3.5 shadow-[0_8px_0_0_rgba(0,0,0,0.25)]" : size === "md" ? "px-5 py-2.5" : "px-3 py-1.5";
-  const icon = size === "sm" ? "h-5 w-5" : "h-7 w-7";
+    size === "lg"
+      ? "gap-2 px-4 py-3 shadow-[0_6px_0_0_rgba(0,0,0,0.25)] sm:gap-2.5 sm:px-6 sm:py-3.5 sm:shadow-[0_8px_0_0_rgba(0,0,0,0.25)]"
+      : size === "md"
+        ? "px-4 py-2.5 sm:px-5"
+        : "px-3 py-1.5";
+  const icon =
+    size === "sm" ? "h-5 w-5" : size === "lg" ? "h-6 w-6 sm:h-7 sm:w-7" : "h-7 w-7";
   const label = size === "sm" ? "text-xs" : "text-sm";
   const title =
     size === "sm"
       ? "font-display text-sm font-semibold tracking-tight"
-      : "font-display text-xl font-semibold tracking-tight";
+      : size === "lg"
+        ? "font-display text-lg font-semibold tracking-tight sm:text-xl"
+        : "font-display text-xl font-semibold tracking-tight";
   return (
     <a href={playStoreLink(`${campaign}_android`)} className={`${BADGE} ${padding}`}>
       <PlayGlyph className={`${icon} shrink-0`} />
-      <span className="leading-tight">
-        <span className={`block ${label} opacity-80`}>GET IT ON</span>
+      <span className="leading-tight text-left">
+        <span className={`block ${label} opacity-90`}>GET IT ON</span>
         <span className={`block ${title}`}>Google Play</span>
       </span>
     </a>
   );
 }
 
-/** Convenience wrapper for the common case of showing both side by side. */
+/**
+ * Shrink-to-content so a parent `justify-center` / `justify-start` can actually
+ * align the pair. (A full-width flex row always looked left-pinned even when
+ * the surrounding copy was centered.)
+ */
 export function StoreButtons({
   campaign,
   size = "lg",
@@ -73,7 +94,9 @@ export function StoreButtons({
   className?: string;
 }) {
   return (
-    <div className={`flex flex-wrap items-center gap-3 ${className}`}>
+    <div
+      className={`inline-flex max-w-full flex-col items-stretch gap-3 min-[400px]:flex-row min-[400px]:flex-wrap min-[400px]:items-center ${className}`}
+    >
       <AppStoreLink campaign={campaign} size={size} />
       <PlayStoreLink campaign={campaign} size={size} />
     </div>

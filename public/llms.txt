@@ -1,0 +1,25 @@
+# MoonPage
+
+> MoonPage is a mobile app (iOS and Android) of original, illustrated bedtime stories for children ages 3 and up. Each story can be read by a professional narrator, read aloud by the device, or recorded in a parent's own voice. No account or login is required, and the app has no ads and no third-party tracking.
+
+MoonPage is made by EchoRealm. It's a parent-directed app: a parent or guardian downloads it and reads or plays stories together with their child. New original stories are added on an ongoing basis, each built around a gentle theme such as kindness, courage, or curiosity.
+
+Pricing: the first 2 stories are free with no account needed. Sharing the app unlocks 2 more. Full access to the story library requires MoonPage Premium, a monthly or yearly auto-renewing subscription billed through the Apple App Store or Google Play.
+
+## Pages
+
+- [Home](https://moonpage.app/): what MoonPage is, core features, pricing overview, FAQ
+- [Stories](https://moonpage.app/stories): sample story titles and descriptions
+- [Support](https://moonpage.app/support): contact info, how to manage/cancel a subscription, how to restore a purchase
+- [Privacy Policy](https://moonpage.app/privacy): what data MoonPage collects and how it's used
+- [Privacy Choices](https://moonpage.app/privacy-choices): how to view, export, or delete data; how to cancel a subscription
+- [Terms of Use](https://moonpage.app/terms): terms governing use of the app, subscriptions, and refunds
+
+## Key facts
+
+- Platforms: iOS and Android
+- Audience: children ages 3+, used together with a parent or guardian
+- Price: MoonPage Premium subscription (monthly or yearly); first 2 stories free, 2 more via sharing
+- No account, login, ads, or third-party tracking
+- Distinctive feature: parents can record their own voice as story narration; recordings stay on-device
+- Contact: moonpageapp@gmail.com

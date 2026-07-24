@@ -1,11 +1,18 @@
-import type { Metadata } from "next";
-import { Fraunces, Fredoka, Nunito } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Source_Serif_4, Fredoka, Nunito } from "next/font/google";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-/** Soft optical serif for section headlines. */
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#d4c8b0",
+};
+
+/** Formal literary serif for section headlines. */
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
@@ -31,9 +38,11 @@ export const metadata: Metadata = {
   },
   description:
     "Original bedtime stories for kids — hand-picked, no ads, no login required. Professional narration, or read aloud in your own voice.",
+  alternates: { canonical: SITE.domain },
   openGraph: {
     title: SITE.title,
     description: SITE.subtitle,
+    url: SITE.domain,
     siteName: SITE.name,
     images: ["/og-image.png"],
     type: "website",
@@ -56,6 +65,11 @@ const organizationJsonLd = {
   url: SITE.domain,
   logo: `${SITE.domain}/icon.png`,
   sameAs: [SITE.instagramUrl],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: SITE.contactEmail,
+    contactType: "customer support",
+  },
 };
 
 const websiteJsonLd = {
@@ -63,6 +77,9 @@ const websiteJsonLd = {
   "@type": "WebSite",
   name: SITE.name,
   url: SITE.domain,
+  description:
+    "Original bedtime stories for kids — hand-picked, no ads, no login required.",
+  inLanguage: "en",
   publisher: { "@type": "Organization", name: SITE.operator },
 };
 
@@ -70,10 +87,12 @@ const appJsonLd = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   name: SITE.name,
+  url: SITE.domain,
+  image: `${SITE.domain}/icon.png`,
   operatingSystem: "iOS, Android",
   applicationCategory: "EducationalApplication",
   description:
-    "Original, illustrated bedtime stories for toddlers and preschoolers — professional narration, device read-aloud, or your own recorded voice.",
+    "Original, illustrated bedtime stories for toddlers and preschoolers — professional narration, or your own recorded voice.",
   publisher: { "@type": "Organization", name: SITE.operator },
   offers: { "@type": "Offer", category: "subscription" },
 };
@@ -86,7 +105,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${fredoka.variable} ${nunito.variable} h-full antialiased`}
+      className={`${sourceSerif.variable} ${fredoka.variable} ${nunito.variable} h-full antialiased`}
     >
       <head>
         {/*

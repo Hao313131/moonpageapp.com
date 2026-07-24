@@ -57,9 +57,6 @@ export function playStoreLink(campaign: string): string {
   return `https://play.google.com/store/apps/details?${params.toString()}`;
 }
 
-export const FREE_BOOKS = 2;
-export const SHARE_UNLOCK_BOOKS = 2; // books 3–4
-
 export const ASO_KEYWORDS = [
   "bedtime stories",
   "read aloud",
@@ -70,3 +67,41 @@ export const ASO_KEYWORDS = [
   "narration",
   "bedtime reading",
 ] as const;
+
+/**
+ * Shared per-page metadata: sets title/description AND a matching canonical
+ * URL + full OpenGraph/Twitter block. Next.js metadata merging is shallow —
+ * a page-level `openGraph: {title}` would silently drop the parent layout's
+ * `images`/`siteName`/`type`, so every field is repeated in full here rather
+ * than partially overridden.
+ */
+export function pageMetadata({
+  path,
+  title,
+  description,
+}: {
+  path: string;
+  title: string;
+  description: string;
+}) {
+  const url = `${SITE.domain}${path}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: SITE.name,
+      images: ["/og-image.png"],
+      type: "website" as const,
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title,
+      description,
+      images: ["/og-image.png"],
+    },
+  };
+}

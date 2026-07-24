@@ -27,54 +27,55 @@ const OUTCOMES = [
 ];
 
 const SHOTS = [
-  "wp_b01_1_blue_sea_cover.webp",
-  "wp_b05_1_window_moon_cover.webp",
-  "wp_b04_1_maple_street_cover.webp",
+  { file: "wp_b01_1_blue_sea_cover.webp", alt: "Cover art from “Slow Down, Seal!”" },
+  { file: "wp_b05_1_window_moon_cover.webp", alt: "Cover art from “A Secret in the Night”" },
+  { file: "wp_b04_1_maple_street_cover.webp", alt: "Cover art from “Nora’s Kind Cookies”" },
 ];
 
 /**
  * Dedicated ad-traffic landing page — deliberately shorter than the home page
  * so the headline can message-match ad creative. Sticky header still carries
- * both store CTAs + IG + tips email on every scroll.
+ * IG follow on every scroll.
  */
 export default function GetPage() {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col items-center px-5 py-14 text-center sm:py-20">
-        <h1 className="max-w-lg font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+      <main className="page-gutter flex min-h-screen flex-col items-center py-10 text-center sm:py-14 md:py-20">
+        <h1 className="max-w-2xl font-display text-[1.875rem] font-semibold leading-[1.15] text-ink sm:text-4xl md:text-5xl">
           Make bedtime feel calm again.
         </h1>
-        <p className="mt-4 max-w-md text-lg text-ink-muted">
+        <p className="mt-3 max-w-xl text-base text-ink-muted sm:mt-4 sm:text-lg">
           Gentle, original illustrated stories for little ones — free to
           start tonight.
         </p>
 
-        <div className="mt-8">
-          <StoreButtons campaign="get_lp_hero" />
+        <div className="mt-7 flex w-full justify-center sm:mt-8">
+          <StoreButtons campaign="get_lp_hero" className="justify-center" />
         </div>
 
-        <div className="mt-14 grid w-full max-w-3xl gap-4 sm:grid-cols-3">
-          {SHOTS.map((f) => (
+        {/* phone: horizontal scroll strip · tablet+: 3-up grid */}
+        <div className="-mx-1 mt-10 flex w-full max-w-3xl gap-3 overflow-x-auto px-1 pb-2 sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0">
+          {SHOTS.map((s) => (
             <div
-              key={f}
-              className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-md"
+              key={s.file}
+              className="relative aspect-[4/3] w-[72vw] max-w-xs shrink-0 overflow-hidden rounded-2xl shadow-md sm:w-auto sm:max-w-none"
             >
               <Image
-                src={`/covers/${f}`}
-                alt=""
+                src={`/covers/${s.file}`}
+                alt={s.alt}
                 fill
-                sizes="(min-width: 640px) 33vw, 90vw"
+                sizes="(min-width: 640px) 33vw, 72vw"
                 className="object-cover"
               />
             </div>
           ))}
         </div>
 
-        <div className="mt-14 grid w-full max-w-3xl gap-6 text-left sm:grid-cols-3">
+        <div className="mt-10 grid w-full max-w-3xl gap-4 text-left sm:mt-14 sm:grid-cols-3 sm:gap-6">
           {OUTCOMES.map((o) => (
-            <div key={o.title} className="rounded-2xl bg-paper p-5">
-              <h2 className="font-display text-lg font-semibold text-ink">
+            <div key={o.title} className="rounded-2xl bg-paper p-4 sm:p-5">
+              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
                 {o.title}
               </h2>
               <p className="mt-1 text-base text-ink-muted">{o.body}</p>
@@ -82,8 +83,8 @@ export default function GetPage() {
           ))}
         </div>
 
-        <div className="mt-14">
-          <StoreButtons campaign="get_lp_footer" />
+        <div className="mt-10 flex w-full justify-center sm:mt-14">
+          <StoreButtons campaign="get_lp_footer" className="justify-center" />
         </div>
       </main>
       <MinimalFooter />

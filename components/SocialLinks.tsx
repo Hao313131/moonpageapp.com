@@ -1,31 +1,45 @@
 import { InstagramGlyph } from "./icons";
 import { SITE } from "@/lib/site";
 
-const TIPS_COPY = "Follow us on Instagram for more parenting tips";
+const TIPS_COPY = "Follow for parenting tips and story updates";
 
-/** Instagram glyph only — no accompanying copy. */
+/** Official Instagram brand gradient (yellow → orange → magenta → purple). */
+const IG_GRADIENT =
+  "bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)]";
+
+/**
+ * Instagram glyph on the official gradient.
+ * Box sizes mirror BrandMark app-icon heights (`md` / `lg`) so header/footer
+ * lockups stay height-aligned with the MoonPage logo.
+ */
 export function InstagramLink({
   className = "",
   size = "lg",
-  tone = "cream",
+  title = TIPS_COPY,
 }: {
   className?: string;
-  size?: "md" | "lg";
+  size?: "md" | "lg" | "responsive";
+  /** @deprecated Kept for call-site compatibility; gradient is always used. */
   tone?: "cream" | "night";
+  title?: string;
 }) {
-  const box = size === "lg" ? "h-12 w-12" : "h-10 w-10";
-  const glyph = size === "lg" ? "h-7 w-7" : "h-5 w-5";
-  const surface =
-    tone === "night"
-      ? "bg-white/15 text-night-ink hover:bg-white/25 hover:text-white"
-      : "bg-ink text-white hover:bg-ink/90";
+  // Match BrandMark iconClass: md = h-14/sm:h-16, lg = h-16/sm:h-20
+  const box =
+    size === "lg"
+      ? "h-16 w-16 rounded-2xl sm:h-20 sm:w-20 sm:rounded-3xl"
+      : "h-14 w-14 rounded-2xl sm:h-16 sm:w-16";
+  const glyph =
+    size === "lg"
+      ? "h-8 w-8 sm:h-10 sm:w-10"
+      : "h-7 w-7 sm:h-8 sm:w-8";
   return (
     <a
       href={SITE.instagramUrl}
-      aria-label={`${SITE.name} on Instagram`}
+      aria-label={title}
+      title={title}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex ${box} shrink-0 items-center justify-center rounded-2xl ${surface} shadow-[0_4px_0_0_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-0.5 ${className}`}
+      className={`inline-flex ${box} shrink-0 items-center justify-center ${IG_GRADIENT} text-white shadow-sm transition-transform hover:-translate-y-0.5 ${className}`}
     >
       <InstagramGlyph className={glyph} />
     </a>

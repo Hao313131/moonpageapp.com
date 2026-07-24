@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { LegalLayout, LegalSection } from "@/components/legal/LegalLayout";
-import { SITE } from "@/lib/site";
+import { SITE, pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Privacy Policy" };
+export const metadata: Metadata = pageMetadata({
+  path: "/privacy",
+  title: "Privacy Policy",
+  description:
+    "How MoonPage collects, uses, and protects information. Most data stays on your device — no ads, no third-party tracking, no account required.",
+});
 
 /**
  * Ported verbatim from the moonpage-legal repo (privacy-policy/en.html) —
@@ -13,7 +18,7 @@ export const metadata: Metadata = { title: "Privacy Policy" };
 export default function PrivacyPolicyPage() {
   const email = SITE.contactEmail;
   return (
-    <LegalLayout title="Privacy Policy" updated="July 19, 2026">
+    <LegalLayout title="Privacy Policy" path="/privacy" updated="July 19, 2026">
       <LegalSection title="General">
         <p>
           The &ldquo;MoonPage&rdquo; app is a collection of illustrated

@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalLayout, LegalSection } from "@/components/legal/LegalLayout";
-import { SITE } from "@/lib/site";
+import { SITE, pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Support" };
+export const metadata: Metadata = pageMetadata({
+  path: "/support",
+  title: "Support",
+  description:
+    "Contact MoonPage support, manage or cancel your subscription, and restore purchases on a new device.",
+});
 
 export default function SupportPage() {
   const email = SITE.contactEmail;
   return (
-    <LegalLayout title="Support" updated="July 19, 2026">
+    <LegalLayout title="Support" path="/support" updated="July 19, 2026">
       <LegalSection title="Contact us">
         <p>
           For questions, feedback, refund requests, or account-related

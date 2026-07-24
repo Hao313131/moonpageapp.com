@@ -24,6 +24,9 @@
   --color-accent: #f6b15a;
   --color-accent-dark: #e09a3a;
   --color-accent-strong: #f07a2d;
+  /* Text links on cream — darker than accent-strong so orange CTAs stay readable. */
+  --color-link: #8a3a0e;
+  --color-link-hover: #5c3a21;
 
   --color-gold: #d69a2e;
   --color-sage: #8aa86b;
@@ -34,7 +37,7 @@
   --color-night-ink: #f4ead2;
   --color-night-muted: #a6b7da;
 
-  --font-display: var(--font-fraunces);
+  --font-display: var(--font-source-serif);
   --font-brand: var(--font-fredoka);
   --font-body: var(--font-nunito);
 }
@@ -43,23 +46,40 @@
    bedtime-story marketing site should stay warm/cream regardless of system dark mode. */
 html {
   color-scheme: light;
+  /* Decorative offsets (hero blobs, sparkles) must not create page-wide scroll. */
+  overflow-x: clip;
 }
 
 body {
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-body);
-  font-size: 1.0625rem; /* 17px — slightly roomier than browser 16px default */
+  /* Fluid body: ~17px phone → 18px tablet+ */
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 h1,
 h2,
 h3,
-h4 {
+h4,
+.font-display {
   font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .font-brand {
   font-family: var(--font-brand);
+  letter-spacing: -0.02em;
+}
+
+/* Shared page gutters — keep horizontal padding consistent across breakpoints. */
+.page-gutter {
+  padding-inline: clamp(1rem, 0.6rem + 1.5vw, 1.25rem);
 }

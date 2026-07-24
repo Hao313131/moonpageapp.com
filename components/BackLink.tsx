@@ -6,7 +6,7 @@ export function BackHomeLink({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-1.5 text-base font-semibold text-ink-muted transition-colors hover:text-ink ${className}`}
+      className={`inline-flex items-center gap-1.5 text-lg font-semibold text-link transition-colors hover:text-link-hover ${className}`}
     >
       <span aria-hidden>←</span> Back to MoonPage
     </Link>

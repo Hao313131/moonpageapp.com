@@ -6,19 +6,36 @@ import { SITE } from "@/lib/site";
 
 export function LegalLayout({
   title,
+  path,
   updated,
   children,
 }: {
   title: string;
+  /** Route path (e.g. "/privacy") — used only to build BreadcrumbList JSON-LD. */
+  path: string;
   updated: string;
   children: ReactNode;
 }) {
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: title,
+        item: `${SITE.domain}${path}`,
+      },
+    ],
+  };
+
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-2xl px-5 py-14 sm:py-20">
+      <main className="page-gutter mx-auto max-w-2xl py-10 sm:py-14 md:py-20">
         <BackHomeLink />
-        <h1 className="mt-4 font-display text-3xl font-semibold text-ink">
+        <h1 className="mt-4 font-display text-2xl font-semibold text-ink sm:text-3xl">
           {title}
         </h1>
         <p className="mt-2 text-base text-ink-muted">
@@ -26,12 +43,15 @@ export function LegalLayout({
           operated by {SITE.operator}.
         </p>
 
-        <div className="mt-8 space-y-4">{children}</div>
+        <div className="mt-6 space-y-4 sm:mt-8">{children}</div>
 
-        <footer className="mt-12 border-t border-wood/20 pt-6 text-base text-ink-muted">
+        <footer className="mt-10 border-t border-wood/20 pt-6 text-base text-ink-muted sm:mt-12">
           <p>
             © {new Date().getFullYear()} {SITE.operator} ·{" "}
-            <a href={`mailto:${SITE.contactEmail}`} className="underline">
+            <a
+              href={`mailto:${SITE.contactEmail}`}
+              className="font-medium text-link underline hover:text-link-hover"
+            >
               {SITE.contactEmail}
             </a>
           </p>
@@ -51,6 +71,10 @@ export function LegalLayout({
           </p>
         </footer>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     </>
   );
 }

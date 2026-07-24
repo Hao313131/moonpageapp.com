@@ -6,26 +6,26 @@ const FACTS = [
 ];
 
 /**
- * MoonPage is pre-launch with no real reviews yet — deliberately fact-based
- * instead of testimonials/star ratings (see plan §5). Swap in real quotes
- * and a rating badge once there's genuine App Store data to show.
+ * Privacy / compliance / purchase facts — deliberately separate from the
+ * product-experience cards in Benefits (voice, narration, offline, pace).
+ * Pre-launch: fact-based instead of testimonials (see plan §5).
  */
 export function Trust() {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
-      <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+    <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
+      <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
         Built to earn your trust, not just your download
       </h2>
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+      <ul className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4">
         {FACTS.map((f) => (
           <li
             key={f}
-            className="flex items-start gap-3 rounded-2xl bg-paper p-5 text-base text-ink-muted"
+            className="flex items-start gap-3 rounded-2xl bg-paper p-4 text-base text-ink-muted sm:p-5 sm:text-lg"
           >
-            <span className="mt-0.5 text-accent-strong" aria-hidden>
+            <span className="mt-0.5 shrink-0 text-accent-strong" aria-hidden>
               ✓
             </span>
-            <span>{f}</span>
+            <span className="min-w-0">{f}</span>
           </li>
         ))}
       </ul>
