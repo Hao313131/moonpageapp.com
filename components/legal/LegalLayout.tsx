@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Header } from "@/components/Header";
+import { BackHomeLink } from "@/components/BackLink";
 import { SITE } from "@/lib/site";
 
 export function LegalLayout({
@@ -16,7 +17,8 @@ export function LegalLayout({
     <>
       <Header />
       <main className="mx-auto max-w-2xl px-5 py-14 sm:py-20">
-        <h1 className="font-display text-3xl font-semibold text-ink">
+        <BackHomeLink />
+        <h1 className="mt-4 font-display text-3xl font-semibold text-ink">
           {title}
         </h1>
         <p className="mt-2 text-base text-ink-muted">

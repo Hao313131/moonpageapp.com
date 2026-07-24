@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description:
-    "Hand-picked original picture books to gently ease little ones to sleep — with professional narration, original music, or your very own voice.",
+    "Original bedtime stories for kids — hand-picked, no ads, no login required. Professional narration, or read aloud in your own voice.",
   openGraph: {
     title: SITE.title,
     description: SITE.subtitle,

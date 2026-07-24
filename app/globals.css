@@ -11,7 +11,11 @@
   --color-paper: #f5ebd8;
 
   --color-ink: #5c3a21;
-  --color-ink-muted: #6b4e30;
+  /* Darkened from the app's #6b4e30 for contrast: that shade only reached
+     3.81:1 against --color-cream-deep, below WCAG AA (4.5:1) for body text.
+     This shade clears AA against every background it's used on (cream,
+     cream-deep, paper, accent/sage/gold/wood badges). */
+  --color-ink-muted: #4e341c;
 
   --color-wood: #b88a4e;
   --color-wood-dark: #906030;

@@ -64,7 +64,7 @@ export function StoryShowcase() {
               <p className="font-display text-base font-semibold text-ink">
                 {s.title}
               </p>
-              <p className="text-sm leading-snug text-ink-muted">{s.hook}</p>
+              <p className="text-base leading-snug text-ink-muted">{s.hook}</p>
             </figcaption>
           </figure>
         ))}

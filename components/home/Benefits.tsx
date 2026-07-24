@@ -37,7 +37,7 @@ export function Benefits() {
             className="rounded-3xl border border-wood/25 bg-paper p-6 shadow-sm transition-transform hover:-translate-y-1"
           >
             <span
-              className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${color} text-white`}
+              className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${color} text-ink`}
             >
               <Icon className="h-5.5 w-5.5" />
             </span>

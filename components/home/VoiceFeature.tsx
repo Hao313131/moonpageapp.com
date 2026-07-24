@@ -14,8 +14,9 @@ export function VoiceFeature() {
           </h2>
           <p className="mt-4 max-w-md text-lg text-night-muted">
             Professional narration, original music, device read-aloud — or
-            your own recording. Away for the night? They can still hear Mom
-            or Dad reading, right on schedule.
+            your own recording, saved privately on your device, never
+            uploaded. Away for the night? They can still hear Mom or Dad
+            reading, right on schedule.
           </p>
         </div>
       </div>

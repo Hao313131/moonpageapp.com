@@ -39,7 +39,7 @@ export function Footer() {
             {SITE.contactEmail}
           </a>
         </div>
-        <p className="pt-8 text-sm text-night-muted/70">
+        <p className="pt-8 text-base text-night-muted">
           © {new Date().getFullYear()} {SITE.operator}. Made with care, one
           story at a time.
         </p>
@@ -53,7 +53,7 @@ export function Footer() {
 export function MinimalFooter() {
   return (
     <footer className="mt-auto border-t border-wood/20 bg-cream-deep/60">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-5 py-6 text-sm text-ink-muted">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-2 px-5 py-6 text-base text-ink-muted">
         <Link href="/privacy" className="hover:text-ink">
           Privacy Policy
         </Link>

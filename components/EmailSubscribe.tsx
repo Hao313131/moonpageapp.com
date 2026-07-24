@@ -23,7 +23,7 @@ export function EmailSubscribeCompact({ className = "" }: { className?: string }
         name="email"
         required
         placeholder="Email for updates"
-        className="w-24 min-w-0 bg-transparent text-sm text-ink outline-none placeholder:text-ink-muted/70 sm:w-44"
+        className="w-24 min-w-0 bg-transparent text-base text-ink outline-none placeholder:text-ink-muted sm:w-44"
       />
       <button
         type="submit"
@@ -49,7 +49,7 @@ export function EmailSubscribeCard({ className = "" }: { className?: string }) {
         <p className="font-display text-lg font-semibold text-ink">
           New stories in your inbox
         </p>
-        <p className="text-sm text-ink-muted">
+        <p className="text-base text-ink-muted">
           A short, occasional email — new stories, gentle parenting tips, no spam.
         </p>
       </div>
@@ -59,11 +59,11 @@ export function EmailSubscribeCard({ className = "" }: { className?: string }) {
           name="email"
           required
           placeholder="you@email.com"
-          className="w-40 min-w-0 bg-transparent text-sm text-ink outline-none placeholder:text-ink-muted/70 sm:w-52"
+          className="w-40 min-w-0 bg-transparent text-base text-ink outline-none placeholder:text-ink-muted sm:w-52"
         />
         <button
           type="submit"
-          className="flex h-10 shrink-0 items-center justify-center rounded-full bg-ink px-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+          className="flex h-10 shrink-0 items-center justify-center rounded-full bg-ink px-4 text-base font-semibold text-white transition-transform hover:-translate-y-0.5"
         >
           Subscribe
         </button>
