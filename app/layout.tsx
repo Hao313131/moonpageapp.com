@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description:
-    "Original bedtime stories for kids — hand-picked, no ads, no login required. Professional narration, or read aloud in your own voice.",
+    "A bedtime stories app for toddlers and preschoolers, ages 3+ — original, illustrated picture books with no ads and no login. Professional narration, device read-aloud, or your own recorded voice.",
   alternates: { canonical: SITE.domain },
   openGraph: {
     title: SITE.title,

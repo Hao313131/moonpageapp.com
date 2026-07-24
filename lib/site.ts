@@ -57,16 +57,33 @@ export function playStoreLink(campaign: string): string {
   return `https://play.google.com/store/apps/details?${params.toString()}`;
 }
 
-export const ASO_KEYWORDS = [
-  "bedtime stories",
-  "read aloud",
-  "sleepy time",
-  "toddlers",
-  "preschool",
-  "story books",
-  "narration",
-  "bedtime reading",
-] as const;
+/**
+ * Reference keyword list for this app category — not injected into meta tags
+ * (Google has ignored the `keywords` meta tag for years), but used to keep
+ * visible page copy — FAQ, headings, descriptions — grounded in the terms
+ * parents actually search for. Grouped by intent so new copy can be checked
+ * against gaps rather than guessed at.
+ */
+export const ASO_KEYWORDS = {
+  category: ["bedtime stories app", "kids story app", "children's book app", "read aloud app"],
+  audience: ["toddlers", "preschool", "preschoolers", "kids ages 3 and up", "ages 3+"],
+  intent: [
+    "bedtime stories for toddlers",
+    "sleepy time",
+    "bedtime reading",
+    "wind down routine",
+    "screen time",
+    "story books",
+  ],
+  feature: [
+    "narration",
+    "read aloud",
+    "record your own voice",
+    "offline stories",
+    "no ads kids app",
+  ],
+  platform: ["iPad app", "iPhone app", "Android app"],
+} as const;
 
 /**
  * Shared per-page metadata: sets title/description AND a matching canonical

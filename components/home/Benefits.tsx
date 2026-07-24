@@ -34,7 +34,21 @@ const BENEFITS = [
 export function Benefits() {
   return (
     <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
-      <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+      <div className="max-w-2xl">
+        <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
+          A bedtime stories app built for winding down
+        </h2>
+        <p className="mt-3 text-base leading-relaxed text-ink-muted sm:text-lg">
+          MoonPage is a read-aloud bedtime stories app for toddlers and
+          preschoolers — original, illustrated picture books for ages 3 and
+          up. Instead of screen time that leaves kids wound up, it&apos;s
+          built for winding down: calm pacing, soft illustrations, and a
+          full-screen reading view with no notifications and nothing else
+          competing for attention. Read together, let your child listen on
+          their own, or record your own voice as the narrator.
+        </p>
+      </div>
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {BENEFITS.map(({ title, body, color, Icon }) => (
           <div
             key={title}
