@@ -15,6 +15,9 @@ export const SITE = {
   instagramHandle: "@moonpageapp",
   operator: "EchoRealm",
   bundleId: "com.echorealmmedia.moonpage",
+  // TODO: create a Buttondown account (buttondown.com) and replace with the
+  // real username — see README for why Buttondown and how this wires up.
+  buttondownUsername: "moonpage",
 } as const;
 
 // TODO: replace with the real App Store numeric id once iOS review approves

@@ -31,6 +31,7 @@
   --color-night-muted: #a6b7da;
 
   --font-display: var(--font-fraunces);
+  --font-brand: var(--font-fredoka);
   --font-body: var(--font-nunito);
 }
 
@@ -53,4 +54,8 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
+}
+
+.font-brand {
+  font-family: var(--font-brand);
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Header } from "@/components/Header";
 import { StoreButtons } from "@/components/StoreButtons";
 import { MinimalFooter } from "@/components/Footer";
-import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Make bedtime feel calm again",
@@ -34,21 +34,15 @@ const SHOTS = [
 
 /**
  * Dedicated ad-traffic landing page — deliberately shorter than the home page
- * and stripped of nav, so the headline can message-match ad creative and the
- * only path forward is the single CTA (see plan §2 "/get 广告落地页").
+ * so the headline can message-match ad creative. Sticky header still carries
+ * both store CTAs + IG + tips email on every scroll.
  */
 export default function GetPage() {
   return (
     <>
+      <Header />
       <main className="flex min-h-screen flex-col items-center px-5 py-14 text-center sm:py-20">
-        <Image
-          src="/icon.png"
-          alt={SITE.name}
-          width={56}
-          height={56}
-          className="rounded-2xl shadow-sm"
-        />
-        <h1 className="mt-6 max-w-lg font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+        <h1 className="max-w-lg font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">
           Make bedtime feel calm again.
         </h1>
         <p className="mt-4 max-w-md text-lg text-ink-muted">

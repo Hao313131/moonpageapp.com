@@ -1,42 +1,24 @@
-import Image from "next/image";
-import Link from "next/link";
-import { InstagramGlyph } from "./icons";
-import { SITE } from "@/lib/site";
+import { BrandMark } from "./BrandMark";
+import { AppStoreIcon, PlayStoreIcon } from "./StoreButtons";
+import { InstagramLink } from "./SocialLinks";
+import { EmailSubscribeCompact } from "./EmailSubscribe";
 
+/**
+ * Everything here is pinned to h-12 (48px, matching BrandMark's icon) and the
+ * row never wraps to a second line, even on narrow screens — full-size store
+ * badges and the fuller subscribe card live in the Hero/Footer instead, where
+ * there's room for them.
+ */
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-wood/20 bg-cream/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image
-            src="/icon.png"
-            alt=""
-            width={40}
-            height={40}
-            priority
-            className="h-10 w-10 rounded-xl shadow-sm"
-          />
-          <span className="font-display text-xl font-semibold text-ink">
-            {SITE.name}
-          </span>
-        </Link>
-        <div className="flex items-center gap-3">
-          <a
-            href={SITE.instagramUrl}
-            aria-label="MoonPage on Instagram"
-            className="flex h-9 w-9 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-wood/15 hover:text-ink"
-          >
-            <InstagramGlyph className="h-5 w-5" />
-          </a>
-          {/* Neutral label, no single platform named — both real store
-              buttons live together at #download (see Hero), keeping this
-              header compact. */}
-          <a
-            href="#download"
-            className="rounded-full bg-ink px-5 py-2.5 text-base font-semibold text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5"
-          >
-            Download
-          </a>
+      <div className="mx-auto flex max-w-6xl flex-nowrap items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-5">
+        <BrandMark />
+        <div className="flex flex-nowrap items-center gap-2 sm:gap-2.5">
+          <EmailSubscribeCompact className="hidden h-12 md:flex" />
+          <InstagramLink size="lg" />
+          <AppStoreIcon campaign="website_header" className="h-12 w-12" />
+          <PlayStoreIcon campaign="website_header" className="h-12 w-12" />
         </div>
       </div>
     </header>

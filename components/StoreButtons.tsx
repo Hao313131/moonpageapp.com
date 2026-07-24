@@ -1,7 +1,9 @@
 import { appStoreLink, playStoreLink } from "@/lib/site";
 
 const BADGE =
-  "inline-flex items-center gap-2.5 rounded-2xl bg-ink text-white shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_3px_0_0_rgba(0,0,0,0.25)]";
+  "inline-flex items-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)]";
+
+type StoreSize = "lg" | "md" | "sm";
 
 /**
  * Both platforms are presented as equal, real CTAs — MoonPage is launching
@@ -13,17 +15,22 @@ export function AppStoreLink({
   size = "lg",
 }: {
   campaign: string;
-  size?: "lg" | "md";
+  size?: StoreSize;
 }) {
-  const padding = size === "lg" ? "px-6 py-3.5" : "px-5 py-2.5";
+  const padding =
+    size === "lg" ? "gap-2.5 px-6 py-3.5 shadow-[0_8px_0_0_rgba(0,0,0,0.25)]" : size === "md" ? "px-5 py-2.5" : "px-3 py-1.5";
+  const icon = size === "sm" ? "h-5 w-5" : "h-7 w-7";
+  const label = size === "sm" ? "text-[10px]" : "text-xs";
+  const title =
+    size === "sm"
+      ? "font-display text-sm font-semibold tracking-tight"
+      : "font-display text-xl font-semibold tracking-tight";
   return (
     <a href={appStoreLink(`${campaign}_ios`)} className={`${BADGE} ${padding}`}>
-      <AppleGlyph className="h-7 w-7 shrink-0" />
+      <AppleGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight">
-        <span className="block text-xs opacity-80">Download on the</span>
-        <span className="block font-display text-xl font-semibold tracking-tight">
-          App Store
-        </span>
+        <span className={`block ${label} opacity-80`}>Download on the</span>
+        <span className={`block ${title}`}>App Store</span>
       </span>
     </a>
   );
@@ -34,17 +41,22 @@ export function PlayStoreLink({
   size = "lg",
 }: {
   campaign: string;
-  size?: "lg" | "md";
+  size?: StoreSize;
 }) {
-  const padding = size === "lg" ? "px-6 py-3.5" : "px-5 py-2.5";
+  const padding =
+    size === "lg" ? "gap-2.5 px-6 py-3.5 shadow-[0_8px_0_0_rgba(0,0,0,0.25)]" : size === "md" ? "px-5 py-2.5" : "px-3 py-1.5";
+  const icon = size === "sm" ? "h-5 w-5" : "h-7 w-7";
+  const label = size === "sm" ? "text-[10px]" : "text-xs";
+  const title =
+    size === "sm"
+      ? "font-display text-sm font-semibold tracking-tight"
+      : "font-display text-xl font-semibold tracking-tight";
   return (
     <a href={playStoreLink(`${campaign}_android`)} className={`${BADGE} ${padding}`}>
-      <PlayGlyph className="h-7 w-7 shrink-0" />
+      <PlayGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight">
-        <span className="block text-xs opacity-80">GET IT ON</span>
-        <span className="block font-display text-xl font-semibold tracking-tight">
-          Google Play
-        </span>
+        <span className={`block ${label} opacity-80`}>GET IT ON</span>
+        <span className={`block ${title}`}>Google Play</span>
       </span>
     </a>
   );
@@ -57,7 +69,7 @@ export function StoreButtons({
   className = "",
 }: {
   campaign: string;
-  size?: "lg" | "md";
+  size?: StoreSize;
   className?: string;
 }) {
   return (
@@ -65,6 +77,47 @@ export function StoreButtons({
       <AppStoreLink campaign={campaign} size={size} />
       <PlayStoreLink campaign={campaign} size={size} />
     </div>
+  );
+}
+
+const ICON_BADGE =
+  "inline-flex shrink-0 items-center justify-center rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5";
+
+/** Icon-only badges — for tight spaces like the sticky header, where the full
+ * two-line badge would force a wrap. Full badges stay in Hero/Footer/Pricing. */
+export function AppStoreIcon({
+  campaign,
+  className = "h-11 w-11",
+}: {
+  campaign: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={appStoreLink(`${campaign}_ios`)}
+      aria-label="Download on the App Store"
+      className={`${ICON_BADGE} ${className}`}
+    >
+      <AppleGlyph className="h-5 w-5" />
+    </a>
+  );
+}
+
+export function PlayStoreIcon({
+  campaign,
+  className = "h-11 w-11",
+}: {
+  campaign: string;
+  className?: string;
+}) {
+  return (
+    <a
+      href={playStoreLink(`${campaign}_android`)}
+      aria-label="Get it on Google Play"
+      className={`${ICON_BADGE} ${className}`}
+    >
+      <PlayGlyph className="h-5 w-5" />
+    </a>
   );
 }
 

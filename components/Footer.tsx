@@ -1,21 +1,17 @@
 import Link from "next/link";
-import { StoreButtons } from "./StoreButtons";
-import { InstagramGlyph } from "./icons";
+import { BrandMark } from "./BrandMark";
 import { SITE } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="mt-auto bg-night-top text-night-ink">
       <div className="mx-auto max-w-6xl px-5 py-14">
-        <div className="flex flex-col items-start justify-between gap-8 border-b border-white/10 pb-10 sm:flex-row sm:items-center">
-          <div>
-            <p className="font-display text-xl font-semibold">{SITE.name}</p>
-            <p className="mt-1 max-w-sm text-base text-night-muted">
-              Bedtime stories for little ones — original, beautifully
-              illustrated, and read in a voice they know.
-            </p>
-          </div>
-          <StoreButtons campaign="website_footer" size="md" />
+        <div className="border-b border-white/10 pb-10">
+          <BrandMark href="/" size="lg" tone="night" />
+          <p className="mt-3 max-w-sm text-base text-night-muted">
+            Bedtime stories for little ones — original, beautifully
+            illustrated, and read in a voice they know.
+          </p>
         </div>
 
         <div className="flex flex-col gap-6 pt-8 text-base text-night-muted sm:flex-row sm:items-center sm:justify-between">
@@ -36,18 +32,12 @@ export function Footer() {
               Support
             </Link>
           </nav>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <a
-              href={SITE.instagramUrl}
-              className="inline-flex items-center gap-2 hover:text-white"
-            >
-              <InstagramGlyph className="h-4 w-4" />
-              Follow us on Instagram for more parenting tips
-            </a>
-            <a href={`mailto:${SITE.contactEmail}`} className="hover:text-white">
-              Say hello — {SITE.contactEmail}
-            </a>
-          </div>
+          <a
+            href={`mailto:${SITE.contactEmail}`}
+            className="hover:text-white"
+          >
+            {SITE.contactEmail}
+          </a>
         </div>
         <p className="pt-8 text-sm text-night-muted/70">
           © {new Date().getFullYear()} {SITE.operator}. Made with care, one
@@ -71,7 +61,7 @@ export function MinimalFooter() {
           Terms of Use
         </Link>
         <a href={`mailto:${SITE.contactEmail}`} className="hover:text-ink">
-          Say hello — {SITE.contactEmail}
+          {SITE.contactEmail}
         </a>
       </div>
     </footer>

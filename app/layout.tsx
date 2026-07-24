@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito } from "next/font/google";
+import { Fraunces, Fredoka, Nunito } from "next/font/google";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-/** Soft optical serif — a step more formal than Fredoka’s rounded display, still storybook-warm. */
+/** Soft optical serif for section headlines. */
 const fraunces = Fraunces({
   variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+/** Rounded brand wordmark — used only for the “MoonPage” name + logo lockup. */
+const fredoka = Fredoka({
+  variable: "--font-fredoka",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
@@ -79,7 +86,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${nunito.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${fredoka.variable} ${nunito.variable} h-full antialiased`}
     >
       <head>
         {/*

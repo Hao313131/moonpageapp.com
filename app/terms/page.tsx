@@ -191,7 +191,7 @@ export default function TermsOfUsePage() {
           liable for indirect, incidental, or consequential damages arising
           from your use of the app. Our total liability for any claim
           related to the app is limited to the amount you paid us in the
-          twelve months before the claim, or USD $50 if you paid nothing.
+          twelve months before the claim, or USD $10 if you paid nothing.
         </p>
       </LegalSection>
 
