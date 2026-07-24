@@ -13,8 +13,8 @@ const STEPS = [
   },
   {
     n: "3",
-    title: "Subscribe for the full library",
-    body: "A monthly or yearly plan unlocks every story, with new ones added regularly.",
+    title: "Subscribe for full access",
+    body: "A monthly or yearly plan gives ongoing access to our continually updated library, with new stories added regularly.",
   },
 ];
 

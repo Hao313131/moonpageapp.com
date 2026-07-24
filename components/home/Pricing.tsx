@@ -8,9 +8,11 @@ export function Pricing() {
           Simple pricing
         </h2>
         <p className="mt-4 text-ink-muted">
-          A monthly or yearly MoonPage Premium plan unlocks the full library.
-          Cancel anytime from your App Store or Google Play account — exact
-          pricing (and any free trial) is shown before you subscribe.
+          MoonPage Premium is an auto-renewing monthly or yearly subscription
+          for ongoing access to our continually updated story library — current
+          titles plus new stories we add while you&apos;re subscribed. Cancel
+          anytime from your App Store or Google Play account — exact pricing
+          (and any free trial) is shown before you subscribe.
         </p>
         <div className="mt-8 flex justify-center">
           <StoreButtons campaign="website_pricing" />

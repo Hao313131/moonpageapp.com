@@ -13,7 +13,7 @@ export const metadata: Metadata = { title: "Terms of Use" };
 export default function TermsOfUsePage() {
   const email = SITE.contactEmail;
   return (
-    <LegalLayout title="Terms of Use" updated="July 19, 2026">
+    <LegalLayout title="Terms of Use" updated="July 24, 2026">
       <LegalSection title="Agreement">
         <p>
           These Terms of Use (&ldquo;Terms&rdquo;) govern your use of the
@@ -45,9 +45,12 @@ export default function TermsOfUsePage() {
 
       <LegalSection title="MoonPage Premium & Purchases">
         <p>
-          Free content and limited previews are available without payment.
-          Full access to premium stories requires MoonPage Premium via a
-          monthly or yearly auto-renewing subscription.
+          Free stories and limited previews are available without payment.
+          MoonPage Premium is a monthly or yearly auto-renewing subscription
+          that provides ongoing access to our continually updated illustrated
+          story library — including titles available today and new stories we
+          add while your subscription is active. It is not a one-time purchase
+          that unlocks a fixed, static catalog.
         </p>
         <p>
           When offered by the App Store or Google Play, an introductory free
@@ -67,12 +70,12 @@ export default function TermsOfUsePage() {
 
       <LegalSection title="Subscriptions & Cancellation">
         <p>
-          Subscriptions renew automatically unless canceled at least 24
-          hours before the end of the current billing period. Your store
-          account may be charged for renewal within 24 hours prior to period
-          end. Manage or cancel anytime in your Apple or Google account
-          subscription settings. Deleting the app does not cancel a
-          subscription.
+          Because the story library is continually updated, MoonPage Premium
+          renews automatically unless canceled at least 24 hours before the
+          end of the current billing period. Your store account may be charged
+          for renewal within 24 hours prior to period end. Manage or cancel
+          anytime in your Apple or Google account subscription settings.
+          Deleting the app does not cancel a subscription.
         </p>
       </LegalSection>
 
@@ -135,10 +138,13 @@ export default function TermsOfUsePage() {
 
       <LegalSection title="Content & Updates">
         <p>
-          Story availability may change as we add, update, or retire titles.
-          We strive to keep the library family-friendly. Features may change
-          between app versions. Over-the-air updates may be delivered
-          through Expo Updates.
+          We regularly add new original illustrated stories to the library as
+          an ongoing service. Story availability may also change as we update
+          or retire titles. During an active MoonPage Premium subscription,
+          you receive access to current Premium titles and to new stories
+          added while subscribed. We strive to keep the library
+          family-friendly. Features may change between app versions.
+          Over-the-air updates may be delivered through Expo Updates.
         </p>
       </LegalSection>
 

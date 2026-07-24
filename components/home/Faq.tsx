@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: "How many stories are free?",
-    a: "The first 2 stories are completely free. Sharing MoonPage unlocks 2 more — the rest are part of MoonPage Premium.",
+    a: "The first 2 stories are completely free. Sharing MoonPage unlocks 2 more. MoonPage Premium is an auto-renewing subscription for ongoing access to our continually updated library (current Premium titles plus new stories we add while you subscribe).",
   },
   {
     q: "Do I need to create an account?",
