@@ -1,0 +1,61 @@
+/**
+ * Central site config. Placeholders are marked TODO and mirror the same
+ * placeholder pattern already used in moonpage-app/constants/links.ts.
+ */
+
+export const SITE = {
+  name: "MoonPage",
+  title: "MoonPage: Bedtime Stories",
+  subtitle: "Kids Books & Read Aloud",
+  // TODO: replace once a domain is purchased (see plan §7 — candidates:
+  // moonpage.app, getmoonpage.com, moonpageapp.com). Used for metadataBase/OG/sitemap.
+  domain: "https://moonpage.app",
+  contactEmail: "moonpageapp@gmail.com",
+  instagramUrl: "https://www.instagram.com/moonpageapp/",
+  instagramHandle: "@moonpageapp",
+  operator: "Hao Xin",
+  bundleId: "com.echorealmmedia.moonpage",
+} as const;
+
+// TODO: replace with the real App Store numeric id once iOS review approves
+// (moonpage-app/constants/links.ts has the same id0000000000 placeholder today).
+const APP_STORE_ID = "id0000000000";
+const APP_STORE_SLUG = "moonpage-bedtime-stories";
+
+// TODO: fill in once created in App Store Connect → Analytics → Acquisition →
+// Campaigns. Until then this produces a syntactically valid but non-attributed link.
+const ASC_PROVIDER_TOKEN = "REPLACE_WITH_ASC_PROVIDER_TOKEN";
+
+/**
+ * App Store Connect Campaign Link — lets ASC attribute downloads to the specific
+ * CTA that produced them (see plan §4). Pass a short slug per placement, e.g.
+ * "website_hero", "website_footer", "get_lp_hero".
+ */
+export function appStoreLink(campaign: string): string {
+  const params = new URLSearchParams({
+    pt: ASC_PROVIDER_TOKEN,
+    ct: campaign,
+    mt: "8",
+  });
+  return `https://apps.apple.com/app/${APP_STORE_SLUG}/${APP_STORE_ID}?${params.toString()}`;
+}
+
+// Android isn't released yet (RevenueCat Android key is still a placeholder in
+// moonpage-app/.env.example) — Play Store link kept for when it's ready.
+export const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.echorealmmedia.moonpage";
+
+export const FREE_BOOKS = 2;
+export const SHARE_UNLOCK_BOOKS = 2; // books 3–4
+export const TOTAL_STORIES = 42;
+
+export const ASO_KEYWORDS = [
+  "bedtime stories",
+  "read aloud",
+  "sleepy time",
+  "toddlers",
+  "preschool",
+  "story books",
+  "narration",
+  "bedtime reading",
+] as const;

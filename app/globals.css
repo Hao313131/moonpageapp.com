@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens ported by hand from moonpage-app/constants/theme.ts (the live app's
+ * design system — NOT design/warm-storybook-woodland-ui-v1/, which is a stale draft).
+ * Re-diff against theme.ts if the app's palette ever changes.
+ */
+@theme {
+  --color-cream: #d4c8b0;
+  --color-cream-deep: #c4b69c;
+  --color-paper: #f5ebd8;
+
+  --color-ink: #5c3a21;
+  --color-ink-muted: #6b4e30;
+
+  --color-wood: #b88a4e;
+  --color-wood-dark: #906030;
+  --color-wood-deep: #5a3814;
+
+  --color-accent: #f6b15a;
+  --color-accent-dark: #e09a3a;
+  --color-accent-strong: #f07a2d;
+
+  --color-gold: #d69a2e;
+  --color-sage: #8aa86b;
+
+  --color-night-top: #15264f;
+  --color-night-bottom: #0c1733;
+  --color-night-deep: #060b1e;
+  --color-night-ink: #f4ead2;
+  --color-night-muted: #a6b7da;
+
+  --font-display: var(--font-fredoka);
+  --font-body: var(--font-nunito);
+}
+
+/* Warm storybook brand — intentionally does not follow prefers-color-scheme; a
+   bedtime-story marketing site should stay warm/cream regardless of system dark mode. */
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
