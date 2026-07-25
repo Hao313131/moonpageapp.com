@@ -4,10 +4,10 @@ export function Pricing() {
   return (
     <section className="bg-cream-deep/60">
       <div className="page-gutter mx-auto max-w-4xl py-12 text-center sm:py-16 md:py-20">
-        <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
+        <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
           Made so parents can breathe easy
         </h2>
-        <p className="mx-auto mt-3 max-w-3xl text-base text-ink-muted sm:mt-4 sm:text-lg">
+        <p className="mx-auto mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base">
           MoonPage is bedtime software — calm stories, no ads, no account to
           manage — so tonight feels simpler, not like another thing to pay for.
           Premium keeps the full, growing library ready whenever you need it.

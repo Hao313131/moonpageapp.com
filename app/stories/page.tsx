@@ -108,10 +108,10 @@ export default function StoriesPage() {
       <main>
         <div className="page-gutter mx-auto max-w-6xl py-10 sm:py-14 md:py-20">
           <BackHomeLink />
-          <h1 className="mt-4 font-display text-[1.875rem] font-semibold leading-[1.15] text-ink sm:text-4xl md:text-5xl">
+          <h1 className="mt-4 font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
             Just a few of our stories
           </h1>
-          <p className="mt-3 max-w-3xl text-base text-ink-muted sm:mt-4 sm:text-lg">
+          <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base">
             This is only a small sample — MoonPage adds new, original bedtime
             stories all the time. Gentle tales about kindness, courage, and
             curiosity, read aloud by a narrator or your own voice.
@@ -130,10 +130,10 @@ export default function StoriesPage() {
                   />
                 </div>
                 <figcaption className="mt-2">
-                  <p className="font-display text-base font-semibold text-ink sm:text-lg">
+                  <p className="font-display text-sm font-semibold text-ink sm:text-base">
                     {s.title}
                   </p>
-                  <p className="text-sm leading-snug text-ink-muted sm:text-base">
+                  <p className="text-xs leading-snug text-ink-muted sm:text-sm">
                     {s.hook}
                   </p>
                 </figcaption>
@@ -142,10 +142,10 @@ export default function StoriesPage() {
           </div>
 
           <div className="mt-12 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:mt-16 sm:gap-4 sm:rounded-3xl sm:p-10">
-            <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               Read tonight&apos;s story in MoonPage
             </h2>
-            <p className="max-w-xl text-base text-ink-muted">
+            <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
               Some stories are free to read — no account needed, and new ones
               keep arriving.
             </p>

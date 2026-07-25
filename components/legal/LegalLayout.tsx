@@ -35,17 +35,17 @@ export function LegalLayout({
       <Header />
       <main className="page-gutter mx-auto max-w-2xl py-10 sm:py-14 md:py-20">
         <BackHomeLink />
-        <h1 className="mt-4 font-display text-2xl font-semibold text-ink sm:text-3xl">
+        <h1 className="mt-4 font-display text-xl font-semibold text-ink sm:text-2xl">
           {title}
         </h1>
-        <p className="mt-2 text-base text-ink-muted">
+        <p className="mt-2 max-w-prose text-sm text-ink-muted">
           Last updated: {updated}. This document applies to the {SITE.name} app
           operated by {SITE.operator}.
         </p>
 
         <div className="mt-6 space-y-4 sm:mt-8">{children}</div>
 
-        <footer className="mt-10 border-t border-wood/20 pt-6 text-base text-ink-muted sm:mt-12">
+        <footer className="mt-10 border-t border-wood/20 pt-6 text-sm text-ink-muted sm:mt-12">
           <p>
             © {new Date().getFullYear()} {SITE.operator} ·{" "}
             <a
@@ -88,10 +88,10 @@ export function LegalSection({
 }) {
   return (
     <section className="rounded-2xl border border-wood/20 bg-paper p-5">
-      <h2 className="font-display text-lg font-semibold text-ink">
+      <h2 className="font-display text-base font-semibold text-ink">
         {title}
       </h2>
-      <div className="mt-2 space-y-3 text-base leading-relaxed text-ink-muted">
+      <div className="mt-2 max-w-prose space-y-3 text-sm leading-relaxed text-ink-muted">
         {children}
       </div>
     </section>

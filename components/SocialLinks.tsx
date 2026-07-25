@@ -23,15 +23,15 @@ export function InstagramLink({
   tone?: "cream" | "night";
   title?: string;
 }) {
-  // Match BrandMark iconClass: md = h-14/sm:h-16, lg = h-16/sm:h-20
+  // Match BrandMark iconClass: md = h-12/sm:h-14, lg = h-14/sm:h-16
   const box =
     size === "lg"
-      ? "h-16 w-16 rounded-2xl sm:h-20 sm:w-20 sm:rounded-3xl"
-      : "h-14 w-14 rounded-2xl sm:h-16 sm:w-16";
+      ? "h-14 w-14 rounded-2xl sm:h-16 sm:w-16 sm:rounded-3xl"
+      : "h-12 w-12 rounded-2xl sm:h-14 sm:w-14";
   const glyph =
     size === "lg"
-      ? "h-8 w-8 sm:h-10 sm:w-10"
-      : "h-7 w-7 sm:h-8 sm:w-8";
+      ? "h-7 w-7 sm:h-8 sm:w-8"
+      : "h-6 w-6 sm:h-7 sm:w-7";
   return (
     <a
       href={SITE.instagramUrl}

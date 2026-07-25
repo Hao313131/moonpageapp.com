@@ -13,14 +13,14 @@ const FACTS = [
 export function Trust() {
   return (
     <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
-      <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
+      <h2 className="max-w-xl font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
         Built to earn your trust, not just your download
       </h2>
       <ul className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4">
         {FACTS.map((f) => (
           <li
             key={f}
-            className="flex items-start gap-3 rounded-2xl bg-paper p-4 text-base text-ink-muted sm:p-5 sm:text-lg"
+            className="flex items-start gap-3 rounded-2xl bg-paper p-4 text-sm text-ink-muted sm:p-5 sm:text-base"
           >
             <span className="mt-0.5 shrink-0 text-accent-strong" aria-hidden>
               ✓

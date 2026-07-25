@@ -15,16 +15,16 @@ export function BrandMark({
   size?: "md" | "lg";
   tone?: "ink" | "night";
 }) {
-  const icon = size === "lg" ? 80 : 68;
+  const icon = size === "lg" ? 64 : 56;
   const nameClass =
     size === "lg"
-      ? "font-brand text-4xl font-semibold tracking-tight sm:text-5xl"
-      : "font-brand text-3xl font-semibold tracking-tight sm:text-4xl";
+      ? "font-brand text-3xl font-semibold tracking-tight sm:text-4xl"
+      : "font-brand text-2xl font-semibold tracking-tight sm:text-3xl";
   const iconClass =
     size === "lg"
-      ? "h-16 w-16 rounded-2xl shadow-sm sm:h-20 sm:w-20 sm:rounded-3xl"
-      : "h-14 w-14 rounded-2xl shadow-sm sm:h-16 sm:w-16";
-  const gap = size === "lg" ? "gap-3 sm:gap-3.5" : "gap-2.5 sm:gap-3";
+      ? "h-14 w-14 rounded-2xl shadow-sm sm:h-16 sm:w-16 sm:rounded-3xl"
+      : "h-12 w-12 rounded-2xl shadow-sm sm:h-14 sm:w-14";
+  const gap = size === "lg" ? "gap-2.5 sm:gap-3" : "gap-2 sm:gap-2.5";
   const color = tone === "night" ? "text-night-ink" : "text-ink";
 
   const inner = (
