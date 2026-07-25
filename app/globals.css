@@ -54,8 +54,8 @@ body {
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-body);
-  /* Fluid body: ~17px phone → 18px tablet+ */
-  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.125rem);
+  /* Fluid body: ~15.5px phone → 16.5px tablet+ */
+  font-size: clamp(0.96875rem, 0.92rem + 0.25vw, 1.03125rem);
   line-height: 1.6;
   overflow-x: clip;
 }

@@ -37,10 +37,10 @@ const STORIES = [
 export function StoryShowcase() {
   return (
     <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
-      <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
+      <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
         Just a few of our stories
       </h2>
-      <p className="mt-3 max-w-2xl text-base text-ink-muted sm:max-w-3xl sm:text-lg">
+      <p className="mt-3 max-w-md text-sm text-ink-muted sm:max-w-lg sm:text-base">
         A small sample of original, beautifully illustrated bedtime stories —
         new ones keep arriving.
       </p>
@@ -58,10 +58,10 @@ export function StoryShowcase() {
               />
             </div>
             <figcaption className="mt-2">
-              <p className="font-display text-base font-semibold text-ink sm:text-lg">
+              <p className="font-display text-sm font-semibold text-ink sm:text-base">
                 {s.title}
               </p>
-              <p className="text-sm leading-snug text-ink-muted sm:text-base">
+              <p className="text-xs leading-snug text-ink-muted sm:text-sm">
                 {s.hook}
               </p>
             </figcaption>
@@ -70,7 +70,7 @@ export function StoryShowcase() {
       </div>
       <Link
         href="/stories"
-        className="mt-6 inline-flex items-center gap-1.5 text-base font-bold text-link hover:text-link-hover hover:underline sm:mt-8 sm:text-lg"
+        className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-link hover:text-link-hover hover:underline sm:mt-8 sm:text-base"
       >
         See more stories →
       </Link>

@@ -33,8 +33,8 @@ export function AppStoreLink({
     size === "sm"
       ? "font-display text-sm font-semibold tracking-tight"
       : size === "lg"
-        ? "font-display text-lg font-semibold tracking-tight sm:text-xl"
-        : "font-display text-xl font-semibold tracking-tight";
+        ? "font-display text-base font-semibold tracking-tight sm:text-lg"
+        : "font-display text-lg font-semibold tracking-tight";
   return (
     <a href={appStoreLink(`${campaign}_ios`)} className={`${BADGE} ${padding}`}>
       <AppleGlyph className={`${icon} shrink-0`} />
@@ -66,8 +66,8 @@ export function PlayStoreLink({
     size === "sm"
       ? "font-display text-sm font-semibold tracking-tight"
       : size === "lg"
-        ? "font-display text-lg font-semibold tracking-tight sm:text-xl"
-        : "font-display text-xl font-semibold tracking-tight";
+        ? "font-display text-base font-semibold tracking-tight sm:text-lg"
+        : "font-display text-lg font-semibold tracking-tight";
   return (
     <a href={playStoreLink(`${campaign}_android`)} className={`${BADGE} ${padding}`}>
       <PlayGlyph className={`${icon} shrink-0`} />

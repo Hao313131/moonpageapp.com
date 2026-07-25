@@ -27,9 +27,9 @@ const OUTCOMES = [
 ];
 
 const SHOTS = [
-  { file: "wp_b01_1_blue_sea_cover.webp", alt: "Cover art from “Slow Down, Seal!”" },
+  { file: "wp_b39_1_one_special_night_the_cover.webp", alt: "Friends in pajamas gazing at the moon from a cozy treehouse" },
+  { file: "wp_b03_1_woke_hush_cover.webp", alt: "Warm illustration of a little bear in bed by lamplight" },
   { file: "wp_b05_1_window_moon_cover.webp", alt: "Cover art from “A Secret in the Night”" },
-  { file: "wp_b04_1_maple_street_cover.webp", alt: "Cover art from “Nora’s Kind Cookies”" },
 ];
 
 /**
@@ -42,10 +42,10 @@ export default function GetPage() {
     <>
       <Header />
       <main className="page-gutter flex min-h-screen flex-col items-center py-10 text-center sm:py-14 md:py-20">
-        <h1 className="max-w-2xl font-display text-[1.875rem] font-semibold leading-[1.15] text-ink sm:text-4xl md:text-5xl">
+        <h1 className="max-w-xl font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
           Make bedtime feel calm again.
         </h1>
-        <p className="mt-3 max-w-xl text-base text-ink-muted sm:mt-4 sm:text-lg">
+        <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base">
           Gentle, original illustrated stories for little ones — free to
           start tonight.
         </p>
@@ -75,10 +75,10 @@ export default function GetPage() {
         <div className="mt-10 grid w-full max-w-3xl gap-4 text-left sm:mt-14 sm:grid-cols-3 sm:gap-6">
           {OUTCOMES.map((o) => (
             <div key={o.title} className="rounded-2xl bg-paper p-4 sm:p-5">
-              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
+              <h2 className="font-display text-sm font-semibold text-ink sm:text-base">
                 {o.title}
               </h2>
-              <p className="mt-1 text-base text-ink-muted">{o.body}</p>
+              <p className="mt-1 text-sm text-ink-muted">{o.body}</p>
             </div>
           ))}
         </div>

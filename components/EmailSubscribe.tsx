@@ -28,13 +28,13 @@ export function SubscribeCluster({
   className = "",
   tone = "cream",
   inputId: _inputId,
-  igSize = "responsive",
+  igSize = "md",
 }: {
   className?: string;
   tone?: Tone;
   /** Unused while email is paused; kept so Header/Footer call sites stay stable. */
   inputId: string;
-  igSize?: "md" | "lg" | "responsive";
+  igSize?: "md" | "lg";
 }) {
   const night = tone === "night";
 
@@ -43,7 +43,7 @@ export function SubscribeCluster({
       className={`inline-flex min-w-0 max-w-full items-center gap-2.5 sm:gap-3 ${className}`}
     >
       <p
-        className={`max-w-[14rem] text-right text-sm font-semibold leading-snug sm:max-w-none sm:text-base ${
+        className={`max-w-[13rem] text-right text-xs font-semibold leading-snug sm:max-w-[15rem] sm:text-sm ${
           night ? "text-night-ink" : "text-ink"
         }`}
       >

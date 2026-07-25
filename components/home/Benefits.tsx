@@ -34,11 +34,11 @@ const BENEFITS = [
 export function Benefits() {
   return (
     <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
-      <div className="max-w-2xl">
-        <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl md:text-4xl">
+      <div className="max-w-xl">
+        <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
           A bedtime stories app built for winding down
         </h2>
-        <p className="mt-3 text-base leading-relaxed text-ink-muted sm:text-lg">
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-muted sm:max-w-lg sm:text-base">
           MoonPage is a read-aloud bedtime stories app for toddlers and
           preschoolers — original, illustrated picture books for ages 3 and
           up. Instead of screen time that leaves kids wound up, it&apos;s
@@ -59,10 +59,10 @@ export function Benefits() {
             >
               <Icon className="h-5 w-5 sm:h-5.5 sm:w-5.5" />
             </span>
-            <h3 className="mt-3 font-display text-base font-semibold text-ink sm:mt-4 sm:text-lg">
+            <h3 className="mt-3 font-display text-sm font-semibold text-ink sm:mt-4 sm:text-base">
               {title}
             </h3>
-            <p className="mt-1.5 text-base leading-relaxed text-ink-muted sm:mt-2">
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-muted sm:mt-2">
               {body}
             </p>
           </div>

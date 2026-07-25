@@ -8,24 +8,24 @@ export function Footer() {
     <footer className="mt-auto bg-night-top text-night-ink">
       <div className="page-gutter mx-auto max-w-6xl py-10 sm:py-14">
         <div className="border-b border-white/10 pb-8 sm:pb-10">
-          <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-            <div className="min-w-0">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
               <BrandMark href="/" size="lg" tone="night" />
-              <p className="mt-3 max-w-lg text-base text-night-muted sm:max-w-xl sm:text-lg">
-                Bedtime stories for little ones — original, beautifully
-                illustrated, and read in a voice they know.
-              </p>
+              <SubscribeCluster
+                tone="night"
+                inputId="moonpage-footer-email"
+                igSize="lg"
+                className="shrink-0 self-start sm:self-center"
+              />
             </div>
-            <SubscribeCluster
-              tone="night"
-              inputId="moonpage-footer-email"
-              igSize="lg"
-              className="shrink-0 self-start lg:self-center"
-            />
+            <p className="max-w-md text-sm text-night-muted sm:max-w-lg sm:text-base">
+              Bedtime stories for little ones — original, beautifully
+              illustrated, and read in a voice they know.
+            </p>
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 pt-6 text-sm text-night-muted sm:gap-6 sm:pt-8 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-5 pt-6 text-xs text-night-muted sm:gap-6 sm:pt-8 sm:text-sm md:flex-row md:items-center md:justify-between">
           <nav className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-6">
             <Link href="/stories" className="hover:text-white">
               Stories
@@ -45,12 +45,12 @@ export function Footer() {
           </nav>
           <a
             href={`mailto:${SITE.contactEmail}`}
-            className="break-all text-base font-medium text-night-ink hover:text-white sm:break-normal sm:text-lg"
+            className="break-all text-sm font-medium text-night-ink hover:text-white sm:break-normal sm:text-base"
           >
             {SITE.contactEmail}
           </a>
         </div>
-        <p className="pt-6 text-sm text-night-muted sm:pt-8">
+        <p className="pt-6 text-xs text-night-muted sm:pt-8 sm:text-sm">
           © {new Date().getFullYear()} {SITE.operator}. Made with care, one
           story at a time.
         </p>
@@ -64,7 +64,7 @@ export function Footer() {
 export function MinimalFooter() {
   return (
     <footer className="mt-auto border-t border-wood/20 bg-cream-deep/60">
-      <div className="page-gutter mx-auto flex max-w-6xl flex-col items-center gap-2 py-5 text-center text-sm text-ink-muted sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:py-6 sm:text-base">
+      <div className="page-gutter mx-auto flex max-w-6xl flex-col items-center gap-2 py-5 text-center text-xs text-ink-muted sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:py-6 sm:text-sm">
         <Link href="/privacy" className="hover:text-ink">
           Privacy Policy
         </Link>
@@ -73,7 +73,7 @@ export function MinimalFooter() {
         </Link>
         <a
           href={`mailto:${SITE.contactEmail}`}
-          className="break-all text-base font-medium text-ink hover:underline sm:break-normal sm:text-lg"
+          className="break-all text-sm font-medium text-ink hover:underline sm:break-normal sm:text-base"
         >
           {SITE.contactEmail}
         </a>
