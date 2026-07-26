@@ -41,9 +41,7 @@ them all:
   `get_lp_hero`) and paste the real `pt=` token.
 - **Domain** (`lib/site.ts` → `SITE.domain`): set to `https://moonpageapp.com`.
   Wire DNS at the registrar to GitHub Pages (Settings → Pages → Custom domain).
-- **Cloudflare Web Analytics** (`app/layout.tsx`, commented out): sign up at
-  dash.cloudflare.com → Web Analytics and paste the beacon token — works on
-  any host, no DNS change required.
+- **Analytics**: Umami Cloud is wired in `app/layout.tsx` (`data-website-id`).
 - **OG image** (`public/og-image.png`): currently just the app icon padded
   onto a cream background via `sips`. A real designed OG image (with
   tagline text) would look better shared on social.
