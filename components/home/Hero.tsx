@@ -37,8 +37,8 @@ export function Hero() {
           <div className="aspect-[4/3] w-full rounded-[20px] bg-ink p-2.5 shadow-2xl sm:rounded-[28px] sm:p-3">
             <div className="relative h-full w-full overflow-hidden rounded-xl bg-ink sm:rounded-2xl">
               <Image
-                src="/covers/wp_b31_1_meadow_concert_cover.webp"
-                alt="Woodland friends gathered in a flower meadow at sunset for a concert — a frog singing on a leaf while a cricket conducts"
+                src="/hero/wp_b01_31_night_slow.webp"
+                alt="Little seal Sully snuggled close to Mama under the quiet night sea"
                 fill
                 sizes="(min-width: 1024px) 32rem, (min-width: 640px) 32rem, 90vw"
                 className="object-contain"
