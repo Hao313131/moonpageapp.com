@@ -7,9 +7,9 @@ export const SITE = {
   name: "MoonPage",
   title: "MoonPage: Bedtime Stories",
   subtitle: "Kids Books & Read Aloud",
-  // TODO: replace once a domain is purchased (see plan §7 — candidates:
-  // moonpage.app, getmoonpage.com, moonpageapp.com). Used for metadataBase/OG/sitemap.
-  domain: "https://moonpage.app",
+  // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
+  // (Settings → Pages → Custom domain).
+  domain: "https://moonpageapp.com",
   contactEmail: "moonpageapp@gmail.com",
   instagramUrl: "https://www.instagram.com/moonpageapp/",
   instagramHandle: "@moonpageapp",
