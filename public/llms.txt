@@ -8,12 +8,12 @@ Pricing: the first 2 stories are free with no account needed. Sharing the app un
 
 ## Pages
 
-- [Home](https://moonpage.app/): what MoonPage is, core features, pricing overview, FAQ
-- [Stories](https://moonpage.app/stories): sample story titles and descriptions
-- [Support](https://moonpage.app/support): contact info, how to manage/cancel a subscription, how to restore a purchase
-- [Privacy Policy](https://moonpage.app/privacy): what data MoonPage collects and how it's used
-- [Privacy Choices](https://moonpage.app/privacy-choices): how to view, export, or delete data; how to cancel a subscription
-- [Terms of Use](https://moonpage.app/terms): terms governing use of the app, subscriptions, and refunds
+- [Home](https://moonpageapp.com/): what MoonPage is, core features, pricing overview, FAQ
+- [Stories](https://moonpageapp.com/stories): sample story titles and descriptions
+- [Support](https://moonpageapp.com/support): contact info, how to manage/cancel a subscription, how to restore a purchase
+- [Privacy Policy](https://moonpageapp.com/privacy): what data MoonPage collects and how it's used
+- [Privacy Choices](https://moonpageapp.com/privacy-choices): how to view, export, or delete data; how to cancel a subscription
+- [Terms of Use](https://moonpageapp.com/terms): terms governing use of the app, subscriptions, and refunds
 
 ## Key facts
 

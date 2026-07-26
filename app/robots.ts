@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 
+// Required for `output: "export"` (Next treats MetadataRoute as dynamic otherwise).
+export const dynamic = "force-static";
+
 // Deliberately permissive for every user-agent, including AI/LLM crawlers
 // (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, CCBot, etc.) — we want
 // this content discoverable and citable, not just indexed for search.
