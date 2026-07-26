@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Source_Serif_4, Fredoka, Nunito } from "next/font/google";
+import Script from "next/script";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -115,10 +116,13 @@ export default function RootLayout({
           (same id0000000000 placeholder used in moonpage-app/constants/links.ts).
         */}
         <meta name="apple-itunes-app" content="app-id=0000000000" />
-        {/* Cloudflare Web Analytics — free, cookieless, works on any host.
-            TODO: sign up at dash.cloudflare.com → Web Analytics, paste the
-            generated beacon token below (works without moving DNS to Cloudflare). */}
-        {/* <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_ME"}'></script> */}
+        {/* Umami Cloud Analytics — website-id is public by design (same as GA measurement ID). */}
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="ad139af4-45c9-424c-8098-038e82ef66d7"
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
