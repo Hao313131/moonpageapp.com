@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { StoreButtons } from "@/components/StoreButtons";
 
@@ -36,8 +37,8 @@ export function Hero() {
           <div className="aspect-[4/3] w-full rounded-[20px] bg-ink p-2.5 shadow-2xl sm:rounded-[28px] sm:p-3">
             <div className="relative h-full w-full overflow-hidden rounded-xl bg-ink sm:rounded-2xl">
               <Image
-                src="/covers/wp_b39_1_one_special_night_the_cover.webp"
-                alt="Cozy bedtime scene of friends in pajamas gazing at the moon from a warm treehouse nook lit by lanterns"
+                src="/covers/wp_b31_1_meadow_concert_cover.webp"
+                alt="Woodland friends gathered in a flower meadow at sunset for a concert — a frog singing on a leaf while a cricket conducts"
                 fill
                 sizes="(min-width: 1024px) 32rem, (min-width: 640px) 32rem, 90vw"
                 className="object-contain"
@@ -45,25 +46,60 @@ export function Hero() {
               />
             </div>
           </div>
-          <div
-            aria-hidden
-            className="absolute -bottom-4 -right-2 h-16 w-16 rotate-6 rounded-2xl bg-accent shadow-lg sm:-bottom-6 sm:-right-4 sm:h-24 sm:w-24 sm:rounded-3xl md:h-28 md:w-28"
+          {/* Decorative twinkling stars — same 4-point shape at a few sizes.
+              The two large ones replace the old colored blocks. */}
+          <Sparkle
+            className="absolute -bottom-5 -right-3 h-16 w-16 text-accent sm:-bottom-8 sm:-right-6 sm:h-24 sm:w-24 md:h-28 md:w-28"
+            rotate={6}
+            duration="3.6s"
           />
-          <div
-            aria-hidden
-            className="absolute -top-3 -left-2 h-12 w-12 -rotate-6 rounded-xl bg-sage/80 shadow-lg sm:-top-5 sm:-left-4 sm:h-16 sm:w-16 sm:rounded-2xl"
+          <Sparkle
+            className="absolute -top-4 -left-3 h-12 w-12 text-sage sm:-top-6 sm:-left-5 sm:h-16 sm:w-16 md:h-20 md:w-20"
+            rotate={-6}
+            duration="4.4s"
+            delay="0.8s"
           />
-          <Sparkle className="absolute -top-6 right-6 h-6 w-6 text-gold sm:-top-8 sm:right-10 sm:h-8 sm:w-8" />
-          <Sparkle className="absolute bottom-8 -left-4 h-4 w-4 text-accent-strong sm:bottom-10 sm:-left-7 sm:h-5 sm:w-5" />
+          <Sparkle
+            className="absolute -top-6 right-6 h-6 w-6 text-gold sm:-top-8 sm:right-10 sm:h-8 sm:w-8"
+            duration="2.8s"
+            delay="1.4s"
+          />
+          <Sparkle
+            className="absolute bottom-8 -left-4 h-4 w-4 text-accent-strong sm:bottom-10 sm:-left-7 sm:h-5 sm:w-5"
+            duration="3.1s"
+            delay="0.4s"
+          />
         </div>
       </div>
     </section>
   );
 }
 
-function Sparkle({ className }: { className?: string }) {
+function Sparkle({
+  className,
+  rotate = 0,
+  duration,
+  delay,
+}: {
+  className?: string;
+  rotate?: number;
+  duration?: string;
+  delay?: string;
+}) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      className={`sparkle-twinkle ${className ?? ""}`}
+      style={
+        {
+          "--sparkle-rotate": `${rotate}deg`,
+          ...(duration ? { "--sparkle-duration": duration } : {}),
+          ...(delay ? { "--sparkle-delay": delay } : {}),
+        } as CSSProperties
+      }
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d="M12 0c.6 4.6 2.2 8 5.4 9.6C14.2 11.2 12.6 14.6 12 19.2c-.6-4.6-2.2-8-5.4-9.6C9.8 8 11.4 4.6 12 0z" />
     </svg>
   );

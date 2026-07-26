@@ -79,6 +79,35 @@ p {
   letter-spacing: -0.02em;
 }
 
+/* Decorative hero sparkles: a slow twinkle (opacity + scale + a touch of spin). */
+@keyframes sparkle-twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: rotate(var(--sparkle-rotate, 0deg)) scale(0.86);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(calc(var(--sparkle-rotate, 0deg) + 12deg)) scale(1.14);
+  }
+}
+
+.sparkle-twinkle {
+  transform-origin: center;
+  animation: sparkle-twinkle var(--sparkle-duration, 3.2s) ease-in-out infinite;
+  animation-delay: var(--sparkle-delay, 0s);
+  filter: drop-shadow(0 0 6px currentColor);
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-twinkle {
+    animation: none;
+    opacity: 0.9;
+    transform: rotate(var(--sparkle-rotate, 0deg));
+  }
+}
+
 /* Shared page gutters — keep horizontal padding consistent across breakpoints. */
 .page-gutter {
   padding-inline: clamp(1rem, 0.6rem + 1.5vw, 1.25rem);
