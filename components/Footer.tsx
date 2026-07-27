@@ -6,10 +6,10 @@ import { SITE } from "@/lib/site";
 /** Footer link picks. Short anchor text, chosen to describe the destination
  * rather than repeat the page title verbatim. */
 const FOOTER_COLLECTIONS = [
-  { slug: "sleepy-bedtime-stories", description: "Sleepy stories" },
+  { slug: "sleepy-bedtime-stories", description: "Bedtime stories" },
   { slug: "animal-bedtime-stories", description: "Animal stories" },
   { slug: "kindness-stories-for-kids", description: "Kindness and sharing" },
-  { slug: "stories-about-big-feelings", description: "Big feelings" },
+  { slug: "patience-stories-for-kids", description: "Patience and waiting" },
 ] as const;
 
 const FOOTER_GUIDES = [
@@ -49,6 +49,21 @@ export function Footer() {
           <nav aria-label="Stories">
             <p className="font-semibold text-night-ink">Stories</p>
             <ul className="mt-2 space-y-1.5">
+              <li>
+                <Link href="/bedtime-stories" className="hover:text-white">
+                  Bedtime stories for kids
+                </Link>
+              </li>
+              <li>
+                <Link href="/toddler-bedtime-stories" className="hover:text-white">
+                  Toddler bedtime stories
+                </Link>
+              </li>
+              <li>
+                <Link href="/preschool-bedtime-stories" className="hover:text-white">
+                  Preschool bedtime stories
+                </Link>
+              </li>
               <li>
                 <Link href="/stories" className="hover:text-white">
                   Browse bedtime stories

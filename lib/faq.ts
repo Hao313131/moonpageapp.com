@@ -129,10 +129,9 @@ export const FAQS: FaqItem[] = [
   },
 
   {
-    q: "Are any stories free?",
-    a: "Yes — some stories are free to read. You can unlock a few more by sharing MoonPage or following us. MoonPage Premium is an auto-renewing subscription for ongoing access to our continually updated library (current Premium titles plus new stories we add while you subscribe).",
+    q: "Is MoonPage free to download?",
+    a: "Yes — downloading MoonPage is free. Some stories are free to read right away, and MoonPage Premium is the paid option for full access to the complete, continually updated story library.",
     category: "Pricing & subscription",
-    featured: true,
   },
   {
     q: "How much does MoonPage cost?",
@@ -142,11 +141,6 @@ export const FAQS: FaqItem[] = [
   {
     q: "Is there a free trial?",
     a: "If a free trial is available in your region, it will be shown — along with exact pricing — before you confirm your subscription in the App Store or Google Play.",
-    category: "Pricing & subscription",
-  },
-  {
-    q: "How do I cancel my subscription?",
-    a: "Manage or cancel anytime from your App Store or Google Play account settings (on iPhone/iPad: Settings → your name → Subscriptions; on Android: Play Store → profile → Payments & subscriptions). Deleting the app does not cancel a subscription — see our Support page for details.",
     category: "Pricing & subscription",
   },
 ];

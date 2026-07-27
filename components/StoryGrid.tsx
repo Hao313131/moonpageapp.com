@@ -14,17 +14,19 @@ export function StoryGrid({
 }) {
   return (
     <div
-      className={`grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5 ${className}`}
+      className={`grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 ${className}`}
     >
       {stories.map((s) => (
         <figure key={s.file} className="group min-w-0">
           <Link href={`/stories/${s.slug}`} className="block">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
+            {/* 4:3 landscape, matching the app's own cover art — the covers
+                are 800×588, so a portrait crop cut them off. */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
               <Image
                 src={`/covers/${s.file}`}
                 alt={`Cover art for the children's picture book "${s.title}"`}
                 fill
-                sizes="(min-width: 1024px) 18vw, (min-width: 768px) 22vw, (min-width: 640px) 30vw, 45vw"
+                sizes="(min-width: 640px) 31vw, 46vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>

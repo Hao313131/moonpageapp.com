@@ -14,6 +14,14 @@ export const metadata: Metadata = pageMetadata({
   title: "Bedtime Stories for Kids — Original Illustrated Picture Books",
   description:
     "A sample from MoonPage's growing library of original illustrated bedtime stories for toddlers and preschoolers, ages 3 and up. Read aloud by a narrator or in your own voice.",
+  keywords: [
+    "bedtime stories for kids",
+    "sleepy stories for toddlers",
+    "preschool bedtime storybook",
+    "children picture storybooks",
+    "kids narration stories",
+    "cozy bedtime tales",
+  ],
 });
 
 export default function StoriesPage() {
@@ -70,6 +78,23 @@ export default function StoriesPage() {
             and preschoolers ages 3 and up, read aloud by a professional
             narrator, by your device, or in your own recorded voice.
           </p>
+
+          {/* The one thing a visitor must not misread: this page is a sample,
+              not the catalog. Deliberately loud — border, accent, first thing
+              under the intro. */}
+          <aside className="mt-5 flex items-start gap-3 rounded-2xl border-2 border-accent bg-paper p-4 sm:mt-6 sm:gap-4 sm:p-5">
+            <span aria-hidden className="text-xl sm:text-2xl">
+              ✨
+            </span>
+            <p className="text-sm leading-relaxed text-ink sm:text-base">
+              <span className="font-display font-semibold">
+                This is only a sample — {STORIES.length} of them.
+              </span>{" "}
+              MoonPage&apos;s full library holds many times more original
+              bedtime stories than we show on this site, and new ones are added
+              all the time. Open the app to see the whole shelf.
+            </p>
+          </aside>
 
           <nav aria-label="Story collections" className="mt-6 sm:mt-8">
             <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">

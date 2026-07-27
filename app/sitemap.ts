@@ -11,6 +11,10 @@ export const dynamic = "force-static";
 // own `robots: { index: false }`), not something we want ranking organically.
 const ROUTES = [
   "",
+  "/bedtime-stories",
+  "/toddler-bedtime-stories",
+  "/preschool-bedtime-stories",
+  "/read-aloud-bedtime-stories",
   "/stories",
   "/collections",
   "/faq",

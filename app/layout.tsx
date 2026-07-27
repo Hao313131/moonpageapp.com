@@ -38,6 +38,20 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
+  keywords: [
+    "bedtime stories for kids",
+    "sleepy stories for toddlers",
+    "preschool bedtime stories",
+    "children's picture storybooks",
+    "kids storybook app",
+    "read aloud stories for children",
+    "children narration app",
+    "lullaby bedtime tales",
+    "parent child bedtime routine",
+    "cozy bedtime tales",
+    "baby sleep stories",
+    "storybook for toddlers",
+  ],
   alternates: { canonical: SITE.domain },
   // Lets Google use a large cover thumbnail next to results and in Discover —
   // the default for a new site is a small one, and cover art is our best asset.
