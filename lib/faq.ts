@@ -134,11 +134,6 @@ export const FAQS: FaqItem[] = [
     category: "Pricing & subscription",
   },
   {
-    q: "How much does MoonPage cost?",
-    a: "MoonPage Premium is a monthly or yearly auto-renewing subscription. Exact pricing is shown in the App Store or Google Play before you subscribe — we don't list a fixed price here since it can vary by region.",
-    category: "Pricing & subscription",
-  },
-  {
     q: "Is there a free trial?",
     a: "Yes — MoonPage Premium includes a 3-day free trial with full access to all features and the complete story library.",
     category: "Pricing & subscription",

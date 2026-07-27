@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SampleShelfNotice } from "@/components/SampleShelfNotice";
+import { SectionCtaButton } from "@/components/SectionCtaButton";
 import { FEATURED_STORIES as STORIES } from "@/lib/stories";
+import { storyCoverSrc } from "@/lib/storyCover";
 
 /** Cover art, titles and hooks all come from lib/stories.ts, which the
  * /stories page and the themed collections share. */
@@ -10,13 +13,7 @@ export function StoryShowcase() {
       <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
         Bedtime picture storybooks for kids
       </h2>
-      <p className="mt-3 max-w-md text-sm text-ink-muted sm:max-w-xl sm:text-base">
-        <span className="font-semibold text-ink">
-          Three of many, many more.
-        </span>{" "}
-        MoonPage&apos;s library holds far more original, beautifully illustrated
-        bedtime stories than this site shows — and new ones keep arriving.
-      </p>
+      <SampleShelfNotice className="mt-5 sm:mt-6" />
       {/* phone 2 → tablet and up 3, at the app's own 4:3 cover ratio */}
       <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-5">
         {STORIES.map((s) => (
@@ -24,7 +21,7 @@ export function StoryShowcase() {
             <Link href={`/stories/${s.slug}`} className="block">
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
                 <Image
-                  src={`/covers/${s.file}`}
+                  src={storyCoverSrc(s.file)}
                   alt={`Cover art for "${s.title}"`}
                   fill
                   sizes="(min-width: 640px) 31vw, 46vw"
@@ -43,25 +40,12 @@ export function StoryShowcase() {
           </figure>
         ))}
       </div>
-      <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 sm:mt-8">
-        <Link
-          href="/bedtime-stories"
-          className="text-sm font-semibold text-link hover:text-link-hover hover:underline sm:text-base"
-        >
+      <div className="mt-6 flex flex-col items-center gap-2 sm:mt-8">
+        <SectionCtaButton href="/bedtime-stories">
           Bedtime stories hub
-        </Link>
-        <Link
-          href="/stories"
-          className="text-sm font-semibold text-link hover:text-link-hover hover:underline sm:text-base"
-        >
-          See more stories
-        </Link>
-        <Link
-          href="/collections"
-          className="text-sm font-semibold text-link hover:text-link-hover hover:underline sm:text-base"
-        >
-          Browse by theme
-        </Link>
+        </SectionCtaButton>
+        <SectionCtaButton href="/stories">See more stories</SectionCtaButton>
+        <SectionCtaButton href="/collections">Browse by theme</SectionCtaButton>
       </div>
     </section>
   );

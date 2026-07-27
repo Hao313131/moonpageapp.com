@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
-import { GUIDES, formatGuideDate } from "@/lib/guides";
+import { GUIDES } from "@/lib/guides";
 import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -88,8 +88,7 @@ export default function GuidesPage() {
                   {g.description}
                 </p>
                 <p className="mt-3 text-xs text-ink-muted sm:text-sm">
-                  {g.readingMinutes} min read · Updated{" "}
-                  {formatGuideDate(g.updated)}
+                  {g.readingMinutes} min read
                 </p>
               </Link>
             ))}

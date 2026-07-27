@@ -4,9 +4,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
+import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { StoryGrid } from "@/components/StoryGrid";
 import { COLLECTIONS } from "@/lib/collections";
 import { STORIES, TAG_LABELS } from "@/lib/stories";
+import { storyCoverUrl } from "@/lib/storyCover";
 import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -37,7 +39,7 @@ export default function StoriesPage() {
         bookFormat: "https://schema.org/EBook",
         name: s.title,
         description: s.hook,
-        image: `${SITE.domain}/covers/${s.file}`,
+        image: storyCoverUrl(SITE.domain, s.file),
         inLanguage: "en",
         audience: {
           "@type": "PeopleAudience",
@@ -79,22 +81,7 @@ export default function StoriesPage() {
             narrator, by your device, or in your own recorded voice.
           </p>
 
-          {/* The one thing a visitor must not misread: this page is a sample,
-              not the catalog. Deliberately loud — border, accent, first thing
-              under the intro. */}
-          <aside className="mt-5 flex items-start gap-3 rounded-2xl border-2 border-accent bg-paper p-4 sm:mt-6 sm:gap-4 sm:p-5">
-            <span aria-hidden className="text-xl sm:text-2xl">
-              ✨
-            </span>
-            <p className="text-sm leading-relaxed text-ink sm:text-base">
-              <span className="font-display font-semibold">
-                This is only a sample — {STORIES.length} of them.
-              </span>{" "}
-              MoonPage&apos;s full library holds many times more original
-              bedtime stories than we show on this site, and new ones are added
-              all the time. Open the app to see the whole shelf.
-            </p>
-          </aside>
+          <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <nav aria-label="Story collections" className="mt-6 sm:mt-8">
             <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">

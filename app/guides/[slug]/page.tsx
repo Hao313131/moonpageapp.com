@@ -4,12 +4,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
-import {
-  GUIDES,
-  formatGuideDate,
-  getGuide,
-  type GuideBlock,
-} from "@/lib/guides";
+import { GUIDES, getGuide, type GuideBlock } from "@/lib/guides";
 import { SITE, pageMetadata } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -95,10 +90,7 @@ export default async function GuidePage({ params }: { params: Params }) {
             {guide.title}
           </h1>
           <p className="mt-3 text-xs text-ink-muted sm:text-sm">
-            {guide.readingMinutes} min read · Updated{" "}
-            <time dateTime={guide.updated}>
-              {formatGuideDate(guide.updated)}
-            </time>
+            {guide.readingMinutes} min read
           </p>
 
           <div className="mt-6 space-y-4 sm:mt-8">

@@ -402,8 +402,11 @@ export const STORIES: Story[] = [
   },
 ];
 
-/** Homepage showcase: only three stories. */
-export const FEATURED_STORIES = STORIES.slice(0, 3);
+/** How many stories the homepage sample shelf lists — keep copy in sync sitewide. */
+export const SAMPLE_STORY_COUNT = STORIES.length;
+
+/** Homepage showcase — full sample catalog. */
+export const FEATURED_STORIES = STORIES;
 
 export function storiesByTag(tag: StoryTag): Story[] {
   return STORIES.filter((s) => s.tags.includes(tag));
@@ -417,10 +420,10 @@ export function getStory(slug: string): Story | undefined {
  * per tag because the pill labels don't all pluralize into English ("More
  * animals stories"). */
 export const TAG_MORE_HEADINGS: Record<StoryTag, string> = {
-  boy: "stories with boy heroes",
-  girl: "stories with girl heroes",
+  boy: "stories with boys",
+  girl: "stories with girls",
   animals: "animal stories",
-  objects: "stories with object heroes",
+  objects: "stories with toys & things",
   kindness: "stories about kindness",
   friendship: "friendship stories",
   courage: "stories about courage",
@@ -430,26 +433,26 @@ export const TAG_MORE_HEADINGS: Record<StoryTag, string> = {
   honesty: "stories about honesty",
   curiosity: "curious adventure stories",
   family: "family stories",
-  confidence: "stories about confidence",
-  creativity: "stories about creativity",
+  confidence: "stories about being yourself",
+  creativity: "stories about making & fixing",
   music: "stories about music",
-  bedtime: "bedtime stories",
-  sea: "stories from the sea",
-  forest: "forest stories",
-  garden: "garden stories",
-  town: "town stories",
-  snow: "winter and snow stories",
+  bedtime: "sleepy-time stories",
+  sea: "stories by the sea",
+  forest: "stories in the woods",
+  garden: "garden & farm stories",
+  town: "home & town stories",
+  snow: "snow & winter stories",
   rain: "rainy-day stories",
-  night: "nighttime stories",
-  magic: "magical stories",
+  night: "moon & stars stories",
+  magic: "magic & wonder stories",
 };
 
-/** Human label for a tag — used in nav pills and on story pages. */
+/** Human label for a tag — mirrors moonpage-app/lib/i18n.ts (English). */
 export const TAG_LABELS: Record<StoryTag, string> = {
-  boy: "Boy heroes",
-  girl: "Girl heroes",
+  boy: "Boys",
+  girl: "Girls",
   animals: "Animals",
-  objects: "Objects",
+  objects: "Toys & things",
   kindness: "Kindness",
   friendship: "Friendship",
   courage: "Courage",
@@ -459,16 +462,16 @@ export const TAG_LABELS: Record<StoryTag, string> = {
   honesty: "Honesty",
   curiosity: "Curiosity",
   family: "Family",
-  confidence: "Confidence",
-  creativity: "Creativity",
+  confidence: "Being yourself",
+  creativity: "Making & fixing",
   music: "Music",
-  bedtime: "Bedtime",
-  sea: "Sea",
-  forest: "Forest",
-  garden: "Garden",
-  town: "Town",
-  snow: "Snow",
-  rain: "Rain",
-  night: "Night",
-  magic: "Magic",
+  bedtime: "Sleepy time",
+  sea: "By the sea",
+  forest: "In the woods",
+  garden: "Garden & farm",
+  town: "Home & town",
+  snow: "Snow & winter",
+  rain: "Rainy day",
+  night: "Moon & stars",
+  magic: "Magic & wonder",
 };

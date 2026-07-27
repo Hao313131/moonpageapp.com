@@ -5,8 +5,10 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { StoryGrid } from "@/components/StoryGrid";
+import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { COLLECTIONS, getCollection } from "@/lib/collections";
 import { storiesByTag } from "@/lib/stories";
+import { storyCoverUrl } from "@/lib/storyCover";
 import { SITE, pageMetadata } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -60,7 +62,7 @@ export default async function CollectionPage({
         bookFormat: "https://schema.org/EBook",
         name: s.title,
         description: s.hook,
-        image: `${SITE.domain}/covers/${s.file}`,
+        image: storyCoverUrl(SITE.domain, s.file),
         inLanguage: "en",
         audience: { "@type": "PeopleAudience", suggestedMinAge: 3 },
         publisher: { "@type": "Organization", name: SITE.operator },
@@ -109,7 +111,9 @@ export default async function CollectionPage({
             ))}
           </div>
 
-          <StoryGrid stories={stories} className="mt-8 sm:mt-12" />
+          <SampleShelfNotice className="mt-6 sm:mt-8" />
+
+          <StoryGrid stories={stories} className="mt-6 sm:mt-8" />
 
           <p className="mt-6 max-w-2xl rounded-2xl border border-wood/20 bg-paper p-4 text-sm leading-relaxed text-ink-muted sm:mt-8 sm:p-5 sm:text-base">
             <span className="font-semibold text-ink">Reading tip:</span>{" "}
