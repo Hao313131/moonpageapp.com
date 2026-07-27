@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
+import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { collectionsWithStories } from "@/lib/collections";
 import { SITE, pageMetadata } from "@/lib/site";
 
@@ -65,6 +66,8 @@ export default function CollectionsPage() {
             MoonPage&apos;s own illustrated library, ages 3 and up.
           </p>
 
+          <SampleShelfNotice className="mt-5 sm:mt-6" />
+
           <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2">
             {collections.map((c) => (
               <Link
@@ -79,7 +82,7 @@ export default function CollectionsPage() {
                   {c.description}
                 </p>
                 <p className="mt-3 text-xs text-ink-muted sm:text-sm">
-                  {c.stories.length} stories shown · more in the app
+                  {c.stories.length} in this sample · full library in the app
                 </p>
               </Link>
             ))}

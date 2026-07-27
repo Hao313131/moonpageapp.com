@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
+import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { StoreButtons } from "@/components/StoreButtons";
 import { SITE, pageMetadata } from "@/lib/site";
 
@@ -48,6 +49,8 @@ export default function ReadAloudBedtimeStoriesPage() {
             </Link>
             .
           </p>
+
+          <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <div className="mt-10 rounded-2xl border border-wood/20 bg-paper p-5 sm:rounded-3xl sm:p-7">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">

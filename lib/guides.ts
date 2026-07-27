@@ -34,7 +34,7 @@ export type Guide = {
   description: string;
   /** Short label for cards and cross-links. */
   category: string;
-  /** ISO date — feeds Article JSON-LD and the visible "Updated" line. */
+  /** ISO date — feeds Article JSON-LD only (not shown on the page). */
   updated: string;
   readingMinutes: number;
   intro: string[];

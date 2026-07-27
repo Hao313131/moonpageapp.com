@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Story } from "@/lib/stories";
+import { storyCoverSrc } from "@/lib/storyCover";
 
 /** Cover grid shared by /stories, the story pages and the collection pages.
  * Every cover links to its own story page — that's what makes those pages
@@ -23,7 +24,7 @@ export function StoryGrid({
                 are 800×588, so a portrait crop cut them off. */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
               <Image
-                src={`/covers/${s.file}`}
+                src={storyCoverSrc(s.file)}
                 alt={`Cover art for the children's picture book "${s.title}"`}
                 fill
                 sizes="(min-width: 640px) 31vw, 46vw"

@@ -14,6 +14,7 @@ import {
   getStory,
   storiesByTag,
 } from "@/lib/stories";
+import { storyCoverSrc, storyCoverUrl } from "@/lib/storyCover";
 import { SITE, pageMetadata } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -43,14 +44,16 @@ export default async function StoryPage({ params }: { params: Params }) {
   if (!story) notFound();
 
   const url = `${SITE.domain}/stories/${story.slug}`;
-  const image = `${SITE.domain}/covers/${story.file}`;
+  const image = storyCoverUrl(SITE.domain, story.file);
 
   // Other stories that share this one's strongest theme.
   const primaryTag = story.tags[0];
   const alsoLike = storiesByTag(primaryTag)
     .filter((s) => s.slug !== story.slug)
     .slice(0, 5);
-  const themeCollections = COLLECTIONS.filter((c) => story.tags.includes(c.tag));
+  const collectionByTag = new Map(COLLECTIONS.map((c) => [c.tag, c]));
+  const tagPillClass =
+    "rounded-full border border-wood/30 bg-paper px-3 py-1 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm";
 
   const bookJsonLd = {
     "@context": "https://schema.org",
@@ -102,7 +105,7 @@ export default async function StoryPage({ params }: { params: Params }) {
             {/* 4:3 landscape, same as the app's cover art and the grids. */}
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
               <Image
-                src={`/covers/${story.file}`}
+                src={storyCoverSrc(story.file)}
                 alt={`Cover art for the children's bedtime story "${story.title}"`}
                 fill
                 sizes="(min-width: 768px) 360px, 92vw"
@@ -133,15 +136,26 @@ export default async function StoryPage({ params }: { params: Params }) {
                 </div>
               </dl>
               <div className="mt-4 flex flex-wrap gap-2">
-                {themeCollections.map((c) => (
-                  <Link
-                    key={c.slug}
-                    href={`/collections/${c.slug}`}
-                    className="rounded-full border border-wood/30 bg-paper px-3 py-1 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
-                  >
-                    {TAG_LABELS[c.tag]}
-                  </Link>
-                ))}
+                {story.tags.map((tag) => {
+                  const collection = collectionByTag.get(tag);
+                  const label = TAG_LABELS[tag];
+                  if (collection) {
+                    return (
+                      <Link
+                        key={tag}
+                        href={`/collections/${collection.slug}`}
+                        className={tagPillClass}
+                      >
+                        {label}
+                      </Link>
+                    );
+                  }
+                  return (
+                    <span key={tag} className={tagPillClass}>
+                      {label}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -186,8 +200,8 @@ export default async function StoryPage({ params }: { params: Params }) {
                 More {TAG_MORE_HEADINGS[primaryTag]}
               </h2>
               <p className="mt-2 max-w-prose text-sm text-ink-muted sm:text-base">
-                A few of them, anyway — these pages cover only part of
-                MoonPage&apos;s library, and more stories keep arriving.
+                More like this live in the app — this site shows only part of
+                MoonPage&apos;s library, and new stories keep being added.
               </p>
               <StoryGrid stories={alsoLike} className="mt-4 sm:mt-6" />
             </section>

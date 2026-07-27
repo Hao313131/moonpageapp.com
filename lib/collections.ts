@@ -29,7 +29,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "bedtime",
     title: "Sleepy Bedtime Stories for Toddlers and Preschoolers",
     description:
-      "Slow, quiet picture books written to end the day — counting sheep, hibernating bears, and nights that fade out gently. Thirty stories in the sample; more in the app.",
+      "Slow, quiet picture books written to end the day — counting sheep, hibernating bears, and nights that fade out gently. A small sample from a much larger app library.",
     intro: [
       "Some picture books are built for the middle of the day and some are built for the last ten minutes of it. These are the second kind: stories where the plot settles instead of building, the last page is quieter than the first, and nothing exciting happens right before lights out.",
       "In this sample you'll find Pip helping a firefly home under the moon, Bramble the bear making his hibernation bed leaf by leaf, and Little Lamb counting fluffy sheep over a meadow fence — each one lit from the inside by bedtime rather than tagged onto the end.",

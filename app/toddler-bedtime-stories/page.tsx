@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
+import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { StoreButtons } from "@/components/StoreButtons";
 import { SITE, pageMetadata } from "@/lib/site";
 
@@ -53,6 +54,8 @@ export default function ToddlerBedtimeStoriesPage() {
             </Link>{" "}
             for nights when emotions are running high.
           </p>
+
+          <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <div className="mt-10 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:gap-4 sm:rounded-3xl sm:p-10">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">

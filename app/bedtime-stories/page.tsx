@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
+import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { StoreButtons } from "@/components/StoreButtons";
 import { COLLECTIONS } from "@/lib/collections";
 import { SITE, pageMetadata } from "@/lib/site";
@@ -58,6 +59,8 @@ export default function BedtimeStoriesLandingPage() {
             calm read-aloud stories for parent-and-child wind-down routines,
             you&apos;re in the right place.
           </p>
+
+          <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <section className="mt-8 rounded-2xl border border-wood/20 bg-paper p-5 sm:rounded-3xl sm:p-7">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
@@ -122,7 +125,7 @@ export default function BedtimeStoriesLandingPage() {
 
           <section className="mt-10 sm:mt-12">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
-              Storybook sample: first 20 story intros
+              Storybook sample: {STORIES.length} story intros on the homepage
             </h2>
             <p className="mt-2 text-sm text-ink-muted sm:text-base">
               The website shows a sample shelf so parents can preview style,

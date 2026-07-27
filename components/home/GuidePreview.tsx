@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SectionCtaButton } from "@/components/SectionCtaButton";
 import { GUIDES } from "@/lib/guides";
 
 /** Homepage entry point into /guides — three cards, then the hub link.
@@ -9,22 +10,14 @@ export function GuidePreview() {
 
   return (
     <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
-        <div className="min-w-0">
-          <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
-            Bedtime, minus the battle
-          </h2>
-          <p className="mt-2 max-w-md text-sm text-ink-muted sm:max-w-lg sm:text-base">
-            Short, practical guides for parents of toddlers and preschoolers —
-            free to read, no sign-up.
-          </p>
-        </div>
-        <Link
-          href="/guides"
-          className="shrink-0 text-sm font-semibold text-link transition-colors hover:text-link-hover sm:text-base"
-        >
-          All guides <span aria-hidden>→</span>
-        </Link>
+      <div className="min-w-0">
+        <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
+          Bedtime, minus the battle
+        </h2>
+        <p className="mt-2 max-w-md text-sm text-ink-muted sm:max-w-lg sm:text-base">
+          Short, practical guides for parents of toddlers and preschoolers —
+          free to read, no sign-up.
+        </p>
       </div>
 
       <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-5 md:grid-cols-3">
@@ -48,6 +41,10 @@ export function GuidePreview() {
             </p>
           </Link>
         ))}
+      </div>
+
+      <div className="mt-6 flex flex-col items-center sm:mt-8">
+        <SectionCtaButton href="/guides">All guides</SectionCtaButton>
       </div>
     </section>
   );

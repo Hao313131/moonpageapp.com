@@ -89,26 +89,6 @@ export default function FaqPage() {
           })}
 
           <div className="mt-12 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:mt-16 sm:gap-4 sm:rounded-3xl sm:p-10">
-            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
-              Still have a question?
-            </h2>
-            <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
-              Email us at{" "}
-              <a
-                href={`mailto:${SITE.contactEmail}`}
-                className="font-medium text-link underline hover:text-link-hover"
-              >
-                {SITE.contactEmail}
-              </a>{" "}
-              — or see the{" "}
-              <Link
-                href="/support"
-                className="font-medium text-link underline hover:text-link-hover"
-              >
-                Support page
-              </Link>{" "}
-              for subscriptions and restoring purchases.
-            </p>
             <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
               Looking for bedtime advice rather than app answers? Read our{" "}
               <Link

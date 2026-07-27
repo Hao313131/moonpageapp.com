@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { StoreButtons } from "@/components/StoreButtons";
 import { MinimalFooter } from "@/components/Footer";
+import { storyCoverSrc } from "@/lib/storyCover";
 
 export const metadata: Metadata = {
   title: "Make bedtime feel calm again",
@@ -62,7 +63,7 @@ export default function GetPage() {
               className="relative aspect-[4/3] w-[72vw] max-w-xs shrink-0 overflow-hidden rounded-2xl shadow-md sm:w-auto sm:max-w-none"
             >
               <Image
-                src={`/covers/${s.file}`}
+                src={storyCoverSrc(s.file)}
                 alt={s.alt}
                 fill
                 sizes="(min-width: 640px) 33vw, 72vw"
