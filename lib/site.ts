@@ -35,10 +35,8 @@ export const SITE = {
   buttondownUsername: "moonpage",
 } as const;
 
-// TODO: replace with the real App Store numeric id once iOS review approves
-// (moonpage-app/constants/links.ts has the same id0000000000 placeholder today).
-const APP_STORE_ID = "id0000000000";
-const APP_STORE_SLUG = "moonpage-bedtime-stories";
+const APP_STORE_ID = "id6788652725";
+const APP_STORE_SLUG = "moonpage-cozy-bedtime-stories";
 
 // TODO: fill in once created in App Store Connect → Analytics → Acquisition →
 // Campaigns. Until then this produces a syntactically valid but non-attributed link.
