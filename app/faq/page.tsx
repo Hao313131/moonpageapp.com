@@ -50,9 +50,10 @@ export default function FaqPage() {
             Frequently asked questions
           </h1>
           <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base">
-            Everything parents ask before bedtime — who MoonPage is for, how
-            own-voice narration works, what stays on your device, and how
-            subscriptions are handled.
+            MoonPage is free to download, with some stories free to read now.
+            MoonPage Premium unlocks full access to the complete story library.
+            Below are the details parents ask most — narration, privacy,
+            offline use, devices, and pricing.
           </p>
 
           <nav

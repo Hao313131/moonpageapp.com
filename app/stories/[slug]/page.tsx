@@ -7,7 +7,13 @@ import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { StoryGrid } from "@/components/StoryGrid";
 import { COLLECTIONS } from "@/lib/collections";
-import { STORIES, TAG_LABELS, getStory, storiesByTag } from "@/lib/stories";
+import {
+  STORIES,
+  TAG_LABELS,
+  TAG_MORE_HEADINGS,
+  getStory,
+  storiesByTag,
+} from "@/lib/stories";
 import { SITE, pageMetadata } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -92,13 +98,14 @@ export default async function StoryPage({ params }: { params: Params }) {
             <span aria-hidden>←</span> All stories
           </Link>
 
-          <div className="mt-5 grid gap-6 sm:mt-6 sm:gap-8 md:grid-cols-[minmax(0,240px)_minmax(0,1fr)]">
-            <div className="relative mx-auto aspect-[3/4] w-40 overflow-hidden rounded-xl shadow-lg sm:w-52 sm:rounded-2xl md:mx-0 md:w-full">
+          <div className="mt-5 grid gap-6 sm:mt-6 sm:gap-8 md:grid-cols-[minmax(0,360px)_minmax(0,1fr)]">
+            {/* 4:3 landscape, same as the app's cover art and the grids. */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-lg sm:rounded-2xl">
               <Image
                 src={`/covers/${story.file}`}
                 alt={`Cover art for the children's bedtime story "${story.title}"`}
                 fill
-                sizes="(min-width: 768px) 240px, 13rem"
+                sizes="(min-width: 768px) 360px, 92vw"
                 className="object-cover"
                 priority
               />
@@ -176,8 +183,12 @@ export default async function StoryPage({ params }: { params: Params }) {
           {alsoLike.length > 0 && (
             <section className="mt-12 sm:mt-16">
               <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
-                More {TAG_LABELS[primaryTag].toLowerCase()} stories
+                More {TAG_MORE_HEADINGS[primaryTag]}
               </h2>
+              <p className="mt-2 max-w-prose text-sm text-ink-muted sm:text-base">
+                A few of them, anyway — these pages cover only part of
+                MoonPage&apos;s library, and more stories keep arriving.
+              </p>
               <StoryGrid stories={alsoLike} className="mt-4 sm:mt-6" />
             </section>
           )}

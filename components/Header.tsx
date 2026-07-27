@@ -12,6 +12,7 @@ import { SubscribeCluster } from "./EmailSubscribe";
  * MoonPage icon and IG glyph share the same height (BrandMark md).
  */
 const NAV = [
+  { href: "/bedtime-stories", label: "Bedtime" },
   { href: "/stories", label: "Stories" },
   { href: "/collections", label: "Themes" },
   { href: "/guides", label: "Guides" },

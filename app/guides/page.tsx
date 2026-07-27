@@ -12,6 +12,13 @@ export const metadata: Metadata = pageMetadata({
   title: "Bedtime and Parenting Guides for Toddlers",
   description:
     "Practical guides for parents of toddlers and preschoolers — bedtime routines, reading aloud, screen time before bed, and keeping bedtime steady when you're away.",
+  keywords: [
+    "parenting bedtime guide",
+    "toddler bedtime routine",
+    "preschool sleep routine",
+    "read aloud tips for parents",
+    "children bedtime parenting help",
+  ],
 });
 
 export default function GuidesPage() {
