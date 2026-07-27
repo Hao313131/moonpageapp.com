@@ -10,7 +10,7 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/faq",
-  title: "Frequently Asked Questions",
+  title: "Bedtime Story App FAQ for Parents",
   description:
     "Everything parents ask about MoonPage — ages, own-voice narration, offline reading, privacy, devices, and subscriptions.",
 });
@@ -107,6 +107,16 @@ export default function FaqPage() {
                 Support page
               </Link>{" "}
               for subscriptions and restoring purchases.
+            </p>
+            <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
+              Looking for bedtime advice rather than app answers? Read our{" "}
+              <Link
+                href="/guides"
+                className="font-medium text-link underline hover:text-link-hover"
+              >
+                bedtime &amp; parenting guides
+              </Link>
+              .
             </p>
             <StoreButtons campaign="faq_page" className="justify-center" />
           </div>
