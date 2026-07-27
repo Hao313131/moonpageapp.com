@@ -139,10 +139,8 @@ export default function RootLayout({
         {/*
           Apple Smart App Banner — shows a native "Get" banner in mobile Safari
           pointing straight at the App Store, no JS required.
-          TODO: replace the placeholder app id once iOS review approves
-          (same id0000000000 placeholder used in moonpage-app/constants/links.ts).
         */}
-        <meta name="apple-itunes-app" content="app-id=0000000000" />
+        <meta name="apple-itunes-app" content="app-id=6788652725" />
         {/* Umami Cloud Analytics — website-id is public by design (same as GA measurement ID). */}
         <Script
           defer
