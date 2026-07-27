@@ -402,8 +402,8 @@ export const STORIES: Story[] = [
   },
 ];
 
-/** Homepage showcase: first twenty stories with tighter hooks where present. */
-export const FEATURED_STORIES = STORIES.slice(0, 20);
+/** Homepage showcase: only three stories. */
+export const FEATURED_STORIES = STORIES.slice(0, 3);
 
 export function storiesByTag(tag: StoryTag): Story[] {
   return STORIES.filter((s) => s.tags.includes(tag));
