@@ -30,6 +30,9 @@ export function Footer() {
             <Link href="/stories" className="hover:text-white">
               Stories
             </Link>
+            <Link href="/faq" className="hover:text-white">
+              FAQ
+            </Link>
             <Link href="/privacy" className="hover:text-white">
               Privacy Policy
             </Link>
