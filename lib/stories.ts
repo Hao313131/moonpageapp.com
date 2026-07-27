@@ -402,11 +402,11 @@ export const STORIES: Story[] = [
   },
 ];
 
-/** How many stories the homepage sample shelf lists — keep copy in sync sitewide. */
+/** How many stories the site sample catalog lists — keep copy in sync sitewide. */
 export const SAMPLE_STORY_COUNT = STORIES.length;
 
-/** Homepage showcase — full sample catalog. */
-export const FEATURED_STORIES = STORIES;
+/** Homepage showcase: only three stories; full list via buttons below. */
+export const FEATURED_STORIES = STORIES.slice(0, 3);
 
 export function storiesByTag(tag: StoryTag): Story[] {
   return STORIES.filter((s) => s.tags.includes(tag));

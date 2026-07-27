@@ -1,12 +1,10 @@
-import { SAMPLE_STORY_COUNT } from "@/lib/stories";
-
 type Props = {
   className?: string;
 };
 
 /**
  * Shared callout: the website is a preview shelf, not the app catalog.
- * Used on Stories, Themes, Bedtime hubs, and collection pages.
+ * Used on Stories, Themes, Bedtime hubs, and collection pages — not the homepage.
  */
 export function SampleShelfNotice({ className = "" }: Props) {
   return (
@@ -18,8 +16,7 @@ export function SampleShelfNotice({ className = "" }: Props) {
       </span>
       <p className="text-sm leading-relaxed text-ink sm:text-base">
         <span className="font-display font-semibold">
-          This is only a small sample — {SAMPLE_STORY_COUNT} stories shown on
-          the homepage.
+          This is only a small sample of the app library.
         </span>{" "}
         MoonPage&apos;s app holds many times more original bedtime stories than we
         show on this site, and new ones are added to the library all the time.

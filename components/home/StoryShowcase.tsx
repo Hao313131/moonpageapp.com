@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SectionCtaButton } from "@/components/SectionCtaButton";
 import { FEATURED_STORIES as STORIES } from "@/lib/stories";
 import { storyCoverSrc } from "@/lib/storyCover";
@@ -13,7 +12,6 @@ export function StoryShowcase() {
       <h2 className="font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
         Bedtime picture storybooks for kids
       </h2>
-      <SampleShelfNotice className="mt-5 sm:mt-6" />
       {/* phone 2 → tablet and up 3, at the app's own 4:3 cover ratio */}
       <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-5">
         {STORIES.map((s) => (
@@ -40,7 +38,7 @@ export function StoryShowcase() {
           </figure>
         ))}
       </div>
-      <div className="mt-6 flex flex-col items-center gap-2 sm:mt-8">
+      <div className="mt-6 grid w-full grid-cols-1 items-stretch gap-3 min-[480px]:grid-cols-3 sm:mt-8">
         <SectionCtaButton href="/bedtime-stories">
           Bedtime stories hub
         </SectionCtaButton>
