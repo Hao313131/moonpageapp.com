@@ -12,7 +12,7 @@ export function StoryShowcase() {
       </h2>
       <p className="mt-3 max-w-md text-sm text-ink-muted sm:max-w-xl sm:text-base">
         <span className="font-semibold text-ink">
-          The first 20 of many, many more.
+          Three of many, many more.
         </span>{" "}
         MoonPage&apos;s library holds far more original, beautifully illustrated
         bedtime stories than this site shows — and new ones keep arriving.
@@ -52,9 +52,9 @@ export function StoryShowcase() {
         </Link>
         <Link
           href="/stories"
-          className="inline-flex items-center gap-1.5 text-sm font-bold text-link hover:text-link-hover hover:underline sm:text-base"
+          className="text-sm font-semibold text-link hover:text-link-hover hover:underline sm:text-base"
         >
-          See more stories →
+          See more stories
         </Link>
         <Link
           href="/collections"

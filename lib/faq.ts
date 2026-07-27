@@ -140,7 +140,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Is there a free trial?",
-    a: "If a free trial is available in your region, it will be shown — along with exact pricing — before you confirm your subscription in the App Store or Google Play.",
+    a: "Yes — MoonPage Premium includes a 3-day free trial with full access to all features and the complete story library.",
     category: "Pricing & subscription",
   },
 ];
