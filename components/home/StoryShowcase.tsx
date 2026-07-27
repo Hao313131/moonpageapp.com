@@ -1,39 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FEATURED_STORIES as STORIES } from "@/lib/stories";
 
-/**
- * Real cover art + real titles from moonpage-app/data/stories/*.ts — the hook
- * lines below are original one-line summaries written for marketing, not
- * quotes from the stories themselves.
- */
-const STORIES = [
-  {
-    file: "wp_b01_1_blue_sea_cover.webp",
-    title: "Slow Down, Seal!",
-    hook: "A speedy little seal learns that the best things are easy to miss in a hurry.",
-  },
-  {
-    file: "wp_b02_1_loved_ask_cover.webp",
-    title: "Leo's Museum Day",
-    hook: "A curious afternoon of questions, wonder, and one very big dinosaur.",
-  },
-  {
-    file: "wp_b03_1_woke_hush_cover.webp",
-    title: "Bruno's Snow Day",
-    hook: "A quiet, snowy morning turns into a small adventure just outside the door.",
-  },
-  {
-    file: "wp_b04_1_maple_street_cover.webp",
-    title: "Nora's Kind Cookies",
-    hook: "One batch of cookies, shared just right, teaches a sweet lesson in kindness.",
-  },
-  {
-    file: "wp_b05_1_window_moon_cover.webp",
-    title: "A Secret in the Night",
-    hook: "A gentle nighttime mystery, perfect for winding down before sleep.",
-  },
-];
-
+/** Cover art, titles and hooks all come from lib/stories.ts, which the
+ * /stories page and the themed collections share. */
 export function StoryShowcase() {
   return (
     <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
@@ -62,18 +32,26 @@ export function StoryShowcase() {
                 {s.title}
               </p>
               <p className="text-xs leading-snug text-ink-muted sm:text-sm">
-                {s.hook}
+                {s.shortHook ?? s.hook}
               </p>
             </figcaption>
           </figure>
         ))}
       </div>
-      <Link
-        href="/stories"
-        className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-link hover:text-link-hover hover:underline sm:mt-8 sm:text-base"
-      >
-        See more stories →
-      </Link>
+      <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 sm:mt-8">
+        <Link
+          href="/stories"
+          className="inline-flex items-center gap-1.5 text-sm font-bold text-link hover:text-link-hover hover:underline sm:text-base"
+        >
+          See more stories →
+        </Link>
+        <Link
+          href="/collections"
+          className="text-sm font-semibold text-link hover:text-link-hover hover:underline sm:text-base"
+        >
+          Browse by theme
+        </Link>
+      </div>
     </section>
   );
 }

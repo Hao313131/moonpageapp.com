@@ -37,21 +37,34 @@ export const metadata: Metadata = {
     default: SITE.title,
     template: `%s · ${SITE.name}`,
   },
-  description:
-    "A bedtime stories app for toddlers and preschoolers, ages 3+ — original, illustrated picture books with no ads and no login. Professional narration, device read-aloud, or your own recorded voice.",
+  description: SITE.description,
   alternates: { canonical: SITE.domain },
+  // Lets Google use a large cover thumbnail next to results and in Discover —
+  // the default for a new site is a small one, and cover art is our best asset.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: SITE.title,
-    description: SITE.subtitle,
+    description: SITE.description,
     url: SITE.domain,
     siteName: SITE.name,
+    locale: "en_US",
     images: ["/og-image.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: SITE.title,
-    description: SITE.subtitle,
+    description: SITE.description,
     images: ["/og-image.png"],
   },
 };

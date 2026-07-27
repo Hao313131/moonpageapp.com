@@ -1,0 +1,44 @@
+import Image from "next/image";
+import Link from "next/link";
+import type { Story } from "@/lib/stories";
+
+/** Cover grid shared by /stories, the story pages and the collection pages.
+ * Every cover links to its own story page — that's what makes those pages
+ * reachable, and it's most of their crawl value. */
+export function StoryGrid({
+  stories,
+  className = "",
+}: {
+  stories: Story[];
+  className?: string;
+}) {
+  return (
+    <div
+      className={`grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 lg:grid-cols-5 ${className}`}
+    >
+      {stories.map((s) => (
+        <figure key={s.file} className="group min-w-0">
+          <Link href={`/stories/${s.slug}`} className="block">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
+              <Image
+                src={`/covers/${s.file}`}
+                alt={`Cover art for the children's picture book "${s.title}"`}
+                fill
+                sizes="(min-width: 1024px) 18vw, (min-width: 768px) 22vw, (min-width: 640px) 30vw, 45vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <figcaption className="mt-2">
+              <p className="font-display text-sm font-semibold text-ink group-hover:text-link sm:text-base">
+                {s.title}
+              </p>
+              <p className="text-xs leading-snug text-ink-muted sm:text-sm">
+                {s.hook}
+              </p>
+            </figcaption>
+          </Link>
+        </figure>
+      ))}
+    </div>
+  );
+}

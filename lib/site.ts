@@ -5,8 +5,23 @@
 
 export const SITE = {
   name: "MoonPage",
-  title: "MoonPage: Bedtime Stories",
-  subtitle: "Kids Books & Read Aloud",
+  /**
+   * Homepage <title>. Colon-separated brand-first, matching the App Store
+   * listing so the two reinforce one brand — then the category words, then
+   * the differentiator, which is what actually earns the click. Kept under
+   * ~60 characters so Google doesn't truncate it.
+   */
+  title: "MoonPage: Bedtime Stories for Kids, in Your Own Voice",
+  /** App Store subtitle (30 char limit). Deliberately shares no words with
+   * `title` above — repeated terms buy nothing in Apple's search index. */
+  subtitle: "Picture Books in Your Voice",
+  /**
+   * The homepage meta/OG description. A full sentence, not a fragment: this
+   * is the snippet under the title in search results and the caption on a
+   * shared link, so it has to sell on its own.
+   */
+  description:
+    "Original illustrated bedtime stories for toddlers and preschoolers, ages 3+. Narrated by a pro, read aloud by your device, or recorded in your own voice. No ads, no login, works offline — free to start tonight.",
   // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
   // (Settings → Pages → Custom domain).
   domain: "https://moonpageapp.com",

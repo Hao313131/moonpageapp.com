@@ -3,6 +3,23 @@ import { BrandMark } from "./BrandMark";
 import { SubscribeCluster } from "./EmailSubscribe";
 import { SITE } from "@/lib/site";
 
+/** Footer link picks. Short anchor text, chosen to describe the destination
+ * rather than repeat the page title verbatim. */
+const FOOTER_COLLECTIONS = [
+  { slug: "sleepy-bedtime-stories", description: "Sleepy stories" },
+  { slug: "animal-bedtime-stories", description: "Animal stories" },
+  { slug: "kindness-stories-for-kids", description: "Kindness and sharing" },
+  { slug: "stories-about-big-feelings", description: "Big feelings" },
+] as const;
+
+const FOOTER_GUIDES = [
+  { slug: "bedtime-routine-for-toddlers", label: "Bedtime routines (ages 2–5)" },
+  { slug: "read-aloud-to-toddlers", label: "How to read aloud" },
+  { slug: "toddler-wont-stay-in-bed", label: "When they won't stay in bed" },
+  { slug: "screen-time-before-bed", label: "Screen time before bed" },
+  { slug: "lullabies-for-babies-and-toddlers", label: "Lullabies" },
+] as const;
+
 export function Footer() {
   return (
     <footer className="mt-auto bg-night-top text-night-ink">
@@ -25,33 +42,92 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 pt-6 text-xs text-night-muted sm:gap-6 sm:pt-8 sm:text-sm md:flex-row md:items-center md:justify-between">
-          <nav className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-6">
-            <Link href="/stories" className="hover:text-white">
-              Stories
-            </Link>
-            <Link href="/faq" className="hover:text-white">
-              FAQ
-            </Link>
-            <Link href="/privacy" className="hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="/privacy-choices" className="hover:text-white">
-              Privacy Choices
-            </Link>
-            <Link href="/terms" className="hover:text-white">
-              Terms of Use
-            </Link>
-            <Link href="/support" className="hover:text-white">
-              Support
-            </Link>
+        {/* Three real link columns rather than one flat row: this is the
+            site's deepest internal linking, and it's how the collection and
+            guide pages get crawled from every page on the site. */}
+        <div className="grid gap-6 pt-6 text-xs text-night-muted sm:gap-8 sm:pt-8 sm:text-sm md:grid-cols-3">
+          <nav aria-label="Stories">
+            <p className="font-semibold text-night-ink">Stories</p>
+            <ul className="mt-2 space-y-1.5">
+              <li>
+                <Link href="/stories" className="hover:text-white">
+                  Browse bedtime stories
+                </Link>
+              </li>
+              {FOOTER_COLLECTIONS.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/collections/${c.slug}`}
+                    className="hover:text-white"
+                  >
+                    {c.description}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/collections" className="hover:text-white">
+                  All themes
+                </Link>
+              </li>
+            </ul>
           </nav>
-          <a
-            href={`mailto:${SITE.contactEmail}`}
-            className="break-all text-sm font-medium text-night-ink hover:text-white sm:break-normal sm:text-base"
-          >
-            {SITE.contactEmail}
-          </a>
+
+          <nav aria-label="For parents">
+            <p className="font-semibold text-night-ink">For parents</p>
+            <ul className="mt-2 space-y-1.5">
+              {FOOTER_GUIDES.map((g) => (
+                <li key={g.slug}>
+                  <Link href={`/guides/${g.slug}`} className="hover:text-white">
+                    {g.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/guides" className="hover:text-white">
+                  All guides
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:text-white">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Company">
+            <p className="font-semibold text-night-ink">MoonPage</p>
+            <ul className="mt-2 space-y-1.5">
+              <li>
+                <Link href="/support" className="hover:text-white">
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="hover:text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-choices" className="hover:text-white">
+                  Privacy Choices
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-white">
+                  Terms of Use
+                </Link>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${SITE.contactEmail}`}
+                  className="break-all hover:text-white sm:break-normal"
+                >
+                  {SITE.contactEmail}
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <p className="pt-6 text-xs text-night-muted sm:pt-8 sm:text-sm">
           © {new Date().getFullYear()} {SITE.operator}. Made with care, one
