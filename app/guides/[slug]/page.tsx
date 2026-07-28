@@ -4,7 +4,12 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
-import { GUIDES, getGuide, type GuideBlock } from "@/lib/guides";
+import {
+  GUIDES,
+  getGuide,
+  relatedGuides,
+  type GuideBlock,
+} from "@/lib/guides";
 import { SITE, pageMetadata } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -67,9 +72,21 @@ export default async function GuidePage({ params }: { params: Params }) {
     ],
   };
 
-  const related = guide.related
-    .map((s) => getGuide(s))
-    .filter((g): g is NonNullable<typeof g> => Boolean(g));
+  // Only emitted when the guide actually has questions — an empty FAQPage is
+  // a structured-data error, not a neutral no-op.
+  const faqJsonLd = guide.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: guide.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
+  const related = relatedGuides(guide);
 
   return (
     <>
@@ -116,6 +133,26 @@ export default async function GuidePage({ params }: { params: Params }) {
               </div>
             </section>
           ))}
+
+          {guide.faqs && guide.faqs.length > 0 && (
+            <section className="mt-10 sm:mt-14">
+              <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
+                Common questions
+              </h2>
+              <dl className="mt-4 space-y-5 sm:mt-6 sm:space-y-6">
+                {guide.faqs.map((faq) => (
+                  <div key={faq.q}>
+                    <dt className="text-sm font-semibold text-ink sm:text-base">
+                      {faq.q}
+                    </dt>
+                    <dd className="mt-1.5 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+                      {faq.a}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
 
           <div className="mt-12 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:mt-16 sm:gap-4 sm:rounded-3xl sm:p-10">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
@@ -170,6 +207,12 @@ export default async function GuidePage({ params }: { params: Params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
     </>
   );
 }

@@ -15,6 +15,7 @@ const ROUTES = [
   "/toddler-bedtime-stories",
   "/preschool-bedtime-stories",
   "/read-aloud-bedtime-stories",
+  "/bedtime-stories-by-age",
   "/stories",
   "/collections",
   "/faq",
