@@ -69,8 +69,8 @@ export default function PreschoolBedtimeStoriesPage() {
               Narration options kids actually use
             </h2>
             <p className="max-w-md text-sm text-ink-muted sm:text-base">
-              Each story can play with professional narration, device read-aloud,
-              or your own recorded parent voice.
+              Each story can play by a professional narrator, or in your own
+              recorded voice.
             </p>
             <StoreButtons campaign="preschool_bedtime_stories" className="justify-center" />
           </div>

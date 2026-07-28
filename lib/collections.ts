@@ -4,7 +4,7 @@
  * rank for at once.
  *
  * Tags match moonpage-app/data/story-tags.ts. Each collection lists every
- * story on the site that carries that tag (30 in the current sample catalog).
+ * story on the site that carries that tag (45 in the current sample catalog).
  */
 
 import type { StoryTag } from "./stories";

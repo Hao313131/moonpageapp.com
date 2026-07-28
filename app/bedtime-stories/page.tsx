@@ -177,8 +177,8 @@ export default function BedtimeStoriesLandingPage() {
               Read tonight&apos;s bedtime story in MoonPage
             </h2>
             <p className="max-w-md text-sm text-ink-muted sm:text-base">
-              Some stories are free. Narration can be professional, device
-              read-aloud, or your own parent voice. No ads, no login, and works
+              Some stories are free. Every story can be read by a professional
+              narrator or in your own recorded voice. No ads, no login, and works
               offline for kids.
             </p>
             <StoreButtons campaign="bedtime_stories_landing" className="justify-center" />

@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/read-aloud-bedtime-stories",
   title: "Read-Aloud Bedtime Stories for Children — Narration & Parent Voice",
   description:
-    "Read-aloud bedtime stories for children with narration choices: professional voice, device read-aloud, or parent-recorded storytelling.",
+    "Read-aloud bedtime stories for children with narration choices: by a professional narrator, or in your own recorded voice.",
   keywords: [
     "read aloud bedtime stories",
     "children narration stories",
@@ -35,8 +35,8 @@ export default function ReadAloudBedtimeStoriesPage() {
             Families search for read-aloud bedtime stories for different reasons:
             busy nights, travel nights, co-parenting schedules, or simply
             helping a child settle with a familiar voice. MoonPage supports
-            professional narration, device read-aloud, and parent-recorded
-            narration for each story.
+            reading by a professional narrator or in your own recorded voice
+            for each story.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-ink-muted sm:text-base">
             If your child relaxes best with predictable sound and pacing, pair

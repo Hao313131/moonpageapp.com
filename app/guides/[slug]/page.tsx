@@ -122,8 +122,8 @@ export default async function GuidePage({ params }: { params: Params }) {
               Tonight&apos;s story, ready to read
             </h2>
             <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
-              Original illustrated bedtime stories for ages 2+, narrated by a
-              pro or recorded in your own voice. Some are free — no account
+              Original illustrated bedtime stories for ages 2+, by a
+              professional narrator or in your own recorded voice. Some are free — no account
               needed.
             </p>
             <StoreButtons
