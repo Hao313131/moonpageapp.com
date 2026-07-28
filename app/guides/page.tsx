@@ -4,24 +4,29 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
-import { GUIDES } from "@/lib/guides";
+import { GUIDES, categoryAnchor, guidesByCategory } from "@/lib/guides";
 import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/guides",
-  title: "Bedtime and Parenting Guides for Toddlers",
+  title: "Bedtime & Parenting Guides for Toddlers and Preschoolers",
   description:
-    "Practical guides for parents of toddlers and preschoolers — bedtime routines, reading aloud, screen time before bed, and keeping bedtime steady when you're away.",
+    "Practical guides for parents of toddlers and preschoolers — bedtime routines, toddler sleep problems, reading aloud, choosing bedtime stories, and what to read at every age from 2 to 6.",
   keywords: [
     "parenting bedtime guide",
     "toddler bedtime routine",
     "preschool sleep routine",
     "read aloud tips for parents",
     "children bedtime parenting help",
+    "toddler sleep problems",
+    "bedtime stories by age",
+    "how to make up a bedtime story",
   ],
 });
 
 export default function GuidesPage() {
+  const sections = guidesByCategory();
+
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -58,41 +63,61 @@ export default function GuidesPage() {
           </h1>
           <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-xl sm:text-base">
             Short, practical writing for parents of toddlers and preschoolers —
-            routines that hold, reading aloud so they actually listen, and what
-            to do on the nights that go sideways. No sign-up, no newsletter
-            wall.
+            routines that hold, reading aloud so they actually listen, what to
+            read at every age from babies to nine, and what to do on the nights
+            that go sideways. No sign-up, no newsletter wall.
           </p>
 
           <p className="mt-4 text-sm text-ink-muted sm:text-base">
-            {GUIDES.length} guides so far, covering{" "}
-            {[...new Set(GUIDES.map((g) => g.category.toLowerCase()))].join(
-              " · ",
-            )}
-            .
+            {GUIDES.length} guides so far, in {sections.length} topics.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2">
-            {GUIDES.map((g) => (
-              <Link
-                key={g.slug}
-                href={`/guides/${g.slug}`}
-                className="group flex min-w-0 flex-col rounded-2xl border border-wood/20 bg-paper p-5 transition-colors hover:border-accent sm:rounded-3xl sm:p-6"
+          <nav
+            aria-label="Guide topics"
+            className="mt-4 flex flex-wrap gap-2 sm:mt-5"
+          >
+            {sections.map((section) => (
+              <a
+                key={section.category}
+                href={`#${categoryAnchor(section.category)}`}
+                className="rounded-full border border-wood/20 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
-                <span className="text-xs font-semibold uppercase tracking-wide text-accent-strong">
-                  {g.category}
-                </span>
-                <h2 className="mt-2 font-display text-base font-semibold leading-snug text-ink group-hover:text-link sm:text-lg">
-                  {g.title}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                  {g.description}
-                </p>
-                <p className="mt-3 text-xs text-ink-muted sm:text-sm">
-                  {g.readingMinutes} min read
-                </p>
-              </Link>
+                {section.category}{" "}
+                <span className="text-ink-muted">{section.guides.length}</span>
+              </a>
             ))}
-          </div>
+          </nav>
+
+          {sections.map((section) => (
+            <section
+              key={section.category}
+              id={categoryAnchor(section.category)}
+              className="mt-10 scroll-mt-24 sm:mt-14"
+            >
+              <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
+                {section.category}
+              </h2>
+              <div className="mt-4 grid gap-4 sm:mt-6 sm:gap-5 md:grid-cols-2">
+                {section.guides.map((g) => (
+                  <Link
+                    key={g.slug}
+                    href={`/guides/${g.slug}`}
+                    className="group flex min-w-0 flex-col rounded-2xl border border-wood/20 bg-paper p-5 transition-colors hover:border-accent sm:rounded-3xl sm:p-6"
+                  >
+                    <h3 className="font-display text-base font-semibold leading-snug text-ink group-hover:text-link sm:text-lg">
+                      {g.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                      {g.description}
+                    </p>
+                    <p className="mt-3 text-xs text-ink-muted sm:text-sm">
+                      {g.readingMinutes} min read
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ))}
 
           <div className="mt-12 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:mt-16 sm:gap-4 sm:rounded-3xl sm:p-10">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">

@@ -18,6 +18,15 @@ const FOOTER_GUIDES = [
   { slug: "toddler-wont-stay-in-bed", label: "When they won't stay in bed" },
   { slug: "screen-time-before-bed", label: "Screen time before bed" },
   { slug: "lullabies-for-babies-and-toddlers", label: "Lullabies" },
+  {
+    slug: "what-time-should-a-toddler-go-to-bed",
+    label: "What time should bedtime be?",
+  },
+  {
+    slug: "how-to-make-up-a-bedtime-story",
+    label: "Making up a bedtime story",
+  },
+  { slug: "scared-of-the-dark", label: "Scared of the dark" },
 ] as const;
 
 export function Footer() {
@@ -62,6 +71,11 @@ export function Footer() {
               <li>
                 <Link href="/preschool-bedtime-stories" className="hover:text-white">
                   Preschool bedtime stories
+                </Link>
+              </li>
+              <li>
+                <Link href="/bedtime-stories-by-age" className="hover:text-white">
+                  Bedtime stories by age
                 </Link>
               </li>
               <li>
