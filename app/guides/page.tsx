@@ -99,7 +99,7 @@ export default function GuidesPage() {
               The part of the routine we build
             </h2>
             <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
-              MoonPage is a bedtime story app for ages 3+ — original
+              MoonPage is a bedtime story app for ages 2+ — original
               illustrated stories, read by a narrator or in your own recorded
               voice. No ads, no login, works offline.
             </p>

@@ -9,15 +9,15 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/toddler-bedtime-stories",
-  title: "Toddler Bedtime Stories (Ages 3+) — Calm, Sleepy, Cozy Tales",
+  title: "Toddler Bedtime Stories (Ages 2+) — Calm, Sleepy, Cozy Tales",
   description:
-    "Toddler bedtime stories with simple language, gentle pacing, and cozy endings. Explore sleepy picture storybooks and read-aloud stories for ages 3+.",
+    "Toddler bedtime stories with simple language, gentle pacing, and cozy endings. Explore sleepy picture storybooks and read-aloud stories for ages 2+.",
   keywords: [
     "toddler bedtime stories",
     "sleepy toddler tales",
     "cozy bedtime stories for toddlers",
     "read aloud toddler storybooks",
-    "bedtime stories age 3",
+    "bedtime stories age 2",
   ],
 });
 

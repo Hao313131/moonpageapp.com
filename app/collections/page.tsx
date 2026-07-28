@@ -63,7 +63,7 @@ export default function CollectionsPage() {
             Sometimes you know exactly what tonight needs: something with
             animals in it, something about a big feeling, or something so quiet
             it puts you to sleep too. Every collection below is drawn from
-            MoonPage&apos;s own illustrated library, ages 3 and up.
+            MoonPage&apos;s own illustrated library for ages 2+.
           </p>
 
           <SampleShelfNotice className="mt-5 sm:mt-6" />

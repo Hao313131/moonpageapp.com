@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
           The &ldquo;MoonPage&rdquo; app is a collection of illustrated
           bedtime stories for young children, intended to be used by a parent
           or guardian together with their child. Stories are designed for
-          ages 3 and up. A parent may enter a child&apos;s first name and
+          ages 2+. A parent may enter a child&apos;s first name and
           gender in Settings to personalize labels in the app (for example,
           shelf titles). We do not use those details to generate new story
           text or illustrations.

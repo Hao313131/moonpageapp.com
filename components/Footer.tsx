@@ -13,7 +13,7 @@ const FOOTER_COLLECTIONS = [
 ] as const;
 
 const FOOTER_GUIDES = [
-  { slug: "bedtime-routine-for-toddlers", label: "Bedtime routines (ages 2–5)" },
+  { slug: "bedtime-routine-for-toddlers", label: "Bedtime routines (ages 2–7)" },
   { slug: "read-aloud-to-toddlers", label: "How to read aloud" },
   { slug: "toddler-wont-stay-in-bed", label: "When they won't stay in bed" },
   { slug: "screen-time-before-bed", label: "Screen time before bed" },

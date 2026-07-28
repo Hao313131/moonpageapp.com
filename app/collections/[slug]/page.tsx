@@ -64,7 +64,7 @@ export default async function CollectionPage({
         description: s.hook,
         image: storyCoverUrl(SITE.domain, s.file),
         inLanguage: "en",
-        audience: { "@type": "PeopleAudience", suggestedMinAge: 3 },
+        audience: { "@type": "PeopleAudience", suggestedMinAge: 2 },
         publisher: { "@type": "Organization", name: SITE.operator },
       },
     })),
