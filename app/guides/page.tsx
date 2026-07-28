@@ -100,7 +100,7 @@ export default function GuidesPage() {
             </h2>
             <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
               MoonPage is a bedtime story app for ages 2+ — original
-              illustrated stories, read by a narrator or in your own recorded
+              illustrated stories, by a professional narrator or in your own recorded
               voice. No ads, no login, works offline.
             </p>
             <StoreButtons campaign="guides_hub" className="justify-center" />

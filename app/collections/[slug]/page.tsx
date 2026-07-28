@@ -126,8 +126,7 @@ export default async function CollectionPage({
             </h2>
             <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
               Every story in MoonPage can be read by a professional narrator,
-              read aloud by your device, or recorded in your own voice. Some are
-              free — no account needed.
+              or in your own recorded voice. Some are free — no account needed.
             </p>
             <StoreButtons
               campaign={`collection_${collection.slug.replace(/-/g, "_")}`}

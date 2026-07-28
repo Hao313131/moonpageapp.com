@@ -120,7 +120,7 @@ const appJsonLd = {
   operatingSystem: "iOS, Android",
   applicationCategory: "EducationalApplication",
   description:
-    "Original, illustrated bedtime stories for toddlers and preschoolers — professional narration, or your own recorded voice.",
+    "Original, illustrated bedtime stories for toddlers and preschoolers — by a professional narrator, or in your own recorded voice.",
   publisher: { "@type": "Organization", name: SITE.operator },
   offers: { "@type": "Offer", category: "subscription" },
 };

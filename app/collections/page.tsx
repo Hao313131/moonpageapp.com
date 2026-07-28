@@ -93,9 +93,8 @@ export default function CollectionsPage() {
               All of it, in one app
             </h2>
             <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
-              MoonPage holds the whole library — narrated by a pro, read by
-              your device, or recorded in your own voice. No ads, no login,
-              works offline.
+              MoonPage holds the whole library — by a professional narrator,
+              or in your own recorded voice. No ads, no login, works offline.
             </p>
             <StoreButtons
               campaign="collections_hub"

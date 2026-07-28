@@ -11,8 +11,9 @@ export function Hero() {
             One more story, and off to sleep.
           </h1>
           <p className="mx-auto mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base md:mx-0">
-            Calm original stories that wind little ones down — narrated by a
-            pro, or recorded in your own voice. Free to start tonight.
+            Calm original stories that wind little ones down — by a
+            professional narrator, or in your own recorded voice. Free to start
+            tonight.
           </p>
 
           <div

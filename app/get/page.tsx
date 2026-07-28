@@ -19,7 +19,7 @@ const OUTCOMES = [
   },
   {
     title: "Real time together",
-    body: "Read along together, or let them hear it in your own recorded voice.",
+    body: "Hear it by a professional narrator, or in your own recorded voice.",
   },
   {
     title: "Safe, always",

@@ -21,7 +21,7 @@ export const SITE = {
    * shared link, so it has to sell on its own.
    */
   description:
-    "Original illustrated bedtime stories, picture storybooks, lullaby-style sleepy tales, and parenting-friendly read-aloud routines for kids ages 2+. For toddlers, preschoolers, and families: professional narration, device read-aloud, or your own recorded voice. No ads, no login, works offline — free to start tonight.",
+    "Original illustrated bedtime stories, picture storybooks, lullaby-style sleepy tales, and parenting-friendly read-aloud routines for kids ages 2+. For toddlers, preschoolers, and families: by a professional narrator, or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
   // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
   // (Settings → Pages → Custom domain).
   domain: "https://moonpageapp.com",

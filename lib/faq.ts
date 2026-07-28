@@ -64,7 +64,7 @@ export const FAQS: FaqItem[] = [
 
   {
     q: "Can I record my own voice for a story?",
-    a: "Yes — every story can be read by a professional narrator, or recorded in your own voice from within the story. Recordings stay on your device.",
+    a: "Yes — every story can be read by a professional narrator, or in your own recorded voice from within the story. Recordings stay on your device.",
     category: "Stories & narration",
     featured: true,
   },
@@ -80,7 +80,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Can my child listen to a story instead of reading it?",
-    a: "Yes — every story can be read aloud by a professional narrator, read aloud by your device, or narrated in your own recorded voice. You choose which one plays.",
+    a: "Yes — every story can be read aloud by a professional narrator, or narrated in your own recorded voice. You choose which one plays.",
     category: "Stories & narration",
   },
   {

@@ -12,8 +12,8 @@ const BENEFITS = [
     Icon: MicIcon,
   },
   {
-    title: "Narrated by a pro",
-    body: "Every story also comes with calm, professional narration — ready the moment you open the book.",
+    title: "Narrated by a professional",
+    body: "Every story also comes with calm reading by a professional narrator — ready the moment you open the book.",
     color: "bg-sage",
     Icon: WaveIcon,
   },
@@ -44,8 +44,8 @@ export function Benefits() {
           Instead of screen time that leaves kids wound up, it&apos;s
           built for winding down: calm pacing, soft illustrations, and a
           full-screen reading view with no notifications and nothing else
-          competing for attention. Read together, let your child listen on
-          their own, or record your own voice as the narrator.
+          competing for attention. Hear it by a professional narrator, or in
+          your own recorded voice.
         </p>
       </div>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">

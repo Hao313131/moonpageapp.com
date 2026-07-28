@@ -34,7 +34,7 @@ export async function generateMetadata({
   return pageMetadata({
     path: `/stories/${story.slug}`,
     title: `${story.title} — A Bedtime Story for Ages 2+`,
-    description: `${story.hook} An original illustrated bedtime story in MoonPage, read by a narrator or in your own recorded voice.`,
+    description: `${story.hook} An original illustrated bedtime story in MoonPage, by a professional narrator or in your own recorded voice.`,
   });
 }
 
@@ -132,7 +132,7 @@ export default async function StoryPage({ params }: { params: Params }) {
                 </div>
                 <div className="flex gap-2">
                   <dt className="font-semibold text-ink">Narration</dt>
-                  <dd>Professional, device read-aloud, or your own voice</dd>
+                  <dd>By a professional narrator, or in your own recorded voice</dd>
                 </div>
               </dl>
               <div className="mt-4 flex flex-wrap gap-2">

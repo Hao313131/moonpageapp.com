@@ -134,7 +134,7 @@ export const GUIDES: Guide[] = [
           },
           {
             type: "p",
-            text: "MoonPage is built entirely around that last stretch: original illustrated stories written to end the day quietly, read by a narrator or in your own recorded voice, with no ads and no login to break the mood.",
+            text: "MoonPage is built entirely around that last stretch: original illustrated stories written to end the day quietly, by a professional narrator or in your own recorded voice, with no ads and no login to break the mood.",
           },
         ],
       },
@@ -349,7 +349,7 @@ export const GUIDES: Guide[] = [
           },
           {
             type: "p",
-            text: "If you're building a routine around this, MoonPage's stories are written for read-aloud pacing at ages 2+ — short sentences, one calm idea per page — and can be read by you, by a professional narrator, or in your own recorded voice.",
+            text: "If you're building a routine around this, MoonPage's stories are written for read-aloud pacing at ages 2+ — short sentences, one calm idea per page — and can be heard by a professional narrator or in your own recorded voice.",
           },
         ],
       },
@@ -481,7 +481,7 @@ export const GUIDES: Guide[] = [
           },
           {
             type: "p",
-            text: "Some families sing; some read; plenty do both, story then song. MoonPage covers the story half — original illustrated bedtime stories, narrated or recorded in your own voice — and the song at the end is yours.",
+            text: "Some families sing; some read; plenty do both, story then song. MoonPage covers the story half — original illustrated bedtime stories, by a professional narrator or in your own recorded voice — and the song at the end is yours.",
           },
         ],
       },
@@ -896,11 +896,11 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
-        heading: "The third option",
+        heading: "Your voice, recorded",
         blocks: [
           {
             type: "p",
-            text: "There's a middle version that gets overlooked: your voice, recorded. It has the familiarity of you and the repeatability of audio, and for a child whose parent travels or works nights it's often better than either alone. MoonPage is built around exactly this — professional narration, device read-aloud, or your own recorded voice on any story, all offline.",
+            text: "There's a middle version that gets overlooked: your voice, recorded. It has the familiarity of you and the repeatability of audio, and for a child whose parent travels or works nights it's often better than either alone. MoonPage is built around exactly this — by a professional narrator, or in your own recorded voice on any story, all offline.",
           },
         ],
       },
