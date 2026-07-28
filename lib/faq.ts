@@ -37,13 +37,13 @@ export type FaqItem = {
 export const FAQS: FaqItem[] = [
   {
     q: "What ages is MoonPage for?",
-    a: "MoonPage is designed for children ages 3 and up, meant to be enjoyed together with a parent or guardian.",
+    a: "MoonPage is designed for children ages 2+, meant to be enjoyed together with a parent or guardian.",
     category: "Getting started",
     featured: true,
   },
   {
     q: "Is MoonPage good for toddlers and preschoolers?",
-    a: "Yes — MoonPage's stories are written for children ages 3 and up, which covers toddlers through early preschool and beyond. Each story uses simple, gentle language and calm pacing that's easy to follow right before sleep.",
+    a: "Yes — MoonPage's stories are written for children ages 2+, which covers toddlers through early preschool and beyond. Each story uses simple, gentle language and calm pacing that's easy to follow right before sleep.",
     category: "Getting started",
   },
   {

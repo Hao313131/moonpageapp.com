@@ -1,6 +1,6 @@
 import { FaqList } from "@/components/FaqList";
 import { SectionCtaButton } from "@/components/SectionCtaButton";
-import { FAQS, FEATURED_FAQS } from "@/lib/faq";
+import { FEATURED_FAQS } from "@/lib/faq";
 
 /**
  * Homepage teaser: the five questions parents ask before downloading. The
@@ -14,9 +14,9 @@ export function Faq() {
         Questions, answered
       </h2>
       <FaqList items={FEATURED_FAQS} className="mt-6 sm:mt-8" />
-      <div className="mt-6 flex flex-col items-center sm:mt-8">
-        <SectionCtaButton href="/faq">
-          See all {FAQS.length} questions
+      <div className="mt-6 flex justify-center sm:mt-8">
+        <SectionCtaButton href="/faq" className="max-w-xl">
+          See all FAQs
         </SectionCtaButton>
       </div>
     </section>

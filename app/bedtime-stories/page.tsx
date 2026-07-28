@@ -67,7 +67,7 @@ export default function BedtimeStoriesLandingPage() {
               What you can find here
             </h2>
             <ul className="mt-3 grid gap-2 text-sm text-ink-muted sm:grid-cols-2 sm:text-base">
-              <li>Bedtime stories for kids ages 3+</li>
+              <li>Bedtime stories for kids ages 2+</li>
               <li>Sleepy stories and cozy wind-down tales</li>
               <li>Toddler and preschool picture storybooks</li>
               <li>Narrated stories and read-aloud bedtime books</li>

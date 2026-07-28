@@ -46,7 +46,7 @@ export type Guide = {
 export const GUIDES: Guide[] = [
   {
     slug: "bedtime-routine-for-toddlers",
-    title: "How to Build a Bedtime Routine That Actually Works (Ages 2–5)",
+    title: "How to Build a Bedtime Routine That Actually Works (Ages 2–7)",
     description:
       "A simple, repeatable bedtime routine for toddlers and preschoolers — how long it should take, what order to do things in, and how to handle the nightly stalling.",
     category: "Routines",
@@ -291,7 +291,7 @@ export const GUIDES: Guide[] = [
     slug: "read-aloud-to-toddlers",
     title: "How to Read Aloud So a Toddler Actually Listens",
     description:
-      "Practical read-aloud technique for ages 2–5 — pacing, voices, questions, and what to do about the child who won't sit still or keeps turning the pages.",
+      "Practical read-aloud technique for ages 2–7 — pacing, voices, questions, and what to do about the child who won't sit still or keeps turning the pages.",
     category: "Reading",
     updated: "2026-07-27",
     readingMinutes: 5,
@@ -349,7 +349,7 @@ export const GUIDES: Guide[] = [
           },
           {
             type: "p",
-            text: "If you're building a routine around this, MoonPage's stories are written for read-aloud pacing at ages 3+ — short sentences, one calm idea per page — and can be read by you, by a professional narrator, or in your own recorded voice.",
+            text: "If you're building a routine around this, MoonPage's stories are written for read-aloud pacing at ages 2+ — short sentences, one calm idea per page — and can be read by you, by a professional narrator, or in your own recorded voice.",
           },
         ],
       },
@@ -629,7 +629,7 @@ export const GUIDES: Guide[] = [
           },
           {
             type: "p",
-            text: "MoonPage's stories are written for this slot specifically: one calm idea per page, short sentences pitched at ages 3 and up, and endings that wind down rather than up.",
+            text: "MoonPage's stories are written for this slot specifically: one calm idea per page, short sentences pitched at ages 2+, and endings that wind down rather than up.",
           },
         ],
       },

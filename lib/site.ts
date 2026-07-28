@@ -21,7 +21,7 @@ export const SITE = {
    * shared link, so it has to sell on its own.
    */
   description:
-    "Original illustrated bedtime stories, picture storybooks, lullaby-style sleepy tales, and parenting-friendly read-aloud routines for kids ages 3+. For toddlers, preschoolers, and families: professional narration, device read-aloud, or your own recorded voice. No ads, no login, works offline — free to start tonight.",
+    "Original illustrated bedtime stories, picture storybooks, lullaby-style sleepy tales, and parenting-friendly read-aloud routines for kids ages 2+. For toddlers, preschoolers, and families: professional narration, device read-aloud, or your own recorded voice. No ads, no login, works offline — free to start tonight.",
   // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
   // (Settings → Pages → Custom domain).
   domain: "https://moonpageapp.com",
@@ -35,25 +35,26 @@ export const SITE = {
   buttondownUsername: "moonpage",
 } as const;
 
-const APP_STORE_ID = "id6788652725";
-const APP_STORE_SLUG = "moonpage-cozy-bedtime-stories";
+const APP_STORE_ID = "6788652725";
 
 // TODO: fill in once created in App Store Connect → Analytics → Acquisition →
-// Campaigns. Until then this produces a syntactically valid but non-attributed link.
-const ASC_PROVIDER_TOKEN = "REPLACE_WITH_ASC_PROVIDER_TOKEN";
+// Campaigns. Until then we omit `pt` so the link stays a clean global App Store URL.
+const ASC_PROVIDER_TOKEN = "";
 
 /**
- * App Store Connect Campaign Link — lets ASC attribute downloads to the specific
- * CTA that produced them (see plan §4). Pass a short slug per placement, e.g.
+ * Global App Store link (no country code). Apple geo-redirects to the visitor's
+ * storefront from the stable app id. Pass a short slug per placement, e.g.
  * "website_hero", "website_footer", "get_lp_hero".
  */
 export function appStoreLink(campaign: string): string {
   const params = new URLSearchParams({
-    pt: ASC_PROVIDER_TOKEN,
     ct: campaign,
     mt: "8",
   });
-  return `https://apps.apple.com/app/${APP_STORE_SLUG}/${APP_STORE_ID}?${params.toString()}`;
+  if (ASC_PROVIDER_TOKEN) {
+    params.set("pt", ASC_PROVIDER_TOKEN);
+  }
+  return `https://apps.apple.com/app/id${APP_STORE_ID}?${params.toString()}`;
 }
 
 /**
@@ -79,7 +80,7 @@ export function playStoreLink(campaign: string): string {
  */
 export const ASO_KEYWORDS = {
   category: ["bedtime stories app", "kids story app", "children's book app", "read aloud app"],
-  audience: ["toddlers", "preschool", "preschoolers", "kids ages 3 and up", "ages 3+"],
+  audience: ["toddlers", "preschool", "preschoolers", "kids ages 2+", "2+"],
   intent: [
     "bedtime stories for toddlers",
     "bedtime stories for preschoolers",

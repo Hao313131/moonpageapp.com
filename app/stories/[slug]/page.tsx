@@ -33,7 +33,7 @@ export async function generateMetadata({
   if (!story) return {};
   return pageMetadata({
     path: `/stories/${story.slug}`,
-    title: `${story.title} — A Bedtime Story for Ages 3+`,
+    title: `${story.title} — A Bedtime Story for Ages 2+`,
     description: `${story.hook} An original illustrated bedtime story in MoonPage, read by a narrator or in your own recorded voice.`,
   });
 }
@@ -65,7 +65,7 @@ export default async function StoryPage({ params }: { params: Params }) {
     url,
     inLanguage: "en",
     genre: "Children's picture book",
-    audience: { "@type": "PeopleAudience", suggestedMinAge: 3 },
+    audience: { "@type": "PeopleAudience", suggestedMinAge: 2 },
     publisher: { "@type": "Organization", name: SITE.operator },
     isPartOf: {
       "@type": "CreativeWorkSeries",
@@ -124,7 +124,7 @@ export default async function StoryPage({ params }: { params: Params }) {
               <dl className="mt-4 space-y-1 text-sm text-ink-muted sm:text-base">
                 <div className="flex gap-2">
                   <dt className="font-semibold text-ink">Ages</dt>
-                  <dd>3 and up, read together</dd>
+                  <dd>2+, read together</dd>
                 </div>
                 <div className="flex gap-2">
                   <dt className="font-semibold text-ink">Read aloud</dt>

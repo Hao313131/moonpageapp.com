@@ -34,6 +34,11 @@ function storeChrome(size: StoreSize) {
   return { padding, icon, label, title };
 }
 
+const STORE_LINK_PROPS = {
+  target: "_blank",
+  rel: "noopener noreferrer",
+} as const;
+
 export function AppStoreLink({
   campaign,
   size = "lg",
@@ -43,7 +48,11 @@ export function AppStoreLink({
 }) {
   const { padding, icon, label, title } = storeChrome(size);
   return (
-    <a href={appStoreLink(`${campaign}_ios`)} className={`${BADGE} ${padding}`}>
+    <a
+      href={appStoreLink(`${campaign}_ios`)}
+      {...STORE_LINK_PROPS}
+      className={`${BADGE} ${padding}`}
+    >
       <AppleGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight text-left">
         <span className={`block ${label} opacity-90`}>Download on the</span>
@@ -62,7 +71,11 @@ export function PlayStoreLink({
 }) {
   const { padding, icon, label, title } = storeChrome(size);
   return (
-    <a href={playStoreLink(`${campaign}_android`)} className={`${BADGE} ${padding}`}>
+    <a
+      href={playStoreLink(`${campaign}_android`)}
+      {...STORE_LINK_PROPS}
+      className={`${BADGE} ${padding}`}
+    >
       <PlayGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight text-left">
         <span className={`block ${label} opacity-90`}>Download on the</span>
@@ -110,6 +123,7 @@ export function AppStoreIcon({
   return (
     <a
       href={appStoreLink(`${campaign}_ios`)}
+      {...STORE_LINK_PROPS}
       aria-label="Download on the App Store"
       className={`${ICON_BADGE} ${className}`}
     >
@@ -128,6 +142,7 @@ export function PlayStoreIcon({
   return (
     <a
       href={playStoreLink(`${campaign}_android`)}
+      {...STORE_LINK_PROPS}
       aria-label="Download on the Google Play"
       className={`${ICON_BADGE} ${className}`}
     >

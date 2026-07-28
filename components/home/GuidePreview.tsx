@@ -43,8 +43,10 @@ export function GuidePreview() {
         ))}
       </div>
 
-      <div className="mt-6 flex flex-col items-center sm:mt-8">
-        <SectionCtaButton href="/guides">All guides</SectionCtaButton>
+      <div className="mt-6 flex justify-center sm:mt-8">
+        <SectionCtaButton href="/guides" className="max-w-xl">
+          See all guides
+        </SectionCtaButton>
       </div>
     </section>
   );

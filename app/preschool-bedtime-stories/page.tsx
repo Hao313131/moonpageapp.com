@@ -9,9 +9,9 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/preschool-bedtime-stories",
-  title: "Preschool Bedtime Stories — Picture Storybooks for Ages 3+",
+  title: "Preschool Bedtime Stories — Picture Storybooks for Ages 2+",
   description:
-    "Preschool bedtime stories and picture storybooks for ages 3+ with read-aloud narration, calm pacing, and parent-friendly bedtime themes.",
+    "Preschool bedtime stories and picture storybooks for ages 2+ with read-aloud narration, calm pacing, and parent-friendly bedtime themes.",
   keywords: [
     "preschool bedtime stories",
     "preschool picture storybooks",
@@ -29,7 +29,7 @@ export default function PreschoolBedtimeStoriesPage() {
         <div className="page-gutter mx-auto max-w-4xl py-10 sm:py-14 md:py-20">
           <BackHomeLink />
           <h1 className="mt-4 font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
-            Preschool bedtime stories for ages 3+
+            Preschool bedtime stories for ages 2+
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">
             Preschoolers often want story time to be both interesting and calm.

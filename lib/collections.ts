@@ -41,10 +41,10 @@ export const COLLECTIONS: Collection[] = [
     tag: "animals",
     title: "Animal Bedtime Stories for Kids",
     description:
-      "Bears, penguins, seals, turtles, and a lighthouse cormorant — gentle animal picture books for toddlers and preschoolers, ages 3 and up.",
+      "Bears, penguins, seals, turtles, and a lighthouse cormorant — gentle animal picture books for toddlers and preschoolers ages 2+.",
     intro: [
       "Animal characters are the shortcut into a story for a three-year-old. A seal who won't slow down or a bunny whose feelings got too big is a version of themselves at one step's distance — close enough to recognize, far enough to be comfortable talking about.",
-      "Most of the stories on this site star animals: Sully the seal, Bruno the bear cub, Pim and Pax the penguins, Tibo the turtle, Cora the cormorant, and many more. Illustrated, calm, and written for reading aloud at ages 3 and up.",
+      "Most of the stories on this site star animals: Sully the seal, Bruno the bear cub, Pim and Pax the penguins, Tibo the turtle, Cora the cormorant, and many more. Illustrated, calm, and written for reading aloud at ages 2+.",
     ],
     note: "Animal stories are the easiest place to do voices. You don't need a whole cast — one soft voice for the small animal and one slower voice for the grown-up one is plenty.",
   },
@@ -77,7 +77,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "friendship",
     title: "Friendship Stories for Toddlers and Preschoolers",
     description:
-      "Making a first friend, sharing with one, and being a good one — gentle picture books about friendship for ages 3 and up.",
+      "Making a first friend, sharing with one, and being a good one — gentle picture books about friendship for ages 2+.",
     intro: [
       "Friendship at three and four is mostly logistics: how you say hello to someone you don't know, what happens when you both want the same thing, what to do when a friend is having a bad day. It's genuinely difficult, and the stories that help are the ones that stay that concrete.",
       "Sam says hello to Jin at the park, Glo's firefly friends push her jar off a stump, and Sam the snail arrives late to Bunny's party to find cake still waiting. A too-shy hello, a rescue under the stars, a scarf shared on the coldest day.",
@@ -113,7 +113,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "sea",
     title: "Ocean and Sea Stories for Kids",
     description:
-      "Seals, starfish, harbors, lighthouses, and tide-line discoveries — calm ocean picture books for toddlers and preschoolers, ages 3 and up.",
+      "Seals, starfish, harbors, lighthouses, and tide-line discoveries — calm ocean picture books for toddlers and preschoolers ages 2+.",
     intro: [
       "There's a reason so many bedtime books end up underwater. Water moves slowly, sounds soften, and light goes blue and dim — an ocean setting is halfway to a lullaby before anything happens in it.",
       "These stories live by the sea: Sully learning to slow down in the bay, Twinkle carried up to see the stars, Bo the little red boat in a big harbor, Theo's hidden cove at low tide, and Cora the cormorant keeping her lamp spinning for boats and ducklings alike.",
@@ -125,7 +125,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "snow",
     title: "Winter and Snow Stories for Toddlers",
     description:
-      "Snow days, hibernation, and the coldest day of the year — cozy winter picture books for ages 3 and up.",
+      "Snow days, hibernation, and the coldest day of the year — cozy winter picture books for ages 2+.",
     intro: [
       "Winter stories do something specific at bedtime: nearly all of them end indoors, warm, under a blanket. That shape — out into the cold, then home to something cozy — is almost exactly the shape of the evening you're trying to have.",
       "Bruno wakes to the first snow and builds a snow-bear with friends; Pim and Pax share one red scarf on the coldest day; Bramble gathers leaves for his hibernation bed while the forest goes still and white.",
@@ -137,7 +137,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "family",
     title: "Family Stories for Bedtime",
     description:
-      "Stories about parents, grandparents, siblings, and the small rituals that hold a family together — for ages 3 and up.",
+      "Stories about parents, grandparents, siblings, and the small rituals that hold a family together — for ages 2+.",
     intro: [
       "Bedtime is when family shows up in a story — not as a lesson about togetherness, but as the person who bakes the cake, waits by the pond, or reads in a silly voice when you're not feeling well.",
       "Maya and Papa bake for Mama's birthday, Leo finds his house on a museum map, Ella tells Grandma the truth about a broken vase, and Fern's whole family tends to her on a cozy sick day. These are the stories that mirror the room your child is sitting in.",

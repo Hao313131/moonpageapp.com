@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/stories",
   title: "Bedtime Stories for Kids — Original Illustrated Picture Books",
   description:
-    "A sample from MoonPage's growing library of original illustrated bedtime stories for toddlers and preschoolers, ages 3 and up. Read aloud by a narrator or in your own voice.",
+    "A sample from MoonPage's growing library of original illustrated bedtime stories for toddlers and preschoolers ages 2+. Read aloud by a narrator or in your own voice.",
   keywords: [
     "bedtime stories for kids",
     "sleepy stories for toddlers",
@@ -43,7 +43,7 @@ export default function StoriesPage() {
         inLanguage: "en",
         audience: {
           "@type": "PeopleAudience",
-          suggestedMinAge: 3,
+          suggestedMinAge: 2,
         },
         publisher: { "@type": "Organization", name: SITE.operator },
       },
@@ -71,13 +71,13 @@ export default function StoriesPage() {
         <div className="page-gutter mx-auto max-w-6xl py-10 sm:py-14 md:py-20">
           <BackHomeLink />
           <h1 className="mt-4 font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
-            Bedtime stories for kids — a few from our shelf
+            Bedtime stories for kids
           </h1>
           <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-2xl sm:text-base">
             A handful of MoonPage&apos;s original, illustrated picture books —
             the library they come from is much larger, and it keeps growing.
             Gentle tales about kindness, courage, and curiosity for toddlers
-            and preschoolers ages 3 and up, read aloud by a professional
+            and preschoolers ages 2+, read aloud by a professional
             narrator, by your device, or in your own recorded voice.
           </p>
 
