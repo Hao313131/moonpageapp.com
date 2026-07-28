@@ -1,7 +1,7 @@
 import { appStoreLink, playStoreLink } from "@/lib/site";
 
 const BADGE =
-  "inline-flex h-full w-full min-h-[3.5rem] items-center justify-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)] sm:min-h-[4.25rem]";
+  "store-badge-glow inline-flex h-full w-full min-h-[3.5rem] items-center justify-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)] sm:min-h-[4.25rem]";
 
 type StoreSize = "lg" | "md" | "sm";
 
