@@ -28,7 +28,7 @@ const OUTCOMES = [
 ];
 
 const SHOTS = [
-  { file: "wp_b39_1_one_special_night_the_cover.webp", alt: "Friends in pajamas gazing at the moon from a cozy treehouse" },
+  { file: "wp_b19_1_bedtime_moon_cover.webp", alt: "Cover art from “Counting Sheep” — a little lamb tucked into a patchwork quilt under a full moon" },
   { file: "wp_b03_1_woke_hush_cover.webp", alt: "Warm illustration of a little bear in bed by lamplight" },
   { file: "wp_b05_1_window_moon_cover.webp", alt: "Cover art from “A Secret in the Night”" },
 ];

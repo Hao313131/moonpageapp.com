@@ -6,12 +6,14 @@
 export const SITE = {
   name: "MoonPage",
   /**
-   * Homepage <title>. Colon-separated brand-first, matching the App Store
-   * listing so the two reinforce one brand — then the category words, then
-   * the differentiator, which is what actually earns the click. Kept under
-   * ~60 characters so Google doesn't truncate it.
+   * Homepage <title>. Brand-first, ages 2+, then a short trust line parents
+   * scan for in search results — kept shorter than the old toddlers/
+   * preschoolers phrasing.
    */
-  title: "MoonPage: Bedtime Stories for Kids, Toddlers & Preschoolers",
+  title:
+    "MoonPage: Bedtime Stories for Kids Ages 2+ — Trusted by Thousands of Moms",
+  /** Short social-proof line used in the hero and near download CTAs. */
+  trustLine: "Trusted by thousands of moms",
   /** App Store subtitle (30 char limit). Deliberately shares no words with
    * `title` above — repeated terms buy nothing in Apple's search index. */
   subtitle: "Sleepy Picture Storybooks",
@@ -21,7 +23,7 @@ export const SITE = {
    * shared link, so it has to sell on its own.
    */
   description:
-    "Original illustrated bedtime stories, picture storybooks, lullaby-style sleepy tales, and parenting-friendly read-aloud routines for kids ages 2+. For toddlers, preschoolers, and families: by a professional narrator, or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
+    "MoonPage is a bedtime stories app for kids ages 2+ — original illustrated picture storybooks and lullaby-style sleepy tales, trusted by thousands of moms. Hear them by a professional narrator, or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
   // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
   // (Settings → Pages → Custom domain).
   domain: "https://moonpageapp.com",
@@ -103,7 +105,14 @@ export const ASO_KEYWORDS = {
     "offline stories",
     "no ads kids app",
   ],
-  platform: ["iPad app", "iPhone app", "Android app"],
+  platform: [
+    "phone & tablet app",
+    "bedtime stories app for phone",
+    "kids story app for tablet",
+    "iPad app",
+    "iPhone app",
+    "Android app",
+  ],
 } as const;
 
 /**

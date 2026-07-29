@@ -27,7 +27,7 @@ export const COLLECTIONS: Collection[] = [
   {
     slug: "sleepy-bedtime-stories",
     tag: "bedtime",
-    title: "Sleepy Bedtime Stories for Toddlers and Preschoolers",
+    title: "Sleepy Bedtime Stories for Kids Ages 2+",
     description:
       "Slow, quiet picture books written to end the day — counting sheep, hibernating bears, and nights that fade out gently. A small sample from a much larger app library.",
     intro: [
@@ -41,7 +41,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "animals",
     title: "Animal Bedtime Stories for Kids",
     description:
-      "Bears, penguins, seals, turtles, and a lighthouse cormorant — gentle animal picture books for toddlers and preschoolers ages 2+.",
+      "Bears, penguins, seals, turtles, and a lighthouse cormorant — gentle animal picture books for kids ages 2+.",
     intro: [
       "Animal characters are the shortcut into a story for a three-year-old. A seal who won't slow down or a bunny whose feelings got too big is a version of themselves at one step's distance — close enough to recognize, far enough to be comfortable talking about.",
       "Most of the stories on this site star animals: Sully the seal, Bruno the bear cub, Pim and Pax the penguins, Tibo the turtle, Cora the cormorant, and many more. Illustrated, calm, and written for reading aloud at ages 2+.",
@@ -65,7 +65,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "feelings",
     title: "Stories About Big Feelings — Anger, Waiting, and Shyness",
     description:
-      "Gentle picture books about frustration, impatience, shyness, and losing — feelings toddlers and preschoolers can't name yet, given a story shape.",
+      "Gentle picture books about frustration, impatience, shyness, and losing — feelings kids ages 2+ can't name yet, given a story shape.",
     intro: [
       "Three- and four-year-olds have adult-sized feelings and toddler-sized words for them. A story that shows a character in the middle of one — the chest that feels too tight, the waiting that feels impossible — hands your child language for something they've felt but couldn't describe.",
       "Bunny's kite gets stuck in a tree and the feeling in his chest is much too big to hold; Little Lamb is wide awake when the moon is already up; Fern doesn't feel well and wants to be outside in the sun. These stories don't rush the feeling or fix it in a sentence.",
@@ -75,7 +75,7 @@ export const COLLECTIONS: Collection[] = [
   {
     slug: "friendship-stories-for-kids",
     tag: "friendship",
-    title: "Friendship Stories for Toddlers and Preschoolers",
+    title: "Friendship Stories for Kids Ages 2+",
     description:
       "Making a first friend, sharing with one, and being a good one — gentle picture books about friendship for ages 2+.",
     intro: [
@@ -99,7 +99,7 @@ export const COLLECTIONS: Collection[] = [
   {
     slug: "curiosity-stories-for-kids",
     tag: "curiosity",
-    title: "Curious Adventure Stories for Preschoolers",
+    title: "Curious Adventure Stories for Kids Ages 2+",
     description:
       "Small adventures at a bedtime pace — a museum dinosaur, a compass in the woods, a map in a bottle, a turtle on a hill. Exciting without being winding-up.",
     intro: [
@@ -113,7 +113,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "sea",
     title: "Ocean and Sea Stories for Kids",
     description:
-      "Seals, starfish, harbors, lighthouses, and tide-line discoveries — calm ocean picture books for toddlers and preschoolers ages 2+.",
+      "Seals, starfish, harbors, lighthouses, and tide-line discoveries — calm ocean picture books for kids ages 2+.",
     intro: [
       "There's a reason so many bedtime books end up underwater. Water moves slowly, sounds soften, and light goes blue and dim — an ocean setting is halfway to a lullaby before anything happens in it.",
       "These stories live by the sea: Sully learning to slow down in the bay, Twinkle carried up to see the stars, Bo the little red boat in a big harbor, Theo's hidden cove at low tide, and Cora the cormorant keeping her lamp spinning for boats and ducklings alike.",
@@ -123,7 +123,7 @@ export const COLLECTIONS: Collection[] = [
   {
     slug: "winter-and-snow-stories",
     tag: "snow",
-    title: "Winter and Snow Stories for Toddlers",
+    title: "Winter and Snow Stories for Kids Ages 2+",
     description:
       "Snow days, hibernation, and the coldest day of the year — cozy winter picture books for ages 2+.",
     intro: [
@@ -156,15 +156,175 @@ export const COLLECTIONS: Collection[] = [
     ],
     note: "These pair well with real waiting — timer on the oven, shoes by the door. Name what the character does with their hands while they wait.",
   },
+  {
+    slug: "stories-about-sharing",
+    tag: "sharing",
+    title: "Stories About Sharing for Kids Ages 2+",
+    description:
+      "Picture books where sharing is the plot — scarves, snacks, space under an umbrella, and learning to make room for someone else.",
+    intro: [
+      "Sharing is abstract until a story makes it concrete: one scarf, two penguins, a cold day. These books show the moment of giving something up — and what comes back.",
+      "Pim and Pax share one red scarf; Lottie makes room under her umbrella; cookies, apples, and lanterns get passed around without a lecture at the end.",
+    ],
+    note: "If sharing is a sore point at home, read one of these on a calm night — not mid-argument — and let the story do the talking.",
+  },
+  {
+    slug: "stories-about-honesty",
+    tag: "honesty",
+    title: "Stories About Honesty for Little Kids",
+    description:
+      "Gentle picture books about telling the truth — broken vases, small mistakes, and the relief of saying what happened.",
+    intro: [
+      "Honesty at ages 2+ is usually about one small thing that went wrong. A story that walks through that moment — fear, confession, then comfort — gives kids a map for the next time.",
+      "Ella tells Grandma the truth about a broken vase. The plot stays soft; the feeling of coming clean is the whole point.",
+    ],
+    note: "Keep the conversation short afterward: \"What would you have done?\" One question is enough.",
+  },
+  {
+    slug: "stories-about-confidence",
+    tag: "confidence",
+    title: "Stories About Being Yourself — Ages 2+",
+    description:
+      "Picture books about trying, standing tall in a small way, and finding your own voice — for kids ages 2+.",
+    intro: [
+      "Confidence in a bedtime book shouldn't mean fearlessness. It looks like trying the thing you're not sure about, or being yourself when that feels hard.",
+      "These stories give that feeling a shape: characters who practice, speak up, or find a way that fits them — without a pep talk on the last page.",
+    ],
+    note: "Name the try, not the triumph: \"She was nervous and she did it anyway.\"",
+  },
+  {
+    slug: "stories-about-creativity",
+    tag: "creativity",
+    title: "Stories About Making and Fixing for Kids",
+    description:
+      "Building, baking, mending, and inventing — gentle picture books about making things with your hands for ages 2+.",
+    intro: [
+      "Kids this age learn by doing. Stories about making a nest, baking a cake, or fixing something broken mirror the hours they spend with blocks and crayons.",
+      "These books keep the making in the middle of the plot — not as a craft tip, but as the way the character solves the day.",
+    ],
+    note: "Good to read on a quiet indoor afternoon too — they often send kids looking for tape and cardboard afterward.",
+  },
+  {
+    slug: "stories-about-music",
+    tag: "music",
+    title: "Music Stories for Kids Ages 2+",
+    description:
+      "Songs, instruments, and quiet rhythms — picture books where music is part of the wind-down for ages 2+.",
+    intro: [
+      "Music and bedtime already belong together. These stories put a song, a beat, or an instrument inside the plot so the night ends with sound that settles rather than winds up.",
+    ],
+    note: "Hum or tap along softly — toddlers often join in before they understand every word.",
+  },
+  {
+    slug: "boy-bedtime-stories",
+    tag: "boy",
+    title: "Bedtime Stories with Boys — Ages 2+",
+    description:
+      "Picture books starring little boys — museum days, sea adventures, garden feelings, and quiet evenings for ages 2+.",
+    intro: [
+      "Some parents want a story where the main character is a boy their child can mirror. These are that shelf: Leo at the museum, Theo by the tide, and other small adventures at bedtime pace.",
+    ],
+    note: "Pair with an animal story if they want variety — many of the best bedtime books star animals too.",
+  },
+  {
+    slug: "girl-bedtime-stories",
+    tag: "girl",
+    title: "Bedtime Stories with Girls — Ages 2+",
+    description:
+      "Picture books starring little girls — kindness, courage, creativity, and cozy family nights for ages 2+.",
+    intro: [
+      "Nora baking for a neighbor, Mia walking into the mist, Ella telling the truth — these stories put a girl at the center without turning the night into a lesson.",
+    ],
+    note: "If your child asks for \"the girl one\" every night, that's the story working — let them have it.",
+  },
+  {
+    slug: "stories-with-toys-and-things",
+    tag: "objects",
+    title: "Stories with Toys and Things — Ages 2+",
+    description:
+      "Boats, lanterns, and beloved objects that take a turn as the hero — gentle picture books for kids ages 2+.",
+    intro: [
+      "Sometimes the main character isn't a child or an animal — it's a little boat, a lantern, or a thing with a job to do. That distance makes big feelings easier to hold.",
+    ],
+    note: "Ask what their favorite toy would do in the same spot — one short question, then lights out.",
+  },
+  {
+    slug: "forest-and-woods-stories",
+    tag: "forest",
+    title: "Forest and Woods Stories for Kids Ages 2+",
+    description:
+      "Trees, paths, and quiet woods — calm forest picture books written for bedtime at ages 2+.",
+    intro: [
+      "A forest at bedtime is soft on purpose: leaves, paths, and animals who know the way home. These stories stay in the woods without turning scary.",
+      "Mia's misty path, Bramble's hibernation bed, and friends under the trees — each one ends somewhere safe.",
+    ],
+    note: "Slow down on the walking sounds — toddlers often march their fingers along with the path.",
+  },
+  {
+    slug: "garden-and-farm-stories",
+    tag: "garden",
+    title: "Garden and Farm Stories for Kids Ages 2+",
+    description:
+      "Gardens, farms, flowers, and growing things — gentle outdoor picture books for ages 2+.",
+    intro: [
+      "Gardens are the right size for this age: small enough to know, alive enough to wonder about. These stories live among flowers, nests, and patches of sun.",
+    ],
+    note: "Nice to read after a day outside — name one plant you saw that morning.",
+  },
+  {
+    slug: "home-and-town-stories",
+    tag: "town",
+    title: "Home and Town Stories for Kids Ages 2+",
+    description:
+      "Streets, neighbors, parks, and the way home — picture books set in familiar places for ages 2+.",
+    intro: [
+      "Town stories feel like the child's own day: a park hello, a neighbor's door, the walk back to their house. Bedtime lands softer when the setting already feels known.",
+    ],
+    note: "Point out one place from the story that matches your street — \"That's like our corner.\"",
+  },
+  {
+    slug: "rainy-day-stories",
+    tag: "rain",
+    title: "Rainy-Day Stories for Kids Ages 2+",
+    description:
+      "Puddles, umbrellas, and soft rain sounds — cozy wet-weather picture books for ages 2+.",
+    intro: [
+      "Rain is already a lullaby if you let it be. These stories lean into that: umbrellas shared, windows steamed, and days that end indoors and warm.",
+    ],
+    note: "On a real rainy night, read by the window for a minute first — then open the book.",
+  },
+  {
+    slug: "moon-and-stars-stories",
+    tag: "night",
+    title: "Moon and Stars Stories for Kids Ages 2+",
+    description:
+      "Night skies, moonlight, and soft dark — picture books that belong at the end of the day for ages 2+.",
+    intro: [
+      "Night stories work because they name the dark without making it scary. Moon, stars, fireflies, and lamps that stay on for someone who needs them.",
+      "Pip and a firefly under the moon, lighthouse lamps, and quiet nights by the sea — each one ends with the lights going soft.",
+    ],
+    note: "Dim the room a little before you start — the setting does half the work.",
+  },
+  {
+    slug: "magic-and-wonder-stories",
+    tag: "magic",
+    title: "Magic and Wonder Stories for Kids Ages 2+",
+    description:
+      "Soft wonder — not spooky magic — in gentle picture books for bedtime at ages 2+.",
+    intro: [
+      "Wonder at this age is a copper compass, a bottle with a map, a star that feels close enough to touch. These stories keep the magic quiet enough for lights out.",
+    ],
+    note: "If they're easily wound up, finish with a sleepy bedtime story after the wonder one.",
+  },
 ];
 
 export function getCollection(slug: string): Collection | undefined {
   return COLLECTIONS.find((c) => c.slug === slug);
 }
 
-/** Collections with their stories resolved, skipping any that came up thin. */
+/** Collections with their stories resolved, skipping empty ones. */
 export function collectionsWithStories() {
   return COLLECTIONS.map((c) => ({ ...c, stories: storiesByTag(c.tag) })).filter(
-    (c) => c.stories.length >= 3,
+    (c) => c.stories.length >= 1,
   );
 }

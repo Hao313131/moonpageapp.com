@@ -60,7 +60,7 @@ export default async function StoryPage({ params }: { params: Params }) {
     "@type": "Book",
     bookFormat: "https://schema.org/EBook",
     name: story.title,
-    description: story.summary[0],
+    description: `${story.hook} ${story.bedtimeNote}`,
     image,
     url,
     inLanguage: "en",
@@ -162,19 +162,10 @@ export default async function StoryPage({ params }: { params: Params }) {
 
           <section className="mt-10 sm:mt-12">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
-              What happens
-            </h2>
-            <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
-              {story.summary[0]}
-            </p>
-          </section>
-
-          <section className="mt-8 sm:mt-10">
-            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
               Why it works at bedtime
             </h2>
             <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
-              {story.summary[1]}
+              {story.bedtimeNote}
             </p>
           </section>
 

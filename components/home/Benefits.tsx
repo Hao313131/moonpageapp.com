@@ -39,13 +39,13 @@ export function Benefits() {
           A bedtime stories app built for winding down
         </h2>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-muted sm:max-w-lg sm:text-base">
-          MoonPage is a read-aloud bedtime stories app for toddlers and
-          preschoolers — original, illustrated picture books for ages 2+.
-          Instead of screen time that leaves kids wound up, it&apos;s
-          built for winding down: calm pacing, soft illustrations, and a
-          full-screen reading view with no notifications and nothing else
-          competing for attention. Hear it by a professional narrator, or in
-          your own recorded voice.
+          MoonPage is a read-aloud bedtime stories app for kids ages 2+ —
+          original, illustrated picture books, trusted by thousands of moms.
+          Instead of screen time that leaves kids wound up, it&apos;s built
+          for winding down: calm pacing, soft illustrations, and a full-screen
+          reading view with no notifications and nothing else competing for
+          attention. Hear it by a professional narrator, or in your own
+          recorded voice.
         </p>
       </div>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
