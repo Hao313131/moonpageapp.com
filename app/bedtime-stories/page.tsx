@@ -11,14 +11,12 @@ import { STORIES } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/bedtime-stories",
-  title:
-    "Bedtime Stories for Kids, Toddlers & Preschoolers — Sleepy Picture Storybooks",
+  title: "Bedtime Stories for Kids Ages 2+ — Trusted by Thousands of Moms",
   description:
-    "Browse bedtime stories for kids with cozy sleepy tales, read-aloud picture storybooks, and narration options for toddlers, preschoolers, and parents building a calm bedtime routine.",
+    "Browse bedtime stories for kids ages 2+ — cozy sleepy tales, read-aloud picture storybooks, and narration options for parents building a calm bedtime routine. MoonPage is trusted by thousands of moms.",
   keywords: [
     "kids bedtime stories",
-    "sleepy toddler stories",
-    "preschool bedtime storybooks",
+    "bedtime stories ages 2+",
     "children narration bedtime books",
     "cozy bedtime tales",
     "parent bedtime routine stories",
@@ -49,15 +47,13 @@ export default function BedtimeStoriesLandingPage() {
         <div className="page-gutter mx-auto max-w-5xl py-10 sm:py-14 md:py-20">
           <BackHomeLink />
           <h1 className="mt-4 font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
-            Bedtime stories for kids, toddlers, and preschoolers
+            Bedtime stories for kids ages 2+
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-muted sm:mt-4 sm:text-base">
             MoonPage collects cozy bedtime tales, sleepy picture storybooks,
             and gentle children&apos;s stories for families with little kids.
-            If you&apos;re searching for bedtime stories for toddlers,
-            preschool bedtime stories, children&apos;s storybook narration, or
-            calm read-aloud stories for parent-and-child wind-down routines,
-            you&apos;re in the right place.
+            Trusted by thousands of moms looking for calm read-aloud stories
+            and a wind-down routine that actually works.
           </p>
 
           <SampleShelfNotice className="mt-5 sm:mt-6" />

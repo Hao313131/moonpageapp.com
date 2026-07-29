@@ -38,19 +38,28 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
+  // Stable favicon URLs — Google won't show a SERP icon if the href keeps
+  // changing (Next's hashed app/icon.png URLs fail that guideline).
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   keywords: [
     "bedtime stories for kids",
-    "sleepy stories for toddlers",
-    "preschool bedtime stories",
-    "children's picture storybooks",
+    "bedtime stories ages 2+",
     "kids storybook app",
+    "bedtime stories app phone tablet",
+    "kids bedtime stories app for phone",
+    "bedtime stories app for tablet",
     "read aloud stories for children",
     "children narration app",
     "lullaby bedtime tales",
     "parent child bedtime routine",
     "cozy bedtime tales",
-    "baby sleep stories",
-    "storybook for toddlers",
+    "children's picture storybooks",
   ],
   alternates: { canonical: SITE.domain },
   // Lets Google use a large cover thumbnail next to results and in Discover —
@@ -91,7 +100,12 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: SITE.operator,
   url: SITE.domain,
-  logo: `${SITE.domain}/icon.png`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE.domain}/icon.png`,
+    width: 1024,
+    height: 1024,
+  },
   sameAs: [SITE.instagramUrl],
   contactPoint: {
     "@type": "ContactPoint",
@@ -106,7 +120,7 @@ const websiteJsonLd = {
   name: SITE.name,
   url: SITE.domain,
   description:
-    "Original bedtime stories for kids — hand-picked, no ads, no login required.",
+    "Original bedtime stories for kids ages 2+ — a phone and tablet app trusted by thousands of moms. No ads, no login required.",
   inLanguage: "en",
   publisher: { "@type": "Organization", name: SITE.operator },
 };
@@ -120,7 +134,7 @@ const appJsonLd = {
   operatingSystem: "iOS, Android",
   applicationCategory: "EducationalApplication",
   description:
-    "Original, illustrated bedtime stories for toddlers and preschoolers — by a professional narrator, or in your own recorded voice.",
+    "A bedtime stories app for kids ages 2+ — original illustrated stories, trusted by thousands of moms. Hear them by a professional narrator or in your own recorded voice.",
   publisher: { "@type": "Organization", name: SITE.operator },
   offers: { "@type": "Offer", category: "subscription" },
 };

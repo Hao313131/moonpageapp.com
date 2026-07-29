@@ -13,13 +13,12 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/stories",
-  title: "Bedtime Stories for Kids — Original Illustrated Picture Books",
+  title: "Bedtime Stories for Kids Ages 2+ — Original Picture Books",
   description:
-    "A sample from MoonPage's growing library of original illustrated bedtime stories for toddlers and preschoolers ages 2+. By a professional narrator, or in your own recorded voice.",
+    "A sample from MoonPage's growing library of original illustrated bedtime stories for kids ages 2+. Trusted by thousands of moms — read on phone or tablet by a professional narrator, or in your own recorded voice.",
   keywords: [
     "bedtime stories for kids",
-    "sleepy stories for toddlers",
-    "preschool bedtime storybook",
+    "bedtime stories ages 2+",
     "children picture storybooks",
     "kids narration stories",
     "cozy bedtime tales",
@@ -76,9 +75,9 @@ export default function StoriesPage() {
           <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-2xl sm:text-base">
             A handful of MoonPage&apos;s original, illustrated picture books —
             the library they come from is much larger, and it keeps growing.
-            Gentle tales about kindness, courage, and curiosity for toddlers
-            and preschoolers ages 2+, read aloud by a professional
-            narrator or in your own recorded voice.
+            Gentle tales about kindness, courage, and curiosity for ages 2+,
+            read aloud by a professional narrator or in your own recorded
+            voice.
           </p>
 
           <SampleShelfNotice className="mt-5 sm:mt-6" />

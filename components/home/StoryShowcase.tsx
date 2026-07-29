@@ -31,7 +31,7 @@ export function StoryShowcase() {
                   {s.title}
                 </p>
                 <p className="text-xs leading-snug text-ink-muted sm:text-sm">
-                  {s.shortHook ?? s.hook}
+                  {s.hook}
                 </p>
               </figcaption>
             </Link>

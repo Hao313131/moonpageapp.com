@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/collections",
   title: "Children's Bedtime Stories by Theme",
   description:
-    "Browse children's bedtime stories by theme — bedtime, animals, kindness, big feelings, friendship, courage, curiosity, ocean, snow, family, and patience.",
+    "Browse children's bedtime stories by theme — animals, kindness, feelings, friendship, courage, family, sea, forest, night, and more. All for ages 2+.",
   keywords: [
     "bedtime stories by theme",
     "kids story collections",

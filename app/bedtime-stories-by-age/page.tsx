@@ -8,67 +8,57 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/bedtime-stories-by-age",
-  title: "Bedtime Stories by Age: What to Read from Baby to 9",
+  title: "Bedtime Stories by Age: Ages 2–3, 4–5 and 6–7",
   description:
-    "How long a bedtime story should be, what kind of book works, and how much sleep children need — age by age, from babies through to nine-year-olds.",
+    "How long a bedtime story should be, what kind of book works, and how much sleep children need — in three age bands, from two-year-olds through to seven-year-olds.",
   keywords: [
     "bedtime stories by age",
-    "bedtime stories for babies",
     "bedtime stories for 2 year olds",
     "bedtime stories for 3 year olds",
     "bedtime stories for 4 year olds",
     "bedtime stories for 5 year olds",
+    "bedtime stories for 6 year olds",
+    "bedtime stories for 7 year olds",
     "how long should a bedtime story be",
   ],
 });
 
 /**
- * The hub for the age-series guides. It exists to rank for "bedtime stories
- * for a X-year-old" as a set, and to give the four guides a parent page that
- * isn't the general /guides index.
+ * The hub for the age-series guides, in three bands rather than one card per
+ * year — the advice genuinely changes at those boundaries, and a band keeps
+ * each card substantial instead of six near-identical ones. Each band links
+ * out to the per-year guides underneath it.
  */
-const AGES = [
+const AGE_BANDS = [
   {
-    slug: "bedtime-stories-for-babies",
-    age: "Under 2",
-    length: "2–3 minutes",
-    sleep: "11–14 hours per day, including naps",
-    what: "Barely a story — a signal. One short board book or the same rhyme twice, in the same position every evening. Rhythm and familiarity are what a baby tracks, not meaning, and the routine is much easier to build now than at two.",
+    band: "Ages 2–3",
+    length: "5–15 minutes",
+    sleep: "10–14 hours per day, including naps",
+    what: "This is where reading goes from naming things to following a story. At two it's short board books, one or two sentences a spread, concrete nouns they can point at, and a repeating line they can join in with — expect constant interruption, because the talk around the book is most of the value. By three they can hold a real plot: a small character wants something, tries, and gets there. Keep the problem domestic; three-year-olds have the comprehension for tension and not the regulation to shake it off at lights out.",
+    guides: [
+      { slug: "bedtime-stories-for-2-year-olds", label: "Full guide: age 2" },
+      { slug: "bedtime-stories-for-3-year-olds", label: "Full guide: age 3" },
+    ],
   },
   {
-    slug: "bedtime-stories-for-2-year-olds",
-    age: "Age 2",
-    length: "5–10 minutes",
-    sleep: "11–14 hours per day, including naps",
-    what: "Short board books with one or two sentences a page, concrete nouns they can point at, and a repeating line they can join in with. Expect interruptions — the talk around the book is most of the value at two.",
-  },
-  {
-    slug: "bedtime-stories-for-3-year-olds",
-    age: "Age 3",
-    length: "10–15 minutes",
-    sleep: "10–13 hours per day, including any nap",
-    what: "Real plots for the first time: a small character wants something, tries, and gets there. Keep the problem domestic — three-year-olds have the comprehension for tension and not the regulation to shake it off at lights out.",
-  },
-  {
-    slug: "bedtime-stories-for-4-year-olds",
-    age: "Age 4",
-    length: "10–15 minutes",
+    band: "Ages 4–5",
+    length: "10–20 minutes",
     sleep: "10–13 hours per day",
-    what: "Longer picture books with side characters and jokes that need setup, plus first illustrated chapter books a chapter at a time. Stop at a calm moment rather than a cliffhanger.",
+    what: "Longer picture books with side characters and jokes that need setup, plus the first illustrated chapter books read a chapter at a time — stop at a calm moment rather than a cliffhanger. This is also when children start arguing with the ending, asking big questions at lights out, and, around five, learning to read at school. Keep decoding practice in the daytime and leave bedtime as reading they simply enjoy.",
+    guides: [
+      { slug: "bedtime-stories-for-4-year-olds", label: "Full guide: age 4" },
+      {
+        slug: "bedtime-stories-for-5-year-olds",
+        label: "Full guide: ages 5–6",
+      },
+    ],
   },
   {
-    slug: "bedtime-stories-for-5-year-olds",
-    age: "Ages 5–6",
-    length: "15–20 minutes",
-    sleep: "9–12 hours per day",
-    what: "Read above their reading level on purpose — illustrated chapter books, folk tales, short story collections. Keep school reading practice in the daytime and leave bedtime as reading they simply enjoy.",
-  },
-  {
-    slug: "school-age-bedtime",
-    age: "Ages 6–9",
+    band: "Ages 6–7",
     length: "15–20 minutes",
     sleep: "9–12 hours per night",
-    what: "Keep reading aloud — this is the age it usually stops, and listening comprehension is still years ahead of reading ability. Alternate who reads, and expect the day's worries to arrive at lights out.",
+    what: "The age reading aloud usually stops, and the age it's most worth keeping — listening comprehension stays years ahead of reading ability, so this is where a child meets stories, vocabulary, and sentences they can't yet decode alone. Alternate who reads, keep the last book calm, and expect the day's worries to arrive at lights out now that school is in the mix.",
+    guides: [{ slug: "school-age-bedtime", label: "Full guide: ages 6–9" }],
   },
 ] as const;
 
@@ -98,42 +88,65 @@ export default function BedtimeStoriesByAgePage() {
           </h1>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted sm:mt-4 sm:text-base">
             What holds a child&apos;s attention at bedtime changes fast between
-            the first year and school age — the length, the kind of plot, and
-            how much of the reading they want to do themselves. Here&apos;s the
-            short version for each age, with a full guide behind every one.
+            two and seven — the length, the kind of plot, and how much of the
+            reading they want to do themselves. Here&apos;s the short version
+            for each stage, with the full guides behind it.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2">
-            {AGES.map((entry) => (
+          <div className="mt-8 space-y-4 sm:mt-12 sm:space-y-5">
+            {AGE_BANDS.map((entry) => (
               <div
-                key={entry.slug}
-                className="flex min-w-0 flex-col rounded-2xl border border-wood/20 bg-paper p-5 sm:rounded-3xl sm:p-6"
+                key={entry.band}
+                className="flex min-w-0 flex-col rounded-2xl border border-wood/20 bg-paper p-5 sm:rounded-3xl sm:p-6 md:p-8"
               >
-                <p className="text-xs font-semibold uppercase tracking-wide text-accent-strong">
-                  {entry.age}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">
+                <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+                  {entry.band}
+                </h2>
+                <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
                   {entry.what}
                 </p>
                 <dl className="mt-4 space-y-1 text-sm text-ink-muted">
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-x-2">
                     <dt className="font-semibold text-ink">Story length</dt>
                     <dd>{entry.length}</dd>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-x-2">
                     <dt className="font-semibold text-ink">Sleep needed</dt>
                     <dd>{entry.sleep}</dd>
                   </div>
                 </dl>
-                <Link
-                  href={`/guides/${entry.slug}`}
-                  className="mt-4 text-sm font-semibold text-link underline hover:text-link-hover"
-                >
-                  Read the full guide
-                </Link>
+                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                  {entry.guides.map((g) => (
+                    <Link
+                      key={g.slug}
+                      href={`/guides/${g.slug}`}
+                      className="text-sm font-semibold text-link underline hover:text-link-hover"
+                    >
+                      {g.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
+
+          <p className="mt-6 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+            Younger or older than that? There&apos;s a separate guide on{" "}
+            <Link
+              href="/guides/bedtime-stories-for-babies"
+              className="font-medium text-link underline hover:text-link-hover"
+            >
+              bedtime stories for babies
+            </Link>{" "}
+            and one on{" "}
+            <Link
+              href="/guides/school-age-bedtime"
+              className="font-medium text-link underline hover:text-link-hover"
+            >
+              bedtime for school-age children up to nine
+            </Link>
+            .
+          </p>
 
           <section className="mt-10 sm:mt-14">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">

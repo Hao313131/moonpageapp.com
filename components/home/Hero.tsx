@@ -1,19 +1,22 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import { StoreButtons } from "@/components/StoreButtons";
+import { SITE } from "@/lib/site";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="page-gutter mx-auto grid max-w-6xl items-center gap-10 py-12 sm:gap-12 sm:py-16 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] md:gap-10 md:py-20 lg:gap-14 lg:py-24">
         <div className="min-w-0 text-center md:text-left">
-          <h1 className="max-w-xl font-display text-[1.875rem] font-semibold leading-[1.12] text-ink sm:max-w-2xl sm:text-4xl md:max-w-none lg:text-5xl">
+          <p className="text-sm font-bold tracking-wide text-accent-strong sm:text-base">
+            {SITE.trustLine}
+          </p>
+          <h1 className="mt-2 max-w-xl font-display text-[1.875rem] font-semibold leading-[1.12] text-ink sm:mt-3 sm:max-w-2xl sm:text-4xl md:max-w-none lg:text-5xl">
             One more story, and off to sleep.
           </h1>
           <p className="mx-auto mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base md:mx-0">
-            Calm original stories that wind little ones down — by a
-            professional narrator, or in your own recorded voice. Free to start
-            tonight.
+            Calm original stories for kids ages 2+ — by a professional
+            narrator, or in your own recorded voice. Free to start tonight.
           </p>
 
           <div
