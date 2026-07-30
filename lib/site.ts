@@ -23,7 +23,7 @@ export const SITE = {
    * shared link, so it has to sell on its own.
    */
   description:
-    "MoonPage is a bedtime stories app for kids ages 2+ — original illustrated picture storybooks and lullaby-style sleepy tales, trusted by thousands of moms. Hear them by a professional narrator, or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
+    "MoonPage is a cozy bedtime stories app for kids, toddlers, preschoolers, and parents — original illustrated picture storybooks, lullaby-style sleepy tales, and read-aloud narration. Trusted by thousands of moms. Hear stories by a professional narrator or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
   // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
   // (Settings → Pages → Custom domain).
   domain: "https://moonpageapp.com",
@@ -81,22 +81,46 @@ export function playStoreLink(campaign: string): string {
  * against gaps rather than guessed at.
  */
 export const ASO_KEYWORDS = {
-  category: ["bedtime stories app", "kids story app", "children's book app", "read aloud app"],
-  audience: ["toddlers", "preschool", "preschoolers", "kids ages 2+", "2+"],
+  category: [
+    "bedtime stories app",
+    "kids story app",
+    "children's book app",
+    "read aloud app",
+    "picture book app",
+    "storybook app for kids",
+  ],
+  audience: [
+    "toddlers",
+    "preschool",
+    "preschoolers",
+    "kids ages 2+",
+    "2+",
+    "baby",
+    "babies",
+    "children",
+    "parents",
+  ],
   intent: [
+    "moonpage",
     "bedtime stories for toddlers",
     "bedtime stories for preschoolers",
     "bedtime stories for kids",
     "children's bedtime stories",
     "kids sleepy stories",
     "cozy bedtime tales",
+    "cozy bedtime stories",
     "lullaby stories for kids",
+    "lullaby bedtime stories",
     "picture storybooks for children",
+    "read aloud picture books",
     "sleepy time",
     "bedtime reading",
     "wind down routine",
     "screen time",
     "story books",
+    "kids storybooks",
+    "children narration",
+    "parent bedtime stories",
   ],
   feature: [
     "narration",
@@ -104,6 +128,8 @@ export const ASO_KEYWORDS = {
     "record your own voice",
     "offline stories",
     "no ads kids app",
+    "lullaby",
+    "cozy tales",
   ],
   platform: [
     "phone & tablet app",
@@ -127,11 +153,14 @@ export function pageMetadata({
   title,
   description,
   keywords,
+  image = "/og-image.png",
 }: {
   path: string;
   title: string;
   description: string;
   keywords?: string[];
+  /** Absolute path or full URL for OG/Twitter image (defaults to site OG). */
+  image?: string;
 }) {
   const url = `${SITE.domain}${path}`;
   return {
@@ -144,14 +173,52 @@ export function pageMetadata({
       description,
       url,
       siteName: SITE.name,
-      images: ["/og-image.png"],
+      images: [image],
       type: "website" as const,
     },
     twitter: {
       card: "summary_large_image" as const,
       title,
       description,
-      images: ["/og-image.png"],
+      images: [image],
     },
   };
+}
+
+/** Breadcrumb + optional FAQPage JSON-LD for SEO hub pages. */
+export function hubJsonLd({
+  path,
+  name,
+  faqs,
+}: {
+  path: string;
+  name: string;
+  faqs?: { q: string; a: string }[];
+}) {
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name,
+        item: `${SITE.domain}${path}`,
+      },
+    ],
+  };
+  if (!faqs?.length) return [breadcrumb];
+  return [
+    breadcrumb,
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
 }

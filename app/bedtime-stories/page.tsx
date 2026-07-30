@@ -11,9 +11,9 @@ import { STORIES } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/bedtime-stories",
-  title: "Bedtime Stories for Kids Ages 2+ — Trusted by Thousands of Moms",
+  title: "Bedtime Stories for Kids Ages 2+ — Cozy, Sleepy, Read-Aloud Tales",
   description:
-    "Browse bedtime stories for kids ages 2+ — cozy sleepy tales, read-aloud picture storybooks, and narration options for parents building a calm bedtime routine. MoonPage is trusted by thousands of moms.",
+    "Browse bedtime stories for kids ages 2+ — cozy sleepy tales, lullaby-style picture storybooks, read-aloud narration, and toddler/preschool wind-down stories. MoonPage is trusted by thousands of moms.",
   keywords: [
     "kids bedtime stories",
     "bedtime stories ages 2+",
@@ -22,6 +22,9 @@ export const metadata: Metadata = pageMetadata({
     "parent bedtime routine stories",
     "lullaby style stories",
     "picture books for children",
+    "sleepy stories for kids",
+    "read aloud bedtime stories",
+    "toddler bedtime stories",
   ],
 });
 
@@ -115,6 +118,36 @@ export default function BedtimeStoriesLandingPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Read-aloud bedtime stories
+              </Link>
+              <Link
+                href="/cozy-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Cozy bedtime tales
+              </Link>
+              <Link
+                href="/lullaby-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Lullaby bedtime stories
+              </Link>
+              <Link
+                href="/picture-books-for-kids"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Picture books for kids
+              </Link>
+              <Link
+                href="/bedtime-stories-app"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Bedtime stories app
+              </Link>
+              <Link
+                href="/bedtime-stories-by-age"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Stories by age
               </Link>
             </div>
           </section>
