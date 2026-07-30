@@ -8,7 +8,7 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div className="page-gutter mx-auto grid max-w-6xl items-center gap-10 py-12 sm:gap-12 sm:py-16 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] md:gap-10 md:py-20 lg:gap-14 lg:py-24">
         <div className="min-w-0 text-center md:text-left">
-          <p className="text-sm font-bold tracking-wide text-accent-strong sm:text-base">
+          <p className="inline-block rounded-full bg-accent px-4 py-1.5 text-sm font-extrabold tracking-wide text-ink shadow-sm sm:text-base md:text-lg">
             {SITE.trustLine}
           </p>
           <h1 className="mt-2 max-w-xl font-display text-[1.875rem] font-semibold leading-[1.12] text-ink sm:mt-3 sm:max-w-2xl sm:text-4xl md:max-w-none lg:text-5xl">
