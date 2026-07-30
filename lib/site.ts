@@ -11,9 +11,10 @@ export const SITE = {
    * preschoolers phrasing.
    */
   title:
-    "MoonPage: Bedtime Stories for Kids Ages 2+ — Trusted by Thousands of Moms",
+    "MoonPage: Bedtime Stories for Kids Ages 2+ — Trusted by thousands of moms for calmer bedtime routines and cozy stories.",
   /** Short social-proof line used in the hero and near download CTAs. */
-  trustLine: "Trusted by thousands of moms",
+  trustLine:
+    "Trusted by thousands of moms for calmer bedtime routines and cozy stories.",
   /** App Store subtitle (30 char limit). Deliberately shares no words with
    * `title` above — repeated terms buy nothing in Apple's search index. */
   subtitle: "Sleepy Picture Storybooks",
@@ -23,7 +24,7 @@ export const SITE = {
    * shared link, so it has to sell on its own.
    */
   description:
-    "MoonPage is a cozy bedtime stories app for kids, toddlers, preschoolers, and parents — original illustrated picture storybooks, lullaby-style sleepy tales, and read-aloud narration. Trusted by thousands of moms. Hear stories by a professional narrator or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
+    "MoonPage is a cozy bedtime stories app for kids, toddlers, preschoolers, and parents — original illustrated picture storybooks, lullaby-style sleepy tales, and read-aloud narration. Trusted by thousands of moms for calmer bedtime routines and cozy stories. Hear stories by a professional narrator or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
   // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
   // (Settings → Pages → Custom domain).
   domain: "https://moonpageapp.com",

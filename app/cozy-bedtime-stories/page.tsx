@@ -79,8 +79,8 @@ export default function CozyBedtimeStoriesPage() {
           </p>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted sm:text-base">
             Browse cozy tales by theme, read them aloud, or play calm narration.
-            Trusted by thousands of moms looking for wind-down stories that
-            actually help kids settle.
+            Trusted by thousands of moms for calmer bedtime routines and cozy
+            stories.
           </p>
 
           <SampleShelfNotice className="mt-5 sm:mt-6" />
