@@ -34,7 +34,16 @@ export async function generateMetadata({
   return pageMetadata({
     path: `/stories/${story.slug}`,
     title: `${story.title} — A Bedtime Story for Ages 2+`,
-    description: `${story.hook} An original illustrated bedtime story in MoonPage, by a professional narrator or in your own recorded voice.`,
+    description: `${story.hook} An original illustrated bedtime storybook in MoonPage for kids ages 2+ — read aloud, hear calm narration, or play it in your own recorded voice.`,
+    keywords: [
+      story.title.toLowerCase(),
+      "bedtime story",
+      "picture book for kids",
+      "read aloud storybook",
+      ...story.tags.map((t) => TAG_LABELS[t].toLowerCase()),
+    ],
+    // Stable cover URL without cache-bust query — better for OG crawlers.
+    image: `${SITE.domain}/covers/${story.file}`,
   });
 }
 

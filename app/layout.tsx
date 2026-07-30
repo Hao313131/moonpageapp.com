@@ -48,18 +48,20 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   keywords: [
+    "moonpage",
     "bedtime stories for kids",
     "bedtime stories ages 2+",
+    "cozy bedtime stories",
     "kids storybook app",
-    "bedtime stories app phone tablet",
-    "kids bedtime stories app for phone",
-    "bedtime stories app for tablet",
-    "read aloud stories for children",
-    "children narration app",
+    "bedtime stories app",
+    "read aloud picture books",
+    "toddler bedtime stories",
+    "preschool bedtime stories",
     "lullaby bedtime tales",
+    "children narration app",
     "parent child bedtime routine",
-    "cozy bedtime tales",
     "children's picture storybooks",
+    "sleepy stories for kids",
   ],
   alternates: { canonical: SITE.domain },
   // Lets Google use a large cover thumbnail next to results and in Discover —
@@ -120,7 +122,7 @@ const websiteJsonLd = {
   name: SITE.name,
   url: SITE.domain,
   description:
-    "Original bedtime stories for kids ages 2+ — a phone and tablet app trusted by thousands of moms. No ads, no login required.",
+    "Original cozy bedtime stories for kids ages 2+ — a phone and tablet storybook app trusted by thousands of moms. Read-aloud narration, picture books, no ads, no login required.",
   inLanguage: "en",
   publisher: { "@type": "Organization", name: SITE.operator },
 };
@@ -134,7 +136,7 @@ const appJsonLd = {
   operatingSystem: "iOS, Android",
   applicationCategory: "EducationalApplication",
   description:
-    "A bedtime stories app for kids ages 2+ — original illustrated stories, trusted by thousands of moms. Hear them by a professional narrator or in your own recorded voice.",
+    "A bedtime stories app for kids ages 2+ — original illustrated picture storybooks, cozy and lullaby-style sleepy tales, trusted by thousands of moms. Hear them by a professional narrator or in your own recorded voice.",
   publisher: { "@type": "Organization", name: SITE.operator },
   offers: { "@type": "Offer", category: "subscription" },
 };

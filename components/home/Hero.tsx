@@ -15,8 +15,9 @@ export function Hero() {
             One more story, and off to sleep.
           </h1>
           <p className="mx-auto mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base md:mx-0">
-            Calm original stories for kids ages 2+ — by a professional
-            narrator, or in your own recorded voice. Free to start tonight.
+            Cozy bedtime stories and illustrated picture books for kids ages
+            2+ — read aloud by a professional narrator, or in your own recorded
+            voice. Free to start tonight.
           </p>
 
           <div

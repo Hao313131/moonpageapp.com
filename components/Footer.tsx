@@ -74,6 +74,31 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/read-aloud-bedtime-stories" className="hover:text-white">
+                  Read-aloud bedtime stories
+                </Link>
+              </li>
+              <li>
+                <Link href="/cozy-bedtime-stories" className="hover:text-white">
+                  Cozy bedtime tales
+                </Link>
+              </li>
+              <li>
+                <Link href="/lullaby-bedtime-stories" className="hover:text-white">
+                  Lullaby bedtime stories
+                </Link>
+              </li>
+              <li>
+                <Link href="/picture-books-for-kids" className="hover:text-white">
+                  Picture books for kids
+                </Link>
+              </li>
+              <li>
+                <Link href="/bedtime-stories-app" className="hover:text-white">
+                  Bedtime stories app
+                </Link>
+              </li>
+              <li>
                 <Link href="/bedtime-stories-by-age" className="hover:text-white">
                   Bedtime stories by age
                 </Link>
