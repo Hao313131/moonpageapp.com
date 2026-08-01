@@ -6,12 +6,11 @@
 export const SITE = {
   name: "MoonPage",
   /**
-   * Homepage <title>. Brand-first, ages 2+, then a short trust line parents
-   * scan for in search results — kept shorter than the old toddlers/
-   * preschoolers phrasing.
+   * Homepage <title>. Brand-first and short enough to survive Google's ~60
+   * char truncation intact — the old version trailed the whole trust line and
+   * got cut off mid-sentence in results.
    */
-  title:
-    "MoonPage: Bedtime Stories for Kids Ages 2+ — Trusted by thousands of moms for calmer bedtime routines and cozy stories.",
+  title: "MoonPage: Cozy Bedtime Stories App for Kids",
   /** Short social-proof line used in the hero and near download CTAs. */
   trustLine:
     "Trusted by thousands of moms for calmer bedtime routines and cozy stories.",
@@ -31,6 +30,8 @@ export const SITE = {
   contactEmail: "moonpageapp@gmail.com",
   instagramUrl: "https://www.instagram.com/moonpageapp/",
   instagramHandle: "@moonpageapp",
+  tiktokUrl: "https://www.tiktok.com/@moonpageapp",
+  tiktokHandle: "@moonpageapp",
   operator: "EchoRealm",
   bundleId: "com.echorealmmedia.moonpage",
   // TODO: create a Buttondown account (buttondown.com) and replace with the

@@ -1,4 +1,4 @@
-import { InstagramLink } from "./SocialLinks";
+import { SocialLinks } from "./SocialLinks";
 
 /**
  * Plain HTML form POST straight to Buttondown's embed-subscribe endpoint —
@@ -11,7 +11,7 @@ import { InstagramLink } from "./SocialLinks";
 // const ACTION = (username: string) =>
 //   `https://buttondown.com/api/emails/embed-subscribe/${username}`;
 
-/** Instagram follow CTA — email subscribe paused. */
+/** Instagram + TikTok follow CTA — email subscribe paused. */
 export const FOLLOW_HEADLINE =
   "Follow for parenting tips and story updates";
 
@@ -21,8 +21,8 @@ export const SUBSCRIBE_HEADLINE = FOLLOW_HEADLINE;
 type Tone = "cream" | "night";
 
 /**
- * Follow copy + IG glyph. IG box matches BrandMark icon height so the header
- * row aligns. Email form kept commented below for a later restore.
+ * Follow copy + IG/TikTok glyphs. The tiles match BrandMark icon height so the
+ * header row aligns. Email form kept commented below for a later restore.
  */
 export function SubscribeCluster({
   className = "",
@@ -49,7 +49,7 @@ export function SubscribeCluster({
       >
         {FOLLOW_HEADLINE}
       </p>
-      <InstagramLink size={igSize} title={FOLLOW_HEADLINE} />
+      <SocialLinks size={igSize} title={FOLLOW_HEADLINE} />
 
       {/*
       Email subscribe (Buttondown) — restore when needed:

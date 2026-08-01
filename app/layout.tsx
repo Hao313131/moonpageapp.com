@@ -39,11 +39,15 @@ export const metadata: Metadata = {
   },
   description: SITE.description,
   // Stable favicon URLs — Google won't show a SERP icon if the href keeps
-  // changing (Next's hashed app/icon.png URLs fail that guideline).
+  // changing (Next's hashed app/icon.png URLs fail that guideline). Both
+  // entries are a multiple of 48px square, which is what Google's favicon
+  // crawler requires, and the declared `sizes` match the real pixel sizes —
+  // the old 512x512 claim pointed at a 1024px, 1.5 MB file, which the crawler
+  // is free to skip (and which every visitor was downloading for a 56px logo).
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
@@ -108,7 +112,7 @@ const organizationJsonLd = {
     width: 1024,
     height: 1024,
   },
-  sameAs: [SITE.instagramUrl],
+  sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
   contactPoint: {
     "@type": "ContactPoint",
     email: SITE.contactEmail,
