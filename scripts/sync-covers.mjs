@@ -13,6 +13,7 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "fs";
 import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { optimizeCover } from "./lib/images.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = join(__dirname, "..");
@@ -43,6 +44,10 @@ for (const file of files) {
   const src = join(srcDir, file);
   const dest = join(destDir, file);
   cpSync(src, dest, { force: true });
+  // The app's covers are encoded for a retina tablet reader; the web grid
+  // never shows one wider than ~368 CSS px. Re-encode on the way in, or the
+  // site quietly regresses to ~14MB of cover art every time this runs.
+  await optimizeCover(dest);
   versions[file] = String(statSync(src).mtimeMs | 0);
 }
 

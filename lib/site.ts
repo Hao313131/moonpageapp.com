@@ -18,12 +18,18 @@ export const SITE = {
    * `title` above — repeated terms buy nothing in Apple's search index. */
   subtitle: "Sleepy Picture Storybooks",
   /**
-   * The homepage meta/OG description. A full sentence, not a fragment: this
-   * is the snippet under the title in search results and the caption on a
-   * shared link, so it has to sell on its own.
+   * The homepage meta/OG description — the snippet under the title in search
+   * results and the caption on a shared link, so it has to sell on its own.
+   *
+   * Kept under ~155 characters on purpose: Google truncates around there, and
+   * the previous 384-character version was being cut off mid-sentence, which
+   * spent the whole snippet on keywords and none of it on a reason to tap.
+   * The long-tail terms it used to carry (toddlers, preschoolers, lullaby,
+   * picture storybooks) all live on their own hub pages, which is where they
+   * actually rank.
    */
   description:
-    "MoonPage is a cozy bedtime stories app for kids, toddlers, preschoolers, and parents — original illustrated picture storybooks, lullaby-style sleepy tales, and read-aloud narration. Trusted by thousands of moms for calmer bedtime routines and cozy stories. Hear stories by a professional narrator or in your own recorded voice. No ads, no login, works offline — free to start tonight.",
+    "Original illustrated bedtime stories for kids ages 2+, read aloud by a narrator or in your own recorded voice. No ads, no login — free to start tonight.",
   // Used for metadataBase/OG/sitemap. Point DNS at GitHub Pages
   // (Settings → Pages → Custom domain).
   domain: "https://moonpageapp.com",
@@ -37,6 +43,22 @@ export const SITE = {
   // TODO: create a Buttondown account (buttondown.com) and replace with the
   // real username — see README for why Buttondown and how this wires up.
   buttondownUsername: "moonpage",
+} as const;
+
+/**
+ * The shared-link card. Facebook, X, LinkedIn, WhatsApp and iMessage all
+ * render `summary_large_image` at 1.91:1 and center-crop anything else, so
+ * this must stay 1200x630 — regenerate with `npm run make:og`.
+ *
+ * Declaring width/height matters: without them a scraper has to fetch and
+ * measure the file before it will commit to the large card, and several fall
+ * back to the small thumbnail rather than wait.
+ */
+export const OG_IMAGE = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "MoonPage — cozy bedtime stories for kids ages 2+, read aloud by a narrator or in your own voice.",
 } as const;
 
 const APP_STORE_ID = "6788652725";
@@ -155,7 +177,7 @@ export function pageMetadata({
   title,
   description,
   keywords,
-  image = "/og-image.png",
+  image,
 }: {
   path: string;
   title: string;
@@ -165,6 +187,9 @@ export function pageMetadata({
   image?: string;
 }) {
   const url = `${SITE.domain}${path}`;
+  // A custom image (a story cover) ships as a bare URL — only the site card
+  // has known dimensions worth declaring.
+  const images = image ? [image] : [OG_IMAGE];
   return {
     title,
     description,
@@ -175,14 +200,14 @@ export function pageMetadata({
       description,
       url,
       siteName: SITE.name,
-      images: [image],
+      images,
       type: "website" as const,
     },
     twitter: {
       card: "summary_large_image" as const,
       title,
       description,
-      images: [image],
+      images,
     },
   };
 }
