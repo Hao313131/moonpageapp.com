@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "sync:covers": "node scripts/sync-covers.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "make:og": "node scripts/make-og-image.mjs",
     "build": "npm run sync:covers && next build",
     "start": "npx --yes serve@14 out",
     "lint": "eslint"
@@ -21,6 +23,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

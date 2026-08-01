@@ -1,7 +1,7 @@
 import { appStoreLink, playStoreLink } from "@/lib/site";
 
 const BADGE =
-  "store-badge-glow inline-flex h-full w-full min-h-[3.5rem] items-center justify-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)] sm:min-h-[4.25rem]";
+  "store-badge-glow inline-flex h-full w-full items-center justify-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)]";
 
 type StoreSize = "lg" | "md" | "sm";
 
@@ -15,6 +15,15 @@ type StoreSize = "lg" | "md" | "sm";
  * the same width and height.
  */
 function storeChrome(size: StoreSize) {
+  // Height lives here rather than on BADGE: "sm" is the sticky phone bar,
+  // where a 3.5rem badge would eat a fifth of the viewport. 2.75rem still
+  // clears the 44px minimum tap target.
+  const height =
+    size === "lg"
+      ? "min-h-[3.5rem] sm:min-h-[4.25rem]"
+      : size === "md"
+        ? "min-h-[3.5rem]"
+        : "min-h-11";
   const padding =
     size === "lg"
       ? "gap-2 px-4 py-3 shadow-[0_6px_0_0_rgba(0,0,0,0.25)] sm:gap-2.5 sm:px-6 sm:py-3.5 sm:shadow-[0_8px_0_0_rgba(0,0,0,0.25)]"
@@ -31,13 +40,28 @@ function storeChrome(size: StoreSize) {
       : size === "lg"
         ? "font-display text-lg font-bold tracking-tight sm:text-xl"
         : "font-display text-xl font-bold tracking-tight";
-  return { padding, icon, label, title };
+  return { height, padding, icon, label, title };
 }
 
 const STORE_LINK_PROPS = {
   target: "_blank",
   rel: "noopener noreferrer",
 } as const;
+
+/**
+ * Umami auto-tracks clicks on any element carrying `data-umami-event`, and
+ * turns `data-umami-event-*` into event properties. Store clicks are the
+ * site's only real conversion, so every badge reports which store it sent to
+ * and which block on the page it was in — otherwise the analytics can say how
+ * many people arrived but nothing about what made them download.
+ */
+function trackProps(store: "ios" | "android", campaign: string) {
+  return {
+    "data-umami-event": "download-click",
+    "data-umami-event-store": store,
+    "data-umami-event-placement": campaign,
+  };
+}
 
 export function AppStoreLink({
   campaign,
@@ -46,12 +70,13 @@ export function AppStoreLink({
   campaign: string;
   size?: StoreSize;
 }) {
-  const { padding, icon, label, title } = storeChrome(size);
+  const { height, padding, icon, label, title } = storeChrome(size);
   return (
     <a
       href={appStoreLink(`${campaign}_ios`)}
       {...STORE_LINK_PROPS}
-      className={`${BADGE} ${padding}`}
+      {...trackProps("ios", campaign)}
+      className={`${BADGE} ${height} ${padding}`}
     >
       <AppleGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight text-left">
@@ -69,12 +94,13 @@ export function PlayStoreLink({
   campaign: string;
   size?: StoreSize;
 }) {
-  const { padding, icon, label, title } = storeChrome(size);
+  const { height, padding, icon, label, title } = storeChrome(size);
   return (
     <a
       href={playStoreLink(`${campaign}_android`)}
       {...STORE_LINK_PROPS}
-      className={`${BADGE} ${padding}`}
+      {...trackProps("android", campaign)}
+      className={`${BADGE} ${height} ${padding}`}
     >
       <PlayGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight text-left">
@@ -100,7 +126,11 @@ export function StoreButtons({
 }) {
   return (
     <div
-      className={`grid w-full max-w-xl grid-cols-1 gap-3 min-[400px]:grid-cols-2 ${className}`}
+      className={`grid w-full max-w-xl gap-3 ${
+        // "sm" is the sticky bar — it has to fit two badges on the narrowest
+        // phone, so it never gets the stacked single-column treatment.
+        size === "sm" ? "grid-cols-2 gap-2" : "grid-cols-1 min-[400px]:grid-cols-2"
+      } ${className}`}
     >
       <AppStoreLink campaign={campaign} size={size} />
       <PlayStoreLink campaign={campaign} size={size} />
@@ -124,6 +154,7 @@ export function AppStoreIcon({
     <a
       href={appStoreLink(`${campaign}_ios`)}
       {...STORE_LINK_PROPS}
+      {...trackProps("ios", campaign)}
       aria-label="Download on the App Store"
       className={`${ICON_BADGE} ${className}`}
     >
@@ -143,6 +174,7 @@ export function PlayStoreIcon({
     <a
       href={playStoreLink(`${campaign}_android`)}
       {...STORE_LINK_PROPS}
+      {...trackProps("android", campaign)}
       aria-label="Download on the Google Play"
       className={`${ICON_BADGE} ${className}`}
     >

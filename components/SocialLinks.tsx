@@ -25,12 +25,15 @@ function glyphClass(size: SocialSize) {
 function SocialTile({
   href,
   title,
+  network,
   surface,
   className,
   children,
 }: {
   href: string;
   title: string;
+  /** Reported to Umami so IG vs TikTok pull can be compared. */
+  network: string;
   /** Background utility for the tile — each network keeps its own brand fill. */
   surface: string;
   className: string;
@@ -43,6 +46,8 @@ function SocialTile({
       title={title}
       target="_blank"
       rel="noopener noreferrer"
+      data-umami-event="social-click"
+      data-umami-event-network={network}
       className={`inline-flex shrink-0 items-center justify-center ${surface} text-white shadow-sm transition-transform hover:-translate-y-0.5 ${className}`}
     >
       {children}
@@ -66,6 +71,7 @@ export function InstagramLink({
     <SocialTile
       href={SITE.instagramUrl}
       title={title}
+      network="instagram"
       surface={IG_GRADIENT}
       className={`${boxClass(size)} ${className}`}
     >
@@ -88,6 +94,7 @@ export function TikTokLink({
     <SocialTile
       href={SITE.tiktokUrl}
       title={title}
+      network="tiktok"
       surface="bg-[#010101]"
       className={`${boxClass(size)} ${className}`}
     >
