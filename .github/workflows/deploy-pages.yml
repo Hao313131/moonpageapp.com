@@ -19,6 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the sitemap's <lastmod> dates are read out of git by
+          # scripts/gen-content-dates.mjs. The default shallow checkout knows
+          # only one commit, and the script would (correctly) emit no dates.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 20
