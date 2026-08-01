@@ -30,7 +30,9 @@ export function BrandMark({
   const inner = (
     <>
       <Image
-        src="/icon.png"
+        // 192px source, not the 1024px /icon.png: images are unoptimized in
+        // static export, so the big one shipped 1.5 MB for a 56px logo.
+        src="/icon-192.png"
         alt=""
         width={icon}
         height={icon}

@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { BrandMark } from "./BrandMark";
-import { InstagramLink } from "./SocialLinks";
+import { SocialLinks } from "./SocialLinks";
 import { SubscribeCluster } from "./EmailSubscribe";
 
 /**
- * Sticky chrome: brand + primary nav + follow/IG cluster.
+ * Sticky chrome: brand + primary nav + follow/social cluster.
  *
  * The nav isn't only for readers. Google builds search-result sitelinks
  * largely from a site's main navigation, so these labels are single words,
  * identical on every page, and each one matches its destination's H1.
- * MoonPage icon and IG glyph share the same height (BrandMark md).
+ * MoonPage icon and the social glyphs share the same height (BrandMark md).
  */
 const NAV = [
   { href: "/bedtime-stories", label: "Bedtime" },
@@ -44,7 +44,7 @@ export function Header() {
         <span className="hidden min-[520px]:contents">
           <SubscribeCluster inputId="moonpage-header-email" igSize="md" />
         </span>
-        <InstagramLink size="md" className="min-[520px]:hidden" />
+        <SocialLinks size="md" className="min-[520px]:hidden" />
       </div>
 
       {/* Phone/tablet: the same links on their own scrollable row, so the nav

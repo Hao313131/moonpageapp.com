@@ -1,4 +1,5 @@
-import { InstagramGlyph } from "./icons";
+import type { ReactNode } from "react";
+import { InstagramGlyph, TikTokGlyph } from "./icons";
 import { SITE } from "@/lib/site";
 
 const TIPS_COPY = "Follow for parenting tips and story updates";
@@ -7,42 +8,109 @@ const TIPS_COPY = "Follow for parenting tips and story updates";
 const IG_GRADIENT =
   "bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)]";
 
-/**
- * Instagram glyph on the official gradient.
- * Box sizes mirror BrandMark app-icon heights (`md` / `lg`) so header/footer
- * lockups stay height-aligned with the MoonPage logo.
- */
+type SocialSize = "md" | "lg" | "responsive";
+
+// Match BrandMark iconClass: md = h-12/sm:h-14, lg = h-14/sm:h-16, so the
+// social tiles stay height-aligned with the MoonPage logo in header/footer.
+function boxClass(size: SocialSize) {
+  return size === "lg"
+    ? "h-14 w-14 rounded-2xl sm:h-16 sm:w-16 sm:rounded-3xl"
+    : "h-12 w-12 rounded-2xl sm:h-14 sm:w-14";
+}
+
+function glyphClass(size: SocialSize) {
+  return size === "lg" ? "h-7 w-7 sm:h-8 sm:w-8" : "h-6 w-6 sm:h-7 sm:w-7";
+}
+
+function SocialTile({
+  href,
+  title,
+  surface,
+  className,
+  children,
+}: {
+  href: string;
+  title: string;
+  /** Background utility for the tile — each network keeps its own brand fill. */
+  surface: string;
+  className: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      aria-label={title}
+      title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex shrink-0 items-center justify-center ${surface} text-white shadow-sm transition-transform hover:-translate-y-0.5 ${className}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+/** Instagram glyph on the official gradient. */
 export function InstagramLink({
   className = "",
   size = "lg",
   title = TIPS_COPY,
 }: {
   className?: string;
-  size?: "md" | "lg" | "responsive";
+  size?: SocialSize;
   /** @deprecated Kept for call-site compatibility; gradient is always used. */
   tone?: "cream" | "night";
   title?: string;
 }) {
-  // Match BrandMark iconClass: md = h-12/sm:h-14, lg = h-14/sm:h-16
-  const box =
-    size === "lg"
-      ? "h-14 w-14 rounded-2xl sm:h-16 sm:w-16 sm:rounded-3xl"
-      : "h-12 w-12 rounded-2xl sm:h-14 sm:w-14";
-  const glyph =
-    size === "lg"
-      ? "h-7 w-7 sm:h-8 sm:w-8"
-      : "h-6 w-6 sm:h-7 sm:w-7";
   return (
-    <a
+    <SocialTile
       href={SITE.instagramUrl}
-      aria-label={title}
       title={title}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex ${box} shrink-0 items-center justify-center ${IG_GRADIENT} text-white shadow-sm transition-transform hover:-translate-y-0.5 ${className}`}
+      surface={IG_GRADIENT}
+      className={`${boxClass(size)} ${className}`}
     >
-      <InstagramGlyph className={glyph} />
-    </a>
+      <InstagramGlyph className={glyphClass(size)} />
+    </SocialTile>
+  );
+}
+
+/** TikTok glyph on the brand's black tile. */
+export function TikTokLink({
+  className = "",
+  size = "lg",
+  title = TIPS_COPY,
+}: {
+  className?: string;
+  size?: SocialSize;
+  title?: string;
+}) {
+  return (
+    <SocialTile
+      href={SITE.tiktokUrl}
+      title={title}
+      surface="bg-[#010101]"
+      className={`${boxClass(size)} ${className}`}
+    >
+      <TikTokGlyph className={glyphClass(size)} />
+    </SocialTile>
+  );
+}
+
+/** Instagram + TikTok side by side — the standard follow lockup. */
+export function SocialLinks({
+  className = "",
+  size = "lg",
+  title = TIPS_COPY,
+}: {
+  className?: string;
+  size?: SocialSize;
+  title?: string;
+}) {
+  return (
+    <span className={`inline-flex shrink-0 items-center gap-2 ${className}`}>
+      <InstagramLink size={size} title={`${title} on Instagram`} />
+      <TikTokLink size={size} title={`${title} on TikTok`} />
+    </span>
   );
 }
 
