@@ -1,5 +1,10 @@
 import type { MetadataRoute } from "next";
 import { COLLECTIONS } from "@/lib/collections";
+import {
+  COLLECTION_DATE,
+  ROUTE_DATES,
+  STORY_DATE,
+} from "@/lib/content-dates";
 import { GUIDES } from "@/lib/guides";
 import { SITE } from "@/lib/site";
 import { STORIES } from "@/lib/stories";
@@ -36,26 +41,25 @@ function url(route: string) {
   return `${SITE.domain}${route}/`.replace(/\/+$/, "/");
 }
 
+/**
+ * `lastmod` is only worth sending while it stays accurate — Google leans on it
+ * to decide what to recrawl, and stops trusting it once a site stamps every
+ * URL on every deploy (which is exactly what this file used to do). Dates come
+ * from git via scripts/gen-content-dates.mjs; when a date isn't known the
+ * entry ships without `lastmod` rather than inventing one.
+ */
+function entry(route: string, date: string): MetadataRoute.Sitemap[number] {
+  return date
+    ? { url: url(route), lastModified: new Date(`${date}T00:00:00Z`) }
+    : { url: url(route) };
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   return [
-    ...ROUTES.map((route) => ({
-      url: url(route),
-      lastModified: now,
-    })),
-    ...STORIES.map((s) => ({
-      url: url(`/stories/${s.slug}`),
-      lastModified: now,
-    })),
-    ...COLLECTIONS.map((c) => ({
-      url: url(`/collections/${c.slug}`),
-      lastModified: now,
-    })),
-    ...GUIDES.map((g) => ({
-      url: url(`/guides/${g.slug}`),
-      // Real edit date, not build time — guides are evergreen and shouldn't
-      // claim to have changed every deploy.
-      lastModified: new Date(`${g.updated}T00:00:00Z`),
-    })),
+    ...ROUTES.map((route) => entry(route, ROUTE_DATES[route] ?? "")),
+    ...STORIES.map((s) => entry(`/stories/${s.slug}`, STORY_DATE)),
+    ...COLLECTIONS.map((c) => entry(`/collections/${c.slug}`, COLLECTION_DATE)),
+    // Guides carry a hand-maintained edit date in their own data.
+    ...GUIDES.map((g) => entry(`/guides/${g.slug}`, g.updated)),
   ];
 }
