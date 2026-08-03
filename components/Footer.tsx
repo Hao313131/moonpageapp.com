@@ -198,6 +198,9 @@ export function MinimalFooter() {
   return (
     <footer className="mt-auto border-t border-wood/20 bg-cream-deep/60">
       <div className="page-gutter mx-auto flex max-w-6xl flex-col items-center gap-2 py-5 text-center text-xs text-ink-muted sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:py-6 sm:text-sm">
+        <Link href="/support" className="hover:text-ink">
+          Support
+        </Link>
         <Link href="/privacy" className="hover:text-ink">
           Privacy Policy
         </Link>

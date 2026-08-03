@@ -12,7 +12,7 @@ import { FEATURED_STORIES, STORIES } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/bedtime-stories-app",
-  title: "Bedtime Stories App for Kids Ages 2+ — MoonPage",
+  title: "Bedtime Stories App for Kids Ages 2+",
   description:
     "MoonPage is a bedtime stories app for kids, toddlers, and preschoolers — cozy picture storybooks, read-aloud narration, parent voice recording, offline, no ads. Free to start.",
   keywords: [
