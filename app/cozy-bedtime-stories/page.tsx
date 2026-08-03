@@ -8,11 +8,11 @@ import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SeoHubCta } from "@/components/SeoHubCta";
 import { StoryGrid } from "@/components/StoryGrid";
 import { hubJsonLd, pageMetadata } from "@/lib/site";
-import { STORIES, storiesByTag } from "@/lib/stories";
+import { storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/cozy-bedtime-stories",
-  title: "Cozy Bedtime Stories & Sleepy Tales for Kids — Calm Wind-Down",
+  title: "Cozy Bedtime Stories for Kids",
   description:
     "Cozy bedtime stories and sleepy tales for kids, toddlers, and preschoolers — soft pacing, warm endings, and lullaby-style picture storybooks for a calm bedtime routine.",
   keywords: [
@@ -46,11 +46,13 @@ const FAQS = [
 ];
 
 export default function CozyBedtimeStoriesPage() {
+  // Atmosphere / warm ending — snow & family first; avoid music so we don't
+  // mirror the lullaby hub's rhythm-led sample.
   const sample = [
-    ...storiesByTag("bedtime"),
-    ...storiesByTag("night"),
-    ...storiesByTag("family"),
     ...storiesByTag("snow"),
+    ...storiesByTag("family"),
+    ...storiesByTag("garden"),
+    ...storiesByTag("night"),
   ]
     .filter((s, i, arr) => arr.findIndex((x) => x.slug === s.slug) === i)
     .slice(0, 9);
@@ -87,11 +89,11 @@ export default function CozyBedtimeStoriesPage() {
 
           <section className="mt-10 sm:mt-12">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
-              Sample cozy &amp; sleepy storybooks
+              Sample cozy endings &amp; warm scenes
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-ink-muted sm:text-base">
-              Night, family, snowy, and bedtime-tagged stories from the{" "}
-              {STORIES.length}-title sample shelf.
+              Snowy nights, family rituals, gardens, and quiet moonlight — stories
+              chosen for how they end, not how loud they start.
             </p>
             <StoryGrid stories={sample} className="mt-6" />
             <p className="mt-4 text-sm text-ink-muted sm:text-base">

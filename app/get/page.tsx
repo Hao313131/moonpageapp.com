@@ -4,11 +4,12 @@ import { Header } from "@/components/Header";
 import { StoreButtons } from "@/components/StoreButtons";
 import { MinimalFooter } from "@/components/Footer";
 import { storyCoverSrc } from "@/lib/storyCover";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Make bedtime feel calm again",
   description:
-    "Gentle, original bedtime stories — no ads, no login. Try MoonPage free tonight.",
+    "Gentle, original bedtime stories for kids ages 2+ — no ads, no login. Try MoonPage free tonight.",
   robots: { index: false, follow: true }, // ad landing page, not meant to rank organically
 };
 
@@ -43,17 +44,22 @@ export default function GetPage() {
     <>
       <Header />
       <main className="page-gutter flex min-h-screen flex-col items-center py-10 text-center sm:py-14 md:py-20">
-        <h1 className="max-w-xl font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
+        <p className="inline-block rounded-full bg-accent px-4 py-1.5 text-sm font-extrabold tracking-wide text-ink shadow-sm sm:text-base">
+          {SITE.trustLine}
+        </p>
+        <h1 className="mt-3 max-w-xl font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:mt-4 sm:text-3xl md:text-4xl">
           Make bedtime feel calm again.
         </h1>
         <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base">
-          Gentle, original illustrated stories for little ones — free to
-          start tonight.
+          Cozy illustrated stories for kids ages 2+ — free to start tonight.
         </p>
 
         <div className="mt-7 flex w-full justify-center sm:mt-8">
           <StoreButtons campaign="get_lp_hero" className="justify-center" />
         </div>
+        <p className="mt-3 max-w-sm text-sm font-medium text-ink-muted sm:text-base">
+          No ads. No login. Just open, read, and lights out.
+        </p>
 
         {/* phone: horizontal scroll strip · tablet+: 3-up grid */}
         <div className="-mx-1 mt-10 flex w-full max-w-3xl gap-3 overflow-x-auto px-1 pb-2 sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0">

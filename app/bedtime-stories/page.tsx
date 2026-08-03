@@ -11,7 +11,7 @@ import { STORIES } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/bedtime-stories",
-  title: "Bedtime Stories for Kids Ages 2+ — Cozy, Sleepy, Read-Aloud Tales",
+  title: "Bedtime Stories for Kids Ages 2+",
   description:
     "Browse bedtime stories for kids ages 2+ — cozy sleepy tales, lullaby-style picture storybooks, read-aloud narration, and toddler/preschool wind-down stories. MoonPage is trusted by thousands of moms.",
   keywords: [

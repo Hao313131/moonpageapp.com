@@ -9,7 +9,7 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/guides",
-  title: "Bedtime & Parenting Guides for Toddlers and Preschoolers",
+  title: "Bedtime & Parenting Guides",
   description:
     "Practical guides for parents of toddlers and preschoolers — bedtime routines, toddler sleep problems, reading aloud, choosing bedtime stories, and what to read at every age from 2 to 6.",
   keywords: [

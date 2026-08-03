@@ -8,11 +8,11 @@ import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SeoHubCta } from "@/components/SeoHubCta";
 import { StoryGrid } from "@/components/StoryGrid";
 import { hubJsonLd, pageMetadata } from "@/lib/site";
-import { STORIES, storiesByTag } from "@/lib/stories";
+import { storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/lullaby-bedtime-stories",
-  title: "Lullaby Bedtime Stories for Kids, Babies & Toddlers",
+  title: "Lullaby Bedtime Stories for Kids",
   description:
     "Lullaby-style bedtime stories for babies, toddlers, and kids — soft rhythm, sleepy endings, and gentle narration that feels like a lullaby before sleep.",
   keywords: [
@@ -46,11 +46,13 @@ const FAQS = [
 ];
 
 export default function LullabyBedtimeStoriesPage() {
+  // Rhythm / soft repetition — music & bedtime first; skip snow/garden so
+  // the sample diverges from the cozy hub's atmosphere-led shelf.
   const sample = [
-    ...storiesByTag("bedtime"),
     ...storiesByTag("music"),
+    ...storiesByTag("bedtime"),
+    ...storiesByTag("rain"),
     ...storiesByTag("night"),
-    ...storiesByTag("family"),
   ]
     .filter((s, i, arr) => arr.findIndex((x) => x.slug === s.slug) === i)
     .slice(0, 9);
@@ -87,11 +89,11 @@ export default function LullabyBedtimeStoriesPage() {
 
           <section className="mt-10 sm:mt-12">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
-              Sample lullaby-style &amp; sleepy stories
+              Sample lullaby rhythm &amp; soft repetition
             </h2>
             <p className="mt-2 max-w-2xl text-sm text-ink-muted sm:text-base">
-              Music, night, family, and bedtime stories from {STORIES.length}{" "}
-              sample titles.
+              Music, rainy nights, and bedtime-paced tales — chosen for soft
+              language and a fade-to-sleep ending.
             </p>
             <StoryGrid stories={sample} className="mt-6" />
           </section>

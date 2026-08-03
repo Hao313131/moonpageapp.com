@@ -33,14 +33,14 @@ export async function generateMetadata({
   if (!story) return {};
   return pageMetadata({
     path: `/stories/${story.slug}`,
-    title: `${story.title} — A Bedtime Story for Ages 2+`,
-    description: `${story.hook} An original illustrated bedtime storybook in MoonPage for kids ages 2+ — read aloud, hear calm narration, or play it in your own recorded voice.`,
+    title: `${story.title} — Bedtime Story`,
+    description: `${story.hook} Open it free in MoonPage tonight — illustrated, narrated, offline. No ads, no login.`,
     keywords: [
       story.title.toLowerCase(),
       "bedtime story",
       "picture book for kids",
       "read aloud storybook",
-      ...story.tags.map((t) => TAG_LABELS[t].toLowerCase()),
+      ...story.tags.slice(0, 3).map((t) => TAG_LABELS[t].toLowerCase()),
     ],
     // Stable cover URL without cache-bust query — better for OG crawlers.
     image: `${SITE.domain}/covers/${story.file}`,
@@ -61,6 +61,7 @@ export default async function StoryPage({ params }: { params: Params }) {
     .filter((s) => s.slug !== story.slug)
     .slice(0, 5);
   const collectionByTag = new Map(COLLECTIONS.map((c) => [c.tag, c]));
+  const shownTags = story.tags.slice(0, 3);
   const tagPillClass =
     "rounded-full border border-wood/30 bg-paper px-3 py-1 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm";
 
@@ -69,7 +70,7 @@ export default async function StoryPage({ params }: { params: Params }) {
     "@type": "Book",
     bookFormat: "https://schema.org/EBook",
     name: story.title,
-    description: `${story.hook} ${story.bedtimeNote}`,
+    description: story.hook,
     image,
     url,
     inLanguage: "en",
@@ -130,22 +131,11 @@ export default async function StoryPage({ params }: { params: Params }) {
               <p className="mt-3 text-sm leading-relaxed text-ink sm:text-base">
                 {story.hook}
               </p>
-              <dl className="mt-4 space-y-1 text-sm text-ink-muted sm:text-base">
-                <div className="flex gap-2">
-                  <dt className="font-semibold text-ink">Ages</dt>
-                  <dd>2+, read together</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="font-semibold text-ink">Read aloud</dt>
-                  <dd>About 5 minutes</dd>
-                </div>
-                <div className="flex gap-2">
-                  <dt className="font-semibold text-ink">Narration</dt>
-                  <dd>By a professional narrator, or in your own recorded voice</dd>
-                </div>
-              </dl>
+              <p className="mt-3 text-sm leading-relaxed text-ink-muted sm:text-base">
+                {story.bedtimeNote}
+              </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {story.tags.map((tag) => {
+                {shownTags.map((tag) => {
                   const collection = collectionByTag.get(tag);
                   const label = TAG_LABELS[tag];
                   if (collection) {
@@ -169,24 +159,13 @@ export default async function StoryPage({ params }: { params: Params }) {
             </div>
           </div>
 
-          <section className="mt-10 sm:mt-12">
-            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
-              Why it works at bedtime
-            </h2>
-            <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
-              {story.bedtimeNote}
-            </p>
-          </section>
-
           <div className="mt-10 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:mt-12 sm:gap-4 sm:rounded-3xl sm:p-10">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               Read “{story.title}” tonight
             </h2>
             <p className="max-w-sm text-sm text-ink-muted sm:max-w-md sm:text-base">
-              It&apos;s in MoonPage along with the rest of the library — far
-              more stories than we show here, with new ones added all the time.
-              Illustrated, narrated, fully offline. No ads, no login, and some
-              stories are free.
+              Free to start in MoonPage — illustrated, narrated, fully offline.
+              No ads, no login.
             </p>
             <StoreButtons
               campaign={`story_${story.slug.replace(/-/g, "_")}`}
