@@ -15,7 +15,7 @@ export function Pricing() {
           pricing (and any free trial) is shown before you continue.
         </p>
         <div className="mt-7 flex justify-center sm:mt-8">
-          <StoreButtons campaign="website_pricing" className="justify-center" hidePlay />
+          <StoreButtons campaign="website_pricing" badgeAlign="center" hidePlay />
         </div>
       </div>
     </section>
