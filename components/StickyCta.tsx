@@ -61,7 +61,7 @@ export function StickyCta() {
         <p className="text-center text-xs font-semibold text-ink-muted">
           Free to start tonight — no ads, no login.
         </p>
-        <StoreButtons campaign="website_sticky" size="sm" hidePlay />
+        <StoreButtons campaign="website_sticky" size="sm" badgeAlign="center" hidePlay />
       </div>
     </div>
   );

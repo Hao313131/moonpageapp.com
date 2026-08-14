@@ -124,23 +124,34 @@ export function StoreButtons({
   size = "lg",
   className = "",
   hidePlay = false,
+  badgeAlign = "responsive",
 }: {
   campaign: string;
   size?: StoreSize;
   className?: string;
-  /** When true, only the App Store badge renders — centered on its own.
-   *  Used on the homepage while Android / Google Play isn't live yet. Flip it
-   *  back to false (or drop the prop) to restore the paired badges. */
+  /** When true, only the App Store badge renders. Flip it back to false (or
+   *  drop the prop) to restore the paired badges. */
   hidePlay?: boolean;
+  /** Single-badge alignment (only used with hidePlay):
+   *  - "responsive" (default): centered on phones, left-aligned from md up so
+   *    it lines up under left-aligned hero copy.
+   *  - "center": centered at every width — for centered sections / the sticky
+   *    bottom bar. */
+  badgeAlign?: "responsive" | "center";
 }) {
-  const layout = hidePlay
-    ? // Single centered badge — no empty column beside it.
-      "grid-cols-1 justify-items-center"
-    : // "sm" is the sticky bar — it has to fit two badges on the narrowest
-      // phone, so it never gets the stacked single-column treatment.
-      size === "sm"
-      ? "grid-cols-2 gap-2"
-      : "grid-cols-1 min-[400px]:grid-cols-2";
+  let layout: string;
+  if (hidePlay) {
+    layout =
+      "grid-cols-1 " +
+      (badgeAlign === "center"
+        ? "justify-items-center"
+        : "justify-items-center md:justify-items-start");
+  } else {
+    // "sm" is the sticky bar — it has to fit two badges on the narrowest
+    // phone, so it never gets the stacked single-column treatment.
+    layout =
+      size === "sm" ? "grid-cols-2 gap-2" : "grid-cols-1 min-[400px]:grid-cols-2";
+  }
   return (
     <div className={`grid w-full max-w-xl gap-3 ${layout} ${className}`}>
       <AppStoreLink
