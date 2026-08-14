@@ -11,11 +11,11 @@ export function Pricing() {
           MoonPage is bedtime software — calm stories, no ads, no account to
           manage — so tonight feels simpler, not like another thing to pay for.
           Premium keeps the full, growing library ready whenever you need it.
-          Cancel anytime from your App Store or Google Play account; exact
+          Cancel anytime from your App Store account; exact
           pricing (and any free trial) is shown before you continue.
         </p>
         <div className="mt-7 flex justify-center sm:mt-8">
-          <StoreButtons campaign="website_pricing" className="justify-center" />
+          <StoreButtons campaign="website_pricing" className="justify-center" hidePlay />
         </div>
       </div>
     </section>

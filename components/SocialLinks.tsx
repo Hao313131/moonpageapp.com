@@ -103,7 +103,7 @@ export function TikTokLink({
   );
 }
 
-/** Instagram + TikTok side by side — the standard follow lockup. */
+/** Instagram follow lockup — TikTok paused for now (see plan: IG-first). */
 export function SocialLinks({
   className = "",
   size = "lg",
@@ -116,7 +116,9 @@ export function SocialLinks({
   return (
     <span className={`inline-flex shrink-0 items-center gap-2 ${className}`}>
       <InstagramLink size={size} title={`${title} on Instagram`} />
-      <TikTokLink size={size} title={`${title} on TikTok`} />
+      {/* TikTok link commented out — keep IG as the single follow CTA.
+          <TikTokLink size={size} title={`${title} on TikTok`} />
+      */}
     </span>
   );
 }
