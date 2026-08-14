@@ -1,7 +1,7 @@
 const FACTS = [
   "No account or login required — just download and start reading.",
   "No ads, no third-party trackers, no advertising profiles built on you or your child.",
-  "Restore purchases anytime from Settings using the same App Store or Google Play account.",
+  "Restore purchases anytime from Settings using the same App Store account.",
   "Parent-directed by design, with COPPA and GDPR-K–conscious data practices.",
 ];
 

@@ -183,10 +183,6 @@ export function Footer() {
             </ul>
           </nav>
         </div>
-        <p className="pt-6 text-xs text-night-muted sm:pt-8 sm:text-sm">
-          © {new Date().getFullYear()} {SITE.operator}. Made with care, one
-          story at a time.
-        </p>
       </div>
     </footer>
   );

@@ -27,7 +27,7 @@ export function Hero() {
             id="download"
             className="mt-6 flex scroll-mt-24 justify-center sm:mt-7 md:justify-start"
           >
-            <StoreButtons campaign="website_hero" />
+            <StoreButtons campaign="website_hero" hidePlay />
           </div>
           <p className="mt-3 max-w-sm text-sm font-medium text-ink-muted sm:text-base md:max-w-md">
             No ads. No login. Just open, read, and lights out.

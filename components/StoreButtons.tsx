@@ -66,9 +66,11 @@ function trackProps(store: "ios" | "android", campaign: string) {
 export function AppStoreLink({
   campaign,
   size = "lg",
+  className = "",
 }: {
   campaign: string;
   size?: StoreSize;
+  className?: string;
 }) {
   const { height, padding, icon, label, title } = storeChrome(size);
   return (
@@ -76,7 +78,7 @@ export function AppStoreLink({
       href={appStoreLink(`${campaign}_ios`)}
       {...STORE_LINK_PROPS}
       {...trackProps("ios", campaign)}
-      className={`${BADGE} ${height} ${padding}`}
+      className={`${BADGE} ${height} ${padding} ${className}`}
     >
       <AppleGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight text-left">
@@ -90,9 +92,11 @@ export function AppStoreLink({
 export function PlayStoreLink({
   campaign,
   size = "lg",
+  className = "",
 }: {
   campaign: string;
   size?: StoreSize;
+  className?: string;
 }) {
   const { height, padding, icon, label, title } = storeChrome(size);
   return (
@@ -100,7 +104,7 @@ export function PlayStoreLink({
       href={playStoreLink(`${campaign}_android`)}
       {...STORE_LINK_PROPS}
       {...trackProps("android", campaign)}
-      className={`${BADGE} ${height} ${padding}`}
+      className={`${BADGE} ${height} ${padding} ${className}`}
     >
       <PlayGlyph className={`${icon} shrink-0`} />
       <span className="leading-tight text-left">
@@ -119,21 +123,32 @@ export function StoreButtons({
   campaign,
   size = "lg",
   className = "",
+  hidePlay = false,
 }: {
   campaign: string;
   size?: StoreSize;
   className?: string;
+  /** When true, only the App Store badge renders — centered on its own.
+   *  Used on the homepage while Android / Google Play isn't live yet. Flip it
+   *  back to false (or drop the prop) to restore the paired badges. */
+  hidePlay?: boolean;
 }) {
+  const layout = hidePlay
+    ? // Single centered badge — no empty column beside it.
+      "grid-cols-1 justify-items-center"
+    : // "sm" is the sticky bar — it has to fit two badges on the narrowest
+      // phone, so it never gets the stacked single-column treatment.
+      size === "sm"
+      ? "grid-cols-2 gap-2"
+      : "grid-cols-1 min-[400px]:grid-cols-2";
   return (
-    <div
-      className={`grid w-full max-w-xl gap-3 ${
-        // "sm" is the sticky bar — it has to fit two badges on the narrowest
-        // phone, so it never gets the stacked single-column treatment.
-        size === "sm" ? "grid-cols-2 gap-2" : "grid-cols-1 min-[400px]:grid-cols-2"
-      } ${className}`}
-    >
-      <AppStoreLink campaign={campaign} size={size} />
-      <PlayStoreLink campaign={campaign} size={size} />
+    <div className={`grid w-full max-w-xl gap-3 ${layout} ${className}`}>
+      <AppStoreLink
+        campaign={campaign}
+        size={size}
+        className={hidePlay ? "max-w-[15rem] sm:max-w-xs" : ""}
+      />
+      {!hidePlay && <PlayStoreLink campaign={campaign} size={size} />}
     </div>
   );
 }

@@ -113,7 +113,7 @@ const organizationJsonLd = {
     width: 1024,
     height: 1024,
   },
-  sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
+  sameAs: [SITE.instagramUrl],
   contactPoint: {
     "@type": "ContactPoint",
     email: SITE.contactEmail,

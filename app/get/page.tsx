@@ -7,7 +7,7 @@ import { storyCoverSrc } from "@/lib/storyCover";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Make bedtime feel calm again",
+  title: "One more story, and off to sleep.",
   description:
     "Gentle, original bedtime stories for kids ages 2+ — no ads, no login. Try MoonPage free tonight.",
   robots: { index: false, follow: true }, // ad landing page, not meant to rank organically
@@ -48,7 +48,7 @@ export default function GetPage() {
           {SITE.trustLine}
         </p>
         <h1 className="mt-3 max-w-xl font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:mt-4 sm:text-3xl md:text-4xl">
-          Make bedtime feel calm again.
+          One more story, and off to sleep.
         </h1>
         <p className="mt-3 max-w-md text-sm text-ink-muted sm:mt-4 sm:max-w-lg sm:text-base">
           Cozy illustrated stories for kids ages 2+ — free to start tonight.
