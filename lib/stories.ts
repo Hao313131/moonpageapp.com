@@ -332,13 +332,13 @@ export const STORIES: Story[] = [
       "A sea-and-night story about being the light for someone else. The fog drifts away, the stars come out, and Cora gives the lamp one last sleepy spin.",
   },
   {
-    slug: "the-meadow-concert",
-    file: "wp_b31_1_meadow_concert_cover.webp",
-    title: "The Meadow Concert",
-    hook: "Crickets, bees, and rustling leaves — the bedtime concert every night. One frog hiding behind a leaf, sure her voice sounds funny. What if somebody asks her in?",
-    tags: ["animals", "music", "confidence", "friendship", "night"],
+    slug: "the-moons-light",
+    file: "wp_b31_1_mouse_looked_cover.webp",
+    title: "The Moon's Light",
+    hook: "Max the little mouse wished he could keep a bit of the night's soft light. Silver moths circled, then drifted toward the moonflower hill — were they showing him the way? What glows at the top, waiting to be carried home?",
+    tags: ["animals", "curiosity", "magic", "garden", "night"],
     bedtimeNote:
-      "For kids who need a nudge to try. Ends with Fern hopping home under the stars, the meadow still humming in her heart.",
+      "A quiet, wonder-filled wind-down: a fallen moonflower petal glowing in the hay, the moths drifting away, and Max asleep in his moonlit nest. For kids who love a hush of magic at the end of the day.",
   },
   {
     slug: "hazels-apple-sleepout",
@@ -473,6 +473,10 @@ export const SAMPLE_STORY_COUNT = STORIES.length;
 
 /** Homepage showcase: only three stories; full list via buttons below. */
 export const FEATURED_STORIES = STORIES.slice(0, 3);
+
+/** 网站故事库顺序与 App 书架完全一致：见 App 的 STORY_ORDER（按 bookNumber 升序，
+ * b01 在最前），本数组即 App 可见的前 45 本（b01–b45），顺序、标题、封面文件名
+ * 均逐本对齐 App。/stories 页面直接复用 STORIES 即可，无需单独倒序。 */
 
 export function storiesByTag(tag: StoryTag): Story[] {
   return STORIES.filter((s) => s.tags.includes(tag));
