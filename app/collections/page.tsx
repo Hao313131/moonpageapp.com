@@ -41,7 +41,9 @@ export default function CollectionsPage() {
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
+    // Both types: ItemList (a directory of links) and CollectionPage (a
+    // themed index of story collections) — covers more rich-result surfaces.
+    "@type": ["ItemList", "CollectionPage"],
     itemListElement: collections.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,

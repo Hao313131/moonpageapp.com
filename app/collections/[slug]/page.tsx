@@ -9,7 +9,7 @@ import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { COLLECTIONS, getCollection } from "@/lib/collections";
 import { storiesByTag } from "@/lib/stories";
 import { storyCoverUrl } from "@/lib/storyCover";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, pageMetadata, pageKeywords } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
 
@@ -29,6 +29,14 @@ export async function generateMetadata({
     path: `/collections/${collection.slug}`,
     title: collection.title,
     description: collection.description,
+    keywords: pageKeywords([
+      collection.title,
+      "kids story collections",
+      "bedtime stories by theme",
+      "themed bedtime stories",
+      "toddler story collection",
+      "preschool story collection",
+    ]),
   });
 }
 

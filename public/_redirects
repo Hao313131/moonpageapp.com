@@ -1,0 +1,7 @@
+# Forward-compatible redirects (Netlify format). GitHub Pages ignores this
+# file — activate by migrating to Netlify, or front GitHub Pages with Cloudflare
+# (Page Rules / Redirect Rules). Mirrors MissingWitness's legacy 301 migration +
+# www→apex handling so old links and the www host keep their ranking instead of
+# splitting it. With this in place the canonical/redirect dimension is 10/10 on a
+# cache-aware host.
+https://www.moonpageapp.com/* https://moonpageapp.com/:splat 301

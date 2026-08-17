@@ -36,6 +36,8 @@ export async function generateMetadata({
     path: `/stories/${story.slug}`,
     title: `${story.title} — Bedtime Story`,
     description: `${story.hook} Open it free in MoonPage tonight — illustrated, narrated, offline. No ads, no login.`,
+    type: "article",
+    article: { publishedTime: STORY_DATE, modifiedTime: STORY_DATE },
     keywords: [
       story.title.toLowerCase(),
       "bedtime story",
@@ -94,11 +96,13 @@ export default async function StoryPage({ params }: { params: Params }) {
     },
     // MoonPage is free to download with some stories free to read — a real
     // Offer (price 0) is what lets a "Free" badge and richer app/book results
-    // show, and it's the honest fact about the product.
+    // show, and it's the honest fact about the product. Currency comes from the
+    // single SITE.priceCurrency source so it can never drift (cf. MissingWitness
+    // AUD/USD bug).
     offers: {
       "@type": "Offer",
       price: "0",
-      priceCurrency: "USD",
+      priceCurrency: SITE.priceCurrency,
       availability: "https://schema.org/InStock",
       url,
     },

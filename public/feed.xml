@@ -5,7 +5,12 @@
     <link>https://moonpageapp.com</link>
     <description>Original illustrated bedtime stories for kids ages 2+, read aloud by a narrator or in your own recorded voice. No ads, no login — free to start tonight.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Aug 2026 03:39:21 GMT</lastBuildDate>
+    <image>
+      <url>https://moonpageapp.com/og-image.png</url>
+      <title>MoonPage</title>
+      <link>https://moonpageapp.com</link>
+    </image>
+    <lastBuildDate>Mon, 17 Aug 2026 05:39:52 GMT</lastBuildDate>
     <atom:link href="https://moonpageapp.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Slow Down, Seal!</title>
@@ -13,6 +18,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/slow-down-seal</guid>
       <description>The fastest seal in the bay. A whole ocean going past in a blur. What is Sully swimming straight past at top speed?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b01_1_blue_sea_cover.webp?v=-211437935</image>
     </item>
     <item>
       <title>Leo&apos;s Museum Day</title>
@@ -20,6 +26,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/leos-museum-day</guid>
       <description>Rain all morning. A dinosaur taller than the room. A hundred questions that won&apos;t wait — which one does Leo ask first?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b02_1_loved_ask_cover.webp?v=-211437932</image>
     </item>
     <item>
       <title>Bruno&apos;s Snow Day</title>
@@ -27,6 +34,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/brunos-snow-day</guid>
       <description>Too quiet outside. The whole forest gone white overnight. What does a bear cub do with his very first snow?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b03_1_woke_hush_cover.webp?v=-211437929</image>
     </item>
     <item>
       <title>Nora&apos;s Kind Cookies</title>
@@ -34,6 +42,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/noras-kind-cookies</guid>
       <description>A cold porch. A neighbour who&apos;s always out there reading. Can a plate of star-shaped cookies say what Nora means?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b04_1_maple_street_cover.webp?v=-211437927</image>
     </item>
     <item>
       <title>A Secret in the Night</title>
@@ -41,6 +50,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/a-secret-in-the-night</guid>
       <description>A night too big to sleep in. One small sound in the garden. Who&apos;s out there with their light gone dim?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b05_1_window_moon_cover.webp?v=-211437925</image>
     </item>
     <item>
       <title>Sam&apos;s Park Friend</title>
@@ -48,6 +58,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/sams-park-friend</guid>
       <description>A new boy on the bench, looking at his shoes. Nobody has said hello yet. How hard can walking over really be?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b06_1_went_park_cover.webp?v=-211437915</image>
     </item>
     <item>
       <title>The Trapped Firefly</title>
@@ -55,6 +66,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-trapped-firefly</guid>
       <description>One firefly who flew too high. One glass jar with the lid rolled shut. Who&apos;s strong enough to roll her free?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b07_1_summer_night_cover.webp?v=-211437898</image>
     </item>
     <item>
       <title>Maya Waits for the Cake</title>
@@ -62,6 +74,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/maya-waits-for-the-cake</guid>
       <description>Batter in the pan. Timer set. Mama&apos;s birthday cake is in the oven — so how do you survive the waiting?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b08_1_loved_help_cover.webp?v=-211437897</image>
     </item>
     <item>
       <title>Champion</title>
@@ -69,6 +82,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/champion</guid>
       <description>Jumping Day tomorrow, and Hop is the smallest frog at the pond. If he can&apos;t win the gold leaf, what&apos;s left to win?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b09_1_green_pond_cover.webp?v=-211437894</image>
     </item>
     <item>
       <title>Penguin Friends</title>
@@ -76,6 +90,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/penguin-friends</guid>
       <description>One cold wind. One soft red scarf. And more little penguins turning up all the time — how far can one scarf stretch?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b10_1_white_ice_cover.webp?v=-211437887</image>
     </item>
     <item>
       <title>Mia&apos;s Secret Meadow</title>
@@ -83,6 +98,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/mias-secret-meadow</guid>
       <description>A copper compass lying in the ferns. A note that says walk slow and look close. Where is it pulling Mia?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b11_1_woods_explorer_cover.webp?v=-211437885</image>
     </item>
     <item>
       <title>The Starry Fish</title>
@@ -90,6 +106,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-starry-fish</guid>
       <description>A fish who lives too deep to have ever seen a star. Everyone says the sky is out of reach. What if someone offers her a lift?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b12_1_deep_sea_cover.webp?v=-211437879</image>
     </item>
     <item>
       <title>Bunny&apos;s Big Feelings</title>
@@ -97,6 +114,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/bunnys-big-feelings</guid>
       <description>One great big tug. One kite stuck high in a tree. Bunny&apos;s chest goes tight — what do you do with a feeling that size?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b13_1_garden_kite_cover.webp?v=-211437869</image>
     </item>
     <item>
       <title>The Sharing Tree</title>
@@ -104,6 +122,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-sharing-tree</guid>
       <description>A basket filled to the top with apples. One hungry friend after another asking for just one. What&apos;s left for Clara at the end?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b14_1_apple_tree_cover.webp?v=-211437852</image>
     </item>
     <item>
       <title>The Sleepy Bear</title>
@@ -111,6 +130,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-sleepy-bear</guid>
       <description>Leaves coming down swish-swish. One enormous yawn. Bramble has a whole winter to sleep through — but what has to happen first?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b15_1_when_autumn_cover.webp?v=-211437843</image>
     </item>
     <item>
       <title>The Coolest Dragon</title>
@@ -118,6 +138,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-coolest-dragon</guid>
       <description>Every dragon breathes hot orange fire. Drake manages one small puff of grey smoke. So what happens when the fog rolls in?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b16_1_valley_drake_cover.webp?v=-211437842</image>
     </item>
     <item>
       <title>Theo&apos;s Hidden Cove</title>
@@ -125,6 +146,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/theos-hidden-cove</guid>
       <description>A green bottle at low tide with a map rolled up inside. Then the path splits, and Papa is somewhere behind — now what?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b17_1_loved_shore_cover.webp?v=-211437841</image>
     </item>
     <item>
       <title>The Brave Little Boat</title>
@@ -132,6 +154,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-brave-little-boat</guid>
       <description>A small red boat who always stays close to shore. A storm coming in fast. Someone calling for help far out — is little big enough?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b18_1_little_harbor_cover.webp?v=-211437840</image>
     </item>
     <item>
       <title>Counting Sheep</title>
@@ -139,6 +162,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/counting-sheep</guid>
       <description>Moon up. Stars out. One little lamb wide, wide awake — how many sheep does it take?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b19_1_bedtime_moon_cover.webp?v=-211437838</image>
     </item>
     <item>
       <title>The Rainbow Umbrella</title>
@@ -146,6 +170,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-rainbow-umbrella</guid>
       <description>One grey drippy day. One rainbow umbrella. A kitten, a duckling, a puppy, a lamb — is there room under there for everyone?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b20_1_gray_rainy_cover.webp?v=-211437836</image>
     </item>
     <item>
       <title>The Beautiful Nest</title>
@@ -153,6 +178,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-beautiful-nest</guid>
       <description>One grass stem. One rose petal. One curl of silver vine. Everyone says the nest will take forever — so is it worth the wait?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b21_1_willow_home_cover.webp?v=-211437828</image>
     </item>
     <item>
       <title>The Big Wide World</title>
@@ -160,6 +186,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-big-wide-world</guid>
       <description>The slowest mover at the pond, and hills he&apos;s stared at every single evening. What does a turtle see if he stops rushing and starts looking?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b22_1_pond_edge_cover.webp?v=-211437826</image>
     </item>
     <item>
       <title>Late to the Party</title>
@@ -167,6 +194,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/late-to-the-party</guid>
       <description>Gold-star invitation. One very slow snail. The sun is already going down — will anyone still be waiting?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b23_1_special_letter_cover.webp?v=-211437824</image>
     </item>
     <item>
       <title>Rusty and the Foggy Path</title>
@@ -174,6 +202,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/rusty-and-the-foggy-path</guid>
       <description>Fog over the whole wood. One warm gold circle of lantern light. Rusty isn&apos;t the only one lost out here — so who leads everybody home?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b24_1_late_play_cover.webp?v=-211437822</image>
     </item>
     <item>
       <title>Ethan&apos;s Snow Sled Post</title>
@@ -181,6 +210,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/ethans-snow-sled-post</guid>
       <description>Snow on the lane. A sled, three boxes, and one very small delivery round. Ethan pulls it all the way home — so who swept his porch?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b25_1_snow_gate_cover.webp?v=-211437820</image>
     </item>
     <item>
       <title>Wren&apos;s First Flight</title>
@@ -188,6 +218,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/wrens-first-flight</guid>
       <description>Every brother and sister has already flown. The ground looks very far down. How do you start when your wings feel this small?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b26_1_smallest_bird_cover.webp?v=-211437818</image>
     </item>
     <item>
       <title>Chip&apos;s Autumn Gift</title>
@@ -195,6 +226,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/chips-autumn-gift</guid>
       <description>A basket packed full before the first frost. Then Mole&apos;s empty cupboard, a shivering Mouse, hungry ducklings. What&apos;s left for Chip by nightfall?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b27_1_cool_breeze_cover.webp?v=-211437815</image>
     </item>
     <item>
       <title>A Cozy Sick Day</title>
@@ -202,6 +234,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/a-cozy-sick-day</guid>
       <description>Hot, wobbly, and stuck in bed while the sunny garden waits outside. Honey tea, a silly voice, rain on the glass — can a bad day be made soft?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b28_1_not_well_cover.webp?v=-211437813</image>
     </item>
     <item>
       <title>Ella&apos;s Honest Answer</title>
@@ -209,6 +242,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/ellas-honest-answer</guid>
       <description>Grandma&apos;s tall blue vase. One elbow. A crash on the rug — and a much easier story Ella could tell instead. What does she say?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b29_1_grandma_house_cover.webp?v=-1996114066</image>
     </item>
     <item>
       <title>The Little Lighthouse</title>
@@ -216,6 +250,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-little-lighthouse</guid>
       <description>Thick grey fog rolling in off the water. A duckling family lost somewhere out in it. How bright can one little lighthouse shine?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b30_1_white_lighthouse_cover.webp?v=-211437812</image>
     </item>
     <item>
       <title>The Moon&apos;s Light</title>
@@ -223,6 +258,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-moons-light</guid>
       <description>Max the little mouse wished he could keep a bit of the night&apos;s soft light. Silver moths circled, then drifted toward the moonflower hill — were they showing him the way? What glows at the top, waiting to be carried home?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b31_1_mouse_looked_cover.webp?v=-211437810</image>
     </item>
     <item>
       <title>Hazel&apos;s Apple Sleepout</title>
@@ -230,6 +266,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/hazels-apple-sleepout</guid>
       <description>A sleepout under the biggest apple tree in the orchard. Then it gets dark, and Bramble misses his own little bed. What does a big sister do?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b32_1_orchard_camp_cover.webp?v=-211437807</image>
     </item>
     <item>
       <title>The Moon in the Pond</title>
@@ -237,6 +274,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-moon-in-the-pond</guid>
       <description>The moon has fallen into the pond, and Dot is going to rescue it. Except — is it really down there at all?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b33_1_night_pond_cover.webp?v=-211437805</image>
     </item>
     <item>
       <title>The Quiet Bell</title>
@@ -244,6 +282,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-quiet-bell</guid>
       <description>Clang, clang, clang goes Gus&apos;s shiny silver bell. Butterflies scatter, birds fly off, frogs dive. Why won&apos;t anyone stay?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b34_1_green_mountain_cover.webp?v=-211437803</image>
     </item>
     <item>
       <title>Brave on the Pier</title>
@@ -251,6 +290,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/brave-on-the-pier</guid>
       <description>He loves the sea, and the long pier makes his knees shake. A wooden gull whistle says: blow at every safe step. How far can Cole get?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b35_1_loves_sea_cover.webp?v=-211437802</image>
     </item>
     <item>
       <title>Beni&apos;s Blanket Fort</title>
@@ -258,6 +298,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/benis-blanket-fort</guid>
       <description>A blanket fort built for storytime, already a little tight. Now Wren needs somewhere dry out of the rain. Can they really fit one more?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b36_1_young_rabbit_cover.webp?v=-211437800</image>
     </item>
     <item>
       <title>Zoe&apos;s Lost Hum</title>
@@ -265,6 +306,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/zoes-lost-hum</guid>
       <description>One morning the roses don&apos;t sway and the daisies don&apos;t nod. A trail of silent flowers leads off into the mist. Where has the garden&apos;s hum gone?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b37_1_soft_fuzzy_cover.webp?v=-211437798</image>
     </item>
     <item>
       <title>The Brave Little Acorn</title>
@@ -272,6 +314,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-brave-little-acorn</guid>
       <description>One little acorn who wants a sunny spot of his own. Moss too wet, creek too splashy, clover too shady. Is there anywhere just right?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b38_1_under_a_big_oak_cover.webp?v=-211437796</image>
     </item>
     <item>
       <title>Midnight Bread</title>
@@ -279,6 +322,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/midnight-bread</guid>
       <description>The bakery timer breaks at midnight and the dough is rising too fast. Everyone else is asleep — can Hannah save the morning bread?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b39_1_family_bakery_cover.webp?v=-211437794</image>
     </item>
     <item>
       <title>The Midnight Mail</title>
@@ -286,6 +330,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-midnight-mail</guid>
       <description>Letters delivered, satchel nearly empty. Then the wind lifts the very last one out into the storm. Does Otto go after it?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b40_1_every_night_cover.webp?v=-211437793</image>
     </item>
     <item>
       <title>The Wobbly Birthday Cake</title>
@@ -293,6 +338,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-wobbly-birthday-cake</guid>
       <description>Eggs, butter, sugar, and a cake for Granny&apos;s birthday. Ding! It comes out leaning right over. Is a wobbly cake still the best cake?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b41_1_lets_bake_cover.webp?v=-211437790</image>
     </item>
     <item>
       <title>Mira&apos;s Teacup Balloon</title>
@@ -300,6 +346,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/miras-teacup-balloon</guid>
       <description>A balloon built out of a teacup. Silver clouds, golden windows far below, a meadow floating in the sky. What does Mira bring home from up there?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b42_1_built_balloon_cover.webp?v=-211437789</image>
     </item>
     <item>
       <title>The Softest Blanket</title>
@@ -307,6 +354,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/owens-soft-blanket</guid>
       <description>One soft blue blanket, whooshed out the door by the wind. A trail of blue threads through the root tunnels. Who&apos;s tucked up under it at the other end?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b43_1_mole_lived_cover.webp?v=-211437780</image>
     </item>
     <item>
       <title>Ava&apos;s Rain Day</title>
@@ -314,6 +362,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/avas-rain-day</guid>
       <description>A silver stream that only runs on rainy days. Yellow boots on, and a path that wasn&apos;t there yesterday. Where does it go?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b44_1_duckling_woke_cover.webp?v=-211437777</image>
     </item>
     <item>
       <title>The Mirror Garden</title>
@@ -321,6 +370,7 @@
       <guid isPermaLink="true">https://moonpageapp.com/stories/the-mirror-garden</guid>
       <description>A boy with a quiet voice, and a mirror maze that shows him scared, then too loud, then calm. Can quiet still be heard?</description>
       <category>Story</category>
+      <image>https://moonpageapp.com/covers/wp_b45_1_quiet_voice_cover.webp?v=-211437773</image>
     </item>
     <item>
       <title>How to Build a Bedtime Routine That Actually Works (Ages 2–7)</title>

@@ -5,20 +5,20 @@
  * than claiming a date it can't support.
  */
 export const ROUTE_DATES: Record<string, string> = {
-  "": "2026-08-14",
-  "/bedtime-stories": "2026-08-03",
-  "/toddler-bedtime-stories": "2026-08-03",
-  "/preschool-bedtime-stories": "2026-08-03",
-  "/read-aloud-bedtime-stories": "2026-08-03",
-  "/bedtime-stories-by-age": "2026-07-30",
-  "/cozy-bedtime-stories": "2026-08-03",
-  "/lullaby-bedtime-stories": "2026-08-03",
-  "/bedtime-stories-app": "2026-08-03",
-  "/picture-books-for-kids": "2026-08-03",
-  "/stories": "2026-08-03",
+  "": "2026-08-17",
+  "/bedtime-stories": "2026-08-17",
+  "/toddler-bedtime-stories": "2026-08-17",
+  "/preschool-bedtime-stories": "2026-08-17",
+  "/read-aloud-bedtime-stories": "2026-08-17",
+  "/bedtime-stories-by-age": "2026-08-17",
+  "/cozy-bedtime-stories": "2026-08-17",
+  "/lullaby-bedtime-stories": "2026-08-17",
+  "/bedtime-stories-app": "2026-08-17",
+  "/picture-books-for-kids": "2026-08-17",
+  "/stories": "2026-08-17",
   "/collections": "2026-08-03",
-  "/faq": "2026-07-28",
-  "/guides": "2026-08-03",
+  "/faq": "2026-08-17",
+  "/guides": "2026-08-17",
   "/privacy": "2026-07-28",
   "/privacy-choices": "2026-07-24",
   "/terms": "2026-07-24",
@@ -26,5 +26,5 @@ export const ROUTE_DATES: Record<string, string> = {
 };
 
 /** Story and collection pages are generated from a single data file each. */
-export const STORY_DATE = "2026-08-03";
+export const STORY_DATE = "2026-08-17";
 export const COLLECTION_DATE = "2026-08-03";

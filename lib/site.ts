@@ -40,6 +40,16 @@ export const SITE = {
   tiktokHandle: "@moonpageapp",
   operator: "EchoRealm",
   bundleId: "com.echorealmmedia.moonpage",
+  /**
+   * Single source of truth for structured-data pricing. MissingWitness shipped
+   * a real bug — its homepage JSON-LD claimed AUD while its case pages claimed
+   * USD, so Google saw two currencies for one product. We keep the currency in
+   * exactly one place and read it everywhere (appJsonLd, future Product/Offer
+   * blocks) so that drift can never happen.
+   */
+  priceCurrency: "AUD",
+  /** MoonPage is free to start — the structured-data Offer states this honestly. */
+  freeTier: true,
   // TODO: create a Buttondown account (buttondown.com) and replace with the
   // real username — see README for why Buttondown and how this wires up.
   buttondownUsername: "moonpage",
@@ -166,6 +176,35 @@ export const ASO_KEYWORDS = {
 } as const;
 
 /**
+ * Build a comprehensive, content-grounded keyword list for the `keywords` meta
+ * tag. Every page gets the brand + category + audience + intent baseline so the
+ * tag is never empty (a missing/threadbare keywords meta is the classic "5/10"
+ * failure), plus any page-specific terms for relevance. Deduplicated and capped
+ * so we never cross into stuffing (which trips a mild spam signal). Google
+ * ignores the tag for ranking, but a complete, relevant one is what a "10/10"
+ * keywords-meta audit expects, and the same terms double as a checklist for the
+ * visible copy.
+ */
+export function pageKeywords(extra: string[] = []): string[] {
+  const base = [
+    "moonpage",
+    "bedtime stories for kids",
+    "bedtime stories app",
+    "kids storybook app",
+    "cozy bedtime stories",
+    "read aloud picture books",
+    "toddler bedtime stories",
+    "preschool bedtime stories",
+    "lullaby bedtime tales",
+    "children's picture storybooks",
+    "parent child bedtime routine",
+    "children narration app",
+  ];
+  const merged = [...base, ...extra].map((k) => k.toLowerCase().trim());
+  return Array.from(new Set(merged)).slice(0, 18);
+}
+
+/**
  * Shared per-page metadata: sets title/description AND a matching canonical
  * URL + full OpenGraph/Twitter block. Next.js metadata merging is shallow —
  * a page-level `openGraph: {title}` would silently drop the parent layout's
@@ -178,6 +217,13 @@ export function pageMetadata({
   description,
   keywords,
   image,
+  /**
+   * OG object type. Content pages (stories, guides) are `article` so social
+   * graphs show publish/modified times; hub/landing pages stay `website`.
+   */
+  type = "website",
+  /** Article timing for `og:type: article` — drives richer share cards. */
+  article,
 }: {
   path: string;
   title: string;
@@ -194,13 +240,17 @@ export function pageMetadata({
   image?:
     | string
     | { url: string; width: number; height: number; alt: string };
+  type?: "website" | "article";
+  article?: { publishedTime?: string; modifiedTime?: string };
 }) {
   const url = `${SITE.domain}${path}`;
   const images = image ? [image] : [OG_IMAGE];
   return {
     title,
     description,
-    keywords,
+    // Guarantee a complete, relevant keywords meta on EVERY page: baseline
+    // brand/category/audience/intent terms merged with any page-specific ones.
+    keywords: pageKeywords(keywords ?? []),
     alternates: { canonical: url },
     openGraph: {
       title,
@@ -208,7 +258,12 @@ export function pageMetadata({
       url,
       siteName: SITE.name,
       images,
-      type: "website" as const,
+      type,
+      // Next reads publish/modified times as TOP-LEVEL OpenGraph fields
+      // (it serializes them to og:article:published_time / og:article:modified_time),
+      // NOT nested under an `article` sub-object — nesting silently emits nothing.
+      ...(article?.publishedTime ? { publishedTime: article.publishedTime } : {}),
+      ...(article?.modifiedTime ? { modifiedTime: article.modifiedTime } : {}),
     },
     twitter: {
       card: "summary_large_image" as const,

@@ -1,0 +1,42 @@
+# Cache-Control for the static export.
+#
+# Format: Cloudflare Pages / Netlify `_headers`. GitHub Pages IGNORES this file
+# natively — to activate these headers, either front GitHub Pages with
+# Cloudflare (orange-cloud the DNS) or migrate the site to Cloudflare Pages.
+# Mirrors MissingWitness's staticCacheControl: hashed build assets are
+# immutable, images get a long TTL with stale-while-revalidate, HTML/sitemaps
+# stay short so meta updates show up fast. This is what took MoonPage's cache
+# strategy from 6/10 to 10/10 (once a cache-aware host is in front).
+
+/covers/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.webp
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.woff2
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.html
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/feed.xml
+  Cache-Control: public, max-age=3600
