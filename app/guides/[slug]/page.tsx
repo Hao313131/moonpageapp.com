@@ -10,7 +10,7 @@ import {
   relatedGuides,
   type GuideBlock,
 } from "@/lib/guides";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, pageMetadata, pageKeywords } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
 
@@ -30,6 +30,18 @@ export async function generateMetadata({
     path: `/guides/${guide.slug}`,
     title: guide.title,
     description: guide.description,
+    type: "article",
+    article: { publishedTime: guide.updated, modifiedTime: guide.updated },
+    keywords: pageKeywords([
+      guide.category,
+      "parenting",
+      "children's sleep",
+      "bedtime routine",
+      "kids sleep tips",
+      "toddler sleep",
+      "preschool sleep",
+      "parent child bonding",
+    ]),
   });
 }
 
@@ -95,6 +107,28 @@ export default async function GuidePage({ params }: { params: Params }) {
           "@type": "Question",
           name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
+  // HowTo (adopted from MissingWitness's guide pages, which emit HowTo for
+  // step-based advice). Built from the guide's ordered lists — which are
+  // rendered visibly on the page, so Google sees the same steps it indexes.
+  // Guides without any <ol> simply skip HowTo (an empty one is an error).
+  const howToSteps = guide.sections
+    .flatMap((sec) => sec.blocks)
+    .filter((b): b is { type: "ol"; items: string[] } => b.type === "ol")
+    .flatMap((b) => b.items.map((text) => ({ text })));
+  const howToJsonLd = howToSteps.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: guide.title,
+        description: guide.description,
+        step: howToSteps.map((s, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          text: s.text,
         })),
       }
     : null;
@@ -233,6 +267,12 @@ export default async function GuidePage({ params }: { params: Params }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
+      {howToJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
         />
       )}
     </>

@@ -168,7 +168,19 @@ const appJsonLd = {
   description:
     "A bedtime stories app for kids ages 2+ — original illustrated picture storybooks, cozy and lullaby-style sleepy tales, trusted by thousands of moms. Hear them by a professional narrator or in your own recorded voice.",
   publisher: { "@type": "Organization", name: SITE.operator },
-  offers: { "@type": "Offer", category: "subscription" },
+  // Honest pricing in one currency (SITE.priceCurrency — see the consistency
+  // note there). The free tier is a real, stated offer; the paid subscription
+  // is shown in the visible Pricing section, so we don't invent a price here.
+  offers: [
+    {
+      "@type": "Offer",
+      category: "free",
+      price: "0",
+      priceCurrency: SITE.priceCurrency,
+      description:
+        "Free to start — a sample of original bedtime stories, narrated, no account needed.",
+    },
+  ],
 };
 
 export default function RootLayout({

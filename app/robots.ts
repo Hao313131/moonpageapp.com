@@ -24,11 +24,30 @@ const AI_CRAWLERS = [
   "FacebookBot",
 ];
 
+// Traditional search engines we explicitly welcome, named so the intent is
+// unmistakable (adopted from MissingWitness's robots.txt, which spells out the
+// Chinese crawlers it wants). MoonPage targets an English/Australian market,
+// but there is no reason to block Baidu/360/Sogou if they come, and naming
+// Mediapartners-Google + AdsBot-Google keeps AdSense (if later enabled) clean.
+const SEARCH_CRAWLERS = [
+  "Baiduspider",
+  "360Spider",
+  "Sogou web spider",
+  "Bytespider",
+  "Mediapartners-Google",
+  "AdsBot-Google",
+];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       { userAgent: "*", allow: "/", disallow: "/get" },
       ...AI_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow: "/get",
+      })),
+      ...SEARCH_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: "/",
         disallow: "/get",

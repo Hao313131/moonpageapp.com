@@ -9,7 +9,9 @@
     "make:og": "node scripts/make-og-image.mjs",
     "gen:dates": "node scripts/gen-content-dates.mjs",
     "gen:feed": "tsx scripts/gen-feed.ts",
-    "build": "npm run sync:covers && npm run gen:dates && npm run gen:feed && next build",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "seo:indexnow": "node scripts/indexnow.mjs",
+    "build": "npm run sync:covers && npm run gen:dates && npm run gen:feed && npm run validate:content && next build",
     "start": "npx --yes serve@14 out",
     "lint": "eslint"
   },
