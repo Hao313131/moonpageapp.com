@@ -71,6 +71,17 @@ export function SearchClient() {
   function submit(e: React.FormEvent) {
     e.preventDefault();
     const next = q.trim();
+    // Measure on-site search as an engagement signal (what are people
+    // actually looking for, and do we have it?). Umami only auto-tracks link
+    // clicks; a typed query needs an explicit event.
+    if (next.length >= 2 && typeof window !== "undefined") {
+      const umami = (
+        window as Window & {
+          umami?: { track: (e: string, p?: Record<string, unknown>) => void };
+        }
+      ).umami;
+      umami?.track("site-search", { query: next, results: results.length });
+    }
     router.replace(
       next ? `/search?q=${encodeURIComponent(next)}` : "/search",
       { scroll: false },

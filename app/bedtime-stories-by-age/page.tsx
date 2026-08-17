@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { HubFaq } from "@/components/HubFaq";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
 import { StoreButtons } from "@/components/StoreButtons";
@@ -241,6 +242,7 @@ export default function BedtimeStoriesByAgePage() {
             />
           </div>
         </div>
+      <HubFaq path="/bedtime-stories-by-age" />
       </main>
       <Footer />
       {jsonLd.map((block, i) => (
