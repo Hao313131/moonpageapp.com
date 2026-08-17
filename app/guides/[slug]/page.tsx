@@ -46,9 +46,22 @@ export default async function GuidePage({ params }: { params: Params }) {
     headline: guide.title,
     description: guide.description,
     inLanguage: "en",
+    articleSection: guide.category,
+    keywords: [
+      guide.category,
+      "bedtime stories",
+      "parenting",
+      "children's sleep",
+    ],
     datePublished: guide.updated,
     dateModified: guide.updated,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: {
+      "@type": "ImageObject",
+      url: `${SITE.domain}/og-image.png`,
+      width: 1200,
+      height: 630,
+    },
     author: { "@type": "Organization", name: SITE.operator },
     publisher: {
       "@type": "Organization",
@@ -108,6 +121,15 @@ export default async function GuidePage({ params }: { params: Params }) {
           </h1>
           <p className="mt-3 text-xs text-ink-muted sm:text-sm">
             {guide.readingMinutes} min read
+            {" · "}
+            <time dateTime={guide.updated}>
+              Updated{" "}
+              {new Date(guide.updated).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </time>
           </p>
 
           <div className="mt-6 space-y-4 sm:mt-8">

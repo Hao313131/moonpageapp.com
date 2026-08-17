@@ -10,6 +10,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: "#d4c8b0",
+  colorScheme: "light",
 };
 
 /** Formal literary serif for section headlines. */
@@ -39,6 +40,17 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
+  // Lets the site be installed as a web app and pins the cream theme through
+  // the splash/standalone view — small PWA signal, and it keeps the
+  // apple-touch-icon we already ship working as a homescreen icon.
+  manifest: "/manifest.webmanifest",
+  applicationName: SITE.name,
+  appleWebApp: {
+    capable: true,
+    title: SITE.name,
+    statusBarStyle: "default",
+  },
+  formatDetection: { telephone: false },
   // Stable favicon URLs — Google won't show a SERP icon if the href keeps
   // changing (Next's hashed app/icon.png URLs fail that guideline). Both
   // entries are a multiple of 48px square, which is what Google's favicon
@@ -68,7 +80,8 @@ export const metadata: Metadata = {
     "children's picture storybooks",
     "sleepy stories for kids",
   ],
-  alternates: { canonical: SITE.domain },
+  // Trailing slash matches the sitemap (output: "export" + trailingSlash:true).
+  alternates: { canonical: `${SITE.domain}/` },
   // Lets Google use a large cover thumbnail next to results and in Discover —
   // the default for a new site is a small one, and cover art is our best asset.
   robots: {
@@ -113,7 +126,7 @@ const organizationJsonLd = {
     width: 1024,
     height: 1024,
   },
-  sameAs: [SITE.instagramUrl],
+  sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
   contactPoint: {
     "@type": "ContactPoint",
     email: SITE.contactEmail,
@@ -130,6 +143,18 @@ const websiteJsonLd = {
     "Original cozy bedtime stories for kids ages 2+ — a phone and tablet storybook app trusted by thousands of moms. Read-aloud narration, picture books, no ads, no login required.",
   inLanguage: "en",
   publisher: { "@type": "Organization", name: SITE.operator },
+  // Sitelinks search box — when Google/Bing show it under our result, the
+  // extra row pushes competitors down and lifts our click-through. The target
+  // must resolve to a real, working page, so /search is a genuine client-side
+  // search over the full catalog (see app/search/page.tsx).
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE.domain}/search?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 const appJsonLd = {
@@ -162,6 +187,21 @@ export default function RootLayout({
           pointing straight at the App Store, no JS required.
         */}
         <meta name="apple-itunes-app" content="app-id=6788652725" />
+        {/* RSS feed — lets feed readers and some engines (e.g. Bing) discover
+            new stories/guides/collections as a stream, not just per-page. */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="MoonPage — bedtime stories & guides"
+          href="/feed.xml"
+        />
+        {/* Warm up the analytics connection early; a faster first response
+            helps Core Web Vitals, which feed ranking. */}
+        <link
+          rel="preconnect"
+          href="https://cloud.umami.is"
+          crossOrigin="anonymous"
+        />
         {/* Umami Cloud Analytics — website-id is public by design (same as GA measurement ID). */}
         <Script
           defer

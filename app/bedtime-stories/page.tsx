@@ -6,7 +6,7 @@ import { BackHomeLink } from "@/components/BackLink";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { StoreButtons } from "@/components/StoreButtons";
 import { COLLECTIONS } from "@/lib/collections";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 import { STORIES } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
@@ -29,19 +29,51 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function BedtimeStoriesLandingPage() {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+  const jsonLd = hubJsonLd({
+    path: "/bedtime-stories",
+    name: "Bedtime Stories",
+    items: [
+      { name: "All stories", url: `${SITE.domain}/stories` },
+      { name: "Collections", url: `${SITE.domain}/collections` },
       {
-        "@type": "ListItem",
-        position: 2,
-        name: "Bedtime Stories",
-        item: `${SITE.domain}/bedtime-stories`,
+        name: "Toddler bedtime stories",
+        url: `${SITE.domain}/toddler-bedtime-stories`,
+      },
+      {
+        name: "Preschool bedtime stories",
+        url: `${SITE.domain}/preschool-bedtime-stories`,
+      },
+      {
+        name: "Read-aloud bedtime stories",
+        url: `${SITE.domain}/read-aloud-bedtime-stories`,
+      },
+      { name: "Cozy bedtime stories", url: `${SITE.domain}/cozy-bedtime-stories` },
+      {
+        name: "Lullaby bedtime stories",
+        url: `${SITE.domain}/lullaby-bedtime-stories`,
+      },
+      {
+        name: "Picture books for kids",
+        url: `${SITE.domain}/picture-books-for-kids`,
+      },
+      {
+        name: "Bedtime stories app",
+        url: `${SITE.domain}/bedtime-stories-app`,
+      },
+      {
+        name: "Bedtime stories by age",
+        url: `${SITE.domain}/bedtime-stories-by-age`,
+      },
+      {
+        name: "Read-aloud strategies (guide)",
+        url: `${SITE.domain}/guides/read-aloud-to-toddlers`,
+      },
+      {
+        name: "Bedtime routine guide",
+        url: `${SITE.domain}/guides/bedtime-routine-for-toddlers`,
       },
     ],
-  };
+  });
 
   return (
     <>
@@ -215,10 +247,13 @@ export default function BedtimeStoriesLandingPage() {
         </div>
       </main>
       <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      {jsonLd.map((block, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+        />
+      ))}
     </>
   );
 }

@@ -183,12 +183,19 @@ export function pageMetadata({
   title: string;
   description: string;
   keywords?: string[];
-  /** Absolute path or full URL for OG/Twitter image (defaults to site OG). */
-  image?: string;
+  /**
+   * Custom Open Graph / Twitter card image. Pass the full object with
+   * `width`/`height`/`alt` so social scrapers commit to the large-card format
+   * instead of waiting to measure the file (and often falling back to a small
+   * thumbnail). Story covers are 800×588 — declare those exact numbers.
+   * A bare URL string is accepted for backwards compatibility but loses the
+   * dimensions, so prefer the object form for any custom image.
+   */
+  image?:
+    | string
+    | { url: string; width: number; height: number; alt: string };
 }) {
   const url = `${SITE.domain}${path}`;
-  // A custom image (a story cover) ships as a bare URL — only the site card
-  // has known dimensions worth declaring.
   const images = image ? [image] : [OG_IMAGE];
   return {
     title,
@@ -212,15 +219,24 @@ export function pageMetadata({
   };
 }
 
-/** Breadcrumb + optional FAQPage JSON-LD for SEO hub pages. */
+/** Breadcrumb + optional FAQPage + optional ItemList JSON-LD for SEO hub pages. */
 export function hubJsonLd({
   path,
   name,
   faqs,
+  items,
 }: {
   path: string;
   name: string;
   faqs?: { q: string; a: string }[];
+  /**
+   * Visible on-page links (collections, sibling hubs, related guides). Emitted
+   * as an ItemList so the hub reads to crawlers as a real directory of related
+   * pages, not just a pile of <a> tags — this is what earns collection-style
+   * rich results for the hub's target keywords. Only pass links that are
+   * actually rendered on the page.
+   */
+  items?: { name: string; url: string }[];
 }) {
   const breadcrumb = {
     "@context": "https://schema.org",
@@ -235,10 +251,9 @@ export function hubJsonLd({
       },
     ],
   };
-  if (!faqs?.length) return [breadcrumb];
-  return [
-    breadcrumb,
-    {
+  const blocks: object[] = [breadcrumb];
+  if (faqs?.length) {
+    blocks.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: faqs.map((f) => ({
@@ -246,6 +261,20 @@ export function hubJsonLd({
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
-    },
-  ];
+    });
+  }
+  if (items?.length) {
+    blocks.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: `${name} — related pages`,
+      itemListElement: items.map((it, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: it.name,
+        url: it.url,
+      })),
+    });
+  }
+  return blocks;
 }

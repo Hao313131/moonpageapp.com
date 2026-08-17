@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
 import { StoreButtons } from "@/components/StoreButtons";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/bedtime-stories-by-age",
@@ -63,19 +63,48 @@ const AGE_BANDS = [
 ] as const;
 
 export default function BedtimeStoriesByAgePage() {
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+  const jsonLd = hubJsonLd({
+    path: "/bedtime-stories-by-age",
+    name: "Bedtime Stories by Age",
+    items: [
       {
-        "@type": "ListItem",
-        position: 2,
-        name: "Bedtime Stories by Age",
-        item: `${SITE.domain}/bedtime-stories-by-age`,
+        name: "Bedtime stories for babies (guide)",
+        url: `${SITE.domain}/guides/bedtime-stories-for-babies`,
+      },
+      {
+        name: "Bedtime stories for 2-year-olds (guide)",
+        url: `${SITE.domain}/guides/bedtime-stories-for-2-year-olds`,
+      },
+      {
+        name: "Bedtime stories for 3-year-olds (guide)",
+        url: `${SITE.domain}/guides/bedtime-stories-for-3-year-olds`,
+      },
+      {
+        name: "Bedtime stories for 4-year-olds (guide)",
+        url: `${SITE.domain}/guides/bedtime-stories-for-4-year-olds`,
+      },
+      {
+        name: "Bedtime stories for 5–6-year-olds (guide)",
+        url: `${SITE.domain}/guides/bedtime-stories-for-5-year-olds`,
+      },
+      {
+        name: "Bedtime for school-age children (guide)",
+        url: `${SITE.domain}/guides/school-age-bedtime`,
+      },
+      {
+        name: "What makes a good bedtime story (guide)",
+        url: `${SITE.domain}/guides/what-makes-a-good-bedtime-story`,
+      },
+      {
+        name: "How long to read at bedtime (guide)",
+        url: `${SITE.domain}/guides/how-long-to-read-at-bedtime`,
+      },
+      {
+        name: "Building a bedtime routine (guide)",
+        url: `${SITE.domain}/guides/bedtime-routine-for-toddlers`,
       },
     ],
-  };
+  });
 
   return (
     <>
@@ -214,10 +243,13 @@ export default function BedtimeStoriesByAgePage() {
         </div>
       </main>
       <Footer />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      {jsonLd.map((block, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+        />
+      ))}
     </>
   );
 }

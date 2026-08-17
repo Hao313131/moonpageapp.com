@@ -7,7 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SeoHubCta } from "@/components/SeoHubCta";
 import { StoryGrid } from "@/components/StoryGrid";
-import { hubJsonLd, pageMetadata } from "@/lib/site";
+import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 import { STORIES, storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
@@ -72,6 +72,20 @@ export default function ReadAloudBedtimeStoriesPage() {
     path: "/read-aloud-bedtime-stories",
     name: "Read-Aloud Bedtime Stories",
     faqs: FAQS,
+    items: [
+      {
+        name: "Bedtime stories app",
+        url: `${SITE.domain}/bedtime-stories-app`,
+      },
+      {
+        name: "Lullaby bedtime stories",
+        url: `${SITE.domain}/lullaby-bedtime-stories`,
+      },
+      {
+        name: "Toddler bedtime stories",
+        url: `${SITE.domain}/toddler-bedtime-stories`,
+      },
+    ],
   });
 
   return (

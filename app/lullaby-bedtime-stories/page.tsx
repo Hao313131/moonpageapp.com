@@ -7,7 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SeoHubCta } from "@/components/SeoHubCta";
 import { StoryGrid } from "@/components/StoryGrid";
-import { hubJsonLd, pageMetadata } from "@/lib/site";
+import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 import { storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
@@ -61,6 +61,33 @@ export default function LullabyBedtimeStoriesPage() {
     path: "/lullaby-bedtime-stories",
     name: "Lullaby Bedtime Stories",
     faqs: FAQS,
+    items: [
+      {
+        name: "Lullabies for babies and toddlers (guide)",
+        url: `${SITE.domain}/guides/lullabies-for-babies-and-toddlers`,
+      },
+      {
+        name: "Bedtime stories for babies (guide)",
+        url: `${SITE.domain}/guides/bedtime-stories-for-babies`,
+      },
+      {
+        name: "White noise and bedtime sounds (guide)",
+        url: `${SITE.domain}/guides/white-noise-and-bedtime-sounds`,
+      },
+      { name: "Cozy bedtime stories", url: `${SITE.domain}/cozy-bedtime-stories` },
+      {
+        name: "Toddler bedtime stories",
+        url: `${SITE.domain}/toddler-bedtime-stories`,
+      },
+      {
+        name: "Read-aloud bedtime stories",
+        url: `${SITE.domain}/read-aloud-bedtime-stories`,
+      },
+      {
+        name: "Sleepy bedtime stories",
+        url: `${SITE.domain}/collections/sleepy-bedtime-stories`,
+      },
+    ],
   });
 
   return (
