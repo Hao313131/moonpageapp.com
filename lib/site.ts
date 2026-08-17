@@ -1,3 +1,5 @@
+import { HUB_FAQS } from "./hubFaqs";
+
 /**
  * Central site config. Placeholders are marked TODO and mirror the same
  * placeholder pattern already used in moonpage-app/constants/links.ts.
@@ -293,6 +295,10 @@ export function hubJsonLd({
    */
   items?: { name: string; url: string }[];
 }) {
+  // Hubs don't pass `faqs` inline; pull the per-hub FAQ from hubFaqs.ts so the
+  // FAQPage rich result is emitted without editing every hub page. Pages that
+  // do pass `faqs` keep their explicit set.
+  const resolvedFaqs = faqs ?? HUB_FAQS[path];
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -307,11 +313,11 @@ export function hubJsonLd({
     ],
   };
   const blocks: object[] = [breadcrumb];
-  if (faqs?.length) {
+  if (resolvedFaqs?.length) {
     blocks.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({
+      mainEntity: resolvedFaqs.map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },

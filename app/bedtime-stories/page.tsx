@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { HubFaq } from "@/components/HubFaq";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
@@ -245,6 +246,7 @@ export default function BedtimeStoriesLandingPage() {
             <StoreButtons campaign="bedtime_stories_landing" className="justify-center" />
           </div>
         </div>
+      <HubFaq path="/bedtime-stories" />
       </main>
       <Footer />
       {jsonLd.map((block, i) => (

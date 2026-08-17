@@ -207,6 +207,26 @@ export default function RootLayout({
           title="MoonPage — bedtime stories & guides"
           href="/feed.xml"
         />
+        {/*
+          Search-engine / webmaster verification. These codes are PUBLIC by
+          design (same as the Umami website-id). Replace each TODO with the
+          real token from its console, OR verify via a DNS TXT record instead
+          — then these tags can stay as-is. Without verification you cannot see
+          impressions / average position / CTR in Search Console, i.e. you are
+          blind to the discovery half of the funnel (is the site even ranking,
+          and if so, are people clicking? Umami only shows visits after the fact).
+          - GSC:      google-search-console → Settings → Ownership verification
+          - Bing:     bing-webmaster-tools → Add site → Verify (also feeds Yahoo)
+          - Yandex:   yandex-webmaster (optional; pairs with IndexNow)
+          - Pinterest: pinterest-business (optional; real parenting/DIY traffic)
+        */}
+        <meta
+          name="google-site-verification"
+          content="REPLACE_WITH_GSC_CODE"
+        />
+        <meta name="msvalidate.01" content="REPLACE_WITH_BING_CODE" />
+        <meta name="yandex-verification" content="REPLACE_WITH_YANDEX_CODE" />
+        <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_CODE" />
         {/* Warm up the analytics connection early; a faster first response
             helps Core Web Vitals, which feed ranking. */}
         <link
