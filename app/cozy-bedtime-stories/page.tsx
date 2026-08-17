@@ -7,7 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SeoHubCta } from "@/components/SeoHubCta";
 import { StoryGrid } from "@/components/StoryGrid";
-import { hubJsonLd, pageMetadata } from "@/lib/site";
+import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 import { storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
@@ -61,6 +61,29 @@ export default function CozyBedtimeStoriesPage() {
     path: "/cozy-bedtime-stories",
     name: "Cozy Bedtime Stories",
     faqs: FAQS,
+    items: [
+      {
+        name: "Sleepy bedtime stories",
+        url: `${SITE.domain}/collections/sleepy-bedtime-stories`,
+      },
+      {
+        name: "Lullaby bedtime stories",
+        url: `${SITE.domain}/lullaby-bedtime-stories`,
+      },
+      {
+        name: "A cozy bedroom for better sleep (guide)",
+        url: `${SITE.domain}/guides/cozy-bedroom-for-better-sleep`,
+      },
+      {
+        name: "What makes a good bedtime story (guide)",
+        url: `${SITE.domain}/guides/what-makes-a-good-bedtime-story`,
+      },
+      {
+        name: "Toddler bedtime stories",
+        url: `${SITE.domain}/toddler-bedtime-stories`,
+      },
+      { name: "Bedtime stories", url: `${SITE.domain}/bedtime-stories` },
+    ],
   });
 
   return (

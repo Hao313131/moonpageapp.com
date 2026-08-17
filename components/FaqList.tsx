@@ -4,13 +4,22 @@ import type { FaqItem } from "@/lib/faq";
 export function FaqList({
   items,
   className = "",
+  speakable = false,
 }: {
   items: FaqItem[];
   className?: string;
+  /**
+   * When true, marks the block with `js-speakable` so the page's FAQPage
+   * JSON-LD can point Google's voice-search (Speakable) feature at this exact
+   * Q&A text. Only set on the /faq page, which actually emits FAQPage.
+   */
+  speakable?: boolean;
 }) {
   return (
     <div
-      className={`divide-y divide-wood/20 rounded-2xl border border-wood/20 bg-paper sm:rounded-3xl ${className}`}
+      className={`divide-y divide-wood/20 rounded-2xl border border-wood/20 bg-paper sm:rounded-3xl ${className} ${
+        speakable ? "js-speakable" : ""
+      }`}
     >
       {items.map((f) => (
         <details key={f.q} className="group p-4 open:pb-4 sm:p-5 sm:open:pb-5">

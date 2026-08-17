@@ -7,7 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SeoHubCta } from "@/components/SeoHubCta";
 import { StoryGrid } from "@/components/StoryGrid";
-import { hubJsonLd, pageMetadata } from "@/lib/site";
+import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 import { STORIES, storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
@@ -60,6 +60,35 @@ export default function PictureBooksForKidsPage() {
     path: "/picture-books-for-kids",
     name: "Picture Books for Kids",
     faqs: FAQS,
+    items: [
+      { name: "All bedtime stories", url: `${SITE.domain}/stories` },
+      { name: "Collections", url: `${SITE.domain}/collections` },
+      {
+        name: "Why picture books matter (guide)",
+        url: `${SITE.domain}/guides/why-picture-books-matter`,
+      },
+      {
+        name: "Choosing bedtime books (guide)",
+        url: `${SITE.domain}/guides/choosing-bedtime-books`,
+      },
+      {
+        name: "Wordless picture books (guide)",
+        url: `${SITE.domain}/guides/wordless-picture-books`,
+      },
+      {
+        name: "Read-aloud bedtime stories",
+        url: `${SITE.domain}/read-aloud-bedtime-stories`,
+      },
+      {
+        name: "Preschool bedtime stories",
+        url: `${SITE.domain}/preschool-bedtime-stories`,
+      },
+      {
+        name: "Bedtime stories app",
+        url: `${SITE.domain}/bedtime-stories-app`,
+      },
+      { name: "Cozy bedtime stories", url: `${SITE.domain}/cozy-bedtime-stories` },
+    ],
   });
 
   return (

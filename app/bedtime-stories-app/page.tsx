@@ -7,7 +7,7 @@ import { FaqList } from "@/components/FaqList";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { SeoHubCta } from "@/components/SeoHubCta";
 import { StoryGrid } from "@/components/StoryGrid";
-import { hubJsonLd, pageMetadata } from "@/lib/site";
+import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 import { FEATURED_STORIES, STORIES } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
@@ -76,6 +76,28 @@ export default function BedtimeStoriesAppPage() {
     path: "/bedtime-stories-app",
     name: "Bedtime Stories App",
     faqs: FAQS,
+    items: [
+      { name: "All bedtime stories", url: `${SITE.domain}/stories` },
+      { name: "Bedtime stories", url: `${SITE.domain}/bedtime-stories` },
+      {
+        name: "Toddler bedtime stories",
+        url: `${SITE.domain}/toddler-bedtime-stories`,
+      },
+      {
+        name: "Preschool bedtime stories",
+        url: `${SITE.domain}/preschool-bedtime-stories`,
+      },
+      {
+        name: "Read-aloud bedtime stories",
+        url: `${SITE.domain}/read-aloud-bedtime-stories`,
+      },
+      { name: "Cozy bedtime stories", url: `${SITE.domain}/cozy-bedtime-stories` },
+      {
+        name: "Picture books for kids",
+        url: `${SITE.domain}/picture-books-for-kids`,
+      },
+      { name: "FAQ", url: `${SITE.domain}/faq` },
+    ],
   });
 
   return (

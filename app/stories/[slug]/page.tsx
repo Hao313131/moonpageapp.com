@@ -15,6 +15,7 @@ import {
   storiesByTag,
 } from "@/lib/stories";
 import { storyCoverSrc, storyCoverUrl } from "@/lib/storyCover";
+import { STORY_DATE } from "@/lib/content-dates";
 import { SITE, pageMetadata } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -42,8 +43,14 @@ export async function generateMetadata({
       "read aloud storybook",
       ...story.tags.slice(0, 3).map((t) => TAG_LABELS[t].toLowerCase()),
     ],
-    // Stable cover URL without cache-bust query — better for OG crawlers.
-    image: `${SITE.domain}/covers/${story.file}`,
+    // Stable cover URL without cache-bust query — better for OG crawlers — and
+    // declared at its real 800×588 so social scrapers render the large card.
+    image: {
+      url: storyCoverUrl(SITE.domain, story.file),
+      width: 800,
+      height: 588,
+      alt: `Cover art for the children's bedtime story "${story.title}"`,
+    },
   });
 }
 
@@ -74,13 +81,26 @@ export default async function StoryPage({ params }: { params: Params }) {
     image,
     url,
     inLanguage: "en",
+    datePublished: STORY_DATE,
+    dateModified: STORY_DATE,
     genre: "Children's picture book",
+    author: { "@type": "Organization", name: SITE.operator },
     audience: { "@type": "PeopleAudience", suggestedMinAge: 2 },
     publisher: { "@type": "Organization", name: SITE.operator },
     isPartOf: {
       "@type": "CreativeWorkSeries",
       name: `${SITE.name} bedtime stories`,
       url: `${SITE.domain}/stories`,
+    },
+    // MoonPage is free to download with some stories free to read — a real
+    // Offer (price 0) is what lets a "Free" badge and richer app/book results
+    // show, and it's the honest fact about the product.
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url,
     },
   };
 

@@ -19,6 +19,12 @@ export default function FaqPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    // Lets Google Assistant / voice search read these exact Q&As aloud — a
+    // second discovery surface alongside the standard blue-link SERP.
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".js-speakable"],
+    },
     mainEntity: FAQS.map((f) => ({
       "@type": "Question",
       name: f.q,
@@ -83,7 +89,7 @@ export default function FaqPage() {
                 <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
                   {category}
                 </h2>
-                <FaqList items={items} className="mt-4 sm:mt-5" />
+                <FaqList items={items} className="mt-4 sm:mt-5" speakable />
               </section>
             );
           })}

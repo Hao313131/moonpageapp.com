@@ -8,7 +8,8 @@
     "optimize:images": "node scripts/optimize-images.mjs",
     "make:og": "node scripts/make-og-image.mjs",
     "gen:dates": "node scripts/gen-content-dates.mjs",
-    "build": "npm run sync:covers && npm run gen:dates && next build",
+    "gen:feed": "tsx scripts/gen-feed.ts",
+    "build": "npm run sync:covers && npm run gen:dates && npm run gen:feed && next build",
     "start": "npx --yes serve@14 out",
     "lint": "eslint"
   },
@@ -26,6 +27,7 @@
     "eslint-config-next": "16.2.11",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   }
 }

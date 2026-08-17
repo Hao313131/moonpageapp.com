@@ -108,6 +108,11 @@ export function Footer() {
                   Browse bedtime stories
                 </Link>
               </li>
+              <li>
+                <Link href="/search" className="hover:text-white">
+                  Search the site
+                </Link>
+              </li>
               {FOOTER_COLLECTIONS.map((c) => (
                 <li key={c.slug}>
                   <Link
@@ -152,6 +157,11 @@ export function Footer() {
           <nav aria-label="Company">
             <p className="font-semibold text-night-ink">MoonPage</p>
             <ul className="mt-2 space-y-1.5">
+              <li>
+                <Link href="/sitemap" className="hover:text-white">
+                  Site map
+                </Link>
+              </li>
               <li>
                 <Link href="/support" className="hover:text-white">
                   Support

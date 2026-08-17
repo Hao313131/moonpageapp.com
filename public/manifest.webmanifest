@@ -1,0 +1,31 @@
+{
+  "name": "MoonPage — Cozy Bedtime Stories for Kids",
+  "short_name": "MoonPage",
+  "description": "Original illustrated bedtime stories for kids ages 2+, read aloud by a narrator or in your own recorded voice. No ads, no login.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#d4c8b0",
+  "theme_color": "#d4c8b0",
+  "lang": "en",
+  "categories": ["education", "books", "family"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple touch icon"
+    }
+  ]
+}
