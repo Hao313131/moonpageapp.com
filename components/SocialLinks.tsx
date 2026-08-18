@@ -116,9 +116,7 @@ export function SocialLinks({
   return (
     <span className={`inline-flex shrink-0 items-center gap-2 ${className}`}>
       <InstagramLink size={size} title={`${title} on Instagram`} />
-      {/* TikTok link commented out — keep IG as the single follow CTA.
-          <TikTokLink size={size} title={`${title} on TikTok`} />
-      */}
+      <TikTokLink size={size} title={`${title} on TikTok`} />
     </span>
   );
 }
