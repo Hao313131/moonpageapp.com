@@ -27,7 +27,7 @@ export default function PrivacyChoicesPage() {
         </p>
         <p>
           For full details, see our{" "}
-          <a href="/privacy" className="underline">
+          <a href="/privacy/" className="underline">
             Privacy Policy
           </a>
           .
