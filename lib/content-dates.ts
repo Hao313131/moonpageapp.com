@@ -16,9 +16,9 @@ export const ROUTE_DATES: Record<string, string> = {
   "/bedtime-stories-app": "2026-08-17",
   "/picture-books-for-kids": "2026-08-17",
   "/stories": "2026-08-17",
-  "/collections": "2026-08-03",
+  "/collections": "2026-08-17",
   "/faq": "2026-08-17",
-  "/guides": "2026-08-17",
+  "/guides": "2026-08-18",
   "/privacy": "2026-07-28",
   "/privacy-choices": "2026-07-24",
   "/terms": "2026-07-24",
@@ -27,4 +27,4 @@ export const ROUTE_DATES: Record<string, string> = {
 
 /** Story and collection pages are generated from a single data file each. */
 export const STORY_DATE = "2026-08-17";
-export const COLLECTION_DATE = "2026-08-03";
+export const COLLECTION_DATE = "2026-08-17";

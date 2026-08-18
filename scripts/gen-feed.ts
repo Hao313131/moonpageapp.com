@@ -40,24 +40,31 @@ type Item = {
   image?: string;
 };
 
+// Every link ends in "/" to match `trailingSlash: true` + the page canonical.
+// A no-slash URL here makes Google/Bing 301-redirect to the real /foo/ page,
+// which Search Console logs as "Page with redirect" + "Alternate page with
+// proper canonical". The same string is used for <guid isPermaLink="true">, so
+// it must equal the canonical permalink.
+const slash = (u: string) => (u.endsWith("/") ? u : u + "/");
+
 const items: Item[] = [
   ...STORIES.map((s) => ({
     title: s.title,
-    link: `${SITE.domain}/stories/${s.slug}`,
+    link: slash(`${SITE.domain}/stories/${s.slug}`),
     description: s.hook,
     category: "Story",
     image: storyCoverUrl(SITE.domain, s.file),
   })),
   ...GUIDES.map((g) => ({
     title: g.title,
-    link: `${SITE.domain}/guides/${g.slug}`,
+    link: slash(`${SITE.domain}/guides/${g.slug}`),
     description: g.description,
     category: "Guide",
     pubDate: new Date(g.updated).toUTCString(),
   })),
   ...COLLECTIONS.map((c) => ({
     title: c.title,
-    link: `${SITE.domain}/collections/${c.slug}`,
+    link: slash(`${SITE.domain}/collections/${c.slug}`),
     description: c.description,
     category: "Collection",
   })),
@@ -67,7 +74,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${esc(`${SITE.name} — bedtime stories & guides`)}</title>
-    <link>${SITE.domain}</link>
+    <link>${slash(SITE.domain)}</link>
     <description>${esc(SITE.description)}</description>
     <language>en</language>
     <image>

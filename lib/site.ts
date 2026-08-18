@@ -207,6 +207,31 @@ export function pageKeywords(extra: string[] = []): string[] {
 }
 
 /**
+ * Force a trailing slash on an internal content URL. The site is built with
+ * `trailingSlash: true`, so every real page lives at `/foo/` and the canonical
+ * tag points there. Next.js auto-normalizes the <head> canonical/og:url for us,
+ * but JSON-LD strings are emitted verbatim — a no-slash URL in structured data
+ * makes Googlebot 301-redirect to the real `/foo/` page, which Search Console
+ * logs as "Page with redirect" + "Alternate page with proper canonical". Keep
+ * these in lockstep with the canonical.
+ *
+ * Assets (anything with a file extension) and already-slashed URLs pass through
+ * untouched.
+ */
+function withSlash(url: string): string {
+  if (url.endsWith("/")) return url;
+  // Strip the scheme+host so we only judge the PATH. A bare domain
+  // (https://moonpageapp.com) has an empty path -> add the slash. A real asset
+  // is a path segment ending in .ext (e.g. /icon.png, /feed.xml,
+  // /covers/x.webp) -> leave it alone. This avoids the trap of treating the TLD
+  // dot (moonpageapp.com) as a file extension.
+  const path = url.replace(/^https?:\/\/[^/]+/, "");
+  if (path === "") return url + "/";
+  if (/\.[a-z0-9]+$/i.test(path)) return url;
+  return url + "/";
+}
+
+/**
  * Shared per-page metadata: sets title/description AND a matching canonical
  * URL + full OpenGraph/Twitter block. Next.js metadata merging is shallow —
  * a page-level `openGraph: {title}` would silently drop the parent layout's
@@ -303,12 +328,12 @@ export function hubJsonLd({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name,
-        item: `${SITE.domain}${path}`,
+        item: withSlash(`${SITE.domain}${path}`),
       },
     ],
   };
@@ -333,7 +358,7 @@ export function hubJsonLd({
         "@type": "ListItem",
         position: i + 1,
         name: it.name,
-        url: it.url,
+        url: withSlash(it.url),
       })),
     });
   }

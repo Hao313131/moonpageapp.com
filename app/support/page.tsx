@@ -60,7 +60,7 @@ export default function SupportPage() {
       <LegalSection title="Legal documents">
         <ul className="list-disc space-y-1 pl-5">
           <li>
-            <Link href="/privacy" className="underline">
+            <Link href="/privacy/" className="underline">
               Privacy Policy
             </Link>
           </li>
