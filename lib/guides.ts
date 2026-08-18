@@ -166,6 +166,14 @@ export const GUIDES: Guide[] = [
         q: "How do I stop the \"one more story\" negotiation?",
         a: "Set the number out loud before you start, while everyone is calm, and remind them at the end of the first book. When they ask for another, use the same tomorrow-facing sentence every night — the consistency settles it, not the refusal itself.",
       },
+      {
+        q: "How long does it take to establish a bedtime routine?",
+        a: "Usually one to two weeks of the same sequence every night before it starts doing the work for you. The first few nights are the hardest; after that the order itself signals sleep, and resistance tends to drop on its own.",
+      },
+      {
+        q: "Should the weekend bedtime routine be the same?",
+        a: "Keep the same steps, but a slightly later weekend bedtime is fine for most children. What matters is the sequence staying familiar — a later start with the same bath-story-goodnight order is far less disruptive than a different routine at the usual time.",
+      },
     ],
   },
 
@@ -339,6 +347,14 @@ export const GUIDES: Guide[] = [
         q: "What's the one screen rule worth keeping at bedtime?",
         a: "Nothing with an infinite feed, autoplay, or ads during the wind-down hour — not because of the screen, but because those are specifically engineered so the session doesn't end.",
       },
+      {
+        q: "Does blue light from a tablet really keep kids awake?",
+        a: "It can, but it's usually the smallest of the three factors — displacement, arousal, and light. Dimming the screen and using warm night mode removes most of the light effect; the bigger wins are ending the session clearly and avoiding fast, loud, or competitive content right before bed.",
+      },
+      {
+        q: "Is it okay to read a bedtime story on a phone or tablet?",
+        a: "Yes, if the device is made boring: brightness down, Do Not Disturb on, one story and nothing to tap away to. A slow story on a dimmed screen winds a child down more than an exciting book does — the pacing and a clear end matter more than the format.",
+      },
     ],
   },
 
@@ -422,6 +438,14 @@ export const GUIDES: Guide[] = [
       {
         q: "What should I ask my toddler during a story?",
         a: "Ask about the picture rather than the plot. \"Where's the dog?\" or \"what's he holding?\" is answerable for a toddler in a way that questions about motivation aren't.",
+      },
+      {
+        q: "When should I start reading aloud to my baby?",
+        a: "From the early months — babies benefit from hearing language and a calm voice well before they understand words. Keep sessions short and let your child lead; the separate guide on starting reading to a baby covers the first year in detail.",
+      },
+      {
+        q: "How long should read-aloud time be at bedtime?",
+        a: "Ten to twenty minutes is plenty for most toddlers, and shorter is fine on hard nights. The aim is a calm, predictable end to the day — a few focused minutes beats a long session that ends in a struggle.",
       },
     ],
   },
