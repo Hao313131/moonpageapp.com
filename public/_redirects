@@ -5,3 +5,16 @@
 # splitting it. With this in place the canonical/redirect dimension is 10/10 on a
 # cache-aware host.
 https://www.moonpageapp.com/* https://moonpageapp.com/:splat 301
+
+# Legacy/dead slugs Google Search Console discovered (2026-08-18) that no longer
+# exist on the site. 301 them to the nearest live hub so they don't 404 and
+# bleed ranking/link-equity. Inert on GitHub Pages — only active behind
+# Cloudflare (or Netlify). When more stale slugs surface in GSC, append them
+# here. Both slash + no-slash forms covered (GH Pages/Cloudflare may serve
+# either for a stale path).
+/stories/milos-little-boat /stories/ 301
+/stories/milos-little-boat/ /stories/ 301
+/collections/stories-about-honesty /collections/ 301
+/collections/stories-about-honesty/ /collections/ 301
+/collections/stories-about-music /collections/ 301
+/collections/stories-about-music/ /collections/ 301
