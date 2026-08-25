@@ -59,7 +59,7 @@ export type Guide = {
 export const GUIDES: Guide[] = [
   {
     slug: "bedtime-routine-for-toddlers",
-    title: "How to Build a Bedtime Routine That Actually Works (Ages 2–7)",
+    title: "The 20-Minute Bedtime Routine That Actually Sticks (Ages 2–7)",
     description:
       "A simple, repeatable bedtime routine for toddlers and preschoolers — how long it should take, what order to do things in, and how to handle the nightly stalling.",
     category: "Routines",
@@ -179,7 +179,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "same-story-every-night",
-    title: "Why Your Child Wants the Same Story Every Night",
+    title: "Why Kids Want the Same Story Every Night (and Why That's Good)",
     description:
       "Reading the same picture book for the fortieth time feels like a rut for you and works like learning for them. Here's what repetition is doing, and how to live with it.",
     category: "Reading",
@@ -259,7 +259,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "screen-time-before-bed",
-    title: "Screen Time Before Bed: What Actually Matters for Kids",
+    title: "Screen Time Before Bed: The One Habit That Ruins Sleep",
     description:
       "Not all pre-bed screen time affects sleep the same way. What the common guidance is really getting at, and how to think about a story on a tablet.",
     category: "Screen time",
@@ -360,7 +360,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "read-aloud-to-toddlers",
-    title: "How to Read Aloud So a Toddler Actually Listens",
+    title: "How to Read Aloud So a Toddler Actually Stays Put",
     description:
       "Practical read-aloud technique for ages 2–7 — pacing, voices, questions, and what to do about the child who won't sit still or keeps turning the pages.",
     category: "Reading",
@@ -452,7 +452,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-when-youre-away",
-    title: "Bedtime When You Can't Be There: Travel, Late Shifts, and Long Distance",
+    title: "Bedtime When You're Away: Travel, Night Shifts & Long Distance",
     description:
       "How to keep bedtime steady when a parent is traveling, working late, or living apart — what to hand the caregiver, and how recorded voice helps.",
     category: "Routines",
@@ -536,7 +536,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "lullabies-for-babies-and-toddlers",
-    title: "Lullabies: Why They Work, and What to Sing If You Can't Sing",
+    title: "Lullabies That Work — Even If You Can't Carry a Tune",
     description:
       "What a lullaby is actually doing at bedtime, how to pick one, and why your out-of-tune voice beats a recording of a professional.",
     category: "Sleep",
@@ -612,7 +612,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "toddler-wont-stay-in-bed",
-    title: "When a Toddler Won't Stay in Bed",
+    title: "Toddler Keeps Getting Out of Bed? The Fix That Holds",
     description:
       "The curtain calls, the repeated get-ups, the 'I need water' loop — what's driving it and the calm, boring response that ends it fastest.",
     category: "Sleep",
@@ -708,7 +708,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "why-picture-books-matter",
-    title: "What Picture Books Actually Do for a Preschooler",
+    title: "What Picture Books Secretly Do to a Preschooler's Brain",
     description:
       "Vocabulary, attention, empathy, and pre-reading skills — what reading picture books aloud is building, in plain terms.",
     category: "Reading",
@@ -788,7 +788,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "choosing-bedtime-books",
-    title: "How to Choose a Bedtime Book (and What to Save for Daytime)",
+    title: "Pick a Bedtime Book Your Kid Won't Fight (in 5 Minutes)",
     description:
       "Not every good picture book is a good bedtime book. What to look for in a story meant to end the day, and what reliably backfires.",
     category: "Reading",
@@ -873,7 +873,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "cozy-bedroom-for-better-sleep",
-    title: "Making a Bedroom Cozy Enough to Sleep In",
+    title: "The Bedroom Tweak That Finally Lets Them Sleep",
     description:
       "Light, sound, temperature, and clutter — the small environmental changes that make a child's room easier to fall asleep in.",
     category: "Sleep",
@@ -956,7 +956,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-stories-in-two-languages",
-    title: "Bedtime Stories in Two Languages",
+    title: "Two-Language Bedtime Stories: Easier Than You Think",
     description:
       "How bilingual families can use the bedtime story — which language to read in, how to handle a child who answers in the other one, and why repetition helps.",
     category: "Reading",
@@ -1036,7 +1036,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "audiobooks-vs-reading-aloud",
-    title: "Audio Stories vs Reading Aloud: When Each One Is the Right Call",
+    title: "Audio Story or Read Aloud? When Each One Wins",
     description:
       "Narrated stories aren't a lesser substitute for reading aloud — they're a different tool. What each is good for, at bedtime and in the car.",
     category: "Screen time",
@@ -1115,7 +1115,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-stories-for-2-year-olds",
-    title: "Bedtime Stories for 2-Year-Olds: What Actually Holds Their Attention",
+    title: "Bedtime Stories for 2-Year-Olds That Actually Hold Attention",
     description:
       "What to read to a two-year-old at bedtime, how long it should take, and why the book you loved reading last year suddenly gets slammed shut halfway through.",
     category: "Ages",
@@ -1226,7 +1226,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-stories-for-3-year-olds",
-    title: "Bedtime Stories for 3-Year-Olds: Plots, Questions, and Stalling",
+    title: "Bedtime Stories for 3-Year-Olds: Plots, Stalling & Questions",
     description:
       "Three-year-olds can finally follow a real story — and have just discovered that questions delay lights out. What to read, and how to keep story time from stretching to forty minutes.",
     category: "Ages",
@@ -1445,7 +1445,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-stories-for-5-year-olds",
-    title: "Bedtime Stories for 5- and 6-Year-Olds (Keep Reading to Them)",
+    title: "Bedtime Stories for 5- & 6-Year-Olds (Keep Reading to Them)",
     description:
       "Once a child can read a little themselves, bedtime reading aloud often stops. Here's why it shouldn't, what to read at five and six, and how to share the reading without turning it into homework.",
     category: "Ages",
@@ -1554,7 +1554,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "how-to-make-up-a-bedtime-story",
-    title: "How to Make Up a Bedtime Story (When You Have No Book)",
+    title: "How to Make Up a Bedtime Story on the Spot (No Book Needed)",
     description:
       "A repeatable formula for inventing a bedtime story on the spot — in the car, in a hotel, in a blackout — even if you're certain you aren't creative.",
     category: "Bedtime stories",
@@ -1669,7 +1669,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "what-makes-a-good-bedtime-story",
-    title: "What Makes a Good Bedtime Story (And What Makes a Bad One)",
+    title: "What Makes a Good (and a Bad) Bedtime Story",
     description:
       "Not every excellent children's book is a good bedtime book. The difference is in the ending, the pacing, and how loud the last page is.",
     category: "Bedtime stories",
@@ -1779,7 +1779,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "how-long-to-read-at-bedtime",
-    title: "How Long Should Bedtime Reading Take?",
+    title: "How Long Should Bedtime Reading Take? (The Sweet Spot)",
     description:
       "How many minutes of bedtime reading is right by age, why story time keeps stretching, and how to shorten it without a fight.",
     category: "Routines",
@@ -1884,7 +1884,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "scared-of-the-dark",
-    title: "When a Child Is Scared of the Dark (and What's Under the Bed)",
+    title: "Scared of the Dark? How Stories Quiet the Monsters",
     description:
       "Fear of the dark, monsters in the closet, and the shadow on the wall — why it shows up around three, what helps, and what accidentally makes it worse.",
     category: "Sleep",
@@ -1994,7 +1994,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "nightmares-and-bad-dreams",
-    title: "Nightmares, Night Terrors, and Getting Back to Sleep",
+    title: "Nightmares & Night Terrors: Getting Back to Sleep Fast",
     description:
       "How to tell a nightmare from a night terror, what to do at 2am in each case, and how to handle the next bedtime so the fear doesn't compound.",
     category: "Sleep",
@@ -2099,7 +2099,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-stories-for-anxious-kids",
-    title: "Bedtime Stories for Anxious Children",
+    title: "Bedtime Stories That Calm Anxious Kids",
     description:
       "What to read to a child whose worries show up at lights out — which stories help, which make it worse, and how to use a story as part of winding down rather than a distraction from it.",
     category: "Sleep",
@@ -2209,7 +2209,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "what-time-should-a-toddler-go-to-bed",
-    title: "What Time Should a Toddler Go to Bed?",
+    title: "What Time Should a Toddler Go to Bed? (By Age)",
     description:
       "Typical bedtimes and sleep needs by age, why an earlier bedtime often fixes a child who won't settle, and how to move bedtime without a week of chaos.",
     category: "Sleep",
@@ -2319,7 +2319,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "early-morning-waking",
-    title: "The 5am Wake-Up: Why It Happens and What Helps",
+    title: "The 5am Wake-Up: Why It Happens & How to Stop It",
     description:
       "Early rising is the hardest toddler sleep problem to fix. Here's what actually causes it — light, timing, overtiredness, and habit — and what to change first.",
     category: "Sleep",
@@ -2529,7 +2529,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "crib-to-bed-transition",
-    title: "Moving from Cot to Bed (Without Losing Bedtime)",
+    title: "Cot to Bed: How to Move Without Losing Bedtime",
     description:
       "When to make the move, how to do it in a way that doesn't restart every sleep problem you'd solved, and what to do when a newly free toddler keeps walking out.",
     category: "Sleep",
@@ -2715,7 +2715,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-with-two-kids",
-    title: "Bedtime with Two Kids of Different Ages",
+    title: "Bedtime with Two Kids of Different Ages (How to Survive)",
     description:
       "Together or separately, same story or two, staggered bedtimes or one — how to run bedtime for siblings without it taking ninety minutes.",
     category: "Routines",
@@ -2812,7 +2812,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "daylight-saving-and-toddler-sleep",
-    title: "Daylight Saving Time and Toddler Sleep",
+    title: "Daylight Saving & Toddler Sleep: The Smooth Shift",
     description:
       "How to handle the clocks changing with a small child — the gradual method, the do-nothing method, and which one suits your family.",
     category: "Sleep",
@@ -2903,7 +2903,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "reading-aloud-with-expression",
-    title: "How to Read Aloud Well (Voices Optional)",
+    title: "How to Read Aloud Well (Funny Voices Optional)",
     description:
       "Pace, pauses, volume, and whether you need to do the voices — practical read-aloud technique for parents who feel self-conscious about it.",
     category: "Reading",
@@ -3000,7 +3000,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "toddler-who-wont-sit-still-for-books",
-    title: "When Your Toddler Won't Sit Still for a Book",
+    title: "Toddler Won't Sit Still for a Book? Try This",
     description:
       "Page-flipping, wandering off, slamming the book shut — why it happens, why it usually isn't a problem, and how to get reading to stick anyway.",
     category: "Reading",
@@ -3101,7 +3101,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "stories-about-big-feelings-at-bedtime",
-    title: "Using Stories to Talk About Big Feelings",
+    title: "Stories That Open Up Big Feelings at Bedtime",
     description:
       "Anger, jealousy, frustration, and worry are easier to discuss through a character than directly. How to use picture books for it — and when not to.",
     category: "Reading",
@@ -3202,7 +3202,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "sleep-regressions-by-age",
-    title: "Sleep Regressions: What They Are and How Long They Last",
+    title: "Sleep Regressions by Age: What's Normal & How Long They Last",
     description:
       "Why a child who slept beautifully suddenly doesn't, which ages it tends to happen at, and the one rule that gets you through it fastest.",
     category: "Sleep",
@@ -3399,7 +3399,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "building-a-home-library",
-    title: "Building a Home Library on a Small Budget",
+    title: "Build a Home Library on a Tiny Budget",
     description:
       "How many books a child actually needs, where to get them cheaply, and why where you put them matters more than how many you own.",
     category: "Reading",
@@ -3497,7 +3497,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "white-noise-and-bedtime-sounds",
-    title: "White Noise, Lullabies, and Sleep Sounds: What Helps",
+    title: "White Noise & Sleep Sounds: What Actually Helps",
     description:
       "Whether white noise is worth it, how loud is too loud, when music helps and when it keeps a child awake, and how to stop a sound becoming a crutch.",
     category: "Sleep",
@@ -3594,7 +3594,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "toddler-night-waking",
-    title: "Why Toddlers Wake in the Night (and What to Do at 2am)",
+    title: "Why Toddlers Wake at Night (and What to Do at 2am)",
     description:
       "A child who slept through for months starts waking every night. What's usually behind it, what to do in the moment, and how to avoid creating a habit you'll have to undo.",
     category: "Sleep",
@@ -3709,7 +3709,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "falling-asleep-independently",
-    title: "Helping a Toddler Fall Asleep Without You in the Room",
+    title: "Help Your Toddler Fall Asleep Without You in the Room",
     description:
       "If your child can only fall asleep with you lying beside them, here's how to step back gradually — and why the change has to happen at bedtime, not at 3am.",
     category: "Sleep",
@@ -3823,7 +3823,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "co-sleeping-transition",
-    title: "Moving a Toddler Out of the Family Bed",
+    title: "Out of the Family Bed: The Gentle Exit",
     description:
       "When you're ready to stop bed-sharing with a toddler, how to make the move gradually, and how to handle the nights they turn up at your door anyway.",
     category: "Sleep",
@@ -3920,7 +3920,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "separation-anxiety-at-bedtime",
-    title: "Bedtime Separation Anxiety: When They Can't Let You Leave",
+    title: "Bedtime Separation Anxiety: When They Won't Let Go",
     description:
       "The clinging, the calling, the fourth request for a hug — why separation anxiety peaks at bedtime, and what makes leaving the room easier for both of you.",
     category: "Sleep",
@@ -4113,7 +4113,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "travel-and-jet-lag-with-toddlers",
-    title: "Sleep on Holiday: Travel, New Rooms, and Jet Lag",
+    title: "Sleep on Holiday: Travel, New Rooms & Jet Lag",
     description:
       "How to keep a toddler sleeping on holiday — packing the routine rather than the schedule, handling a shared hotel room, and getting through time zones.",
     category: "Routines",
@@ -4222,7 +4222,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "sick-child-and-sleep",
-    title: "Sleep When Your Child Is Ill",
+    title: "When Your Child Is Sick: Protecting the Sleep You Have",
     description:
       "What to expect from sleep during a cold or a bug, how much to relax the rules, and how to get back to normal once they're better.",
     category: "Sleep",
@@ -4314,7 +4314,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "teething-and-sleep",
-    title: "Teething and Night Waking: How Much Is Really the Teeth?",
+    title: "Teething & Night Waking: How Much Is Really the Teeth?",
     description:
       "Teething gets blamed for months of bad sleep. Here's what it actually disrupts, how long it lasts, and what to check when the teeth aren't the answer.",
     category: "Sleep",
@@ -4399,7 +4399,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "summer-bedtime-light-evenings",
-    title: "Summer Bedtime: Getting Kids to Sleep While It's Still Light",
+    title: "Summer Bedtime: Sleeping While It's Still Light Out",
     description:
       "Long evenings, hot bedrooms, and a 4:45 sunrise. How to keep summer bedtimes from collapsing, and whether to move bedtime later.",
     category: "Sleep",
@@ -4492,7 +4492,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "holiday-routine-disruption",
-    title: "Keeping Bedtime Through the Holidays",
+    title: "Keep Bedtime Alive Through the Holidays",
     description:
       "Late nights, relatives, excitement, and a completely different house. How to protect enough of the routine to survive the season without policing it.",
     category: "Routines",
@@ -4677,7 +4677,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-snacks-and-food-before-bed",
-    title: "Bedtime Snacks: What Helps and What Keeps Them Up",
+    title: "Bedtime Snacks: What Helps, What Keeps Them Up",
     description:
       "Whether a bedtime snack is a good idea, what to give, how long before bed, and how to handle the child who is suddenly starving at lights out.",
     category: "Routines",
@@ -4774,7 +4774,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bath-before-bed",
-    title: "Does a Bath Before Bed Actually Help?",
+    title: "Does a Bath Before Bed Actually Help? (The Verdict)",
     description:
       "Why a warm bath makes children sleepy, when it does the opposite, and whether you need one every night.",
     category: "Routines",
@@ -4862,7 +4862,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "toddler-sharing-room-with-baby",
-    title: "Putting a Toddler and a Baby in the Same Room",
+    title: "Toddler & Baby in One Room: Make It Work",
     description:
       "Whether room-sharing works, how to stagger two bedtimes in one room, and what to do when one wakes the other.",
     category: "Routines",
@@ -4967,7 +4967,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-for-twins",
-    title: "Bedtime with Twins",
+    title: "Bedtime with Twins: Double the Routine",
     description:
       "One routine or two, same room or separate, and how to read a story to two children who both want to sit on your lap.",
     category: "Routines",
@@ -5157,7 +5157,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "when-only-one-parent-can-do-bedtime",
-    title: "\"Only Mummy Can Do It\": Sharing Bedtime with a Partner",
+    title: "\"Only Mummy Can Do It\": Sharing Bedtime Fairly",
     description:
       "When a child refuses bedtime with anyone but one parent — why it happens, and how to hand it over without a week of screaming.",
     category: "Routines",
@@ -5258,7 +5258,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "when-to-start-reading-to-a-baby",
-    title: "When Should You Start Reading to a Baby?",
+    title: "When to Start Reading to a Baby (Earlier Than You Think)",
     description:
       "Reading to a newborn feels absurd and isn't. What babies actually get from books at each stage of the first year, and what to read.",
     category: "Ages",
@@ -5355,7 +5355,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-stories-for-babies",
-    title: "Bedtime Stories for Babies: Building the Routine Early",
+    title: "Bedtime Stories for Babies: Start the Routine Early",
     description:
       "What to read to a baby at bedtime, how long it should take, and why the story matters even before they understand any of it.",
     category: "Ages",
@@ -5448,7 +5448,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "raising-a-child-who-loves-reading",
-    title: "How to Raise a Child Who Actually Likes Reading",
+    title: "Raise a Child Who Actually Likes Reading",
     description:
       "The habits that make a reader — and the well-meaning things that quietly put children off books.",
     category: "Reading",
@@ -5554,7 +5554,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "reading-aloud-and-vocabulary",
-    title: "What Reading Aloud Actually Does for Language",
+    title: "What Reading Aloud Does for Your Child's Language",
     description:
       "Why books contain words conversation doesn't, how the talk around a book matters more than the text, and what that means for how you read.",
     category: "Reading",
@@ -5647,7 +5647,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "wordless-picture-books",
-    title: "Wordless Picture Books: How to Read a Book with No Words",
+    title: "Wordless Picture Books: How to 'Read' One With No Words",
     description:
       "Books with no text feel like a trick until you've used one. Why they're unusually good for language, and how to actually read one aloud.",
     category: "Reading",
@@ -5825,7 +5825,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "library-visits-with-toddlers",
-    title: "Taking a Toddler to the Library",
+    title: "Taking a Toddler to the Library (Without the Chaos)",
     description:
       "How to make library visits work with a small child, how many books to take, and what to do about the ones that come back destroyed.",
     category: "Reading",
@@ -6003,7 +6003,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-charts-and-rewards",
-    title: "Do Bedtime Charts and Reward Systems Work?",
+    title: "Do Bedtime Charts & Rewards Actually Work?",
     description:
       "Sticker charts, reward jars, and bedtime passes — when they help, why they usually stop working, and what to use instead.",
     category: "Routines",
@@ -6105,7 +6105,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "books-that-reflect-your-family",
-    title: "Finding Books That Look Like Your Family",
+    title: "Find Books That Look Like Your Family",
     description:
       "Why children need to see themselves in stories and to see people unlike them, and how to check what's actually on your shelf.",
     category: "Reading",
@@ -6188,7 +6188,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-gratitude-and-goodnight-rituals",
-    title: "Goodnight Rituals: The Last Two Minutes of the Day",
+    title: "Goodnight Rituals: The Last 2 Minutes of the Day",
     description:
       "The small fixed ending after the story — a phrase, a song, three good things — and why it does more work than the rest of the routine.",
     category: "Routines",

@@ -12,9 +12,9 @@ import { STORIES, storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/read-aloud-bedtime-stories",
-  title: "Read-Aloud Bedtime Stories for Kids",
+  title: "Read-Aloud Bedtime Stories Kids Beg to Hear Again",
   description:
-    "Read-aloud bedtime stories and narrated picture books for children. Hear each story by a professional narrator, or in your own recorded parent voice — offline, no ads.",
+    "Read-aloud bedtime stories narrated by a calm professional voice — or record your own. The stories kids ask to hear one more time, offline and ad-free.",
   keywords: [
     "read aloud bedtime stories",
     "read aloud picture books",

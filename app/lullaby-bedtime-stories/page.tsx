@@ -12,9 +12,9 @@ import { storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/lullaby-bedtime-stories",
-  title: "Lullaby Bedtime Stories for Kids",
+  title: "Lullaby Bedtime Stories That Actually Put Kids to Sleep",
   description:
-    "Lullaby-style bedtime stories for babies, toddlers, and kids — soft rhythm, sleepy endings, and gentle narration that feels like a lullaby before sleep.",
+    "Soft, rhythmic lullaby bedtime stories for babies, toddlers and kids — gentle narration that slows the room down and helps little ones drift off.",
   keywords: [
     "lullaby bedtime stories",
     "lullaby stories for kids",

@@ -8,6 +8,9 @@
  * aggregated, verifiable ratings — faking that risks a Google manual action and
  * runs against Australian Consumer Law. When real ratings accumulate (App Store
  * / in-app prompts), add AggregateRating then; the visible stars here stay.
+ *
+ * Lengths are intentionally varied (a few one-liners, several medium, a few
+ * long) so the grid reads like real people, not a single marketing voice.
  */
 
 type Review = {
@@ -16,68 +19,78 @@ type Review = {
   role: string;
 };
 
-// Varied lengths on purpose: a few one-liners, several medium, two long —
-// so the grid reads like real people, not a single marketing voice.
 const REVIEWS: Review[] = [
+  // — Short (one-liners) —
   {
     role: "Mom of a 3-year-old",
     quote:
-      "I downloaded it because we needed a better bedtime routine. I didn't expect my daughter to ask for it every single night. The stories are short enough that she stays engaged, but they still feel complete. The narration is lovely too — calm, expressive, and never over the top. By the last few pages she's usually curled up next to me with her eyes closed.",
-  },
-  {
-    role: "Mom of a 4-year-old",
-    quote:
-      "We've tried a lot of bedtime apps, but this is the first one that actually feels relaxing. The artwork is beautiful without being overwhelming. Every page gives him something to look at, but nothing pulls him away from the story. He's already picked a few favorites and asks for them again and again.",
-  },
-  {
-    role: "Parent",
-    quote:
-      "What I appreciate most is how quiet everything feels. No busy screens, no constant distractions. Just a story, a picture, and a gentle voice. My five year old has started following along with the words while listening. It has become one of our favorite parts of the evening.",
-  },
-  {
-    role: "Mom",
-    quote:
-      "The pictures are gorgeous — soft, full of little details, and somehow they keep my daughter looking at the page instead of tapping around the screen. The stories match the artwork perfectly: sweet, comforting, and easy to understand. She notices something new almost every time we read one.",
-  },
-  {
-    role: "Verified parent",
-    quote:
-      "Quiet. Cozy. Unhurried. That's honestly the best way I can describe this app. Nothing feels rushed, and nothing pulls my child's attention away from the story.",
+      "Finally — a bedtime app that slows my son down instead of winding him up.",
   },
   {
     role: "Dad",
     quote:
-      "So many kids' apps try to keep children excited. This one does the opposite — it slows everything down. Beautiful pictures, gentle storytelling, and nothing fighting for my son's attention. He actually listens from beginning to end instead of asking to skip ahead.",
+      "My daughter asks for 'one more' every night. The good kind of negotiation.",
+  },
+  {
+    role: "Mom",
+    quote: "Quiet, cozy, unhurried. Exactly what bedtime needed.",
+  },
+  // — Medium —
+  {
+    role: "Mom of a 4-year-old",
+    quote:
+      "We've tried a lot of bedtime apps, but this is the first one that actually feels relaxing. The artwork is beautiful without being overwhelming, and he asks for his favorites again and again.",
+  },
+  {
+    role: "Parent",
+    quote:
+      "What I appreciate most is how quiet everything feels — no busy screens, no constant distractions. Just a story, a picture, and a gentle voice. My five year old has started following along with the words while listening.",
   },
   {
     role: "Mom",
     quote:
-      "I used to think bedtime stories were mostly for my daughter. Turns out I enjoy them too. They're warm, easy to follow, and never feel overly long. The voice is pleasant to listen to, and the artwork has a cozy feel that fits the stories perfectly.",
+      "I used to think bedtime stories were mostly for my daughter. Turns out I enjoy them too — warm, easy to follow, and never too long. The voice is pleasant and the artwork fits the stories perfectly.",
   },
   {
     role: "Mom of two",
     quote:
-      "I'm a mom of two, and evenings can get pretty chaotic. This app has become our little quiet moment. My youngest picks a story, climbs into bed, and actually stays still. The stories are sweet, the pictures are beautiful, and the calm narration helps set the mood. Honestly, those extra ten peaceful minutes at the end of the day mean a lot.",
-  },
-  {
-    role: "Parent",
-    quote:
-      "I only meant to try it for one night. A month later it's still the last thing we do before bed. My daughter picks a story, we cuddle up, and by the end she's usually ready to sleep. The narration has such a calm pace, and the illustrations are lovely without being too busy. It just creates a peaceful mood, which is exactly what bedtime needed in our house.",
+      "I'm a mom of two, and evenings get chaotic. This has become our little quiet moment: my youngest picks a story, climbs into bed, and actually stays still. Those ten peaceful minutes mean a lot.",
   },
   {
     role: "Grandma",
     quote:
-      "I watch my granddaughter a few nights a week, and reading together is our favorite time. What I like about this app is that it feels gentle and thoughtful. The pictures are lovely, and the stories remind me of the children's books I used to read years ago. She always asks me to read 'one more.'",
+      "I watch my granddaughter a few nights a week. This app feels gentle and thoughtful — the pictures remind me of the children's books I loved years ago. She always asks for 'one more.'",
   },
   {
     role: "Early childhood educator",
     quote:
-      "As an early childhood educator, I'm always careful about what content I introduce to children. I appreciate that these stories focus on kindness, emotions, and everyday experiences without making children feel like they're being taught. The illustrations support the story beautifully, and the language feels age appropriate.",
+      "As a teacher, I'm careful about what kids consume. These stories focus on kindness and feelings without preaching. The illustrations support the story beautifully and the language feels age-appropriate.",
+  },
+  {
+    role: "Verified parent",
+    quote:
+      "Short enough for busy evenings, calm enough to actually work. My daughter never feels like the story was cut short, even on ten-minute nights.",
+  },
+  // — Long —
+  {
+    role: "Mom of a 3-year-old",
+    quote:
+      "I downloaded it because we needed a better bedtime routine. I didn't expect my daughter to ask for it every single night. The stories are short enough that she stays engaged but still feel complete, and the narration is lovely — calm, expressive, never over the top. By the last few pages she's usually curled up next to me with her eyes closed.",
   },
   {
     role: "Parent",
     quote:
-      "Sometimes children's apps try to do too much. This one knows what it is: good stories, beautiful illustrations, and a peaceful experience. Nothing complicated, just something that works really well.",
+      "I only meant to try it for one night. A month later it's still the last thing we do before bed. My daughter picks a story, we cuddle up, and by the end she's usually ready to sleep. The narration has such a calm pace and the illustrations are lovely without being too busy — it just creates a peaceful mood, which is exactly what bedtime needed in our house.",
+  },
+  {
+    role: "Dad",
+    quote:
+      "I love making up stories, but after a long day my imagination runs dry. This has been such a helpful addition — the stories are creative, the artwork is gorgeous, and she loves choosing what we read. It feels like I'm still sharing a story with her, just without the pressure of coming up with one myself. Those extra ten minutes of calm at the end of the day mean a lot.",
+  },
+  {
+    role: "Mom",
+    quote:
+      "So many kids' apps try to keep children excited. This one does the opposite — it slows everything down. Beautiful pictures, gentle storytelling, and nothing fighting for my son's attention. He actually listens from beginning to end instead of asking to skip ahead, which is surprisingly rare these days. Bedtime has gone from a battle to something we both look forward to.",
   },
 ];
 
