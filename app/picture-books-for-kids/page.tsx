@@ -12,9 +12,9 @@ import { STORIES, storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/picture-books-for-kids",
-  title: "Picture Books for Kids Ages 2+",
+  title: "Picture Books for Kids (2+): Cozy, Read-Aloud, Ad-Free",
   description:
-    "Illustrated picture books and children's storybooks for kids ages 2+ — cozy bedtime picture storybooks with read-aloud narration for toddlers, preschoolers, and parents.",
+    "Illustrated picture books for kids ages 2+ — cozy bedtime storybooks, read-aloud narration, and zero ads. Preview the style before you download.",
   keywords: [
     "picture books for kids",
     "picture storybooks for children",

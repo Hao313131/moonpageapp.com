@@ -12,9 +12,9 @@ import { STORIES, storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/preschool-bedtime-stories",
-  title: "Preschool Bedtime Stories (Ages 3–5)",
+  title: "Preschool Bedtime Stories (3–5) They'll Ask For",
   description:
-    "Preschool bedtime stories and illustrated picture storybooks for ages 3–5 with calm read-aloud narration, cozy themes, and parent-friendly wind-down routines.",
+    "Preschool bedtime stories (ages 3–5) with just enough plot to engage and just enough calm to settle — illustrated, narrated, and easy to love.",
   keywords: [
     "preschool bedtime stories",
     "bedtime stories for preschoolers",

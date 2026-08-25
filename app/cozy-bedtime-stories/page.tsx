@@ -12,9 +12,9 @@ import { storiesByTag } from "@/lib/stories";
 
 export const metadata: Metadata = pageMetadata({
   path: "/cozy-bedtime-stories",
-  title: "Cozy Bedtime Stories for Kids",
+  title: "Cozy Bedtime Stories for a Calm, Quiet Wind-Down",
   description:
-    "Cozy bedtime stories and sleepy tales for kids, toddlers, and preschoolers — soft pacing, warm endings, and lullaby-style picture storybooks for a calm bedtime routine.",
+    "The coziest bedtime stories for kids — soft pacing, warm endings, lullaby-style picture books that make winding down the easiest part of the day.",
   keywords: [
     "cozy bedtime stories",
     "cozy bedtime tales",

@@ -9,9 +9,9 @@ import { SITE, hubJsonLd, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/bedtime-stories-by-age",
-  title: "Bedtime Stories by Age: Ages 2–3, 4–5 and 6–7",
+  title: "Bedtime Stories by Age (2–7): Pick the Right One Tonight",
   description:
-    "How long a bedtime story should be, what kind of book works, and how much sleep children need — in three age bands, from two-year-olds through to seven-year-olds.",
+    "Not sure which bedtime story fits your child? We break it down by age (2–7) — length, plot, and how much sleep they need — so tonight's pick is easy.",
   keywords: [
     "bedtime stories by age",
     "bedtime stories for 2 year olds",
