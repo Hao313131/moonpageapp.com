@@ -32,6 +32,18 @@ export const HUB_FAQS: Record<string, HubFaqItem[]> = {
       q: "What ages are the stories for?",
       a: "MoonPage is built for kids ages 2 and up, from toddlers taking their first steps into storytime to preschoolers who want longer plots.",
     },
+    {
+      q: "Can I record my own voice reading the story?",
+      a: "Yes — MoonPage lets you narrate a story in your own voice, so your child hears you even when you're not in the room. A built-in narrator is also available for every story.",
+    },
+    {
+      q: "Do the stories work offline?",
+      a: "Yes. Stories download to the device, so bedtime keeps working on a plane, on holiday, or anywhere the wifi drops — no streaming required.",
+    },
+    {
+      q: "Are there ads or in-app purchases I should worry about?",
+      a: "No ads and no third-party trackers. A sample of stories is free to start with no account; the full library is an optional subscription.",
+    },
   ],
   "/bedtime-stories-by-age": [
     {
@@ -41,6 +53,14 @@ export const HUB_FAQS: Record<string, HubFaqItem[]> = {
     {
       q: "Can I switch difficulty as my child grows?",
       a: "Yes — the same library scales from toddler to preschool, so the stories grow with your child.",
+    },
+    {
+      q: "Are the stories the same across ages, just longer?",
+      a: "The same gentle style runs through the library, but plots and language scale: 2-year-olds get short repetitive tales, 3s get simple plots, and 4–6s get longer books with bigger questions, so the stories grow with your child.",
+    },
+    {
+      q: "My child sits between two age bands — which hub do I pick?",
+      a: "Start with the younger band; if they're ready for more, move up. Because the library overlaps by design, the same story can be a favorite at either age.",
     },
   ],
 };
