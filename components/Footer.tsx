@@ -34,20 +34,20 @@ export function Footer() {
     <footer className="mt-auto bg-night-top text-night-ink">
       <div className="page-gutter mx-auto max-w-6xl py-10 sm:py-14">
         <div className="border-b border-white/10 pb-8 sm:pb-10">
-          <div className="flex flex-col gap-3 sm:gap-4">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <div className="grid gap-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
+            <div className="min-w-0">
               <BrandMark href="/" size="lg" tone="night" />
-              <SubscribeCluster
-                tone="night"
-                inputId="moonpage-footer-email"
-                igSize="lg"
-                className="shrink-0 self-start sm:self-center"
-              />
+              <p className="mt-4 max-w-md text-sm text-night-muted sm:max-w-lg sm:text-base">
+                Bedtime stories for little ones — original, beautifully
+                illustrated, and read in a voice they know.
+              </p>
             </div>
-            <p className="max-w-md text-sm text-night-muted sm:max-w-lg sm:text-base">
-              Bedtime stories for little ones — original, beautifully
-              illustrated, and read in a voice they know.
-            </p>
+            <SubscribeCluster
+              tone="night"
+              inputId="moonpage-footer-email"
+              igSize="lg"
+              className="w-full shrink-0 justify-end self-start sm:w-auto sm:justify-self-end"
+            />
           </div>
         </div>
 

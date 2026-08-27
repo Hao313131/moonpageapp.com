@@ -13,8 +13,8 @@ export function HubFaq({ path }: { path: string }) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section className="mt-10 sm:mt-12">
-      <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+    <section className="page-gutter mx-auto max-w-4xl py-12 sm:py-14 md:py-20">
+      <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
         Common questions
       </h2>
       <dl className="mt-4 space-y-5 sm:mt-6 sm:space-y-6">
