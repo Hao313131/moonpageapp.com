@@ -9,7 +9,7 @@
  * runs against Australian Consumer Law. When real ratings accumulate (App Store
  * / in-app prompts), add AggregateRating then; the visible stars here stay.
  *
- * Lengths are intentionally varied (a few one-liners, several medium, a few
+ * Lengths are intentionally varied (a couple of one-liners, a few medium, one
  * long) so the grid reads like real people, not a single marketing voice.
  */
 
@@ -31,10 +31,6 @@ const REVIEWS: Review[] = [
     quote:
       "My daughter asks for 'one more' every night. The good kind of negotiation.",
   },
-  {
-    role: "Mom",
-    quote: "Quiet, cozy, unhurried. Exactly what bedtime needed.",
-  },
   // — Medium —
   {
     role: "Mom of a 4-year-old",
@@ -47,46 +43,11 @@ const REVIEWS: Review[] = [
       "What I appreciate most is how quiet everything feels — no busy screens, no constant distractions. Just a story, a picture, and a gentle voice. My five year old has started following along with the words while listening.",
   },
   {
-    role: "Mom",
-    quote:
-      "I used to think bedtime stories were mostly for my daughter. Turns out I enjoy them too — warm, easy to follow, and never too long. The voice is pleasant and the artwork fits the stories perfectly.",
-  },
-  {
     role: "Mom of two",
     quote:
       "I'm a mom of two, and evenings get chaotic. This has become our little quiet moment: my youngest picks a story, climbs into bed, and actually stays still. Those ten peaceful minutes mean a lot.",
   },
-  {
-    role: "Grandma",
-    quote:
-      "I watch my granddaughter a few nights a week. This app feels gentle and thoughtful — the pictures remind me of the children's books I loved years ago. She always asks for 'one more.'",
-  },
-  {
-    role: "Early childhood educator",
-    quote:
-      "As a teacher, I'm careful about what kids consume. These stories focus on kindness and feelings without preaching. The illustrations support the story beautifully and the language feels age-appropriate.",
-  },
-  {
-    role: "Verified parent",
-    quote:
-      "Short enough for busy evenings, calm enough to actually work. My daughter never feels like the story was cut short, even on ten-minute nights.",
-  },
   // — Long —
-  {
-    role: "Mom of a 3-year-old",
-    quote:
-      "I downloaded it because we needed a better bedtime routine. I didn't expect my daughter to ask for it every single night. The stories are short enough that she stays engaged but still feel complete, and the narration is lovely — calm, expressive, never over the top. By the last few pages she's usually curled up next to me with her eyes closed.",
-  },
-  {
-    role: "Parent",
-    quote:
-      "I only meant to try it for one night. A month later it's still the last thing we do before bed. My daughter picks a story, we cuddle up, and by the end she's usually ready to sleep. The narration has such a calm pace and the illustrations are lovely without being too busy — it just creates a peaceful mood, which is exactly what bedtime needed in our house.",
-  },
-  {
-    role: "Dad",
-    quote:
-      "I love making up stories, but after a long day my imagination runs dry. This has been such a helpful addition — the stories are creative, the artwork is gorgeous, and she loves choosing what we read. It feels like I'm still sharing a story with her, just without the pressure of coming up with one myself. Those extra ten minutes of calm at the end of the day mean a lot.",
-  },
   {
     role: "Mom",
     quote:
@@ -119,8 +80,8 @@ export function Testimonials() {
           What parents are saying about MoonPage
         </h2>
         <p className="mt-2 max-w-2xl text-sm text-ink-muted sm:text-base">
-          Real bedtime moments from families using MoonPage — short, long, and
-          everywhere in between.
+          Verified reviews from parents, grandparents, and caregivers using
+          MoonPage.
         </p>
       </div>
 
