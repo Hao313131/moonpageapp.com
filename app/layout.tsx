@@ -241,6 +241,16 @@ export default function RootLayout({
           data-website-id="ad139af4-45c9-424c-8098-038e82ef66d7"
           strategy="afterInteractive"
         />
+        {/* Microsoft Clarity — heatmaps & session recordings (puzzle/id is
+            public by design, same as GA measurement ID). Mounted via
+            next/script so it loads after hydration, same as Umami above. */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "yaucjablh2");`}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
