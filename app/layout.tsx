@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Source_Serif_4, Fredoka, Nunito } from "next/font/google";
 import Script from "next/script";
 import { StickyCta } from "@/components/StickyCta";
+import { SITE_REVIEW_KEY, aggregateRatingNode } from "@/lib/reviews";
 import { OG_IMAGE, SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -238,6 +239,13 @@ const appJsonLd = {
         "Free to start — a sample of original bedtime stories, narrated, no account needed.",
     },
   ],
+  // Site-wide rating from OUR OWN reviews only (see lib/reviews.ts). Omitted
+  // entirely until real first-party reviews exist. We never borrow the App
+  // Store's ratings: Google's policy forbids aggregating ratings from other
+  // websites, and a manual action would cost far more than the stars earn.
+  ...(aggregateRatingNode(SITE_REVIEW_KEY)
+    ? { aggregateRating: aggregateRatingNode(SITE_REVIEW_KEY) }
+    : {}),
 };
 
 export default function RootLayout({
@@ -312,12 +320,16 @@ export default function RootLayout({
           defer
           src="https://cloud.umami.is/script.js"
           data-website-id="ad139af4-45c9-424c-8098-038e82ef66d7"
-          strategy="afterInteractive"
+          // `lazyOnload` (not `afterInteractive`): analytics must never compete
+          // with the page for main-thread time during load. Loading them when
+          // the browser is idle keeps them out of the INP/TBT budget while
+          // still collecting pageviews — they are measurement, not content.
+          strategy="lazyOnload"
         />
         {/* Microsoft Clarity — heatmaps & session recordings (puzzle/id is
             public by design, same as GA measurement ID). Mounted via
             next/script so it loads after hydration, same as Umami above. */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`(function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;

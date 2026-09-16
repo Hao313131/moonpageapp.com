@@ -109,6 +109,10 @@ export default function BedtimeStoriesLandingPage() {
         name: "Bedtime stories for siblings",
         url: `${SITE.domain}/bedtime-stories-for-siblings`,
       },
+      {
+        name: "Winter bedtime stories",
+        url: `${SITE.domain}/winter-bedtime-stories`,
+      },
     ],
   });
 
@@ -271,6 +275,12 @@ export default function BedtimeStoriesLandingPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Stories for siblings
+              </Link>
+              <Link
+                href="/winter-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Winter bedtime stories
               </Link>
             </div>
           </section>
