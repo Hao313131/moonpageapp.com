@@ -133,24 +133,86 @@ export function buildReviewRequest(
 }
 
 /**
- * Did the provider actually accept it?
- *
- * This is stricter than `res.ok` on purpose. FormSubmit answers 200 with a
- * body that says `success: "false"` when the inbox has not been activated, and
- * treating that as success would tell a parent their review was received when
- * it was thrown away. When in doubt we return false, and the form offers the
- * mailto fallback so the review still has somewhere to go.
+ * Phrases FormSubmit uses when it *refused* a submission while still answering
+ * 200. Measured live: `{"success":"false","message":"This form needs
+ * Activation..."}`. Kept as a fallback for responses that carry no decisive
+ * `success` flag.
  */
-export function responseAccepted(endpoint: ReviewEndpoint, body: string): boolean {
-  if (endpoint.kind === "formsubmit" || endpoint.kind === "appsscript") {
-    try {
-      const parsed = JSON.parse(body) as Record<string, unknown>;
-      const ok = parsed.success ?? parsed.ok;
-      return ok === true || ok === "true";
-    } catch {
+const REJECTION_HINTS = [
+  "needs activation",
+  "not formatted correctly",
+  "not a valid",
+  "captcha",
+  "blacklist",
+  "blocked",
+  "too many requests",
+  "rate limit",
+];
+
+/** Normalise the many ways a relay can say yes or no. `null` = no opinion. */
+function verdict(value: unknown): boolean | null {
+  if (typeof value === "boolean") return value;
+  if (typeof value === "number") return value !== 0;
+  if (typeof value === "string") {
+    const v = value.trim().toLowerCase();
+    if (["true", "1", "yes", "ok", "success", "accepted"].includes(v)) return true;
+    if (["false", "0", "no", "error", "fail", "failed", "rejected"].includes(v)) {
       return false;
     }
   }
-  // A custom endpoint: 2xx is the contract. An empty body is fine.
-  return true;
+  return null;
+}
+
+/**
+ * Did the provider actually accept it?
+ *
+ * Stricter than `res.ok` on purpose. FormSubmit answers 200 with
+ * `success: "false"` when the inbox has not been activated, and treating that
+ * as success would tell a parent their review was received when it was thrown
+ * away.
+ *
+ * But also deliberately *looser* than an exact match on `"true"`. We have only
+ * ever measured the refusal shape live — the acceptance shape is documented
+ * but cannot be triggered without an activated inbox. If it turns out to be
+ * `true` (boolean) rather than `"true"` (string), an exact-match check would
+ * make every real submission show a permanent error, which is the worst
+ * possible failure for a form whose whole job is to not lose reviews. So we
+ * accept any reasonable encoding of "yes", and when a response carries no
+ * decisive flag we fall back to the refusal phrases we have actually seen.
+ *
+ * The mailto fallback still catches everything this returns false for.
+ */
+export function responseAccepted(endpoint: ReviewEndpoint, body: string): boolean {
+  // Submission is switched off; `buildReviewRequest` returns null for this
+  // kind, so reaching here means something called us out of order.
+  if (endpoint.kind === "none") return false;
+
+  // A custom endpoint's contract is the HTTP status, which the caller already
+  // checked. Nothing to parse.
+  if (endpoint.kind === "json") return true;
+
+  const raw = body.trim();
+  if (!raw) return false;
+
+  let parsed: unknown = null;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    parsed = null;
+  }
+
+  if (parsed !== null && typeof parsed === "object" && !Array.isArray(parsed)) {
+    const record = parsed as Record<string, unknown>;
+    // `success` is FormSubmit's field; `ok`/`status` cover other relays and any
+    // Apps Script deployment we get pointed at later.
+    for (const flag of [record.success, record.ok, record.status]) {
+      const v = verdict(flag);
+      if (v !== null) return v;
+    }
+  }
+
+  // No decisive flag, or not JSON at all: trust the 2xx unless the body spells
+  // out a refusal we recognise.
+  const lower = raw.toLowerCase();
+  return !REJECTION_HINTS.some((hint) => lower.includes(hint));
 }
