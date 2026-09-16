@@ -112,7 +112,14 @@ export const metadata: Metadata = {
     "sleepy stories for kids",
   ],
   // Trailing slash matches the sitemap (output: "export" + trailingSlash:true).
-  alternates: { canonical: `${SITE.domain}/` },
+  // `languages` mirrors `pageMetadata()`: the homepage is the one page that
+  // doesn't go through that helper, so without this it was the only indexable
+  // page on the site emitting no hreflang at all — including no `x-default`,
+  // which is the declaration that matters most on a single-language site.
+  alternates: {
+    canonical: `${SITE.domain}/`,
+    languages: { en: `${SITE.domain}/`, "x-default": `${SITE.domain}/` },
+  },
   // Lets Google use a large cover thumbnail next to results and in Discover —
   // the default for a new site is a small one, and cover art is our best asset.
   robots: {
