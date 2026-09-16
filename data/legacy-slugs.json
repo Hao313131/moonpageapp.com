@@ -1,0 +1,30 @@
+{
+  "_note": "Story URLs that Google still shows impressions for after the story left the catalog, and that 404 on the live site today. scripts/gen-legacy-redirects.mjs turns each one into a meta-refresh stub in out/. Delete an entry (and the script, once the list is empty) when Cloudflare is fronted and real 301s become possible.",
+  "_source": "Search Console export moonpageapp.com-Performance-on-Search-2026-09-16, 网页.csv — 3 months to 2026-09-16, 69 impressions across these four URLs, 0 clicks.",
+  "redirects": [
+    {
+      "from": "/stories/the-tangled-kite/",
+      "to": "/stories/bunnys-big-feelings/",
+      "impressions": 28,
+      "reason": "Same story, re-skinned. The live page still opens with the old hook — \"One great big tug. One kite stuck high in a tree.\" — so the match is certain."
+    },
+    {
+      "from": "/stories/milos-little-boat/",
+      "to": "/stories/the-brave-little-boat/",
+      "impressions": 17,
+      "reason": "Both protagonists are a small boat; this is the closest live story. Not a certain rename, but a parent landing here gets a story of the same shape rather than the catalog."
+    },
+    {
+      "from": "/stories/the-meadow-concert/",
+      "to": "/stories/",
+      "impressions": 14,
+      "reason": "No live successor. A meadow setting is not the same story, so this goes to the catalog instead of a page that would be a wrong answer."
+    },
+    {
+      "from": "/stories/max-and-the-moonflowers/",
+      "to": "/stories/",
+      "impressions": 10,
+      "reason": "No live successor, same call as the-meadow-concert."
+    }
+  ]
+}
