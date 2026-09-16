@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Source_Serif_4, Fredoka, Nunito } from "next/font/google";
 import Script from "next/script";
 import { StickyCta } from "@/components/StickyCta";
-import { SITE_REVIEW_KEY, aggregateRatingNode } from "@/lib/reviews";
+import { APP_JSONLD_ID } from "@/lib/reviews";
 import { OG_IMAGE, SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -213,6 +213,9 @@ const websiteJsonLd = {
 const appJsonLd = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
+  // Declared by @id so app/page.tsx can merge the site-wide rating into this
+  // same entity — on the only page where those reviews are actually visible.
+  "@id": APP_JSONLD_ID,
   name: SITE.name,
   url: SITE.domain,
   image: `${SITE.domain}/icon.png`,
@@ -239,13 +242,13 @@ const appJsonLd = {
         "Free to start — a sample of original bedtime stories, narrated, no account needed.",
     },
   ],
-  // Site-wide rating from OUR OWN reviews only (see lib/reviews.ts). Omitted
-  // entirely until real first-party reviews exist. We never borrow the App
-  // Store's ratings: Google's policy forbids aggregating ratings from other
-  // websites, and a manual action would cost far more than the stars earn.
-  ...(aggregateRatingNode(SITE_REVIEW_KEY)
-    ? { aggregateRating: aggregateRatingNode(SITE_REVIEW_KEY) }
-    : {}),
+  // NOTE: no `aggregateRating` here on purpose. This node is emitted on every
+  // page, and Google requires a marked-up rating to be visible on the page that
+  // carries the markup. The site-wide rating is merged into this entity by
+  // app/page.tsx, which is where the visible reviews render. We never borrow
+  // the App Store's ratings either: Google's policy forbids aggregating ratings
+  // from other websites, and a manual action would cost far more than the stars
+  // earn. See lib/reviews.ts for the whole rationale.
 };
 
 export default function RootLayout({

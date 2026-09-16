@@ -144,10 +144,20 @@ export function reviewNodes(key: string, limit = 5): object[] {
     }));
 }
 
-/** Where a submission is POSTed. Unset until the owner wires an endpoint
- * (see docs/站内评价体系部署.md); the form degrades to a mailto link. */
-export const REVIEWS_ENDPOINT =
-  process.env.NEXT_PUBLIC_REVIEWS_ENDPOINT ?? "";
-
-/** Fallback contact for the no-endpoint state. */
+/** Fallback contact used by the form when the endpoint rejects a submission. */
 export const REVIEWS_FALLBACK_EMAIL = SITE.contactEmail;
+
+/**
+ * Stable `@id` for the site-wide app entity.
+ *
+ * The `MobileApplication` node lives in app/layout.tsx and therefore appears on
+ * every page. Its `aggregateRating` must NOT live there: Google requires a
+ * marked-up rating to be visible on the page carrying the markup, and the
+ * visible site-wide reviews render on the homepage only. So the layout declares
+ * the entity by `@id`, and app/page.tsx merges the rating into that same entity
+ * on the one page where a human can actually see the reviews.
+ */
+export const APP_JSONLD_ID = `${SITE.domain}/#app`;
+
+/** Endpoint resolution lives in lib/reviewEndpoint.ts so the client form can
+ * import it without pulling this module's review store into the bundle. */
