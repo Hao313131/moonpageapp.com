@@ -181,8 +181,8 @@ export const HUB_FAQS: Record<string, HubFaqItem[]> = {
       a: "Yes to start — a sample of stories is free to open tonight, no account needed. The full library is an optional subscription.",
     },
     {
-      q: "Does it work on Android and iPhone?",
-      a: "Yes — MoonPage runs on iOS and Android phones and tablets.",
+      q: "Does it work on iPhone, iPad, and Android?",
+      a: "MoonPage is available now on iPhone and iPad through the App Store. An Android version is in development — this page will link to Google Play the day it goes live.",
     },
     {
       q: "Can I use it without wifi at bedtime?",

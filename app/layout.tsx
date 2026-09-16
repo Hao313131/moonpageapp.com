@@ -13,6 +13,26 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+/**
+ * Search-engine verification tokens, read from the build environment. Kept
+ * module-level so the intent is obvious at the top of the file rather than
+ * buried in JSX, and so a missing token is a visible empty string rather than
+ * a silently-shipped placeholder.
+ */
+const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "";
+const BING_VERIFICATION = process.env.NEXT_PUBLIC_BING_VERIFICATION ?? "";
+const YANDEX_VERIFICATION = process.env.NEXT_PUBLIC_YANDEX_VERIFICATION ?? "";
+const PINTEREST_VERIFICATION =
+  process.env.NEXT_PUBLIC_PINTEREST_VERIFICATION ?? "";
+
+if (!GSC_VERIFICATION) {
+  console.warn(
+    "[seo] NEXT_PUBLIC_GSC_VERIFICATION is unset — no google-site-verification " +
+      "tag will be emitted. Verify the property (tag or DNS TXT) or Search " +
+      "Console stays blind to impressions, position, and CTR.",
+  );
+}
+
 /** Formal literary serif for section headlines. */
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
@@ -37,7 +57,18 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),
   title: {
     default: SITE.title,
-    template: `%s · ${SITE.name}`,
+    /**
+     * No brand suffix. This used to be `%s · MoonPage`, which added 11
+     * characters to every title and pushed 38 of the site's 153 pages past
+     * Google's ~60-character cut — always chopping the tail, which is where
+     * the hook lives ("…(Ages 2–7)", "…(The Verdict)"). Google prints the
+     * site name above the title anyway, sourced from the WebSite/Organization
+     * JSON-LD below, so the suffix was spending the most valuable pixels on
+     * the page on a word the searcher already knows.
+     *
+     * Pages that are short enough to afford branding add it themselves.
+     */
+    template: `%s`,
   },
   description: SITE.description,
   // Lets the site be installed as a web app and pins the cream theme through
@@ -126,7 +157,17 @@ const organizationJsonLd = {
     width: 1024,
     height: 1024,
   },
-  sameAs: [SITE.instagramUrl, SITE.tiktokUrl],
+  sameAs: [
+    SITE.instagramUrl,
+    SITE.tiktokUrl,
+    // The store listing is the strongest third-party confirmation that
+    // "MoonPage" is one real entity rather than a word several sites use —
+    // it ties the site, the app id, and the brand into one knowledge-graph
+    // node. The Play listing is only added once it actually exists, so this
+    // never points at a 404.
+    SITE.appStoreUrl,
+    ...(SITE.androidLive ? [SITE.playStoreUrl] : []),
+  ],
   contactPoint: {
     "@type": "ContactPoint",
     email: SITE.contactEmail,
@@ -138,9 +179,13 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE.name,
+  // Google prints a site name above every result. Spelling the variants out
+  // here is what lets "moonpage", "moonpage app", and the App Store's own
+  // longer listing name resolve to this same entity.
+  alternateName: ["MoonPage App", "MoonPage: Cozy Bedtime Stories"],
   url: SITE.domain,
   description:
-    "Original cozy bedtime stories for kids ages 2+ — a phone and tablet storybook app trusted by thousands of moms. Read-aloud narration, picture books, no ads, no login required.",
+    "Original cozy bedtime stories for kids ages 2+ — a phone and tablet storybook app with read-aloud narration, picture books, no ads, and no login required.",
   inLanguage: "en",
   publisher: { "@type": "Organization", name: SITE.operator },
   // Sitelinks search box — when Google/Bing show it under our result, the
@@ -163,11 +208,16 @@ const appJsonLd = {
   name: SITE.name,
   url: SITE.domain,
   image: `${SITE.domain}/icon.png`,
-  operatingSystem: "iOS, Android",
+  // Single source of truth with SITE.androidLive. Claiming a platform that
+  // has no public listing is a factual error in structured data — the one
+  // place Google can check a claim against its own store index.
+  operatingSystem: SITE.androidLive ? "iOS, Android" : "iOS",
   applicationCategory: "EducationalApplication",
   description:
-    "A bedtime stories app for kids ages 2+ — original illustrated picture storybooks, cozy and lullaby-style sleepy tales, trusted by thousands of moms. Hear them by a professional narrator or in your own recorded voice.",
+    "A bedtime stories app for kids ages 2+ — original illustrated picture storybooks, cozy and lullaby-style sleepy tales. Hear them by a professional narrator or in your own recorded voice.",
   publisher: { "@type": "Organization", name: SITE.operator },
+  installUrl: SITE.appStoreUrl,
+  sameAs: [SITE.appStoreUrl],
   // Honest pricing in one currency (SITE.priceCurrency — see the consistency
   // note there). The free tier is a real, stated offer; the paid subscription
   // is shown in the visible Pricing section, so we don't invent a price here.
@@ -208,25 +258,41 @@ export default function RootLayout({
           href="/feed.xml"
         />
         {/*
-          Search-engine / webmaster verification. These codes are PUBLIC by
-          design (same as the Umami website-id). Replace each TODO with the
-          real token from its console, OR verify via a DNS TXT record instead
-          — then these tags can stay as-is. Without verification you cannot see
-          impressions / average position / CTR in Search Console, i.e. you are
-          blind to the discovery half of the funnel (is the site even ranking,
-          and if so, are people clicking? Umami only shows visits after the fact).
-          - GSC:      google-search-console → Settings → Ownership verification
-          - Bing:     bing-webmaster-tools → Add site → Verify (also feeds Yahoo)
-          - Yandex:   yandex-webmaster (optional; pairs with IndexNow)
-          - Pinterest: pinterest-business (optional; real parenting/DIY traffic)
+          Search-engine / webmaster verification.
+
+          These tags were checked in as literal placeholders
+          (`content="REPLACE_WITH_GSC_CODE"`), which means Search Console was
+          never actually verified from this file — and an unverified property
+          is a blind property: no impressions, no average position, no CTR.
+          Every CTR idea in the growth plan is unmeasurable until this is
+          filled in.
+
+          They now read from the environment so the value is a build setting
+          rather than a code edit, and an unset value emits NO tag at all
+          (a wrong token is worse than none — it looks configured).
+
+            NEXT_PUBLIC_GSC_VERIFICATION=...      # google-search-console → Settings → Ownership verification
+            NEXT_PUBLIC_BING_VERIFICATION=...     # bing-webmaster-tools → Add site (also feeds Yahoo)
+            NEXT_PUBLIC_YANDEX_VERIFICATION=...   # yandex-webmaster (pairs with IndexNow)
+            NEXT_PUBLIC_PINTEREST_VERIFICATION=.. # pinterest-business (real parenting/DIY traffic)
+
+          Or verify by DNS TXT record instead — then these can stay unset
+          forever. Whichever route, the property has to be claimed before the
+          sitemap can be submitted and the striking-distance report (queries
+          ranking 4–20) can be pulled.
         */}
-        <meta
-          name="google-site-verification"
-          content="REPLACE_WITH_GSC_CODE"
-        />
-        <meta name="msvalidate.01" content="REPLACE_WITH_BING_CODE" />
-        <meta name="yandex-verification" content="REPLACE_WITH_YANDEX_CODE" />
-        <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_CODE" />
+        {GSC_VERIFICATION && (
+          <meta name="google-site-verification" content={GSC_VERIFICATION} />
+        )}
+        {BING_VERIFICATION && (
+          <meta name="msvalidate.01" content={BING_VERIFICATION} />
+        )}
+        {YANDEX_VERIFICATION && (
+          <meta name="yandex-verification" content={YANDEX_VERIFICATION} />
+        )}
+        {PINTEREST_VERIFICATION && (
+          <meta name="p:domain_verify" content={PINTEREST_VERIFICATION} />
+        )}
         {/* Warm up the analytics connection early; a faster first response
             helps Core Web Vitals, which feed ranking. */}
         <link

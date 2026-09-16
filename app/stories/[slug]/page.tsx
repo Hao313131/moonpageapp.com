@@ -16,7 +16,8 @@ import {
 } from "@/lib/stories";
 import { storyCoverSrc, storyCoverUrl } from "@/lib/storyCover";
 import { STORY_DATE } from "@/lib/content-dates";
-import { SITE, pageMetadata } from "@/lib/site";
+import { guidesForTag } from "@/lib/internalLinks";
+import { SITE, pageMetadata, storyMetaDescription } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
 
@@ -35,7 +36,11 @@ export async function generateMetadata({
   return pageMetadata({
     path: `/stories/${story.slug}`,
     title: `${story.title} — Bedtime Story`,
-    description: `${story.hook} Open it free in MoonPage tonight — illustrated, narrated, offline. No ads, no login.`,
+    // Built to fit Google's ~155-character snippet: as much of the story's
+    // own hook as fits, then one short CTA. The previous version bolted a
+    // 90-character CTA onto the whole hook and landed at 190–305 characters,
+    // so the snippet was cut mid-sentence on all 45 story pages.
+    description: storyMetaDescription(story),
     type: "article",
     article: { publishedTime: STORY_DATE, modifiedTime: STORY_DATE },
     keywords: [
@@ -71,6 +76,13 @@ export default async function StoryPage({ params }: { params: Params }) {
     .slice(0, 5);
   const collectionByTag = new Map(COLLECTIONS.map((c) => [c.tag, c]));
   const shownTags = story.tags.slice(0, 3);
+  // The parent-facing half of this story's theme. A story page is the one
+  // place a parent arrives mid-question ("what do I read tonight?"), so it
+  // hands them the two guides that answer the follow-up rather than only
+  // more books — this is what turns 45 thin story pages into 45 entry points
+  // to the guide cluster.
+  const relatedGuides = guidesForTag(primaryTag, 2);
+  const primaryCollection = collectionByTag.get(primaryTag);
   const tagPillClass =
     "rounded-full border border-wood/30 bg-paper px-3 py-1 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm";
 
@@ -88,6 +100,12 @@ export default async function StoryPage({ params }: { params: Params }) {
     genre: "Children's picture book",
     author: { "@type": "Organization", name: SITE.operator },
     audience: { "@type": "PeopleAudience", suggestedMinAge: 2 },
+    typicalAgeRange: "2-7",
+    // Every story on this site is readable without an account — the sample
+    // shelf is free to start. Stating it in the Book node (rather than only
+    // in the Offer) is what lets a "Free" treatment show on the book result
+    // itself, and it's the honest fact about the product.
+    isAccessibleForFree: true,
     publisher: { "@type": "Organization", name: SITE.operator },
     isPartOf: {
       "@type": "CreativeWorkSeries",
@@ -227,6 +245,41 @@ export default async function StoryPage({ params }: { params: Params }) {
             </Link>
             .
           </p>
+
+          {/* The clue trail out of a story page: theme shelf → parent guides.
+              Both directions existed nowhere before — a story linked to one
+              hard-coded guide and to nothing thematic, so the guides that
+              answer "my kid is scared of the dark" were reachable from the
+              dark-themed stories only by luck. */}
+          {(primaryCollection || relatedGuides.length > 0) && (
+            <section className="mt-10 border-t border-wood/20 pt-6 sm:mt-12 sm:pt-8">
+              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
+                Keep going with this theme
+              </h2>
+              <ul className="mt-3 space-y-2">
+                {primaryCollection && (
+                  <li>
+                    <Link
+                      href={`/collections/${primaryCollection.slug}`}
+                      className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
+                    >
+                      Every {TAG_MORE_HEADINGS[primaryTag]} on MoonPage
+                    </Link>
+                  </li>
+                )}
+                {relatedGuides.map((g) => (
+                  <li key={g.slug}>
+                    <Link
+                      href={`/guides/${g.slug}`}
+                      className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
+                    >
+                      {g.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </main>
       <Footer />

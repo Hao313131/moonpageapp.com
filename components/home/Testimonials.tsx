@@ -1,16 +1,20 @@
 /**
- * Homepage five-star parent reviews.
+ * Homepage parent quote cards.
  *
- * Source: the user's own App Store–style review copy (好评内容.docx) — written
- * to read like genuine, varied parent testimonials. These are shown as visible
- * social proof only. We deliberately do NOT emit an AggregateRating / Review
- * JSON-LD block, because structured rating data must reflect genuinely
- * aggregated, verifiable ratings — faking that risks a Google manual action and
- * runs against Australian Consumer Law. When real ratings accumulate (App Store
- * / in-app prompts), add AggregateRating then; the visible stars here stay.
+ * Visible social proof only. We deliberately do NOT emit an AggregateRating /
+ * Review JSON-LD block, because structured rating data has to reflect genuinely
+ * aggregated, verifiable ratings — claiming that here would risk a Google
+ * manual action and runs against Australian Consumer Law. If real ratings
+ * accumulate (App Store / in-app prompts), add AggregateRating then; the
+ * visible stars stay.
+ *
+ * Hard rule for this file: nothing here may assert that these quotes were
+ * verified, collected, or drawn from a review process. A subtitle making that
+ * claim was removed on 2026-09-16 — the section shows quotes, it does not
+ * vouch for them, and it must not say otherwise.
  *
  * Lengths are intentionally varied (a couple of one-liners, a few medium, one
- * long) so the grid reads like real people, not a single marketing voice.
+ * long) so the grid does not read as a single marketing voice.
  */
 
 type Review = {
@@ -79,10 +83,6 @@ export function Testimonials() {
         <h2 className="mt-3 max-w-3xl font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
           What parents are saying about MoonPage
         </h2>
-        <p className="mt-2 max-w-2xl text-sm text-ink-muted sm:text-base">
-          Verified reviews from parents, grandparents, and caregivers using
-          MoonPage.
-        </p>
       </div>
 
       <ul className="mt-8 grid list-none gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5">

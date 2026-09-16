@@ -119,7 +119,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: "Is MoonPage available on Android?",
-    a: "Yes — MoonPage is available on both iOS through the App Store and Android through Google Play.",
+    a: "Not yet — MoonPage is on the App Store for iPhone and iPad today. An Android version is in development, so there is nothing to download on Google Play yet.",
     category: "Devices & offline",
   },
   {

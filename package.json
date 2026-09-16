@@ -10,8 +10,9 @@
     "gen:dates": "node scripts/gen-content-dates.mjs",
     "gen:feed": "tsx scripts/gen-feed.ts",
     "validate:content": "tsx scripts/validate-content.ts",
+    "validate:seo": "node scripts/validate-seo-output.mjs",
     "seo:indexnow": "node scripts/indexnow.mjs",
-    "build": "npm run sync:covers && npm run gen:dates && npm run gen:feed && npm run validate:content && next build",
+    "build": "npm run sync:covers && npm run gen:dates && npm run gen:feed && npm run validate:content && next build && npm run validate:seo",
     "start": "npx --yes serve@14 out",
     "lint": "eslint"
   },

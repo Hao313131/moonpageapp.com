@@ -5,9 +5,13 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/support",
-  title: "Support",
+  // Was just "Support" — 18 characters in a slot that fits 60, and no keyword
+  // a parent would actually type. A support page is one of the highest-intent
+  // pages on a subscription app; "cancel" and "restore purchases" are the
+  // exact phrases people search before they arrive.
+  title: "MoonPage Support: Cancel, Restore & Contact Us",
   description:
-    "Contact MoonPage support, manage or cancel your subscription, and restore purchases on a new device.",
+    "Contact MoonPage support, cancel or manage your Premium subscription, and restore purchases on a new device.",
 });
 
 export default function SupportPage() {

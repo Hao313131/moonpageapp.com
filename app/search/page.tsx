@@ -6,12 +6,20 @@ import { BackHomeLink } from "@/components/BackLink";
 import { SearchClient } from "@/components/SearchClient";
 import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata({
-  path: "/search",
-  title: "Search MoonPage — bedtime stories & guides",
-  description:
-    "Search MoonPage for cozy bedtime stories, themed collections, and parenting bedtime guides for kids ages 2+.",
-});
+export const metadata: Metadata = {
+  ...pageMetadata({
+    path: "/search",
+    title: "Search MoonPage — bedtime stories & guides",
+    description:
+      "Search MoonPage for cozy bedtime stories, themed collections, and parenting bedtime guides for kids ages 2+.",
+  }),
+  // This page exists to serve the Sitelinks search box declared in the
+  // WebSite JSON-LD, not to rank. Its content is entirely client-rendered
+  // from other pages, so indexing it would only create a thin duplicate of
+  // /stories + /guides under a URL nobody searches for. `follow` stays on so
+  // it still passes crawlers through to the real pages.
+  robots: { index: false, follow: true },
+};
 
 export default function SearchPage() {
   return (

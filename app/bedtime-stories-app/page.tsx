@@ -47,7 +47,7 @@ const FAQS = [
   },
   {
     q: "iPhone, iPad, and Android?",
-    a: "Yes — MoonPage is available on the App Store and Google Play for phones and tablets.",
+    a: "MoonPage is on the App Store now for iPhone and iPad. An Android version is in development — Google Play will be linked here the day it goes live.",
     category: "Devices & offline" as const,
   },
 ];
