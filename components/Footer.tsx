@@ -113,6 +113,31 @@ export function Footer() {
                   Search the site
                 </Link>
               </li>
+              <li>
+                <Link href="/short-bedtime-stories" className="hover:text-white">
+                  Short bedtime stories
+                </Link>
+              </li>
+              <li>
+                <Link href="/free-bedtime-stories" className="hover:text-white">
+                  Free bedtime stories
+                </Link>
+              </li>
+              <li>
+                <Link href="/sleep-stories-for-kids" className="hover:text-white">
+                  Sleep stories for kids
+                </Link>
+              </li>
+              <li>
+                <Link href="/baby-bedtime-stories" className="hover:text-white">
+                  Bedtime stories for babies
+                </Link>
+              </li>
+              <li>
+                <Link href="/bedtime-routine-chart" className="hover:text-white">
+                  Bedtime routine chart
+                </Link>
+              </li>
               {FOOTER_COLLECTIONS.map((c) => (
                 <li key={c.slug}>
                   <Link

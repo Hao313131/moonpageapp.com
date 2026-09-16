@@ -19,8 +19,8 @@ const PUBLIC = join(SITE_ROOT, "public");
 
 /** Hero art renders at ~512px CSS wide, but it's the LCP element on the
  * homepage, so it keeps enough pixels for a 2x display and no more. */
-const HERO_WIDTH = 1280;
-const HERO_QUALITY = 76;
+const HERO_WIDTH = 1024;
+const HERO_QUALITY = 72;
 
 /** The favicon/app-icon source. Only the 1024px original needs to stay big
  * (Organization JSON-LD logo); it just doesn't need to be a 1.5MB PNG. */
