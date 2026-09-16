@@ -93,6 +93,22 @@ export default function BedtimeStoriesLandingPage() {
         name: "Bedtime routine chart",
         url: `${SITE.domain}/bedtime-routine-chart`,
       },
+      {
+        name: "Bedtime stories in your voice",
+        url: `${SITE.domain}/bedtime-stories-in-your-voice`,
+      },
+      {
+        name: "Bedtime stories for anxious kids",
+        url: `${SITE.domain}/bedtime-stories-for-anxious-kids`,
+      },
+      {
+        name: "Offline bedtime stories",
+        url: `${SITE.domain}/offline-bedtime-stories`,
+      },
+      {
+        name: "Bedtime stories for siblings",
+        url: `${SITE.domain}/bedtime-stories-for-siblings`,
+      },
     ],
   });
 
@@ -231,6 +247,30 @@ export default function BedtimeStoriesLandingPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Bedtime routine chart
+              </Link>
+              <Link
+                href="/bedtime-stories-in-your-voice"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Stories in your voice
+              </Link>
+              <Link
+                href="/bedtime-stories-for-anxious-kids"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Stories for anxious kids
+              </Link>
+              <Link
+                href="/offline-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Offline bedtime stories
+              </Link>
+              <Link
+                href="/bedtime-stories-for-siblings"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Stories for siblings
               </Link>
             </div>
           </section>

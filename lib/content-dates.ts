@@ -6,7 +6,7 @@
  */
 export const ROUTE_DATES: Record<string, string> = {
   "": "2026-09-16",
-  "/bedtime-stories": "2026-08-25",
+  "/bedtime-stories": "2026-09-16",
   "/toddler-bedtime-stories": "2026-08-25",
   "/preschool-bedtime-stories": "2026-08-25",
   "/read-aloud-bedtime-stories": "2026-08-25",

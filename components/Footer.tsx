@@ -138,6 +138,26 @@ export function Footer() {
                   Bedtime routine chart
                 </Link>
               </li>
+              <li>
+                <Link href="/bedtime-stories-in-your-voice" className="hover:text-white">
+                  Stories in your voice
+                </Link>
+              </li>
+              <li>
+                <Link href="/bedtime-stories-for-anxious-kids" className="hover:text-white">
+                  Stories for anxious kids
+                </Link>
+              </li>
+              <li>
+                <Link href="/offline-bedtime-stories" className="hover:text-white">
+                  Offline bedtime stories
+                </Link>
+              </li>
+              <li>
+                <Link href="/bedtime-stories-for-siblings" className="hover:text-white">
+                  Stories for siblings
+                </Link>
+              </li>
               {FOOTER_COLLECTIONS.map((c) => (
                 <li key={c.slug}>
                   <Link
