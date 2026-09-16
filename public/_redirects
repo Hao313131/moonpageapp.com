@@ -6,15 +6,8 @@
 # cache-aware host.
 https://www.moonpageapp.com/* https://moonpageapp.com/:splat 301
 
-# Legacy/dead slugs Google Search Console discovered (2026-08-18) that no longer
-# exist on the site. 301 them to the nearest live hub so they don't 404 and
-# bleed ranking/link-equity. Inert on GitHub Pages — only active behind
-# Cloudflare (or Netlify). When more stale slugs surface in GSC, append them
-# here. Both slash + no-slash forms covered (GH Pages/Cloudflare may serve
-# either for a stale path).
-/stories/milos-little-boat /stories/ 301
-/stories/milos-little-boat/ /stories/ 301
-/collections/stories-about-honesty /collections/ 301
-/collections/stories-about-honesty/ /collections/ 301
-/collections/stories-about-music /collections/ 301
-/collections/stories-about-music/ /collections/ 301
+# Legacy/dead-slug rules are NOT written here. They are generated from
+# data/legacy-slugs.json and appended to out/_redirects by
+# scripts/gen-legacy-redirects.mjs, so the rule list can never drift out of step
+# with the meta-refresh stubs the same script emits. Add or change a legacy
+# redirect in that JSON, never in this file.
