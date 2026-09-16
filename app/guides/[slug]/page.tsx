@@ -10,6 +10,7 @@ import {
   relatedGuides,
   type GuideBlock,
 } from "@/lib/guides";
+import { collectionsForGuide } from "@/lib/internalLinks";
 import { SITE, pageMetadata, pageKeywords } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -134,6 +135,11 @@ export default async function GuidePage({ params }: { params: Params }) {
     : null;
 
   const related = relatedGuides(guide);
+  // The other half of the clue trail: a guide told a parent what to do, so it
+  // should hand them the shelf where they do it. Guides used to link only to
+  // other guides, which left the collection pages — the theme landing pages —
+  // with almost no internal links from the advice layer.
+  const shelves = collectionsForGuide(guide.slug, 2);
 
   return (
     <>
@@ -249,6 +255,30 @@ export default async function GuidePage({ params }: { params: Params }) {
                     Frequently asked questions about MoonPage
                   </Link>
                 </li>
+              </ul>
+            </section>
+          )}
+
+          {shelves.length > 0 && (
+            <section className="mt-10 border-t border-wood/20 pt-6 sm:mt-12 sm:pt-8">
+              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
+                Stories for this
+              </h2>
+              <p className="mt-2 max-w-prose text-sm text-ink-muted sm:text-base">
+                Advice is easier to act on with a story in hand. These shelves
+                match what this guide is about.
+              </p>
+              <ul className="mt-3 space-y-2">
+                {shelves.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/collections/${c.slug}`}
+                      className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
+                    >
+                      {c.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </section>
           )}

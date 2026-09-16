@@ -38,19 +38,29 @@ const SEARCH_CRAWLERS = [
   "AdsBot-Google",
 ];
 
+// `/get` is the paid-traffic landing page (it carries its own
+// `robots: { index: false }` — this is belt and braces, because a noindex tag
+// only works if a crawler is allowed to fetch the page and read it).
+//
+// `/404` is not a real page: `app/not-found.tsx` is exported twice by the
+// static build, once as `404.html` (what GitHub Pages serves for a missing
+// path) and once as `404/index.html`, which IS a fetchable URL that would
+// otherwise sit in the index as a near-duplicate of the homepage's chrome.
+const DISALLOW = ["/get", "/404"];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: "/get" },
+      { userAgent: "*", allow: "/", disallow: DISALLOW },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: "/get",
+        disallow: DISALLOW,
       })),
       ...SEARCH_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: "/get",
+        disallow: DISALLOW,
       })),
     ],
     sitemap: `${SITE.domain}/sitemap.xml`,

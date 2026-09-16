@@ -1,4 +1,4 @@
-import { appStoreLink, playStoreLink } from "@/lib/site";
+import { SITE, appStoreLink, playStoreLink } from "@/lib/site";
 
 const BADGE =
   "store-badge-glow inline-flex h-full w-full items-center justify-center gap-2 rounded-2xl bg-ink text-white shadow-[0_4px_0_0_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.25)]";
@@ -6,9 +6,26 @@ const BADGE =
 type StoreSize = "lg" | "md" | "sm";
 
 /**
- * Both platforms are presented as equal, real CTAs — MoonPage is launching
- * iOS first but Android is right behind it, and the site deliberately never
- * singles one out in copy (see plan follow-up: "都写或者都不写").
+ * Store CTAs. Only platforms with a live, working listing get a badge.
+ *
+ * This used to be a per-page decision: the homepage hero, pricing block, and
+ * sticky bar passed `hidePlay`, and the other 147 pages did not — so hubs,
+ * stories, guides, collections, the FAQ, and the 404 page all shipped a
+ * "Download on Google Play" button pointing at
+ * `play.google.com/...?id=com.echorealmmedia.moonpage`, which returns HTTP
+ * 404 because there is no Play listing. A dead primary CTA is worse than a
+ * missing one: it costs the install and the parent's trust at the same time.
+ *
+ * The decision now lives in `SITE.androidLive`, so when Android goes live one
+ * boolean turns the badge back on everywhere at once — instead of 20 files
+ * each remembering to flip a prop.
+ */
+const SHOW_PLAY = SITE.androidLive;
+
+/**
+ * Both platforms are presented as equal, real CTAs once Android is live;
+ * while it isn't, the App Store badge stands alone rather than being paired
+ * with a link that goes nowhere.
  *
  * Size "lg" scales down on phone so two badges can sit side-by-side from
  * ~400px up; below that they stack full-width. Paired badges always share
@@ -129,18 +146,21 @@ export function StoreButtons({
   campaign: string;
   size?: StoreSize;
   className?: string;
-  /** When true, only the App Store badge renders. Flip it back to false (or
-   *  drop the prop) to restore the paired badges. */
+  /** Force the single-badge layout even once Android is live. Rarely needed
+   *  now that `SITE.androidLive` handles the common case. */
   hidePlay?: boolean;
-  /** Single-badge alignment (only used with hidePlay):
+  /** Single-badge alignment (only used with a single badge):
    *  - "responsive" (default): centered on phones, left-aligned from md up so
    *    it lines up under left-aligned hero copy.
    *  - "center": centered at every width — for centered sections / the sticky
    *    bottom bar. */
   badgeAlign?: "responsive" | "center";
 }) {
+  // One gate for both reasons a badge can be missing: the platform has no
+  // listing yet, or the caller explicitly wants a single badge.
+  const single = hidePlay || !SHOW_PLAY;
   let layout: string;
-  if (hidePlay) {
+  if (single) {
     layout =
       "grid-cols-1 " +
       (badgeAlign === "center"
@@ -157,9 +177,9 @@ export function StoreButtons({
       <AppStoreLink
         campaign={campaign}
         size={size}
-        className={hidePlay ? "max-w-[15rem] sm:max-w-xs" : ""}
+        className={single ? "max-w-[15rem] sm:max-w-xs" : ""}
       />
-      {!hidePlay && <PlayStoreLink campaign={campaign} size={size} />}
+      {!single && <PlayStoreLink campaign={campaign} size={size} />}
     </div>
   );
 }

@@ -10,9 +10,9 @@ import { SITE, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/faq",
-  title: "Bedtime Story App FAQ for Parents",
+  title: "MoonPage FAQ: Ages, Offline Reading, Privacy & Pricing",
   description:
-    "Everything parents ask about MoonPage — ages, own-voice narration, offline reading, privacy, devices, and subscriptions.",
+    "Everything parents ask about MoonPage — which ages it suits, own-voice narration, offline reading, privacy, devices, and how the subscription works.",
 });
 
 export default function FaqPage() {

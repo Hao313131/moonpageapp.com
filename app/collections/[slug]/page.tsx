@@ -7,6 +7,7 @@ import { StoreButtons } from "@/components/StoreButtons";
 import { StoryGrid } from "@/components/StoryGrid";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { COLLECTIONS, getCollection } from "@/lib/collections";
+import { guidesForCollection } from "@/lib/internalLinks";
 import { storiesByTag } from "@/lib/stories";
 import { storyCoverUrl } from "@/lib/storyCover";
 import { SITE, pageMetadata, pageKeywords } from "@/lib/site";
@@ -55,6 +56,11 @@ export default async function CollectionPage({
     0,
     4,
   );
+  // Theme shelf → the parent-facing guides for the same theme. This is the
+  // link direction the site was missing entirely: 22 collection pages each
+  // pointed only at stories and at other collections, so the guide cluster
+  // got no internal links from the pages most likely to rank for the theme.
+  const relatedGuides = guidesForCollection(collection, 3);
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -92,6 +98,23 @@ export default async function CollectionPage({
       { "@type": "ListItem", position: 3, name: collection.title, item: url },
     ],
   };
+
+  // The guides rendered above, declared as a list so the shelf reads to a
+  // crawler as part of a topic cluster (shelf + advice) rather than as a
+  // standalone grid of covers.
+  const relatedGuidesJsonLd = relatedGuides.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: `${collection.title} — bedtime guides`,
+        itemListElement: relatedGuides.map((g, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: g.title,
+          url: `${SITE.domain}/guides/${g.slug}`,
+        })),
+      }
+    : null;
 
   return (
     <>
@@ -142,6 +165,30 @@ export default async function CollectionPage({
             />
           </div>
 
+          {relatedGuides.length > 0 && (
+            <section className="mt-10 border-t border-wood/20 pt-6 sm:mt-12 sm:pt-8">
+              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
+                Bedtime advice for this theme
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm text-ink-muted sm:text-base">
+                The reading-around-the-story part — routines, settling, and how
+                to read these out loud so they land.
+              </p>
+              <ul className="mt-3 space-y-2">
+                {relatedGuides.map((g) => (
+                  <li key={g.slug}>
+                    <Link
+                      href={`/guides/${g.slug}`}
+                      className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
+                    >
+                      {g.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           <section className="mt-10 border-t border-wood/20 pt-6 sm:mt-12 sm:pt-8">
             <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
               More collections
@@ -170,6 +217,14 @@ export default async function CollectionPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {relatedGuidesJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(relatedGuidesJsonLd),
+          }}
+        />
+      )}
     </>
   );
 }

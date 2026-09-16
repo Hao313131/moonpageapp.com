@@ -59,9 +59,9 @@ export type Guide = {
 export const GUIDES: Guide[] = [
   {
     slug: "bedtime-routine-for-toddlers",
-    title: "The 20-Minute Bedtime Routine That Actually Sticks (Ages 2–7)",
+    title: "The 20-Minute Bedtime Routine That Sticks (Ages 2–7)",
     description:
-      "A simple, repeatable bedtime routine for toddlers and preschoolers — how long it should take, what order to do things in, and how to handle the nightly stalling.",
+      "A repeatable bedtime routine for toddlers and preschoolers — how long it should take, the order that works, and how to end the nightly stalling.",
     category: "Routines",
     updated: "2026-07-27",
     readingMinutes: 6,
@@ -179,9 +179,9 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "same-story-every-night",
-    title: "Why Kids Want the Same Story Every Night (and Why That's Good)",
+    title: "Why Kids Want the Same Story Every Night (and Why It Helps)",
     description:
-      "Reading the same picture book for the fortieth time feels like a rut for you and works like learning for them. Here's what repetition is doing, and how to live with it.",
+      "Reading the same book for the fortieth time feels like a rut to you and works like learning for them. What repetition does — and how to live with it.",
     category: "Reading",
     updated: "2026-07-27",
     readingMinutes: 4,
@@ -452,7 +452,7 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-when-youre-away",
-    title: "Bedtime When You're Away: Travel, Night Shifts & Long Distance",
+    title: "Bedtime When You're Away: Travel, Night Shifts & Distance",
     description:
       "How to keep bedtime steady when a parent is traveling, working late, or living apart — what to hand the caregiver, and how recorded voice helps.",
     category: "Routines",
@@ -1117,7 +1117,7 @@ export const GUIDES: Guide[] = [
     slug: "bedtime-stories-for-2-year-olds",
     title: "Bedtime Stories for 2-Year-Olds That Actually Hold Attention",
     description:
-      "What to read to a two-year-old at bedtime, how long it should take, and why the book you loved reading last year suddenly gets slammed shut halfway through.",
+      "What to read to a two-year-old at bedtime, how long it should take, and why last year's favourite suddenly gets slammed shut halfway through.",
     category: "Ages",
     updated: "2026-07-28",
     readingMinutes: 5,
@@ -1228,7 +1228,7 @@ export const GUIDES: Guide[] = [
     slug: "bedtime-stories-for-3-year-olds",
     title: "Bedtime Stories for 3-Year-Olds: Plots, Stalling & Questions",
     description:
-      "Three-year-olds can finally follow a real story — and have just discovered that questions delay lights out. What to read, and how to keep story time from stretching to forty minutes.",
+      "Three-year-olds can finally follow a real story — and have just discovered questions delay lights out. What to read, and how to keep story time short.",
     category: "Ages",
     updated: "2026-07-28",
     readingMinutes: 6,
@@ -1340,9 +1340,9 @@ export const GUIDES: Guide[] = [
 
   {
     slug: "bedtime-stories-for-4-year-olds",
-    title: "Bedtime Stories for 4-Year-Olds: Longer Books, Bigger Questions",
+    title: "Bedtime Stories for 4-Year-Olds: Longer Books, Big Ideas",
     description:
-      "Four-year-olds can sit through a longer story, argue with the ending, and worry about things at lights out. What to read, when to switch to chapter books, and how to handle the bedtime questions.",
+      "Four-year-olds sit through longer stories, argue with the ending, and worry at lights out. What to read, and how to handle the bedtime questions.",
     category: "Ages",
     updated: "2026-07-28",
     readingMinutes: 6,
@@ -1447,7 +1447,7 @@ export const GUIDES: Guide[] = [
     slug: "bedtime-stories-for-5-year-olds",
     title: "Bedtime Stories for 5- & 6-Year-Olds (Keep Reading to Them)",
     description:
-      "Once a child can read a little themselves, bedtime reading aloud often stops. Here's why it shouldn't, what to read at five and six, and how to share the reading without turning it into homework.",
+      "Once a child can read a little themselves, read-aloud often stops. Why it shouldn't, what to read at five and six, and how to share the reading.",
     category: "Ages",
     updated: "2026-07-28",
     readingMinutes: 6,
@@ -2101,7 +2101,7 @@ export const GUIDES: Guide[] = [
     slug: "bedtime-stories-for-anxious-kids",
     title: "Bedtime Stories That Calm Anxious Kids",
     description:
-      "What to read to a child whose worries show up at lights out — which stories help, which make it worse, and how to use a story as part of winding down rather than a distraction from it.",
+      "What to read to a child whose worries show up at lights out — which stories help, which make it worse, and how to use one to wind down.",
     category: "Sleep",
     updated: "2026-07-28",
     readingMinutes: 6,
@@ -2321,7 +2321,7 @@ export const GUIDES: Guide[] = [
     slug: "early-morning-waking",
     title: "The 5am Wake-Up: Why It Happens & How to Stop It",
     description:
-      "Early rising is the hardest toddler sleep problem to fix. Here's what actually causes it — light, timing, overtiredness, and habit — and what to change first.",
+      "Early rising is the hardest toddler sleep problem to fix. What actually causes it — light, timing, overtiredness, and habit — and what to change first.",
     category: "Sleep",
     updated: "2026-07-28",
     readingMinutes: 6,
@@ -2531,7 +2531,7 @@ export const GUIDES: Guide[] = [
     slug: "crib-to-bed-transition",
     title: "Cot to Bed: How to Move Without Losing Bedtime",
     description:
-      "When to make the move, how to do it in a way that doesn't restart every sleep problem you'd solved, and what to do when a newly free toddler keeps walking out.",
+      "When to move from crib to bed, how to do it without restarting every sleep problem you'd solved, and what to do when they keep walking out.",
     category: "Sleep",
     updated: "2026-07-28",
     readingMinutes: 5,
@@ -3302,7 +3302,7 @@ export const GUIDES: Guide[] = [
     slug: "grandparents-reading-from-far-away",
     title: "Long-Distance Bedtime Stories for Grandparents",
     description:
-      "How grandparents and away-from-home parents can be part of bedtime from another city — video calls, recorded stories, and what actually works with a small child.",
+      "How grandparents and away-from-home parents can join bedtime from another city — video calls, recorded stories, and what works with a small child.",
     category: "Routines",
     updated: "2026-07-28",
     readingMinutes: 5,
@@ -3596,7 +3596,7 @@ export const GUIDES: Guide[] = [
     slug: "toddler-night-waking",
     title: "Why Toddlers Wake at Night (and What to Do at 2am)",
     description:
-      "A child who slept through for months starts waking every night. What's usually behind it, what to do in the moment, and how to avoid creating a habit you'll have to undo.",
+      "A child who slept through for months starts waking every night. What's usually behind it, what to do at 2am, and how to avoid a habit you'll have to undo.",
     category: "Sleep",
     updated: "2026-07-28",
     readingMinutes: 6,

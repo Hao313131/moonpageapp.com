@@ -52,6 +52,29 @@ export const SITE = {
   priceCurrency: "AUD",
   /** MoonPage is free to start — the structured-data Offer states this honestly. */
   freeTier: true,
+  /**
+   * Is there a live Google Play listing for this bundle id?
+   *
+   * This is a single source of truth for a claim the site makes in three
+   * places — the Play badge, the FAQ answer, and the MobileApplication
+   * `operatingSystem` — so they can never disagree with each other.
+   *
+   * It is `false` right now and that is a verified fact, not a guess:
+   * `https://play.google.com/store/apps/details?id=com.echorealmmedia.moonpage`
+   * returns HTTP 404, and searching Play for "MoonPage" returns nothing. While
+   * this is false, `StoreButtons` renders the App Store badge alone and the
+   * copy says Android is coming — because a "Download on Google Play" button
+   * that lands on a 404 costs an install *and* the trust of the parent who
+   * tapped it, on 147 pages at once.
+   *
+   * Flip this to `true` the day the Play listing goes public; every badge,
+   * the JSON-LD, and the FAQ answer follow automatically.
+   */
+  androidLive: false,
+  /** Public App Store listing, used for `sameAs` and the badge target. */
+  appStoreUrl: `https://apps.apple.com/app/id6788652725`,
+  /** Public Play listing — only safe to reference once `androidLive` is true. */
+  playStoreUrl: `https://play.google.com/store/apps/details?id=com.echorealmmedia.moonpage`,
   // TODO: create a Buttondown account (buttondown.com) and replace with the
   // real username — see README for why Buttondown and how this wires up.
   buttondownUsername: "moonpage",
@@ -232,6 +255,71 @@ function withSlash(url: string): string {
 }
 
 /**
+ * Google truncates a result title at roughly 580px — about 60 Latin
+ * characters — and a description at roughly 155–160. Everything the site
+ * emits is written against these budgets so the half that sells (the hook,
+ * the benefit, the CTA) never lands past the cut. The old title template
+ * appended " · MoonPage" to every page, which pushed 38 of 153 titles over
+ * the line and ate the closing hook on the most clickable pages we have.
+ */
+export const SERP_TITLE_MAX = 60;
+export const SERP_DESC_MAX = 155;
+
+/** Split prose into sentences so a description can drop whole sentences
+ * rather than slicing one mid-clause. */
+function sentences(text: string): string[] {
+  return text
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/**
+ * Build a description that survives the ~155-character snippet cut: keep
+ * whole fragments in priority order (most important first), drop the rest.
+ *
+ * Dropping beats truncating. Google cuts mid-word when it truncates, which
+ * reads as broken rather than as brief — and a fragment that got cut is
+ * usually the call to action.
+ */
+export function fitDescription(
+  parts: (string | undefined | false)[],
+  max: number = SERP_DESC_MAX,
+): string {
+  const cleaned = parts
+    .filter((p): p is string => typeof p === "string" && p.trim().length > 0)
+    .map((p) => p.trim());
+  const kept: string[] = [];
+  for (const part of cleaned) {
+    if ([...kept, part].join(" ").length > max) break;
+    kept.push(part);
+  }
+  if (kept.length > 0) return kept.join(" ");
+  // Even the first fragment overflows — trim it at a word boundary so the
+  // description is short and clean instead of empty or mid-word.
+  const first = cleaned[0] ?? "";
+  const cut = first.slice(0, Math.max(0, max - 1));
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${(lastSpace > 40 ? cut.slice(0, lastSpace) : cut).replace(/[,;:—–-]$/, "")}…`;
+}
+
+/**
+ * Meta description for a story page.
+ *
+ * The story's own `hook` is the differentiator — it is the only text on the
+ * site written specifically for that book — so it goes first and keeps as
+ * many of its sentences as fit. The old version appended a 90-character CTA
+ * to the whole hook and landed at 190–305 characters, which meant Google cut
+ * the snippet somewhere in the middle of the teaser on all 45 story pages.
+ */
+export function storyMetaDescription(story: { hook: string }): string {
+  const cta =
+    "A cozy picture book for ages 2+ — read it free in MoonPage tonight.";
+  const teaser = fitDescription(sentences(story.hook), SERP_DESC_MAX - cta.length - 1);
+  return `${teaser} ${cta}`;
+}
+
+/**
  * Shared per-page metadata: sets title/description AND a matching canonical
  * URL + full OpenGraph/Twitter block. Next.js metadata merging is shallow —
  * a page-level `openGraph: {title}` would silently drop the parent layout's
@@ -278,7 +366,13 @@ export function pageMetadata({
     // Guarantee a complete, relevant keywords meta on EVERY page: baseline
     // brand/category/audience/intent terms merged with any page-specific ones.
     keywords: pageKeywords(keywords ?? []),
-    alternates: { canonical: url },
+    // `en` + `x-default` are the same URL — MoonPage is English-only, but
+    // declaring it stops aggregators from guessing a locale, and x-default is
+    // what Google falls back to when it can't match a searcher's language.
+    alternates: {
+      canonical: url,
+      languages: { en: url, "x-default": url },
+    },
     openGraph: {
       title,
       description,
