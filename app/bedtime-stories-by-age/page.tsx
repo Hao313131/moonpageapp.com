@@ -236,10 +236,7 @@ export default function BedtimeStoriesByAgePage() {
               professional narration, or record them in your own voice. No ads,
               no login, works offline.
             </p>
-            <StoreButtons
-              campaign="bedtime_stories_by_age"
-              className="justify-center"
-            />
+            <StoreButtons campaign="bedtime_stories_by_age" />
           </div>
         </div>
       <HubFaq path="/bedtime-stories-by-age" />

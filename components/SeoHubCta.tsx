@@ -16,7 +16,7 @@ export function SeoHubCta({
         {title}
       </h2>
       <p className="max-w-md text-sm text-ink-muted sm:text-base">{body}</p>
-      <StoreButtons campaign={campaign} className="justify-center" />
+      <StoreButtons campaign={campaign} />
     </div>
   );
 }

@@ -225,7 +225,6 @@ export default async function StoryPage({ params }: { params: Params }) {
             </p>
             <StoreButtons
               campaign={`story_${story.slug.replace(/-/g, "_")}`}
-              className="justify-center"
             />
           </div>
 

@@ -343,7 +343,7 @@ export default function BedtimeStoriesLandingPage() {
               narrator or in your own recorded voice. No ads, no login, and works
               offline for kids.
             </p>
-            <StoreButtons campaign="bedtime_stories_landing" className="justify-center" />
+            <StoreButtons campaign="bedtime_stories_landing" />
           </div>
         </div>
       <HubFaq path="/bedtime-stories" />

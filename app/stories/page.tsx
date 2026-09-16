@@ -109,7 +109,7 @@ export default function StoriesPage() {
               Some stories are free to read — no account needed, and new ones
               keep arriving.
             </p>
-            <StoreButtons campaign="stories_page" className="justify-center" />
+            <StoreButtons campaign="stories_page" />
           </div>
 
           <p className="mt-8 text-sm text-ink-muted sm:text-base">

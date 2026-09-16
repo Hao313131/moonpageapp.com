@@ -98,10 +98,7 @@ export default function CollectionsPage() {
               MoonPage holds the whole library — by a professional narrator,
               or in your own recorded voice. No ads, no login, works offline.
             </p>
-            <StoreButtons
-              campaign="collections_hub"
-              className="justify-center"
-            />
+            <StoreButtons campaign="collections_hub" />
           </div>
 
           <p className="mt-8 text-sm text-ink-muted sm:text-base">
