@@ -55,6 +55,8 @@ if (!existsSync(OUT)) {
 
 const { redirects } = JSON.parse(readFileSync(DATA, "utf8"));
 const errors = [];
+/** Normalised [from, to] pairs, reused to regenerate out/_redirects. */
+const pairs = [];
 let written = 0;
 let unchanged = 0;
 
@@ -94,6 +96,7 @@ for (const { from, to, impressions, reason } of redirects) {
   }
 
   const destUrl = `${DOMAIN}${dest}`;
+  pairs.push([src, dest]);
   const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -126,6 +129,54 @@ if (errors.length) {
   console.error(`\n[legacy-redirects] ${errors.length} problem(s):\n`);
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
+}
+
+/**
+ * Keep out/_redirects in step with the stubs.
+ *
+ * public/_redirects is inert on GitHub Pages, so nothing here changes what the
+ * live site does today — but it is the rule list that gets lifted into
+ * Cloudflare (or Netlify) when the site is fronted, and a rule list that
+ * disagrees with the stubs would silently change behaviour at that moment.
+ * Rather than keep two hand-maintained copies of the same fact, append the
+ * legacy rules here from data/legacy-slugs.json. Everything above the marker
+ * comes from public/_redirects and stays hand-maintained (currently the
+ * www→apex rule). Re-running is idempotent: the old block is cut before the
+ * new one is written.
+ */
+const REDIRECTS_MARKER =
+  "# --- legacy slugs (generated from data/legacy-slugs.json — do not hand-edit) ---";
+const redirectsFile = join(OUT, "_redirects");
+
+if (!existsSync(redirectsFile)) {
+  // Not an error: the site works without it, it just has no redirect rules.
+  console.warn(
+    "[legacy-redirects] out/_redirects not found (public/_redirects missing?) — skipped.",
+  );
+} else {
+  const existing = readFileSync(redirectsFile, "utf8");
+  const head = existing.includes(REDIRECTS_MARKER)
+    ? existing.slice(0, existing.indexOf(REDIRECTS_MARKER))
+    : existing;
+
+  const lines = [head.trimEnd(), "", REDIRECTS_MARKER];
+  for (const [src, dest] of pairs) {
+    // Both forms: a stale path may be requested with or without the slash.
+    lines.push(`${src.replace(/\/$/, "")} ${dest} 301`);
+    lines.push(`${src} ${dest} 301`);
+  }
+  lines.push("");
+
+  const next = lines.join("\n");
+  if (next === existing) {
+    console.log(`[legacy-redirects] out/_redirects already current (${pairs.length} rules).`);
+  } else {
+    writeFileSync(redirectsFile, next);
+    console.log(
+      `[legacy-redirects] out/_redirects rewritten — ${pairs.length} legacy rule(s) ` +
+        `(${pairs.length * 2} lines incl. no-slash forms).`,
+    );
+  }
 }
 
 console.log(

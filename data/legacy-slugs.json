@@ -1,30 +1,44 @@
 {
-  "_note": "Story URLs that Google still shows impressions for after the story left the catalog, and that 404 on the live site today. scripts/gen-legacy-redirects.mjs turns each one into a meta-refresh stub in out/. Delete an entry (and the script, once the list is empty) when Cloudflare is fronted and real 301s become possible.",
-  "_source": "Search Console export moonpageapp.com-Performance-on-Search-2026-09-16, 网页.csv — 3 months to 2026-09-16, 69 impressions across these four URLs, 0 clicks.",
+  "_note": "URLs Google still shows impressions for after the page left the catalog, and that 404 on the live site. scripts/gen-legacy-redirects.mjs turns each one into a meta-refresh stub in out/ AND appends the matching rules to out/_redirects. This file is the single source for legacy redirects — public/_redirects only carries the www rule. When Cloudflare is fronted, lift these rules into a Cloudflare redirect rule list and delete this file plus the script.",
+  "_source": "Search Console export moonpageapp.com-Performance-on-Search-2026-09-16, 网页.csv — 3 months to 2026-09-16. The four story URLs carry 69 impressions and 0 clicks; the two collection URLs are 404 with no impressions left.",
+  "_rule": "Every target is a hub, never a specific story. A story-level target requires PROVABLE equivalence — same protagonist AND same theme — and none of the four dead stories has a live successor that clears that bar. See _why_hubs_not_stories.",
+  "_why_hubs_not_stories": "Checked by diffing the old hook against every live hook (git show bdc0c2f4:lib/stories.ts). All four dead stories share only a MOTIF with a live story, never the story itself: the-tangled-kite (Finn, friendship/asking for help) shares 'a kite stuck in a tree' with bunnys-big-feelings (Bunny, emotional regulation); milos-little-boat (Milo, patience/building) shares only the word 'boat' with the-brave-little-boat (an anthropomorphic red boat, courage in a storm). Redirecting a parent who searched a specific title to a different book is a wrong answer; the catalog is an honest one.",
   "redirects": [
     {
       "from": "/stories/the-tangled-kite/",
-      "to": "/stories/bunnys-big-feelings/",
+      "to": "/stories/",
       "impressions": 28,
-      "reason": "Same story, re-skinned. The live page still opens with the old hook — \"One great big tug. One kite stuck high in a tree.\" — so the match is certain."
+      "reason": "Old hook: \"Fly, kite, fly! Then the string slips — and Finn's bright kite is stuck high in a tree. One friend isn't enough.\" Protagonist Finn, theme is friendship and asking for help. NOT bunnys-big-feelings, which stars Bunny and is about big feelings — they share a kite motif, not a story."
     },
     {
       "from": "/stories/milos-little-boat/",
-      "to": "/stories/the-brave-little-boat/",
+      "to": "/stories/",
       "impressions": 17,
-      "reason": "Both protagonists are a small boat; this is the closest live story. Not a certain rename, but a parent landing here gets a story of the same shape rather than the catalog."
+      "reason": "Old hook: \"All summer he built it. Tonight, under the moon, Milo's leaf-and-twig boat finally sails.\" Protagonist Milo (a boy), theme is patience and building something. NOT the-brave-little-boat, whose protagonist is an anthropomorphic red boat facing a storm — they share the word 'boat' and nothing else."
     },
     {
       "from": "/stories/the-meadow-concert/",
       "to": "/stories/",
       "impressions": 14,
-      "reason": "No live successor. A meadow setting is not the same story, so this goes to the catalog instead of a page that would be a wrong answer."
+      "reason": "Old hook: \"Crickets, bees, and rustling leaves — the bedtime concert every night. One frog hiding behind a leaf, sure her voice sounds funny.\" Theme is stage fright. No live story comes near it."
     },
     {
       "from": "/stories/max-and-the-moonflowers/",
       "to": "/stories/",
       "impressions": 10,
-      "reason": "No live successor, same call as the-meadow-concert."
+      "reason": "No live successor. Nothing in the current catalog shares its setting or theme."
+    },
+    {
+      "from": "/collections/stories-about-honesty/",
+      "to": "/collections/",
+      "impressions": 0,
+      "reason": "Collection removed; the tag survives in lib/internalLinks.ts but no collection uses it. Still 404s live and was already listed in public/_redirects (discovered 2026-08-18). Zero impressions left, so this is cleanup rather than recovery."
+    },
+    {
+      "from": "/collections/stories-about-music/",
+      "to": "/collections/",
+      "impressions": 0,
+      "reason": "Same as stories-about-honesty — collection gone, tag orphaned, still 404s, no impressions left."
     }
   ]
 }
