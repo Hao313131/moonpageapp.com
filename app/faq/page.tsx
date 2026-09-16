@@ -105,7 +105,7 @@ export default function FaqPage() {
               </Link>
               .
             </p>
-            <StoreButtons campaign="faq_page" className="justify-center" />
+            <StoreButtons campaign="faq_page" />
           </div>
         </div>
       </main>

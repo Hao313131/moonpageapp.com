@@ -235,7 +235,6 @@ export default async function GuidePage({ params }: { params: Params }) {
             </p>
             <StoreButtons
               campaign={`guide_${guide.slug.replace(/-/g, "_")}`}
-              className="justify-center"
             />
           </div>
 

@@ -55,7 +55,7 @@ export default function GetPage() {
         </p>
 
         <div className="mt-7 flex w-full justify-center sm:mt-8">
-          <StoreButtons campaign="get_lp_hero" className="justify-center" />
+          <StoreButtons campaign="get_lp_hero" />
         </div>
         <p className="mt-3 max-w-sm text-sm font-medium text-ink-muted sm:text-base">
           No ads. No login. Just open, read, and lights out.
@@ -91,7 +91,7 @@ export default function GetPage() {
         </div>
 
         <div className="mt-10 flex w-full justify-center sm:mt-14">
-          <StoreButtons campaign="get_lp_footer" className="justify-center" />
+          <StoreButtons campaign="get_lp_footer" />
         </div>
       </main>
       <MinimalFooter />

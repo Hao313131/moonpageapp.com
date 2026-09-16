@@ -128,7 +128,7 @@ export default function GuidesPage() {
               illustrated stories, by a professional narrator or in your own recorded
               voice. No ads, no login, works offline.
             </p>
-            <StoreButtons campaign="guides_hub" className="justify-center" />
+            <StoreButtons campaign="guides_hub" />
           </div>
         </div>
       </main>

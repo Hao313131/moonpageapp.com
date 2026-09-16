@@ -62,7 +62,7 @@ export default function NotFound() {
         </nav>
 
         <div className="mt-10 flex w-full justify-center sm:mt-12">
-          <StoreButtons campaign="website_404" className="justify-center" />
+          <StoreButtons campaign="website_404" />
         </div>
       </main>
       <Footer />

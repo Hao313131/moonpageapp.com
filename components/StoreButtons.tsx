@@ -141,7 +141,7 @@ export function StoreButtons({
   size = "lg",
   className = "",
   hidePlay = false,
-  badgeAlign = "responsive",
+  badgeAlign = "center",
 }: {
   campaign: string;
   size?: StoreSize;
@@ -150,20 +150,28 @@ export function StoreButtons({
    *  now that `SITE.androidLive` handles the common case. */
   hidePlay?: boolean;
   /** Single-badge alignment (only used with a single badge):
-   *  - "responsive" (default): centered on phones, left-aligned from md up so
-   *    it lines up under left-aligned hero copy.
-   *  - "center": centered at every width — for centered sections / the sticky
-   *    bottom bar. */
-  badgeAlign?: "responsive" | "center";
+   *  - "center" (default): centered at every width — centered sections, the
+   *    sticky bottom bar, and every hub / story / guide / collection CTA.
+   *  - "responsive": centered on phones, left-aligned from md up so it lines
+   *    up under left-aligned copy. The homepage hero is the only caller that
+   *    wants this.
+   *
+   *  ⚠️ Use this prop, not `className="justify-center"`. That utility sets
+   *  `justify-content`, but in a one-column grid the item is placed by
+   *  `justify-items` — so it silently did nothing. Every centered CTA block
+   *  on the site passed it and every badge sat left-aligned from 768px up.
+   *  See the `mx-auto` note below for the belt-and-braces fix. */
+  badgeAlign?: "center" | "responsive";
 }) {
   // One gate for both reasons a badge can be missing: the platform has no
   // listing yet, or the caller explicitly wants a single badge.
   const single = hidePlay || !SHOW_PLAY;
+  const centered = single && badgeAlign === "center";
   let layout: string;
   if (single) {
     layout =
       "grid-cols-1 " +
-      (badgeAlign === "center"
+      (centered
         ? "justify-items-center"
         : "justify-items-center md:justify-items-start");
   } else {
@@ -177,7 +185,16 @@ export function StoreButtons({
       <AppStoreLink
         campaign={campaign}
         size={size}
-        className={single ? "max-w-[15rem] sm:max-w-xs" : ""}
+        // The badge is `max-w-*`, so it never fills the column and has to be
+        // placed deliberately. `mx-auto` is what actually holds it centered:
+        // auto margins absorb the free space *before* `justify-items` is
+        // consulted, so the badge stays put even if a caller pipes a
+        // conflicting `justify-items-*` utility in through `className`.
+        className={
+          single
+            ? `max-w-[15rem] sm:max-w-xs${centered ? " mx-auto" : ""}`
+            : ""
+        }
       />
       {!single && <PlayStoreLink campaign={campaign} size={size} />}
     </div>

@@ -161,7 +161,6 @@ export default async function CollectionPage({
             </p>
             <StoreButtons
               campaign={`collection_${collection.slug.replace(/-/g, "_")}`}
-              className="justify-center"
             />
           </div>
 
