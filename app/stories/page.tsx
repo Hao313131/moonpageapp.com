@@ -14,8 +14,15 @@ import { SITE, pageMetadata } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   path: "/stories",
   title: "All Bedtime Stories — Illustrated Picture Books",
+  // Search Console (3 months to 2026-09-16) shows this page at 169 impressions
+  // and 2.37% CTR while /picture-books-for-kids/ sits at the SAME average
+  // position (19.8) and converts 11.7%. The old description opened with "a free
+  // sample of the app library", which tells a parent browsing the results that
+  // the page will not actually give them a story. Lead with what the page does
+  // offer instead. It is still honest about being a preview — the on-page
+  // SampleShelfNotice is unchanged.
   description:
-    "Browse MoonPage's illustrated bedtime stories for kids ages 2+ — a free sample of the app library, with a cover, a teaser, and the age it fits best.",
+    "Browse every MoonPage bedtime story for kids ages 2+ — theme, the age it suits, and what makes each one work at bedtime. Free to start, narrated, no ads.",
   keywords: [
     "bedtime stories for kids",
     "bedtime stories ages 2+",
