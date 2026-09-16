@@ -1,20 +1,29 @@
 "use client";
 
 import { useState } from "react";
+import {
+  buildReviewRequest,
+  responseAccepted,
+  reviewEndpoint,
+} from "@/lib/reviewEndpoint";
 
 /**
  * First-party review submission form.
  *
- * Posts to `NEXT_PUBLIC_REVIEWS_ENDPOINT` (a serverless function / form
- * endpoint the owner controls). The endpoint is read directly from the build
- * env — Next inlines NEXT_PUBLIC_* into the client bundle — so this component
- * never imports lib/reviews (which would drag the whole review store and the
- * hub-FAQ map into the client JS for no reason).
+ * The endpoint resolution (which provider, what payload shape, whether the
+ * response counts as accepted) lives in lib/reviewEndpoint.ts — this component
+ * stays about the UI and the state machine.
  *
- * When no endpoint is configured the form is replaced by an honest note plus a
- * mailto link. That is deliberate: a form that silently discards submissions is
- * worse than no form, and we would rather collect reviews by email than pretend
- * to collect them.
+ * Two rules drive the design:
+ *
+ * 1. A review must never be silently lost. Every failure path — no endpoint,
+ *    network error, a provider that answers 200 but rejects the submission —
+ *    ends with the parent being offered the mailto fallback, pre-filled with
+ *    what they already typed. Losing a parent's kind words is worse than
+ *    asking them to send an email.
+ *
+ * 2. Nothing here claims more than it knows. We only say "thank you, it's in"
+ *    when the provider's response actually says so.
  */
 export function ReviewForm({
   reviewKey,
@@ -23,51 +32,62 @@ export function ReviewForm({
   reviewKey: string;
   fallbackEmail: string;
 }) {
-  const endpoint = process.env.NEXT_PUBLIC_REVIEWS_ENDPOINT ?? "";
+  const endpoint = reviewEndpoint();
   const [rating, setRating] = useState(0);
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
 
-  if (!endpoint) {
-    const subject = encodeURIComponent(`MoonPage review — ${reviewKey}`);
+  /** Pre-filled mailto, used both as the primary path (no endpoint) and as the
+   * recovery path (endpoint failed). Carries whatever the parent already typed
+   * so switching to email costs them nothing. */
+  const mailtoHref = (() => {
+    const subject = encodeURIComponent(
+      `MoonPage review — ${reviewKey}${rating ? ` — ${rating}/5` : ""}`,
+    );
     const body = encodeURIComponent(
-      "My rating (1-5):\n\nWhat I thought:\n",
+      [
+        `My rating (1-5): ${rating || ""}`,
+        `My name: ${author || ""}`,
+        "",
+        "What I thought:",
+        text || "",
+      ].join("\n"),
     );
-    return (
-      <p className="text-sm leading-relaxed text-ink-muted sm:text-base">
-        Reviews open soon. For now, we would genuinely love to hear how bedtime
-        went —{" "}
-        <a
-          href={`mailto:${fallbackEmail}?subject=${subject}&body=${body}`}
-          className="font-medium text-link underline hover:text-link-hover"
-        >
-          email us your review
-        </a>
-        .
-      </p>
-    );
-  }
+    return `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
+  })();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (rating < 1 || status === "sending") return;
+
+    // Honeypot: a real parent never sees this field, let alone fills it.
+    if (honeypot) {
+      setStatus("sent");
+      return;
+    }
+
+    const request = buildReviewRequest(endpoint, {
+      key: reviewKey,
+      rating,
+      author: author.trim() || "A parent",
+      text: text.trim(),
+      date: new Date().toISOString().slice(0, 10),
+    });
+    if (!request) {
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
     try {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          key: reviewKey,
-          rating,
-          author: author.trim() || "A parent",
-          text: text.trim(),
-          date: new Date().toISOString().slice(0, 10),
-        }),
-      });
-      setStatus(res.ok ? "sent" : "error");
+      const res = await fetch(request.url, request.init);
+      const body = await res.text();
+      const accepted = res.ok && responseAccepted(endpoint, body);
+      setStatus(accepted ? "sent" : "error");
     } catch {
       setStatus("error");
     }
@@ -83,6 +103,21 @@ export function ReviewForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
+      {/* Honeypot. Hidden from sight and from screen readers, and kept out of
+          the tab order so it can never trap a keyboard user. */}
+      <div aria-hidden="true" className="absolute h-0 w-0 overflow-hidden">
+        <label htmlFor="review-website">Leave this field empty</label>
+        <input
+          id="review-website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
+      </div>
+
       <div className="flex items-center gap-2">
         <span className="text-sm font-semibold text-ink sm:text-base">
           Your rating
@@ -141,7 +176,7 @@ export function ReviewForm({
         />
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <button
           type="submit"
           disabled={rating < 1 || status === "sending"}
@@ -150,8 +185,15 @@ export function ReviewForm({
           {status === "sending" ? "Sending…" : "Submit review"}
         </button>
         {status === "error" && (
-          <span className="text-sm text-accent-strong" role="alert">
-            Something went wrong — please try again.
+          <span className="text-sm text-ink-muted sm:text-base" role="alert">
+            That didn&rsquo;t go through.{" "}
+            <a
+              href={mailtoHref}
+              className="font-medium text-link underline hover:text-link-hover"
+            >
+              Send it by email instead
+            </a>{" "}
+            — we&rsquo;ll add it for you.
           </span>
         )}
       </div>

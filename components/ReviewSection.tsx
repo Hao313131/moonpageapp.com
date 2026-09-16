@@ -17,24 +17,44 @@ import {
  *
  * When there are no reviews yet (the current state) the section simply says so
  * and offers the form — no stars, no markup, nothing invented.
+ *
+ * `variant` only changes the wording. The homepage already carries a block of
+ * hand-written parent quotes (components/home/Testimonials.tsx), so the
+ * site-wide variant deliberately avoids that section's "what parents are
+ * saying" framing: this section is about reviews people actually submitted.
  */
 export function ReviewSection({
   reviewKey,
   title,
-  className = "",
+  variant = "story",
+  className,
 }: {
   reviewKey: string;
   /** Human label used in the heading, e.g. the story title. */
   title: string;
+  variant?: "story" | "site";
+  /** Full control of the outer wrapper. Defaults to the in-article spacing used
+   * on story pages; the homepage passes its own section container so this block
+   * lines up with the rest of the landing page. */
   className?: string;
 }) {
   const reviews = reviewsFor(reviewKey);
   const agg = aggregateFor(reviewKey);
+  const isSite = variant === "site";
 
   return (
-    <section className={`mt-10 sm:mt-12 ${className}`} id="reviews">
-      <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
-        Parent reviews for “{title}”
+    <section
+      className={className ?? "mt-10 sm:mt-12"}
+      id="reviews"
+    >
+      <h2
+        className={
+          isSite
+            ? "font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl"
+            : "font-display text-lg font-semibold text-ink sm:text-xl"
+        }
+      >
+        {isSite ? "Parent reviews" : `Parent reviews for “${title}”`}
       </h2>
 
       {agg ? (
@@ -49,8 +69,9 @@ export function ReviewSection({
         </div>
       ) : (
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
-          No reviews yet — be the first to say how this one went down at
-          bedtime.
+          {isSite
+            ? "No reviews yet. If MoonPage has earned a place in your bedtime routine, we’d love to hear about it."
+            : "No reviews yet — be the first to say how this one went down at bedtime."}
         </p>
       )}
 
