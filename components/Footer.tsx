@@ -158,6 +158,11 @@ export function Footer() {
                   Stories for siblings
                 </Link>
               </li>
+              <li>
+                <Link href="/winter-bedtime-stories" className="hover:text-white">
+                  Winter bedtime stories
+                </Link>
+              </li>
               {FOOTER_COLLECTIONS.map((c) => (
                 <li key={c.slug}>
                   <Link

@@ -12,6 +12,7 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:seo": "node scripts/validate-seo-output.mjs",
     "seo:indexnow": "node scripts/indexnow.mjs",
+    "reviews:ingest": "node scripts/ingest-reviews.mjs",
     "build": "npm run sync:covers && npm run gen:dates && npm run gen:feed && npm run validate:content && next build && npm run validate:seo",
     "start": "npx --yes serve@14 out",
     "lint": "eslint"

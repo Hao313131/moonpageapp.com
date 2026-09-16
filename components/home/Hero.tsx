@@ -51,6 +51,12 @@ export function Hero() {
                 sizes="(min-width: 1024px) 32rem, (min-width: 640px) 32rem, 90vw"
                 className="object-contain"
                 priority
+                // Chrome's LCP guidance is explicit: mark the LCP image
+                // `fetchpriority="high"`. next/image's `priority` emits the
+                // preload link but (Next 16) not the attribute on the <img>
+                // itself, so we set it here to stop the hero competing with
+                // below-the-fold work for the connection.
+                fetchPriority="high"
               />
             </div>
           </div>

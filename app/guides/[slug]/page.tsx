@@ -59,6 +59,14 @@ export default async function GuidePage({ params }: { params: Params }) {
     headline: guide.title,
     description: guide.description,
     inLanguage: "en",
+    // Speakable — tells voice assistants which passage to read aloud. The
+    // selector must point at a real element on the page (the intro block
+    // below carries id="page-intro"); a selector that matches nothing is a
+    // structured-data error, not a no-op.
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#page-intro"],
+    },
     articleSection: guide.category,
     keywords: [
       guide.category,
@@ -172,7 +180,7 @@ export default async function GuidePage({ params }: { params: Params }) {
             </time>
           </p>
 
-          <div className="mt-6 space-y-4 sm:mt-8">
+          <div id="page-intro" className="mt-6 space-y-4 sm:mt-8">
             {guide.intro.map((text) => (
               <p
                 key={text}

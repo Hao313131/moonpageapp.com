@@ -458,3 +458,41 @@ export function hubJsonLd({
   }
   return blocks;
 }
+
+/**
+ * Speakable — tells voice assistants (Google Assistant, and increasingly the
+ * AI answer surfaces) which passage of the page to read out loud. MoonPage's
+ * whole proposition is being *read aloud* — by a narrator or in your own voice
+ * — so voice search is a natural discovery surface rather than a novelty.
+ *
+ * Google requires `cssSelector` to point at real elements that are actually on
+ * the page, so every caller must put the matching id/class on a genuine text
+ * block (see `#page-intro` on the hub pages). A selector that matches nothing
+ * is a structured-data error, not a neutral no-op — so only emit this on pages
+ * that render the target.
+ */
+export function speakableJsonLd({
+  path,
+  name,
+  cssSelectors,
+  description,
+}: {
+  path: string;
+  name: string;
+  cssSelectors: string[];
+  description?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    url: withSlash(`${SITE.domain}${path}`),
+    inLanguage: "en",
+    ...(description ? { description } : {}),
+    isPartOf: { "@type": "WebSite", name: SITE.name, url: withSlash(SITE.domain) },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors,
+    },
+  };
+}
