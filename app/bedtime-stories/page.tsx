@@ -73,6 +73,26 @@ export default function BedtimeStoriesLandingPage() {
         name: "Bedtime routine guide",
         url: `${SITE.domain}/guides/bedtime-routine-for-toddlers`,
       },
+      {
+        name: "Short bedtime stories",
+        url: `${SITE.domain}/short-bedtime-stories`,
+      },
+      {
+        name: "Free bedtime stories",
+        url: `${SITE.domain}/free-bedtime-stories`,
+      },
+      {
+        name: "Sleep stories for kids",
+        url: `${SITE.domain}/sleep-stories-for-kids`,
+      },
+      {
+        name: "Bedtime stories for babies",
+        url: `${SITE.domain}/baby-bedtime-stories`,
+      },
+      {
+        name: "Bedtime routine chart",
+        url: `${SITE.domain}/bedtime-routine-chart`,
+      },
     ],
   });
 
@@ -181,6 +201,36 @@ export default function BedtimeStoriesLandingPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Stories by age
+              </Link>
+              <Link
+                href="/short-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Short bedtime stories
+              </Link>
+              <Link
+                href="/free-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Free bedtime stories
+              </Link>
+              <Link
+                href="/sleep-stories-for-kids"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Sleep stories for kids
+              </Link>
+              <Link
+                href="/baby-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Bedtime stories for babies
+              </Link>
+              <Link
+                href="/bedtime-routine-chart"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Bedtime routine chart
               </Link>
             </div>
           </section>
