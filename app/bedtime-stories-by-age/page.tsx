@@ -29,6 +29,13 @@ export const metadata: Metadata = pageMetadata({
  * year — the advice genuinely changes at those boundaries, and a band keeps
  * each card substantial instead of six near-identical ones. Each band links
  * out to the per-year guides underneath it.
+ *
+ * Every band also carries `stories`: the shelf a parent actually wants after
+ * the advice. Without it this page answered "what should I read to a four-
+ * year-old?" with six guides about reading and no way to reach a book, which
+ * is why it held impressions at position 33 with no clicks while the age-4
+ * guide underneath it converted at 12.5% from position 10. Advice pages are
+ * the doorway; the shelves are the destination.
  */
 const AGE_BANDS = [
   {
@@ -39,6 +46,13 @@ const AGE_BANDS = [
     guides: [
       { slug: "bedtime-stories-for-2-year-olds", label: "Full guide: age 2" },
       { slug: "bedtime-stories-for-3-year-olds", label: "Full guide: age 3" },
+    ],
+    stories: [
+      { href: "/toddler-bedtime-stories", label: "Toddler bedtime stories" },
+      {
+        href: "/collections/sleepy-bedtime-stories",
+        label: "Sleepy bedtime shelf",
+      },
     ],
   },
   {
@@ -53,6 +67,13 @@ const AGE_BANDS = [
         label: "Full guide: ages 5–6",
       },
     ],
+    stories: [
+      { href: "/preschool-bedtime-stories", label: "Preschool bedtime stories" },
+      {
+        href: "/collections/stories-about-big-feelings",
+        label: "Big feelings shelf",
+      },
+    ],
   },
   {
     band: "Ages 6–7",
@@ -60,7 +81,33 @@ const AGE_BANDS = [
     sleep: "9–12 hours per night",
     what: "The age reading aloud usually stops, and the age it's most worth keeping — listening comprehension stays years ahead of reading ability, so this is where a child meets stories, vocabulary, and sentences they can't yet decode alone. Alternate who reads, keep the last book calm, and expect the day's worries to arrive at lights out now that school is in the mix.",
     guides: [{ slug: "school-age-bedtime", label: "Full guide: ages 6–9" }],
+    stories: [
+      {
+        href: "/read-aloud-bedtime-stories",
+        label: "Read-aloud bedtime stories",
+      },
+      {
+        href: "/collections/stories-about-courage",
+        label: "Courage shelf",
+      },
+    ],
   },
+] as const;
+
+/**
+ * The age-adjacent shelves, as chips. These are the pages a parent bounces to
+ * when the band they landed on isn't quite right, and every one of them is a
+ * page Google already shows for bedtime queries — the point of the row is to
+ * turn this hub into the junction between the age guides and the shelves
+ * instead of a dead end that only links sideways to more guides.
+ */
+const RELATED_HUBS = [
+  { href: "/baby-bedtime-stories", label: "Baby bedtime stories" },
+  { href: "/toddler-bedtime-stories", label: "Toddler bedtime stories" },
+  { href: "/preschool-bedtime-stories", label: "Preschool bedtime stories" },
+  { href: "/bedtime-stories", label: "All bedtime stories" },
+  { href: "/cozy-bedtime-stories", label: "Cozy bedtime stories" },
+  { href: "/picture-books-for-kids", label: "Picture books for kids" },
 ] as const;
 
 export default function BedtimeStoriesByAgePage() {
@@ -104,6 +151,26 @@ export default function BedtimeStoriesByAgePage() {
         name: "Building a bedtime routine (guide)",
         url: `${SITE.domain}/guides/bedtime-routine-for-toddlers`,
       },
+      {
+        name: "Bedtime stories for babies (shelf)",
+        url: `${SITE.domain}/baby-bedtime-stories`,
+      },
+      {
+        name: "Toddler bedtime stories (shelf)",
+        url: `${SITE.domain}/toddler-bedtime-stories`,
+      },
+      {
+        name: "Preschool bedtime stories (shelf)",
+        url: `${SITE.domain}/preschool-bedtime-stories`,
+      },
+      {
+        name: "Read-aloud bedtime stories (shelf)",
+        url: `${SITE.domain}/read-aloud-bedtime-stories`,
+      },
+      {
+        name: "Cozy bedtime stories (shelf)",
+        url: `${SITE.domain}/cozy-bedtime-stories`,
+      },
     ],
   });
 
@@ -137,8 +204,8 @@ export default function BedtimeStoriesByAgePage() {
                 </p>
                 <dl className="mt-4 space-y-1 text-sm text-ink-muted">
                   <div className="flex flex-wrap gap-x-2">
-                    <dt className="font-semibold text-ink">Story length</dt>
-                    <dd>{entry.length}</dd>
+                    <dt className="font-semibold text-ink">Reading time</dt>
+                    <dd>{entry.length} a night</dd>
                   </div>
                   <div className="flex flex-wrap gap-x-2">
                     <dt className="font-semibold text-ink">Sleep needed</dt>
@@ -153,6 +220,20 @@ export default function BedtimeStoriesByAgePage() {
                       className="text-sm font-semibold text-link underline hover:text-link-hover"
                     >
                       {g.label}
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-wood/15 pt-3">
+                  <span className="text-sm font-semibold text-ink">
+                    Stories to try:
+                  </span>
+                  {entry.stories.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="text-sm font-semibold text-link underline hover:text-link-hover"
+                    >
+                      {s.label}
                     </Link>
                   ))}
                 </div>
@@ -224,6 +305,48 @@ export default function BedtimeStoriesByAgePage() {
               </Link>
               .
             </p>
+          </section>
+
+          <section className="mt-10 sm:mt-14">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
+              How long should a bedtime story be?
+            </h2>
+            <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+              Short enough to finish. A story you have to abandon teaches a
+              child that stories are something you give up on, so the useful
+              number is the one that fits your child tonight rather than the one
+              printed on a reading-level band: a single picture book runs about
+              two to four minutes at two, four to six at three, and six to ten
+              at four and up, which is why the whole read lands at{" "}
+              {AGE_BANDS[0].length} for the youngest band and{" "}
+              {AGE_BANDS[2].length} by six and seven. If bedtime keeps running
+              past that, the fix is usually the routine around the story, not
+              the story itself — see{" "}
+              <Link
+                href="/guides/how-long-to-read-at-bedtime"
+                className="font-medium text-link underline hover:text-link-hover"
+              >
+                how long bedtime reading should take
+              </Link>
+              .
+            </p>
+          </section>
+
+          <section className="mt-10 sm:mt-14">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl md:text-2xl">
+              Bedtime shelves to browse next
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {RELATED_HUBS.map((h) => (
+                <Link
+                  key={h.href}
+                  href={h.href}
+                  className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+                >
+                  {h.label}
+                </Link>
+              ))}
+            </div>
           </section>
 
           <div className="mt-12 flex flex-col items-center gap-3 rounded-2xl bg-paper p-6 text-center sm:mt-16 sm:gap-4 sm:rounded-3xl sm:p-10">

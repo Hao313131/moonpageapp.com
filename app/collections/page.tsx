@@ -6,7 +6,7 @@ import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { collectionsWithStories } from "@/lib/collections";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, pageMetadata, withSlash } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/collections",
@@ -29,12 +29,12 @@ export default function CollectionsPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "Collections",
-        item: `${SITE.domain}/collections`,
+        item: withSlash(`${SITE.domain}/collections`),
       },
     ],
   };
@@ -47,7 +47,7 @@ export default function CollectionsPage() {
     itemListElement: collections.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `${SITE.domain}/collections/${c.slug}`,
+      url: withSlash(`${SITE.domain}/collections/${c.slug}`),
       name: c.title,
     })),
   };

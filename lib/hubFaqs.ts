@@ -48,7 +48,7 @@ export const HUB_FAQS: Record<string, HubFaqItem[]> = {
   "/bedtime-stories-by-age": [
     {
       q: "How do I pick the right story for my child's age?",
-      a: "Use the by-age hubs: 2-year-olds get short repetitive tales, 3s get simple plots, and 4–6s get longer books with bigger questions.",
+      a: "Use the by-age shelves: 2-year-olds get short repetitive tales from the toddler shelf, 3s get simple plots, and 4–6s get longer books with bigger questions from the preschool and read-aloud shelves.",
     },
     {
       q: "Can I switch difficulty as my child grows?",
@@ -64,7 +64,7 @@ export const HUB_FAQS: Record<string, HubFaqItem[]> = {
     },
     {
       q: "What's the best bedtime story length by age?",
-      a: "2-year-olds: 2–4 minutes; 3s: 4–6; 4–6s: 6–10 with a small question to chew on. Match length to attention, not the clock.",
+      a: "A single story runs about 2–4 minutes at two, 4–6 at three, and 6–10 at four and up. The whole bedtime read is longer — roughly 5–15 minutes at two to three, 10–20 at four to five, and 15–20 at six to seven. Match length to attention, not the clock.",
     },
   ],
   "/toddler-bedtime-stories": [

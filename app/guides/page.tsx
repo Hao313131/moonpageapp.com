@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
 import { GUIDES, categoryAnchor, guidesByCategory } from "@/lib/guides";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, pageMetadata, withSlash } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/guides",
@@ -33,7 +33,7 @@ export default function GuidesPage() {
     itemListElement: GUIDES.map((g, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `${SITE.domain}/guides/${g.slug}`,
+      url: withSlash(`${SITE.domain}/guides/${g.slug}`),
       name: g.title,
     })),
   };
@@ -42,12 +42,12 @@ export default function GuidesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "Guides",
-        item: `${SITE.domain}/guides`,
+        item: withSlash(`${SITE.domain}/guides`),
       },
     ],
   };

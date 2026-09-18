@@ -6,7 +6,7 @@ import { BackHomeLink } from "@/components/BackLink";
 import { COLLECTIONS } from "@/lib/collections";
 import { GUIDES } from "@/lib/guides";
 import { STORIES } from "@/lib/stories";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, pageMetadata, withSlash } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/sitemap",
@@ -41,20 +41,23 @@ const OTHER = [
 ];
 
 export default function SiteMapPage() {
+  // Every URL here is emitted verbatim into JSON-LD, and the site serves
+  // `/foo/` — so each one goes through `withSlash` or Googlebot 301s and files
+  // the node against a redirect instead of the canonical page.
   const allLinks = [
-    ...HUBS.map((h) => ({ name: h.label, url: `${SITE.domain}/${h.slug}` })),
-    ...OTHER.map((o) => ({ name: o.label, url: `${SITE.domain}/${o.slug}` })),
+    ...HUBS.map((h) => ({ name: h.label, url: withSlash(`${SITE.domain}/${h.slug}`) })),
+    ...OTHER.map((o) => ({ name: o.label, url: withSlash(`${SITE.domain}/${o.slug}`) })),
     ...COLLECTIONS.map((c) => ({
       name: c.title,
-      url: `${SITE.domain}/collections/${c.slug}`,
+      url: withSlash(`${SITE.domain}/collections/${c.slug}`),
     })),
     ...GUIDES.map((g) => ({
       name: g.title,
-      url: `${SITE.domain}/guides/${g.slug}`,
+      url: withSlash(`${SITE.domain}/guides/${g.slug}`),
     })),
     ...STORIES.map((s) => ({
       name: s.title,
-      url: `${SITE.domain}/stories/${s.slug}`,
+      url: withSlash(`${SITE.domain}/stories/${s.slug}`),
     })),
   ];
 
@@ -62,12 +65,12 @@ export default function SiteMapPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "Site map",
-        item: `${SITE.domain}/sitemap`,
+        item: withSlash(`${SITE.domain}/sitemap`),
       },
     ],
   };
@@ -76,7 +79,7 @@ export default function SiteMapPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "MoonPage site map",
-    url: `${SITE.domain}/sitemap`,
+    url: withSlash(`${SITE.domain}/sitemap`),
     description:
       "Every bedtime story, themed collection, and parenting guide on MoonPage.",
     mainEntity: {

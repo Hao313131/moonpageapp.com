@@ -9,6 +9,7 @@
 
 import type { StoryTag } from "./stories";
 import { storiesByTag } from "./stories";
+import type { FaqCategory } from "./faq";
 
 export type Collection = {
   slug: string;
@@ -21,6 +22,19 @@ export type Collection = {
   intro: string[];
   /** Short practical note under the grid — reading tips for this theme. */
   note: string;
+  /**
+   * Optional theme Q&A, rendered on the collection page and emitted as
+   * FAQPage JSON-LD.
+   *
+   * Deliberately sparse. /picture-books-for-kids/ converts roughly 5x better
+   * than /stories/ at the same average SERP position (11.7% vs 2.37% CTR,
+   * Search Console to 2026-09-16), and one of the things it has that a plain
+   * shelf does not is a short set of parent questions answered in the parent's
+   * own words. Only the shelves that actually pull landing traffic get one —
+   * 22 templated FAQ blocks would be the thin-content failure this file's
+   * per-collection `intro` rule already exists to avoid.
+   */
+  faqs?: { q: string; a: string; category: FaqCategory }[];
 };
 
 export const COLLECTIONS: Collection[] = [
@@ -41,12 +55,34 @@ export const COLLECTIONS: Collection[] = [
     tag: "animals",
     title: "Animal Bedtime Stories for Kids",
     description:
-      "Bears, penguins, seals, turtles, and a lighthouse cormorant — gentle animal picture books for kids ages 2+.",
+      "Bears, penguins, seals, turtles, and a lighthouse cormorant — gentle animal picture books for ages 2+, written to end the day rather than wind it up.",
     intro: [
       "Animal characters are the shortcut into a story for a three-year-old. A seal who won't slow down or a bunny whose feelings got too big is a version of themselves at one step's distance — close enough to recognize, far enough to be comfortable talking about.",
       "Most of the stories on this site star animals: Sully the seal, Bruno the bear cub, Pim and Pax the penguins, Tibo the turtle, Cora the cormorant, and many more. Illustrated, calm, and written for reading aloud at ages 2+.",
     ],
     note: "Animal stories are the easiest place to do voices. You don't need a whole cast — one soft voice for the small animal and one slower voice for the grown-up one is plenty.",
+    faqs: [
+      {
+        q: "What ages are these animal bedtime stories for?",
+        a: "They're written for ages 2+, which covers toddlers and preschoolers. The language is simple, the pacing is slow, and an animal main character gives a tired child something concrete to follow.",
+        category: "Stories & narration",
+      },
+      {
+        q: "Which animals are in these stories?",
+        a: "This shelf holds every animal story on the site — Sully the seal, Bruno the bear cub, Pim and Pax the penguins, Tibo the turtle, Cora the cormorant, and more. All of them are illustrated, calm, and written to be read aloud.",
+        category: "Stories & narration",
+      },
+      {
+        q: "Why do animal stories work so well at bedtime?",
+        a: "An animal sits one step away from the child — close enough to recognize themselves in, far enough to talk about the feeling safely. That distance is what lets a story about a seal who won't slow down do the work of a conversation about settling down.",
+        category: "Stories & narration",
+      },
+      {
+        q: "Are these stories narrated, or do I read them myself?",
+        a: "Both. Every story can be read aloud by you, played with professional narration, or heard in your own recorded voice. No ads, no login, and stories can be read offline once downloaded.",
+        category: "Stories & narration",
+      },
+    ],
   },
   {
     slug: "kindness-stories-for-kids",
@@ -59,6 +95,23 @@ export const COLLECTIONS: Collection[] = [
       "These stories keep the lesson inside the plot rather than tacking a moral on the end. Nora bakes for a shivering neighbor, Lottie fits everyone under her rainbow umbrella, and Cora keeps her lighthouse lamp burning for a lost duckling family — nobody gets a lecture.",
     ],
     note: "Worth one question at the end, if it's not too late: \"What would you have done?\" Keep it to one, though — a long conversation will wake them right back up.",
+    faqs: [
+      {
+        q: "What ages are these kindness stories for?",
+        a: "Ages 2+, so they work for toddlers and preschoolers alike. Each one is short enough to finish in a single sitting, and each ends quietly rather than on a lesson.",
+        category: "Stories & narration",
+      },
+      {
+        q: "Do the stories end with a moral?",
+        a: "No. The kindness stays inside the plot: Nora bakes for a shivering neighbor, Lottie fits everyone under her rainbow umbrella, and Cora keeps her lighthouse lamp burning for a lost duckling family. Nobody explains the point to your child afterwards.",
+        category: "Stories & narration",
+      },
+      {
+        q: "How do I talk about sharing without turning it into a lecture?",
+        a: "One question is plenty, and it works best right after the story rather than before: \"What would you have done?\" Keep it to that single question — a longer conversation will wake them right back up.",
+        category: "Stories & narration",
+      },
+    ],
   },
   {
     slug: "stories-about-big-feelings",
@@ -71,6 +124,23 @@ export const COLLECTIONS: Collection[] = [
       "Bunny's kite gets stuck in a tree and the feeling in his chest is much too big to hold; Little Lamb is wide awake when the moon is already up; Fern doesn't feel well and wants to be outside in the sun. These stories don't rush the feeling or fix it in a sentence.",
     ],
     note: "If your child recognizes themselves in one of these, expect them to ask for it repeatedly. That's the story doing its job — let them have it as many nights as they want.",
+    faqs: [
+      {
+        q: "What ages are these big-feelings stories for?",
+        a: "Ages 2+ — the years when children have adult-sized feelings and toddler-sized words for them. The stories are short, illustrated, and end calmly, so they can sit inside a normal bedtime routine.",
+        category: "Stories & narration",
+      },
+      {
+        q: "Which feelings do the stories cover?",
+        a: "Frustration, impatience, shyness, and losing — plus the ones a child feels before they have a word for them. Bunny's kite gets stuck in a tree and the feeling in his chest is too big to hold; Little Lamb is wide awake when the moon is already up; Fern doesn't feel well and wants to be outside in the sun.",
+        category: "Stories & narration",
+      },
+      {
+        q: "My child asks for the same story every night. Is that a problem?",
+        a: "No — that is usually the story doing its job. When a child recognizes themselves in a character, repetition is how they work the feeling through. Let them have it as many nights as they want.",
+        category: "Stories & narration",
+      },
+    ],
   },
   {
     slug: "friendship-stories-for-kids",
@@ -113,7 +183,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "sea",
     title: "Ocean and Sea Stories for Kids",
     description:
-      "Seals, starfish, harbors, lighthouses, and tide-line discoveries — calm ocean picture books for kids ages 2+.",
+      "Seals, starfish, harbors, lighthouses, and tide-line discoveries — calm ocean picture books for ages 2+ written at a bedtime pace.",
     intro: [
       "There's a reason so many bedtime books end up underwater. Water moves slowly, sounds soften, and light goes blue and dim — an ocean setting is halfway to a lullaby before anything happens in it.",
       "These stories live by the sea: Sully learning to slow down in the bay, Twinkle carried up to see the stars, Bo the little red boat in a big harbor, Theo's hidden cove at low tide, and Cora the cormorant keeping her lamp spinning for boats and ducklings alike.",
@@ -125,7 +195,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "snow",
     title: "Winter and Snow Stories",
     description:
-      "Snow days, hibernation, and the coldest day of the year — cozy winter picture books for ages 2+.",
+      "Snow days, hibernation, and one shared red scarf — cozy winter picture books for ages 2+ that always end indoors, and warm.",
     intro: [
       "Winter stories do something specific at bedtime: nearly all of them end indoors, warm, under a blanket. That shape — out into the cold, then home to something cozy — is almost exactly the shape of the evening you're trying to have.",
       "Bruno wakes to the first snow and builds a snow-bear with friends; Pim and Pax share one red scarf on the coldest day; Bramble gathers leaves for his hibernation bed while the forest goes still and white.",
@@ -173,7 +243,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "confidence",
     title: "Stories About Being Yourself",
     description:
-      "Picture books about trying, standing tall in a small way, and finding your own voice — for kids ages 2+.",
+      "Picture books about trying, standing tall in a small way, and finding your own voice — for kids ages 2+ deciding what they are brave enough to do.",
     intro: [
       "Confidence in a bedtime book shouldn't mean fearlessness. It looks like trying the thing you're not sure about, or being yourself when that feels hard.",
       "These stories give that feeling a shape: characters who practice, speak up, or find a way that fits them — without a pep talk on the last page.",
@@ -208,7 +278,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "girl",
     title: "Bedtime Stories with Girls",
     description:
-      "Picture books starring little girls — kindness, courage, creativity, and cozy family nights for ages 2+.",
+      "Picture books starring little girls — kindness, courage, creativity, and cozy family nights, written for ages 2+ without a lesson at the end.",
     intro: [
       "Nora baking for a neighbor, Mia walking into the mist, Ella telling the truth — these stories put a girl at the center without turning the night into a lesson.",
     ],
@@ -219,7 +289,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "forest",
     title: "Forest and Woods Stories for Kids",
     description:
-      "Trees, paths, and quiet woods — calm forest picture books written for bedtime at ages 2+.",
+      "Trees, paths, and quiet woods — calm forest picture books for ages 2+ that stay among the leaves without ever turning scary.",
     intro: [
       "A forest at bedtime is soft on purpose: leaves, paths, and animals who know the way home. These stories stay in the woods without turning scary.",
       "Mia's misty path, Bramble's hibernation bed, and friends under the trees — each one ends somewhere safe.",
@@ -231,7 +301,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "garden",
     title: "Garden and Farm Stories",
     description:
-      "Gardens, farms, flowers, and growing things — gentle outdoor picture books for ages 2+.",
+      "Gardens, farms, flowers, and growing things — gentle outdoor picture books for ages 2+, where something small is planted, tended, and finally ready.",
     intro: [
       "Gardens are the right size for this age: small enough to know, alive enough to wonder about. These stories live among flowers, nests, and patches of sun.",
     ],
@@ -242,7 +312,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "town",
     title: "Home and Town Stories",
     description:
-      "Streets, neighbors, parks, and the way home — picture books set in familiar places for ages 2+.",
+      "Streets, neighbors, parks, and the walk home — picture books set in familiar places, for ages 2+ who like a story that mirrors their own day.",
     intro: [
       "Town stories feel like the child's own day: a park hello, a neighbor's door, the walk back to their house. Bedtime lands softer when the setting already feels known.",
     ],
@@ -253,7 +323,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "rain",
     title: "Rainy-Day Stories for Kids",
     description:
-      "Puddles, umbrellas, and soft rain sounds — cozy wet-weather picture books for ages 2+.",
+      "Puddles, umbrellas, and soft rain sounds — cozy wet-weather picture books for ages 2+ where every story ends indoors, dry, and warm.",
     intro: [
       "Rain is already a lullaby if you let it be. These stories lean into that: umbrellas shared, windows steamed, and days that end indoors and warm.",
     ],
@@ -264,7 +334,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "night",
     title: "Moon and Stars Stories",
     description:
-      "Night skies, moonlight, and soft dark — picture books that belong at the end of the day for ages 2+.",
+      "Night skies, moonlight, fireflies, and lamps left on for someone — soft-dark picture books for ages 2+ that name the night without scaring anyone.",
     intro: [
       "Night stories work because they name the dark without making it scary. Moon, stars, fireflies, and lamps that stay on for someone who needs them.",
       "Pip and a firefly under the moon, lighthouse lamps, and quiet nights by the sea — each one ends with the lights going soft.",
@@ -276,7 +346,7 @@ export const COLLECTIONS: Collection[] = [
     tag: "magic",
     title: "Magic and Wonder Stories",
     description:
-      "Soft wonder — not spooky magic — in gentle picture books for bedtime at ages 2+.",
+      "Soft wonder rather than spooky magic — moonflowers, teacup balloons, and quiet impossible things, in gentle picture books for bedtime at ages 2+.",
     intro: [
       "Wonder at this age is a copper compass, a bottle with a map, a star that feels close enough to touch. These stories keep the magic quiet enough for lights out.",
     ],

@@ -129,6 +129,18 @@ const TAG_GUIDES: Record<StoryTag, string[]> = {
     "bedtime-routine-for-toddlers",
     "what-makes-a-good-bedtime-story",
     "what-time-should-a-toddler-go-to-bed",
+    // Also filed under `bedtime` so both reach the contextual "Stories for
+    // this" block on their own page. The `music` tag still exists on stories
+    // and in `StoryTag`, but no collection carries it any more
+    // (stories-about-music was retired), and `collectionsForGuide` only walks
+    // tags that resolve to a real collection. So `rhyming-books-and-language`
+    // — whose only tag here is `music` — rendered with no shelf block at all,
+    // and the lullaby guide got only the `night` shelf. Appended past the
+    // first two slots deliberately: `guidesForTag` slices to 2, so the
+    // collection page's own guide row is unchanged and only the reverse
+    // lookup gains a hit.
+    "lullabies-for-babies-and-toddlers",
+    "rhyming-books-and-language",
   ],
   sea: [
     "summer-bedtime-light-evenings",
