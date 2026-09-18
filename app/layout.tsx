@@ -322,7 +322,7 @@ export default function RootLayout({
         <Script
           defer
           src="https://cloud.umami.is/script.js"
-          data-website-id="ad139af4-45c9-424c-8098-038e82ef66d7"
+          data-website-id="8e0341da-91c9-429c-9804-0af71e3cf155"
           // `lazyOnload` (not `afterInteractive`): analytics must never compete
           // with the page for main-thread time during load. Loading them when
           // the browser is idle keeps them out of the INP/TBT budget while
