@@ -318,17 +318,52 @@ export default function RootLayout({
           href="https://cloud.umami.is"
           crossOrigin="anonymous"
         />
-        {/* Umami Cloud Analytics — website-id is public by design (same as GA measurement ID). */}
-        <Script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="8e0341da-91c9-429c-9804-0af71e3cf155"
-          // `lazyOnload` (not `afterInteractive`): analytics must never compete
-          // with the page for main-thread time during load. Loading them when
-          // the browser is idle keeps them out of the INP/TBT budget while
-          // still collecting pageviews — they are measurement, not content.
-          strategy="lazyOnload"
-        />
+        {/* Umami Cloud Analytics — website-id is public by design (same as GA measurement ID).
+            The tracker is injected by the inline bootstrap below instead of being a plain
+            <Script src>, so browser automation can be dropped before it sends anything.
+
+            Why only these checks: Umami already filters bots server-side with `isbot`, and
+            the tracker itself is JavaScript — so a crawler that never executes JS can never
+            fire an event. That rules out GPTBot / ClaudeBot / PerplexityBot, uptime monitors
+            (UptimeRobot, Pingdom) and link-preview fetchers (Twitterbot,
+            facebookexternalhit) entirely; listing them here would be dead code. What is
+            left, and what this gate targets:
+              1. Browser automation — `npm run audit:cta` drives Playwright over all 170
+                 built pages x 5 viewport widths on http://127.0.0.1. Playwright advertises
+                 itself through `navigator.webdriver`, which no server-side UA filter can see.
+              2. JS-rendering crawlers — Googlebot and Applebot render pages in a real
+                 browser, so they do reach the tracker (isbot drops them, this saves the trip).
+
+            The gate FAILS OPEN: if anything throws, the tracker loads. A bug here must never
+            be able to silently stop collection of real visits — that is exactly the failure
+            mode this site was already bitten by once. */}
+        <Script id="umami-loader" strategy="lazyOnload">
+          {`(function () {
+  var ID = "8e0341da-91c9-429c-9804-0af71e3cf155";
+  var LOCAL_HOST = /^(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0|\\[::1\\]|::1)$/i;
+  var NON_PROD_HOST = /\\.local$|\\.localhost$|\\.github\\.io$/i;
+  var BOT_UA = /bot[\\/\\s;)]|bot$|crawl|spider|slurp|headless|lighthouse|pagespeed|puppet|playwright|selenium|phantomjs|gtmetrix/i;
+  function inject() {
+    var s = document.createElement("script");
+    s.defer = true;
+    s.src = "https://cloud.umami.is/script.js";
+    s.setAttribute("data-website-id", ID);
+    document.head.appendChild(s);
+  }
+  var skip;
+  try {
+    skip =
+      navigator.webdriver === true ||
+      location.protocol === "file:" ||
+      LOCAL_HOST.test(location.hostname) ||
+      NON_PROD_HOST.test(location.hostname) ||
+      BOT_UA.test(navigator.userAgent || "");
+  } catch (e) {
+    skip = false;
+  }
+  if (!skip) inject();
+})();`}
+        </Script>
         {/* Microsoft Clarity — heatmaps & session recordings (puzzle/id is
             public by design, same as GA measurement ID). Mounted via
             next/script so it loads after hydration, same as Umami above. */}
