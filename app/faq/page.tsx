@@ -6,7 +6,7 @@ import { StoreButtons } from "@/components/StoreButtons";
 import { BackHomeLink } from "@/components/BackLink";
 import { FaqList } from "@/components/FaqList";
 import { FAQS, FAQ_CATEGORIES } from "@/lib/faq";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, pageMetadata, withSlash } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/faq",
@@ -36,12 +36,12 @@ export default function FaqPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "FAQ",
-        item: `${SITE.domain}/faq`,
+        item: withSlash(`${SITE.domain}/faq`),
       },
     ],
   };

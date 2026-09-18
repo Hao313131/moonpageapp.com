@@ -19,7 +19,7 @@ import { storyCoverSrc, storyCoverUrl } from "@/lib/storyCover";
 import { STORY_DATE } from "@/lib/content-dates";
 import { guidesForTag } from "@/lib/internalLinks";
 import { aggregateRatingNode, reviewNodes } from "@/lib/reviews";
-import { SITE, pageMetadata, storyMetaDescription } from "@/lib/site";
+import { SITE, pageMetadata, storyMetaDescription, withSlash } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
 
@@ -68,7 +68,7 @@ export default async function StoryPage({ params }: { params: Params }) {
   const story = getStory(slug);
   if (!story) notFound();
 
-  const url = `${SITE.domain}/stories/${story.slug}`;
+  const url = withSlash(`${SITE.domain}/stories/${story.slug}`);
   const image = storyCoverUrl(SITE.domain, story.file);
 
   // Other stories that share this one's strongest theme.
@@ -112,7 +112,7 @@ export default async function StoryPage({ params }: { params: Params }) {
     isPartOf: {
       "@type": "CreativeWorkSeries",
       name: `${SITE.name} bedtime stories`,
-      url: `${SITE.domain}/stories`,
+      url: withSlash(`${SITE.domain}/stories`),
     },
     // MoonPage is free to download with some stories free to read — a real
     // Offer (price 0) is what lets a "Free" badge and richer app/book results
@@ -142,12 +142,12 @@ export default async function StoryPage({ params }: { params: Params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "Stories",
-        item: `${SITE.domain}/stories`,
+        item: withSlash(`${SITE.domain}/stories`),
       },
       { "@type": "ListItem", position: 3, name: story.title, item: url },
     ],

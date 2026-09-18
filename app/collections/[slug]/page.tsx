@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FaqList } from "@/components/FaqList";
 import { StoreButtons } from "@/components/StoreButtons";
 import { StoryGrid } from "@/components/StoryGrid";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
@@ -10,7 +11,7 @@ import { COLLECTIONS, getCollection } from "@/lib/collections";
 import { guidesForCollection } from "@/lib/internalLinks";
 import { storiesByTag } from "@/lib/stories";
 import { storyCoverUrl } from "@/lib/storyCover";
-import { SITE, pageMetadata, pageKeywords } from "@/lib/site";
+import { SITE, pageMetadata, pageKeywords, withSlash } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
 
@@ -51,7 +52,7 @@ export default async function CollectionPage({
   if (!collection) notFound();
 
   const stories = storiesByTag(collection.tag);
-  const url = `${SITE.domain}/collections/${collection.slug}`;
+  const url = withSlash(`${SITE.domain}/collections/${collection.slug}`);
   const others = COLLECTIONS.filter((c) => c.slug !== collection.slug).slice(
     0,
     4,
@@ -65,6 +66,7 @@ export default async function CollectionPage({
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "@id": `${url}#stories`,
     name: collection.title,
     description: collection.description,
     url,
@@ -87,16 +89,50 @@ export default async function CollectionPage({
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${url}#breadcrumb`,
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "Collections",
-        item: `${SITE.domain}/collections`,
+        item: withSlash(`${SITE.domain}/collections`),
       },
       { "@type": "ListItem", position: 3, name: collection.title, item: url },
     ],
+  };
+
+  // The page itself, declared as what it actually is: a themed collection of
+  // books. Before this, the 22 shelf pages emitted only an ItemList and a
+  // BreadcrumbList — a list of things with no statement about the page that
+  // holds them, which is the shape that earns a *directory* result rather than
+  // a *collection* one. /collections/ has declared
+  // `["ItemList", "CollectionPage"]` since it was written; the shelves it links
+  // to never did. `mainEntity` / `breadcrumb` point at the two nodes above by
+  // @id so the three blocks read as one graph instead of three orphaned
+  // islands — the same @id wiring the guide pages use for mainEntityOfPage.
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: collection.title,
+    description: collection.description,
+    url,
+    inLanguage: "en",
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE.name,
+      url: withSlash(SITE.domain),
+    },
+    audience: { "@type": "PeopleAudience", suggestedMinAge: 2 },
+    ...(relatedGuides.length
+      ? {
+          significantLink: relatedGuides.map((g) =>
+            withSlash(`${SITE.domain}/guides/${g.slug}`),
+          ),
+        }
+      : {}),
+    mainEntity: { "@id": `${url}#stories` },
+    breadcrumb: { "@id": `${url}#breadcrumb` },
   };
 
   // The guides rendered above, declared as a list so the shelf reads to a
@@ -111,7 +147,7 @@ export default async function CollectionPage({
           "@type": "ListItem",
           position: i + 1,
           name: g.title,
-          url: `${SITE.domain}/guides/${g.slug}`,
+          url: withSlash(`${SITE.domain}/guides/${g.slug}`),
         })),
       }
     : null;
@@ -188,6 +224,15 @@ export default async function CollectionPage({
             </section>
           )}
 
+          {collection.faqs?.length ? (
+            <section className="mt-10 border-t border-wood/20 pt-6 sm:mt-12 sm:pt-8">
+              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
+                {collection.title} — questions parents ask
+              </h2>
+              <FaqList items={collection.faqs} className="mt-4" />
+            </section>
+          ) : null}
+
           <section className="mt-10 border-t border-wood/20 pt-6 sm:mt-12 sm:pt-8">
             <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
               More collections
@@ -210,6 +255,10 @@ export default async function CollectionPage({
       <Footer />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <script
@@ -224,6 +273,22 @@ export default async function CollectionPage({
           }}
         />
       )}
+      {collection.faqs?.length ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: collection.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }),
+          }}
+        />
+      ) : null}
     </>
   );
 }

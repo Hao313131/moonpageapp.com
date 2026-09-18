@@ -335,7 +335,7 @@ export const STORIES: Story[] = [
     slug: "the-moons-light",
     file: "wp_b31_1_mouse_looked_cover.webp",
     title: "The Moon's Light",
-    hook: "Max the little mouse wished he could keep a bit of the night's soft light. Silver moths circled, then drifted toward the moonflower hill — were they showing him the way? What glows at the top, waiting to be carried home?",
+    hook: "Max the little mouse wanted to keep some moonlight. Silver moths drifted to the moonflower hill. What glows at the top, waiting to be carried home?",
     tags: ["animals", "curiosity", "magic", "garden", "night"],
     bedtimeNote:
       "A quiet, wonder-filled wind-down: a fallen moonflower petal glowing in the hay, the moths drifting away, and Max asleep in his moonlit nest. For kids who love a hush of magic at the end of the day.",

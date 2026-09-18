@@ -11,7 +11,7 @@ import {
   type GuideBlock,
 } from "@/lib/guides";
 import { collectionsForGuide } from "@/lib/internalLinks";
-import { SITE, pageMetadata, pageKeywords } from "@/lib/site";
+import { SITE, pageMetadata, pageKeywords, withSlash } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
 
@@ -51,7 +51,7 @@ export default async function GuidePage({ params }: { params: Params }) {
   const guide = getGuide(slug);
   if (!guide) notFound();
 
-  const url = `${SITE.domain}/guides/${guide.slug}`;
+  const url = withSlash(`${SITE.domain}/guides/${guide.slug}`);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -95,12 +95,12 @@ export default async function GuidePage({ params }: { params: Params }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "Guides",
-        item: `${SITE.domain}/guides`,
+        item: withSlash(`${SITE.domain}/guides`),
       },
       { "@type": "ListItem", position: 3, name: guide.title, item: url },
     ],

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Header } from "@/components/Header";
 import { BackHomeLink } from "@/components/BackLink";
-import { SITE } from "@/lib/site";
+import { SITE, withSlash } from "@/lib/site";
 
 export function LegalLayout({
   title,
@@ -20,12 +20,12 @@ export function LegalLayout({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: title,
-        item: `${SITE.domain}${path}`,
+        item: withSlash(`${SITE.domain}${path}`),
       },
     ],
   };

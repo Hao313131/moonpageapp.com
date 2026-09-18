@@ -240,8 +240,14 @@ export function pageKeywords(extra: string[] = []): string[] {
  *
  * Assets (anything with a file extension) and already-slashed URLs pass through
  * untouched.
+ *
+ * Exported because every hand-built JSON-LD block has to call it: `hubJsonLd`
+ * and `speakableJsonLd` use it internally, but the story / guide / collection /
+ * sitemap / legal pages construct their own URLs, and before they did the same
+ * the site emitted ~800 slash-less URLs in structured data — one redirect hop
+ * per node, per crawl.
  */
-function withSlash(url: string): string {
+export function withSlash(url: string): string {
   if (url.endsWith("/")) return url;
   // Strip the scheme+host so we only judge the PATH. A bare domain
   // (https://moonpageapp.com) has an empty path -> add the slash. A real asset
@@ -311,12 +317,23 @@ export function fitDescription(
  * many of its sentences as fit. The old version appended a 90-character CTA
  * to the whole hook and landed at 190–305 characters, which meant Google cut
  * the snippet somewhere in the middle of the teaser on all 45 story pages.
+ *
+ * That fix overshot. It reserved the CTA's 67 characters *before* fitting the
+ * hook, leaving the teaser a budget of 87 — and because `fitDescription` keeps
+ * whole sentences and drops the rest, the sentence it dropped was always the
+ * last one, which is the question the book answers. The hook's whole shape is
+ * "scene, scene, question", so the reserved CTA silently threw away the only
+ * line written to earn a click: measured on the live catalog it cost 44 of the
+ * 45 story pages their closing question, and left 6 descriptions under 110
+ * characters with a 155 budget.
+ *
+ * So the hook now takes the budget and the shelf line is a fallback that is
+ * appended only when the hook leaves room for it. That is also what the
+ * paragraph above always claimed the function did.
  */
 export function storyMetaDescription(story: { hook: string }): string {
-  const cta =
-    "A cozy picture book for ages 2+ — read it free in MoonPage tonight.";
-  const teaser = fitDescription(sentences(story.hook), SERP_DESC_MAX - cta.length - 1);
-  return `${teaser} ${cta}`;
+  const shelfLine = "Free picture book for ages 2+.";
+  return fitDescription([...sentences(story.hook), shelfLine], SERP_DESC_MAX);
 }
 
 /**

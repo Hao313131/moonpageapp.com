@@ -9,7 +9,7 @@ import { StoryGrid } from "@/components/StoryGrid";
 import { COLLECTIONS } from "@/lib/collections";
 import { STORIES, TAG_LABELS } from "@/lib/stories";
 import { storyCoverUrl } from "@/lib/storyCover";
-import { SITE, pageMetadata } from "@/lib/site";
+import { SITE, pageMetadata, withSlash } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/stories",
@@ -45,6 +45,11 @@ export default function StoriesPage() {
         bookFormat: "https://schema.org/EBook",
         name: s.title,
         description: s.hook,
+        // Each list entry points at the story's own page. Without this the
+        // ItemList was a list of titles with nothing to crawl through — the
+        // shape Google needs for a carousel/directory treatment is a list of
+        // URLs, not a list of names.
+        url: withSlash(`${SITE.domain}/stories/${s.slug}`),
         image: storyCoverUrl(SITE.domain, s.file),
         inLanguage: "en",
         audience: {
@@ -60,12 +65,12 @@ export default function StoriesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE.domain },
+      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
       {
         "@type": "ListItem",
         position: 2,
         name: "Stories",
-        item: `${SITE.domain}/stories`,
+        item: withSlash(`${SITE.domain}/stories`),
       },
     ],
   };

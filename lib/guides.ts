@@ -540,13 +540,36 @@ export const GUIDES: Guide[] = [
     description:
       "What a lullaby is actually doing at bedtime, how to pick one, and why your out-of-tune voice beats a recording of a professional.",
     category: "Sleep",
-    updated: "2026-07-27",
-    readingMinutes: 4,
+    updated: "2026-09-18",
+    readingMinutes: 6,
     intro: [
       "Every culture on earth has lullabies, and they all sound roughly the same: slow, repetitive, narrow in range, and sung quietly by someone close by. That's not a coincidence.",
       "Here's what's going on, and how to use it even if you're convinced you can't sing.",
     ],
     sections: [
+      {
+        heading: "What is a lullaby, exactly?",
+        blocks: [
+          {
+            type: "p",
+            text: "A lullaby is a short song sung quietly to a child at the end of the day. The useful definition at bedtime is a musical one, and it holds across cultures: a narrow range of notes, a slow and even pulse, a small number of lines that come back around, and a volume that drops rather than rises.",
+          },
+          {
+            type: "ul",
+            items: [
+              "Narrow range — a handful of notes close together, so nothing startles.",
+              "Slow, even pulse — steady enough that you stop noticing the beat.",
+              "Repetition — the same few lines returning, so there is nothing new to track.",
+              "Quiet, and getting quieter — it trails off rather than finishing with a flourish.",
+              "One voice, close by — sung to one child, not performed at a room.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The traditional lullabies you half-remember from your own childhood score well on all five, which is why they survived. A song that isn't called a lullaby can still be one, and a lullaby played loudly through a speaker mostly stops being one.",
+          },
+        ],
+      },
       {
         heading: "The tune matters less than the voice singing it",
         blocks: [
@@ -580,6 +603,46 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: "Do lullabies actually work?",
+        blocks: [
+          {
+            type: "p",
+            text: "Not as music, and not as a switch. What a lullaby does is bundle three things that read as safe to a small child: a familiar voice, a low and slowing sound, and the signal that the same thing happens at the same point every night. The settling comes from the repetition of the whole ritual, not from the melody.",
+          },
+          {
+            type: "p",
+            text: "That is also why a lullaby stops working if you use it as entertainment. If the song is the liveliest part of the evening, or it changes every night, the cue is gone — you are left with a child who is listening rather than drifting. Keep it dull, keep it last, keep it the same.",
+          },
+          {
+            type: "p",
+            text: "One honest caveat: a song is a routine cue, not a treatment. If your child is regularly struggling to fall asleep, waking distressed through the night, or snoring heavily, that is a conversation for your pediatrician rather than a change of repertoire.",
+          },
+        ],
+      },
+      {
+        heading: "How to make up a lullaby",
+        blocks: [
+          {
+            type: "p",
+            text: "You don't need to compose anything. The easiest route is to borrow a tune you already know and change the words — a nursery rhyme, a hymn, a folk song, anything with a short repeating phrase. Then:",
+          },
+          {
+            type: "ol",
+            items: [
+              "Pick three or four short lines. More than that and it stops being repetitive.",
+              "Put your child's name in it. Their own name is the part that holds attention.",
+              "Describe the next thing that happens — the light going off, the door, sleep coming. Naming the sequence is most of the job.",
+              "Sing it slowly, and slower on the second round than on the first.",
+              "Use the same words every night. A lullaby that changes is a song, not a cue.",
+            ],
+          },
+          {
+            type: "p",
+            text: "If singing feels ridiculous, say the lines instead — same pace, same volume, same place in the evening. Humming works too. The words were never the active ingredient.",
+          },
+        ],
+      },
+      {
         heading: "Where a song fits in the routine",
         blocks: [
           {
@@ -593,8 +656,25 @@ export const GUIDES: Guide[] = [
         ],
       },
     ],
-    related: ["bedtime-routine-for-toddlers", "toddler-wont-stay-in-bed"],
+    related: [
+      "bedtime-routine-for-toddlers",
+      "toddler-wont-stay-in-bed",
+      "white-noise-and-bedtime-sounds",
+      "rhyming-books-and-language",
+    ],
     faqs: [
+      {
+        q: "What is a lullaby?",
+        a: "A short song sung quietly to a child at the end of the day. The musical features are what matter: a narrow range, a slow even pulse, a few lines that repeat, and a volume that drops. Any song with those features is doing the job, whatever it is called.",
+      },
+      {
+        q: "Do lullabies actually work?",
+        a: "They work as a routine cue rather than as music — a familiar voice, a low and slowing sound, and the same thing happening at the same point every night. That is also why they stop working if the song becomes the liveliest part of the evening.",
+      },
+      {
+        q: "How do I make up a lullaby if I don't know any?",
+        a: "Borrow a tune you already know and change the words: three or four short lines, your child's name in it, and a description of what happens next. Sing it slowly, use the same words every night, and say the lines rather than singing them if that feels better.",
+      },
       {
         q: "Do I need to be able to sing to use lullabies?",
         a: "No. The tune matters much less than the voice singing it — a familiar voice is the active ingredient, and children are famously uncritical of their own parents' singing.",
@@ -1344,8 +1424,8 @@ export const GUIDES: Guide[] = [
     description:
       "Four-year-olds sit through longer stories, argue with the ending, and worry at lights out. What to read, and how to handle the bedtime questions.",
     category: "Ages",
-    updated: "2026-07-28",
-    readingMinutes: 6,
+    updated: "2026-09-18",
+    readingMinutes: 8,
     intro: [
       "Four is a wonderful age to read to. They can follow a story across ten minutes, remember characters from last night, predict what's coming, and tell you confidently that the ending was wrong and here is what should have happened instead.",
       "It's also the age where bedtime starts collecting the day's worries. A four-year-old lying in the dark has enough imagination to invent problems and not enough perspective to dismiss them, which is why the last story matters more now, not less.",
@@ -1413,6 +1493,47 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: "What to look for in a book for a four-year-old",
+        blocks: [
+          {
+            type: "p",
+            text: "Four is the last age where you can judge a bedtime book in the shop in under a minute, so it's worth knowing what you're looking for. The books that work share a shape:",
+          },
+          {
+            type: "ul",
+            items: [
+              "A real middle. Something goes wrong and takes more than a page to sort out — that's the part four-year-olds are newly able to follow.",
+              "One problem, not three. Subplots are for older listeners; at bedtime a second storyline mostly costs you attention.",
+              "A character who wants something specific. Curiosity about a person is what carries a child through ten minutes.",
+              "Warmth you can hear. Read the first page out loud in the shop. If your voice has somewhere to go, it will work at home.",
+              "An ending that settles. Resolution, not a twist — and no page after the resolution, because the last page is the cue that the story is over.",
+              "Pictures with something to find. A four-year-old will go back through a spread looking for the small thing you missed, which is a quiet activity and a good one at bedtime.",
+            ],
+          },
+          {
+            type: "p",
+            text: "The reverse list matters too. Books that rhyme badly, books where the tension arrives on the second-to-last page, and books with a noisy or counting finale all tend to wind a four-year-old up rather than down. None of them are bad books; they're daytime books.",
+          },
+        ],
+      },
+      {
+        heading: "The four-to-five shift, and when to move up",
+        blocks: [
+          {
+            type: "p",
+            text: "The step from four to five is less about reading level than about patience. A four-year-old can follow a longer story but still wants the picture on every page and still wants to stop and talk about it. A five-year-old will increasingly sit through a chapter with one illustration, hold a thread across nights, and ask what happens next as a genuine question rather than a stalling tactic.",
+          },
+          {
+            type: "p",
+            text: "The signal to move up is not age, it's what your child does with the book you already have. If they're finishing your sentences, predicting the next page, and asking to keep going after the last page, they're ready for more. If they're turning pages early and asking how many are left, the book is too long for tonight — which is different from too long for them, and is usually solved by reading fewer pages rather than a shorter book.",
+          },
+          {
+            type: "p",
+            text: "One thing to hold on to as they get older: listening comprehension runs years ahead of reading ability, so the books a five- or six-year-old can understand are not the books they can read. Keeping read-aloud going past the point where they can decode is where most of the vocabulary and sentence structure at this age comes from. There's more on that in the guide for ages five and six.",
+          },
+        ],
+      },
+      {
         heading: "Where MoonPage fits at this age",
         blocks: [
           {
@@ -1426,6 +1547,7 @@ export const GUIDES: Guide[] = [
       "bedtime-stories-for-3-year-olds",
       "bedtime-stories-for-5-year-olds",
       "bedtime-stories-for-anxious-kids",
+      "how-long-to-read-at-bedtime",
     ],
     faqs: [
       {
@@ -1439,6 +1561,14 @@ export const GUIDES: Guide[] = [
       {
         q: "Why does my 4-year-old ask big questions at bedtime?",
         a: "Bedtime is often the first quiet, undistracted moment of their day, so worries surface then. Answer briefly and honestly, promise a proper conversation tomorrow, and keep the reassurance short rather than extended.",
+      },
+      {
+        q: "Should I use narration or an audiobook instead of reading to my 4-year-old?",
+        a: "They do different jobs and most families end up using both. Your voice gives the back-and-forth and the closeness; narration gives a consistent performance on the nights you can't read. Recording your own voice is the middle option — familiar like you, repeatable like audio.",
+      },
+      {
+        q: "What if my 4-year-old refuses stories at bedtime?",
+        a: "Usually the story isn't the problem — the timing or the choice is. Try moving reading earlier, before the overtired window, and letting your child pick from two books you've already chosen. A child who refuses to be read to will often still listen to a story playing while they lie down.",
       },
     ],
   },
@@ -4776,7 +4906,7 @@ export const GUIDES: Guide[] = [
     slug: "bath-before-bed",
     title: "Does a Bath Before Bed Actually Help? (The Verdict)",
     description:
-      "Why a warm bath makes children sleepy, when it does the opposite, and whether you need one every night.",
+      "Why a warm bath makes children sleepy, when it does the opposite, and whether you actually need one every single night — plus the timing that matters.",
     category: "Routines",
     updated: "2026-07-28",
     readingMinutes: 4,
@@ -4864,7 +4994,7 @@ export const GUIDES: Guide[] = [
     slug: "toddler-sharing-room-with-baby",
     title: "Toddler & Baby in One Room: Make It Work",
     description:
-      "Whether room-sharing works, how to stagger two bedtimes in one room, and what to do when one wakes the other.",
+      "Whether room-sharing works, how to stagger two bedtimes in one room, and what to do when one child wakes the other at 3am — without splitting the room.",
     category: "Routines",
     updated: "2026-07-28",
     readingMinutes: 5,
@@ -5450,7 +5580,7 @@ export const GUIDES: Guide[] = [
     slug: "raising-a-child-who-loves-reading",
     title: "Raise a Child Who Actually Likes Reading",
     description:
-      "The habits that make a reader — and the well-meaning things that quietly put children off books.",
+      "Letting them choose, keeping books everywhere, reading aloud long after they can read, and stopping the testing — plus what quietly puts kids off books.",
     category: "Reading",
     updated: "2026-07-28",
     readingMinutes: 6,
