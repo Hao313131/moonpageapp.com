@@ -83,6 +83,10 @@ export default function SleepStoriesForKidsPage() {
     items: [
       { name: "Lullaby bedtime stories", url: `${SITE.domain}/lullaby-bedtime-stories` },
       { name: "Cozy bedtime stories", url: `${SITE.domain}/cozy-bedtime-stories` },
+      {
+        name: "Goodnight bedtime stories",
+        url: `${SITE.domain}/goodnight-bedtime-stories`,
+      },
       { name: "Short bedtime stories", url: `${SITE.domain}/short-bedtime-stories` },
       { name: "Moon and stars stories", url: `${SITE.domain}/collections/moon-and-stars-stories` },
     ],
@@ -243,6 +247,12 @@ export default function SleepStoriesForKidsPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Cozy bedtime stories
+              </Link>
+              <Link
+                href="/goodnight-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Goodnight bedtime stories
               </Link>
               <Link
                 href="/short-bedtime-stories"

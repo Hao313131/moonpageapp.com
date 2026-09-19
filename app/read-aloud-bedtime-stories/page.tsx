@@ -82,6 +82,10 @@ export default function ReadAloudBedtimeStoriesPage() {
         url: `${SITE.domain}/lullaby-bedtime-stories`,
       },
       {
+        name: "Goodnight bedtime stories",
+        url: `${SITE.domain}/goodnight-bedtime-stories`,
+      },
+      {
         name: "Toddler bedtime stories",
         url: `${SITE.domain}/toddler-bedtime-stories`,
       },
@@ -156,6 +160,12 @@ export default function ReadAloudBedtimeStoriesPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Lullaby bedtime stories
+              </Link>
+              <Link
+                href="/goodnight-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Goodnight bedtime stories
               </Link>
               <Link
                 href="/toddler-bedtime-stories"

@@ -83,6 +83,50 @@ export default function CozyBedtimeStoriesPage() {
         url: `${SITE.domain}/toddler-bedtime-stories`,
       },
       { name: "Bedtime stories", url: `${SITE.domain}/bedtime-stories` },
+      {
+        name: "Toddler bedtime stories",
+        url: `${SITE.domain}/toddler-bedtime-stories`,
+      },
+      {
+        name: "Preschool bedtime stories",
+        url: `${SITE.domain}/preschool-bedtime-stories`,
+      },
+      {
+        name: "Bedtime stories for babies",
+        url: `${SITE.domain}/baby-bedtime-stories`,
+      },
+      {
+        name: "Bedtime stories by age",
+        url: `${SITE.domain}/bedtime-stories-by-age`,
+      },
+      {
+        name: "Read-aloud bedtime stories",
+        url: `${SITE.domain}/read-aloud-bedtime-stories`,
+      },
+      {
+        name: "Short bedtime stories",
+        url: `${SITE.domain}/short-bedtime-stories`,
+      },
+      {
+        name: "Free bedtime stories",
+        url: `${SITE.domain}/free-bedtime-stories`,
+      },
+      {
+        name: "Bedtime stories for anxious kids",
+        url: `${SITE.domain}/bedtime-stories-for-anxious-kids`,
+      },
+      {
+        name: "Bedtime stories for siblings",
+        url: `${SITE.domain}/bedtime-stories-for-siblings`,
+      },
+      {
+        name: "Winter bedtime stories",
+        url: `${SITE.domain}/winter-bedtime-stories`,
+      },
+      {
+        name: "Goodnight bedtime stories",
+        url: `${SITE.domain}/goodnight-bedtime-stories`,
+      },
     ],
   });
 
@@ -169,6 +213,158 @@ export default function CozyBedtimeStoriesPage() {
 
           <section className="mt-10 sm:mt-12">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+              What makes a bedtime story feel cozy
+            </h2>
+            <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+              Cozy bedtime stories share a few quiet habits: short, predictable
+              sentences; warm, low-contrast scenes; gentle repetition a child
+              can half-say along with you; and an ending that returns the
+              character safely to bed. They avoid cliffhangers, sudden scares,
+              and anything that spikes energy right before sleep. Every cozy
+              tale on MoonPage is written for ages 2+ with a sleepy ending in
+              mind, and you can hear the calm in the narration or record the
+              story in your own voice.
+            </p>
+            <ul className="mt-3 max-w-prose list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink-muted sm:text-base">
+              <li>Soft pacing — slow, calm page turns, no rushing plot.</li>
+              <li>Warm, quiet scenes — lamplight, beds, familiar rooms.</li>
+              <li>A safe, tucked-in ending the child can see coming.</li>
+              <li>Repetition you can whisper, not a twist you have to explain.</li>
+            </ul>
+          </section>
+
+          <section className="mt-10 sm:mt-12">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+              Cozy bedtime stories by age
+            </h2>
+            <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+              The right cozy story changes as your child grows. Toddlers do best
+              with very short, repetitive arcs; preschoolers can follow a little
+              more plot as long as the last pages stay calm; babies need the
+              shortest, singsong-simplest versions. Pick by age to keep the
+              wind-down matched to attention span:
+            </p>
+            <p className="mt-3 text-sm text-ink-muted sm:text-base">
+              <Link
+                href="/toddler-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Cozy bedtime stories for toddlers"
+              >
+                cozy bedtime stories for toddlers
+              </Link>
+              ,{" "}
+              <Link
+                href="/preschool-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Cozy bedtime stories for preschoolers"
+              >
+                cozy bedtime stories for preschoolers
+              </Link>
+              , and{" "}
+              <Link
+                href="/baby-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Cozy bedtime stories for babies"
+              >
+                cozy bedtime stories for babies
+              </Link>
+              . See the full{" "}
+              <Link
+                href="/bedtime-stories-by-age"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Bedtime stories by age"
+              >
+                bedtime stories by age
+              </Link>{" "}
+              index.
+            </p>
+          </section>
+
+          <section className="mt-10 sm:mt-12">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+              Short and free cozy stories for tired nights
+            </h2>
+            <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+              Some nights there&apos;s no energy left for a long book. That&apos;s
+              when the shortest cozy tales earn their place — and because
+              MoonPage is free to start, you can keep a small shelf of calm{" "}
+              <Link
+                href="/read-aloud-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Read-aloud cozy bedtime stories"
+              >
+                read-aloud cozy bedtime stories
+              </Link>{" "}
+              ready without buying a new book each week.
+            </p>
+            <p className="mt-3 text-sm text-ink-muted sm:text-base">
+              Browse{" "}
+              <Link
+                href="/short-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Short cozy bedtime stories"
+              >
+                short cozy bedtime stories
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/free-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Free cozy bedtime stories"
+              >
+                free cozy bedtime stories
+              </Link>{" "}
+              for the nights that need the lightest touch.
+            </p>
+          </section>
+
+          <section className="mt-10 sm:mt-12">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+              Cozy stories for specific moods
+            </h2>
+            <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted sm:text-base">
+              Cozy doesn&apos;t mean same. A nervous child needs a reassuring
+              story; two siblings sharing a room need one that fits both; a cold
+              winter night asks for snow and lamplight. Match the mood:
+            </p>
+            <p className="mt-3 text-sm text-ink-muted sm:text-base">
+              <Link
+                href="/bedtime-stories-for-anxious-kids"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Cozy bedtime stories for anxious kids"
+              >
+                cozy bedtime stories for anxious kids
+              </Link>
+              ,{" "}
+              <Link
+                href="/bedtime-stories-for-siblings"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Cozy bedtime stories for siblings"
+              >
+                cozy bedtime stories for siblings
+              </Link>
+              ,{" "}
+              <Link
+                href="/winter-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Winter cozy bedtime stories"
+              >
+                winter cozy bedtime stories
+              </Link>
+              , and{" "}
+              <Link
+                href="/lullaby-bedtime-stories"
+                className="font-medium text-link underline hover:text-link-hover"
+                title="Lullaby bedtime stories"
+              >
+                lullaby bedtime stories
+              </Link>
+              .
+            </p>
+          </section>
+
+          <section className="mt-10 sm:mt-12">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               More cozy hubs
             </h2>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -177,6 +373,12 @@ export default function CozyBedtimeStoriesPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Lullaby bedtime stories
+              </Link>
+              <Link
+                href="/goodnight-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Goodnight bedtime stories
               </Link>
               <Link
                 href="/toddler-bedtime-stories"
