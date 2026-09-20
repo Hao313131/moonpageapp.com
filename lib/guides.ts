@@ -33,6 +33,9 @@ export type GuideSection = {
  */
 export type GuideFaq = { q: string; a: string };
 
+/** An authoritative external source cited by a guide (EEAT trust signal). */
+export type GuideSource = { label: string; url: string };
+
 export type Guide = {
   slug: string;
   /** <h1> and <title> — written as the question a parent would search. */
@@ -54,6 +57,178 @@ export type Guide = {
    * couple of lines, not a paragraph.
    */
   faqs?: GuideFaq[];
+};
+
+/**
+ * EEAT trust signals — reputable sources cited by each guide category.
+ * Every URL was verified to resolve (HTTP 200) before being added; do not
+ * invent deep links. Rendered as a "Sources & further reading" block so Google
+ * sees real outbound references to authorities (a 2026 EEAT signal) and parents
+ * get a path to clinical guidance. Keyed by the guide `category` field.
+ */
+export const SOURCES_BY_CATEGORY: Record<string, GuideSource[]> = {
+  Sleep: [
+    { label: "Sleep Foundation — children and sleep", url: "https://www.sleepfoundation.org/children-and-sleep" },
+    { label: "NHS — sleep and tiredness in children", url: "https://www.nhs.uk/live-well/sleep-and-tiredness/" },
+  ],
+  Routines: [
+    { label: "Sleep Foundation — children and sleep", url: "https://www.sleepfoundation.org/children-and-sleep" },
+    { label: "American Academy of Pediatrics — patient care", url: "https://www.aap.org/en/patient-care/" },
+  ],
+  Reading: [
+    { label: "Scholastic — books and reading", url: "https://www.scholastic.com/parents/books-and-reading.html" },
+    { label: "Zero to Three — early learning", url: "https://www.zerotothree.org/" },
+  ],
+  "Screen time": [
+    { label: "Common Sense Media", url: "https://www.commonsensemedia.org/" },
+    { label: "American Academy of Pediatrics — patient care", url: "https://www.aap.org/en/patient-care/" },
+  ],
+  Ages: [
+    { label: "Zero to Three — early learning", url: "https://www.zerotothree.org/" },
+    { label: "Sleep Foundation — children and sleep", url: "https://www.sleepfoundation.org/children-and-sleep" },
+  ],
+  "Bedtime stories": [
+    { label: "Scholastic — books and reading", url: "https://www.scholastic.com/parents/books-and-reading.html" },
+    { label: "Zero to Three — early learning", url: "https://www.zerotothree.org/" },
+  ],
+};
+
+/**
+ * EEAT / GEO "direct answer" block — a self-contained 40–60 word answer to the
+ * guide's core question, placed high on the page so Google's featured-snippet
+ * parser and AI Mode's passage extractor can pull it without surrounding
+ * context (2026 best practice: answer first, expand after). Keyed by slug;
+ * rotate in more guides over time. No invented stats — general, non-clinical.
+ */
+export const GUIDE_SUMMARIES: Record<string, string> = {
+  "bedtime-routine-for-toddlers":
+    "A bedtime routine helps toddlers settle because the repeated sequence itself becomes the cue that sleep is coming — predictable beats lengthy. Keep it to 20–30 minutes in the same order every night (bath, pajamas, teeth, stories, lights out), decide the number of stories in advance, and end with one short, identical goodnight ritual.",
+  "how-long-to-read-at-bedtime":
+    "Most toddlers and preschoolers do well with two to three short stories at bedtime — enough to wind down without stretching the routine past 20–30 minutes. The exact count matters less than keeping it consistent: agree on the number before you start, and the 'one more' negotiation loses its power once the rule is the same every night.",
+  "read-aloud-to-toddlers":
+    "Reading aloud to toddlers builds vocabulary, attention, and a positive link between books and comfort — and it works best as a short, calm, daily habit rather than a lesson. Aim for a few minutes most days, use expressive voices, let them turn pages, and follow their interest instead of pushing through every word on the page.",
+  "why-picture-books-matter":
+    "Picture books matter because the mix of images and few words lets a toddler supply meaning, predict what comes next, and talk about feelings safely. They build vocabulary, narrative sense, and print awareness (that marks on a page carry a story) long before a child can read — which is exactly the foundation reading later rests on.",
+  "screen-time-before-bed":
+    "Screens before bed make falling asleep harder for two reasons: the blue-ish light nudges the brain to stay alert, and fast-changing content delays the wind-down. Aim to switch off phones and tablets at least 30–60 minutes before lights out, and replace them with a calm, screen-free routine — stories, a bath, or quiet talk.",
+  "scared-of-the-dark":
+    "Being afraid of the dark is normal at two to five and usually eases with a predictable, reassuring routine rather than reasoning. Keep a dim nightlight, name what's real and what's not in simple terms, stay briefly and calmly, and give a small comfort object. Avoid scary shows or stories in the hour before bed.",
+  "toddler-wont-stay-in-bed":
+    "A toddler who keeps getting up is usually testing boundaries or stalling, not in distress. The fix is boring consistency: return them to bed with few words and no reward (no stories, no play), every single time, in the same calm way. A clear 'stay in bed' rule plus a gentle check-in rhythm works better than varying your response.",
+  "what-time-should-a-toddler-go-to-bed":
+    "Most toddlers (1–3) do best with a bedtime between 7:00 and 8:00 pm, and preschoolers (3–5) around 7:30–8:30, counting back from a wake time of 6:30–7:30 and the 10–13 hours of sleep they still need. The right clock time is the one that leaves them waking happy — shift it earlier if mornings are rough or naps are fighting.",
+  "bedtime-stories-for-2-year-olds":
+    "For two-year-olds, the best bedtime stories are short, repetitive, and warm — a few lines per page, familiar words, and a calm close. Board books with one clear picture, gentle rhyme, or a beloved character work well; read with a soft voice, let them point, and repeat the same favourites — repetition is how toddlers this age feel safe and learn.",
+  "bedtime-stories-for-3-year-olds":
+    "At three, bedtime stories can stretch a little: simple plots, a small problem and a kind resolution, and room for questions. Picture books with relatable feelings (waiting, fear, sharing) fit this age; let them finish sentences and predict the ending. Ten to fifteen minutes of one or two books is usually the sweet spot before lights out.",
+  "what-makes-a-good-bedtime-story":
+    "A good bedtime story is calm, kind, and easy to follow: a gentle arc, soft language, and a reassuring end that points toward sleep. It names feelings a child knows, avoids sudden scares or over-excitement, and leaves the room quieter than it found it. Short, repetitive, and warm beats clever or suspenseful when the goal is falling asleep.",
+  "how-to-make-up-a-bedtime-story":
+    "To make up a bedtime story on the spot, start from something your child knows — a favourite animal, toy, or today's small event — give it one gentle problem, and resolve it calmly toward sleep. Keep sentences short, repeat a soothing phrase, lower your voice as the story ends, and let yawns be the closing line.",
+  "same-story-every-night":
+    "Wanting the same story every night is normal and useful — repetition is how toddlers learn language, predict what comes next, and feel safe. You don't have to rotate books; read the favourite again, and quietly add one new title alongside it so novelty arrives without losing the comfort of the known. The familiar one is doing real work.",
+  "nightmares-and-bad-dreams":
+    "Nightmares are common from age two and peak in the preschool years; they pass fastest with calm, brief reassurance. Go in, name it was a dream and not real, keep lights low, and avoid long discussions or screens. A simple comfort object can help — but keep the response short so sleep returns quickly.",
+  "bedtime-when-youre-away":
+    "When you're away, bedtime steadiness comes from the other caregiver and the routine itself, not from you. Write the exact steps down, keep the order identical, use a voice note or video of your goodnight if it helps, and tell the child who's in charge tonight — consistency with a familiar sequence is what carries the night.",
+  "lullabies-for-babies-and-toddlers":
+    "Lullabies work because slow, soft, repeating song lowers arousal and signals sleep the way a routine does. You don't need to sing well — a quiet, familiar tune at the same tempo each night is what matters. Pair it with dim light and a consistent order, and the song itself becomes a cue the child learns to associate with settling.",
+  "choosing-bedtime-books":
+    "Choose bedtime books that are calm and short, with gentle pictures and a reassuring close — not exciting plots or scary twists. Board and picture books a child can 'read' by memory work best, and a small, fixed shelf of favourites helps the routine run itself. Let the child pick within that calm set so choice, not stimulation, ends the day.",
+  "cozy-bedroom-for-better-sleep":
+    "A cozy sleep space does the quiet work for you: cool (around 18–20°C), dark, and quiet, with a dim light only if needed. Remove screens, keep toys calm, and let one comfort object stay. The room itself then cues sleep, so settling takes less effort — the environment becomes part of the routine rather than a battle you fight each night.",
+  "bedtime-stories-in-two-languages":
+    "Reading the same story in two languages builds two vocabularies and makes bilingual bedtime feel normal rather than like a lesson. Keep the routine short and warm, repeat favourite books in both languages, and don't worry about perfect translation — hearing the same calm arc in each language is what builds the child's ear and ease.",
+  "audiobooks-vs-reading-aloud":
+    "Audiobooks and reading aloud aren't rivals — reading aloud adds the warmth, eye contact, and turn-taking that build bonding and speech, while audiobooks fit car or sick-day moments. For bedtime, live reading wins for winding down; save audio for when hands are busy. Either way, a calm story beats screen time right before lights out.",
+  "bedtime-stories-for-4-year-olds":
+    "At four, bedtime stories can carry a simple plot, a feeling to name, and a tiny suspense that resolves kindly. Picture books about fairness, fear, or pride fit this age; let them predict the ending and echo lines. Fifteen minutes of one or two books is usually enough — keep it calm so the story points toward sleep, not stimulation.",
+  "bedtime-stories-for-5-year-olds":
+    "Five-year-olds can follow a longer arc and like stories where a character solves a small problem — useful for worries they may have. Let them read memorised parts, ask 'what next?', and close the book while calm. Chapter-book snippets work too, but keep tone soft and length modest so the story helps them settle rather than revs them up.",
+  "bedtime-stories-for-anxious-kids":
+    "For anxious kids, the right bedtime story names a worry gently and lets a character handle it calmly — without surprise or menace. Predictable, kind books lower arousal; avoid anything suspenseful near sleep. Reading together also gives a calm moment to name their own feeling out loud, which itself eases the night more than distraction ever does.",
+  "early-morning-waking":
+    "Early waking usually means too-late a bedtime, too-little wind-down, or a room that's light or loud at 5 am. Shift bedtime earlier (counter-intuitive but it works), darken the room, and keep mornings boring and dim until the agreed time. A toddler clock or 'wait for the sun' rule teaches the window without a power struggle.",
+  "dropping-the-nap":
+    "Dropping the nap shows up as a second wind at bedtime and a harder settle — the sign the child is ready. Move bedtime earlier by 30–60 minutes to bank sleep before the late-energy spike, keep the routine calm, and offer a quiet 'rest time' instead of a full nap. Most toddlers transition between two and three.",
+  "crib-to-bed-transition":
+    "Move from crib to bed when the child climbs out or the crib rail drops below chest height — safety, not age, is the cue. Do it once, keep the room childproof and boring, and hold the same routine so the new bed feels like the old rule. A gentle 'stay in bed' rhythm beats negotiation during the wobble weeks.",
+  "new-baby-bedtime":
+    "With a new baby, the older child's bedtime is the thing to protect, not bend. Hand the routine to the other caregiver or a written script, keep the order identical, and give the toddler a 'big kid' job in it. Ten calm minutes of the same sequence matters more than who does it — steadiness is the comfort.",
+  "bedtime-with-two-kids":
+    "With two kids, run one shared routine by age order — bath and teeth together, then stories split by who puts whom down — so no one waits through the other's wind-down. Keep each child's sleep window, and let the older one's 'big kid' role make the overlap feel special rather than a delay. The sequence, not perfection, is what lands.",
+  "daylight-saving-and-toddler-sleep":
+    "Clock changes steal sleep in 15-minute steps over a week, not one night. Shift bedtime and wake time 10–15 minutes earlier (spring) or later (autumn) each day, hold the routine, and darken the room at the new hour. Light exposure in the morning after the change resets the body clock faster than any lecture about the time.",
+  "reading-aloud-with-expression":
+    "Expression — voices, pauses, surprise — is what turns reading aloud from a task into a bond and holds a wiggly toddler's attention. You don't need talent; vary pace and volume, pause before a punchline, and let them finish a refrain. The warmth and rhythm do more for language and calm than a flawless performance ever will.",
+  "toddler-who-wont-sit-still-for-books":
+    "A toddler who won't sit still for books often isn't uninterested — they're two. Let them move: stand and point, turn pages, act out the story, or read during a bath or snack. Short, sturdy books and your voice are enough; the goal is 'books are fun,' not 'sit still.' Connection, not stillness, is what builds the habit.",
+  "stories-about-big-feelings-at-bedtime":
+    "Stories about big feelings let a child meet anger, jealousy, or sadness safely inside a calm book, then set it down. Pick gentle, resolved arcs — not loud conflict — and name the feeling as you read. A few quiet minutes with the right story does more for a settled night than distraction or a cheerful story that skips the emotion.",
+  "sleep-regressions-by-age":
+    "Sleep regressions are temporary dips tied to developmental leaps, teething, or separation awareness — not a broken routine. Hold the same steps, lower expectations for a week or two, and avoid new sleep props you'll later drop. They pass; the mistake is changing everything at once. Steadiness through the dip protects the nights on either side of it.",
+  "grandparents-reading-from-far-away":
+    "Distance grandparents can still own part of bedtime through a fixed video call, a posted voice note, or a book they 'star' in. Keep it short and calm, before the main routine, so it adds connection without revving the child up. A familiar voice at the same time each night becomes a reassuring cue, not a disruption to settling.",
+  "building-a-home-library":
+    "A home library for a toddler needn't be large — a small, reachable shelf of calm, sturdy favourites beats a tall, chaotic stack. Rotate a few books so nothing feels stale, keep them at child height, and let choosing be part of the routine. Ownership and easy access are what turn 'being read to' into 'loving books.'",
+  "white-noise-and-bedtime-sounds":
+    "White noise or soft sounds can mask household bumps that wake a light sleeper, and a steady, quiet sound becomes its own sleep cue. Keep it low (around a shower's hush, not louder), safe distance from the cot, and consistent — not a phone playing videos. The goal is a flat, forgettable background, not entertainment.",
+  "toddler-night-waking":
+    "Night waking is usually a skill gap, not a need — the child can't link sleep cycles without help. Respond with the same calm, boring routine each time (brief check, low light, few words), and avoid new props like feeding or rocking that are hard to drop. Consistency over a week or two is what rebuilds independent settling.",
+  "falling-asleep-independently":
+    "Falling asleep independently means the child reaches sleep the way they'll find it at 3 am — without a feed, rock, or you. Build it by putting them down awake in a calm room, same order every night, and stepping back a little each week. Boring consistency is the whole method; rescue only briefly, then return to the routine.",
+  "co-sleeping-transition":
+    "Leaving your bed is easiest when the new sleep space feels like a promotion, not an exile: childproof the room, keep the same routine, and sit beside the bed, not in it, fading out over weeks. Do it once, hold the line kindly, and avoid drifting back on hard nights — the back-and-forth is what makes the change long.",
+  "separation-anxiety-at-bedtime":
+    "Bedtime separation anxiety peaks around 18 months to three and is normal, not defiance. Name the feeling, keep goodbyes short and definite (no sneaking), and give a comfort object that stands in for you. A calm, identical routine plus a brief, boring return visit teaches 'you always come back' far better than prolonged reassurance or a stalled routine.",
+  "resetting-after-a-bad-night":
+    "After a bad night, reset by returning to the exact routine, not by making up sleep with a late start or a new prop. Earlier bedtime the next night banks what was lost; a calm, identical sequence tells the child the rules still hold. One rough night doesn't undo weeks — don't rewrite the routine to fix a single off night.",
+  "travel-and-jet-lag-with-toddlers":
+    "Travel breaks sleep through novelty, light, and time zones. Pack the routine — same book, same order, a portable dark space — and shift the child's clock in 15-minute steps toward the destination before you go. After arrival, morning light and the familiar sequence reset the body faster than any fix; expect a wobble week, then steady.",
+  "sick-child-and-sleep":
+    "When a child is sick, sleep is the medicine, so loosen the rules to comfort without inventing new ones you'll later drop. A bit more contact, a calmer room, and the same lullaby are fine; avoid a feed or screen that becomes a habit. Return to the routine as they recover — the dip is allowed, the new prop isn't.",
+  "teething-and-sleep":
+    "Teething disrupts sleep in short, sore bursts, not for months — so treat the rough nights with comfort, not a new routine. A calm room, the usual lullaby, and brief soothing is enough; avoid a sleep prop you'll have to undo. The discomfort passes; the mistake is changing everything for a few sore evenings.",
+  "summer-bedtime-light-evenings":
+    "Long summer light fools the body clock into thinking it's daytime, so bring the dark forward: blackout the room an hour before bed, dim the house, and shift the routine earlier so settling isn't a fight against the sun. Morning light after helps; the battle is light, not the child — control it and bedtime gets calm.",
+  "holiday-routine-disruption":
+    "Holidays break the routine through late days, new beds, and excitement — expect a dip, not a disaster. Keep the skeleton (book, bath, lights) even on the road, lower the bar for a week, and return to the full routine the night you're home. A familiar anchor in the chaos is what limits the fallout.",
+  "starting-preschool-and-sleep":
+    "Starting preschool taxes a tired, over-stimulated child, so protect an earlier bedtime and a calm wind-down through the first weeks. The new daytime load shows up as night waking or stalling; hold the routine and add a few minutes to name the day. The transition is brief — steadiness at home is what carries it.",
+  "bedtime-snacks-and-food-before-bed":
+    "A small, calm snack before bed helps if the child is genuinely hungry — warm milk or a banana, not sugar or screens. Eat it as part of the routine, not a reward after, and brush teeth after. The point is a settled tummy, not a second wind; keep it quiet and done well before lights out.",
+  "bath-before-bed":
+    "A warm bath works as a sleep cue because the post-bath cool-down drops core temperature, which invites drowsiness — if it's early and calm. Keep it the same place in the order, not a splashy play, and follow with dim light and stories. The bath is the signal; the calm after it is the sleep.",
+  "toddler-sharing-room-with-baby":
+    "When a toddler shares with a baby, protect the older child's wind-down from the baby's noise by ordering routines so the toddler goes down first or in another calm space. White noise masks the baby; a familiar book and the same steps keep the toddler's night theirs. The goal is 'my bed, same rule,' not a merged, restless routine.",
+  "bedtime-for-twins":
+    "Twins do best on one shared routine — bath, feed, books, bed in the same order — even if temperaments differ. Split the hands, not the sequence, so neither waits through the other's wind-down. A predictable, identical rhythm is what lets two babies learn sleep together; the efficiency is the calm, not the speed.",
+  "school-age-bedtime":
+    "School-age children (5–8) still need nine to eleven hours, so count back from wake-up and hold a fixed, screen-free wind-down of reading and talk. Later bedtimes creep in with busy calendars, but a steady hour protects mood and focus the next day. The routine shortens; it doesn't disappear — calm still beats stimulation before sleep.",
+  "when-only-one-parent-can-do-bedtime":
+    "When one parent always does bedtime, the other can step in without a fight by following a written script — same order, same words, same voice note if needed. The child adapts to the person, not the performance, when the sequence is identical. Handover is fine; a new routine each time is what makes solo nights hard.",
+  "when-to-start-reading-to-a-baby":
+    "Start reading to a baby almost immediately — newborn laps with a board book or your voice build the habit and the bond before words exist. Keep it short, calm, and part of the day, not a lesson. The aim is 'books are warmth,' so by toddlerhood reading feels as normal as a lullaby, not a skill to be taught.",
+  "bedtime-stories-for-babies":
+    "For babies, bedtime stories are less about the plot and more about the voice, the closeness, and the rhythm — short, high-contrast board books, a calm sing-song, and the same one or two each night. Five minutes is plenty; the repetition and warmth are what signal sleep and build the reading bond long before understanding arrives.",
+  "raising-a-child-who-loves-reading":
+    "You raise a reader by making books feel like warmth, not work — read daily for joy, not drill, let them choose, and model your own reading. A small shelf they own, a library trip, and stories at bedtime do more than lessons. The child who associates books with calm and closeness is the one who keeps reaching for them.",
+  "reading-aloud-and-vocabulary":
+    "Reading aloud is the single biggest daily vocabulary builder — a child hears words in books they'd rarely meet in talk, and learns them in context, not lists. Keep it warm and interactive: pause on a word, name a picture, repeat a refrain. Ten minutes most days outperforms any workbook; the conversation around the page is the lesson.",
+  "wordless-picture-books":
+    "Wordless picture books are powerful because the child supplies the story — predicting, narrating, and naming what they see, which builds language and confidence without pressure. Let them 'read' it to you, ask 'what's happening?', and praise the telling. For a reluctant or pre-verbal child, a book with no words is often the easiest yes.",
+  "rhyming-books-and-language":
+    "Rhyme trains the ear to hear sound patterns, the bedrock of reading, and toddlers love the predictability of a beat they can finish. Read rhyming books with a pause before the last word so they chime in; the play is the practice. Keep it musical and calm at bedtime — the rhythm itself soothes while it teaches.",
+  "library-visits-with-toddlers":
+    "A library visit turns reading into an outing, not a chore — let the toddler pick, keep it short and unpressured, and borrow a small, calm stack for bedtime. The habit of choosing books builds ownership; the outing builds positive association. A weekly trip with no expectation of 'sit still' is what makes the library feel like theirs.",
+  "nonfiction-for-preschoolers":
+    "Nonfiction for preschoolers — trucks, weather, animals — satisfies a 'how does that work?' mind and builds words for the real world. Keep it simple, with clear photos and one idea per page, and follow their question rather than the whole book. A few true facts at bedtime feed curiosity without the arousal a story's suspense can bring.",
+  "bedtime-charts-and-rewards":
+    "Bedtime charts work best for one clear habit — stay in bed, brush teeth — with an immediate, small reward and praise, not a bribe for the whole night. Keep it visual and short-lived; drop it once the habit holds. The chart is a scaffold for the routine, not a replacement for calm consistency, which is what actually settles the child.",
+  "books-that-reflect-your-family":
+    "Books that reflect your family — its make-up, languages, or daily life — help a child see themselves as normal and safe, which calms bedtime talk. Choose gentle, true-to-life stories, not issue lectures, and let the child point to 'that's us.' Recognition in a calm book is quietly reassuring in a way a reminder never is.",
+  "bedtime-gratitude-and-goodnight-rituals":
+    "A goodnight ritual — one song, one phrase, a named thing you're grateful for — closes the day with safety, not stimulation. Keep it identical and brief so it becomes the cue that sleep is next; let gratitude be a single sentence, not a lesson. The same small ending every night is what the child learns to expect and relax into.",
 };
 
 export const GUIDES: Guide[] = [
@@ -6459,10 +6634,22 @@ export function relatedGuides(guide: Guide, limit = 4): Guide[] {
     .map(getGuide)
     .filter((g): g is Guide => Boolean(g));
   const taken = new Set([guide.slug, ...picked.map((g) => g.slug)]);
-  const filler = GUIDES.filter(
+  // The top-up window ROTATES instead of always starting at the same sibling.
+  // It used to take the first same-category guides in GUIDES order, so the
+  // same handful absorbed every "keep reading" link in their category while
+  // the rest got none — a rich-get-richer loop that left 19 guides with four
+  // or fewer inbound internal links. Sorting by slug and starting just after
+  // the current guide spreads the links evenly and stays deterministic (no
+  // random order, so builds are reproducible).
+  const siblings = GUIDES.filter(
     (g) => g.category === guide.category && !taken.has(g.slug),
-  );
-  return [...picked, ...filler].slice(0, limit);
+  ).sort((a, b) => a.slug.localeCompare(b.slug));
+  const start = siblings.findIndex((g) => g.slug.localeCompare(guide.slug) > 0);
+  const rotated =
+    start <= 0
+      ? siblings
+      : [...siblings.slice(start), ...siblings.slice(0, start)];
+  return [...picked, ...rotated].slice(0, limit);
 }
 
 /** "2026-07-27" → "July 27, 2026" — matches the legal pages' visible format. */

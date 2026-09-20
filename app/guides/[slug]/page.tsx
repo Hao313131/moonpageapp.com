@@ -2,15 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import {
   GUIDES,
   getGuide,
   relatedGuides,
+  SOURCES_BY_CATEGORY,
+  GUIDE_SUMMARIES,
   type GuideBlock,
 } from "@/lib/guides";
-import { collectionsForGuide } from "@/lib/internalLinks";
+import { collectionsForGuide, storiesForGuide } from "@/lib/internalLinks";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { SITE, pageMetadata, pageKeywords, withSlash } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -91,20 +95,14 @@ export default async function GuidePage({ params }: { params: Params }) {
     },
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Guides",
-        item: withSlash(`${SITE.domain}/guides`),
-      },
-      { "@type": "ListItem", position: 3, name: guide.title, item: url },
-    ],
-  };
+  // One array drives both the visible trail and the BreadcrumbList markup, so
+  // the two can never drift apart — Google requires breadcrumb markup to
+  // describe a trail that is actually visible on the page.
+  const crumbs = [
+    { name: "Guides", path: "/guides" },
+    { name: guide.title, path: `/guides/${guide.slug}` },
+  ];
+  const breadcrumbLd = breadcrumbJsonLd(crumbs);
 
   // Only emitted when the guide actually has questions — an empty FAQPage is
   // a structured-data error, not a neutral no-op.
@@ -148,18 +146,24 @@ export default async function GuidePage({ params }: { params: Params }) {
   // other guides, which left the collection pages — the theme landing pages —
   // with almost no internal links from the advice layer.
   const shelves = collectionsForGuide(guide.slug, 2);
+  // The missing fourth direction: the specific book to act on. A parent who
+  // read "scared of the dark" should leave with an actual story in hand, not
+  // just a shelf. Derived from the same TAG_GUIDES map, so it always names a
+  // story that genuinely shares this guide's theme.
+  const stories = storiesForGuide(guide.slug, 3);
+  // EEAT trust signal: cite the reputable sources this guide's category draws
+  // on. Every URL in SOURCES_BY_CATEGORY was verified to resolve.
+  const sources = SOURCES_BY_CATEGORY[guide.category] ?? [];
+  // EEAT / GEO "direct answer" block — a self-contained 40–60 word answer
+  // pulled high on the page so snippet parsers and AI Mode can extract it.
+  const summary = GUIDE_SUMMARIES[guide.slug] ?? "";
 
   return (
     <>
       <Header />
       <main>
         <article className="page-gutter mx-auto max-w-2xl py-10 sm:py-14 md:py-20">
-          <Link
-            href="/guides"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-link transition-colors hover:text-link-hover sm:text-base"
-          >
-            <span aria-hidden>←</span> All guides
-          </Link>
+          <Breadcrumbs trail={crumbs} />
 
           <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-accent-strong">
             {guide.category}
@@ -190,6 +194,17 @@ export default async function GuidePage({ params }: { params: Params }) {
               </p>
             ))}
           </div>
+
+          {summary && (
+            <aside className="mt-6 rounded-2xl border border-accent/30 bg-paper p-5 sm:mt-8 sm:p-6">
+              <p className="text-xs font-semibold uppercase tracking-wide text-accent-strong">
+                The short version
+              </p>
+              <p className="mt-2 text-base leading-relaxed text-ink sm:text-lg">
+                {summary}
+              </p>
+            </aside>
+          )}
 
           {guide.sections.map((section) => (
             <section key={section.heading} className="mt-10 sm:mt-12">
@@ -289,6 +304,63 @@ export default async function GuidePage({ params }: { params: Params }) {
               </ul>
             </section>
           )}
+
+          {stories.length > 0 && (
+            <section className="mt-10 border-t border-wood/20 pt-6 sm:mt-12 sm:pt-8">
+              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
+                A story to try tonight
+              </h2>
+              <p className="mt-2 max-w-prose text-sm text-ink-muted sm:text-base">
+                Put the advice into practice — these original stories share
+                what this guide is about.
+              </p>
+              <ul className="mt-3 space-y-2">
+                {stories.map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/stories/${s.slug}`}
+                      className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
+                    >
+                      {s.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {sources.length > 0 && (
+            <section className="mt-10 border-t border-wood/20 pt-6">
+              <h2 className="font-display text-base font-semibold text-ink sm:text-lg">
+                Sources &amp; further reading
+              </h2>
+              <p className="mt-2 max-w-prose text-sm text-ink-muted sm:text-base">
+                Our guides are written for general parenting use — see{" "}
+                <Link
+                  href="/about"
+                  className="text-link underline hover:text-link-hover"
+                >
+                  how we write them
+                </Link>
+                . For clinical guidance, these organizations publish the
+                research we draw on.
+              </p>
+              <ul className="mt-3 space-y-2">
+                {sources.map((s) => (
+                  <li key={s.url}>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </article>
       </main>
       <Footer />
@@ -298,7 +370,7 @@ export default async function GuidePage({ params }: { params: Params }) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {faqJsonLd && (
         <script

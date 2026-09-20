@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BrandMark } from "./BrandMark";
 import { SubscribeCluster } from "./EmailSubscribe";
+import { HUBS } from "@/lib/hubs";
 import { SITE } from "@/lib/site";
 
 /** Footer link picks. Short anchor text, chosen to describe the destination
@@ -58,51 +59,15 @@ export function Footer() {
           <nav aria-label="Stories">
             <p className="font-semibold text-night-ink">Stories</p>
             <ul className="mt-2 space-y-1.5">
-              <li>
-                <Link href="/bedtime-stories" className="hover:text-white">
-                  Bedtime stories for kids
-                </Link>
-              </li>
-              <li>
-                <Link href="/toddler-bedtime-stories" className="hover:text-white">
-                  Toddler bedtime stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/preschool-bedtime-stories" className="hover:text-white">
-                  Preschool bedtime stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/read-aloud-bedtime-stories" className="hover:text-white">
-                  Read-aloud bedtime stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/cozy-bedtime-stories" className="hover:text-white">
-                  Cozy bedtime tales
-                </Link>
-              </li>
-              <li>
-                <Link href="/lullaby-bedtime-stories" className="hover:text-white">
-                  Lullaby bedtime stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/picture-books-for-kids" className="hover:text-white">
-                  Picture books for kids
-                </Link>
-              </li>
-              <li>
-                <Link href="/bedtime-stories-app" className="hover:text-white">
-                  Bedtime stories app
-                </Link>
-              </li>
-              <li>
-                <Link href="/bedtime-stories-by-age" className="hover:text-white">
-                  Bedtime stories by age
-                </Link>
-              </li>
+              {/* Driven by lib/hubs.ts so a new hub can never be forgotten
+                  here — see the note in that file. */}
+              {HUBS.map((h) => (
+                <li key={h.path}>
+                  <Link href={h.path} className="hover:text-white">
+                    {h.footerLabel}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link href="/stories" className="hover:text-white">
                   Browse bedtime stories
@@ -111,56 +76,6 @@ export function Footer() {
               <li>
                 <Link href="/search" className="hover:text-white">
                   Search the site
-                </Link>
-              </li>
-              <li>
-                <Link href="/short-bedtime-stories" className="hover:text-white">
-                  Short bedtime stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/free-bedtime-stories" className="hover:text-white">
-                  Free bedtime stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/sleep-stories-for-kids" className="hover:text-white">
-                  Sleep stories for kids
-                </Link>
-              </li>
-              <li>
-                <Link href="/baby-bedtime-stories" className="hover:text-white">
-                  Bedtime stories for babies
-                </Link>
-              </li>
-              <li>
-                <Link href="/bedtime-routine-chart" className="hover:text-white">
-                  Bedtime routine chart
-                </Link>
-              </li>
-              <li>
-                <Link href="/bedtime-stories-in-your-voice" className="hover:text-white">
-                  Stories in your voice
-                </Link>
-              </li>
-              <li>
-                <Link href="/bedtime-stories-for-anxious-kids" className="hover:text-white">
-                  Stories for anxious kids
-                </Link>
-              </li>
-              <li>
-                <Link href="/offline-bedtime-stories" className="hover:text-white">
-                  Offline bedtime stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/bedtime-stories-for-siblings" className="hover:text-white">
-                  Stories for siblings
-                </Link>
-              </li>
-              <li>
-                <Link href="/winter-bedtime-stories" className="hover:text-white">
-                  Winter bedtime stories
                 </Link>
               </li>
               {FOOTER_COLLECTIONS.map((c) => (
@@ -207,6 +122,11 @@ export function Footer() {
           <nav aria-label="Company">
             <p className="font-semibold text-night-ink">MoonPage</p>
             <ul className="mt-2 space-y-1.5">
+              <li>
+                <Link href="/about" className="hover:text-white">
+                  About MoonPage
+                </Link>
+              </li>
               <li>
                 <Link href="/sitemap" className="hover:text-white">
                   Site map

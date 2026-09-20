@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
 import { COLLECTIONS } from "@/lib/collections";
 import { GUIDES } from "@/lib/guides";
+import { HUBS as HUB_REGISTRY } from "@/lib/hubs";
 import { STORIES } from "@/lib/stories";
 import { SITE, pageMetadata, withSlash } from "@/lib/site";
 
@@ -15,18 +16,13 @@ export const metadata: Metadata = pageMetadata({
     "Every bedtime story, themed collection, and parenting guide on MoonPage, in one place.",
 });
 
-// The keyword hub pages — kept in sync with the real routes.
-const HUBS = [
-  { slug: "bedtime-stories", label: "Bedtime stories for kids" },
-  { slug: "toddler-bedtime-stories", label: "Toddler bedtime stories" },
-  { slug: "preschool-bedtime-stories", label: "Preschool bedtime stories" },
-  { slug: "read-aloud-bedtime-stories", label: "Read-aloud bedtime stories" },
-  { slug: "cozy-bedtime-stories", label: "Cozy bedtime tales" },
-  { slug: "lullaby-bedtime-stories", label: "Lullaby bedtime stories" },
-  { slug: "picture-books-for-kids", label: "Picture books for kids" },
-  { slug: "bedtime-stories-app", label: "Bedtime stories app" },
-  { slug: "bedtime-stories-by-age", label: "Bedtime stories by age" },
-];
+// The keyword hub pages. Driven by lib/hubs.ts rather than hand-listed here:
+// this list had silently fallen behind (9 of 21 hubs), which is how two live
+// hubs ended up unreachable from the site map page. See the note in that file.
+const HUBS = HUB_REGISTRY.map((h) => ({
+  slug: h.path.slice(1),
+  label: h.name,
+}));
 
 const OTHER = [
   { slug: "stories", label: "Browse all stories" },
