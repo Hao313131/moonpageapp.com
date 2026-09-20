@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { HubLead } from "@/components/HubLead";
 import { HubFaq } from "@/components/HubFaq";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
@@ -108,6 +109,7 @@ const RELATED_HUBS = [
   { href: "/bedtime-stories", label: "All bedtime stories" },
   { href: "/cozy-bedtime-stories", label: "Cozy bedtime stories" },
   { href: "/picture-books-for-kids", label: "Picture books for kids" },
+  { href: "/bedtime-story-ideas", label: "Bedtime story ideas" },
 ] as const;
 
 export default function BedtimeStoriesByAgePage() {
@@ -171,6 +173,10 @@ export default function BedtimeStoriesByAgePage() {
         name: "Cozy bedtime stories (shelf)",
         url: `${SITE.domain}/cozy-bedtime-stories`,
       },
+      {
+        name: "Bedtime story ideas",
+        url: `${SITE.domain}/bedtime-story-ideas`,
+      },
     ],
   });
 
@@ -189,6 +195,8 @@ export default function BedtimeStoriesByAgePage() {
             reading they want to do themselves. Here&apos;s the short version
             for each stage, with the full guides behind it.
           </p>
+
+          <HubLead path="/bedtime-stories-by-age" />
 
           <div className="mt-8 space-y-4 sm:mt-12 sm:space-y-5">
             {AGE_BANDS.map((entry) => (

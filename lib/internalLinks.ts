@@ -35,7 +35,7 @@
 
 import { COLLECTIONS, type Collection } from "./collections";
 import { getGuide, type Guide } from "./guides";
-import type { StoryTag } from "./stories";
+import { storiesByTag, type Story, type StoryTag } from "./stories";
 
 /**
  * For each theme: the guides that genuinely answer the question a parent has
@@ -221,4 +221,37 @@ export function collectionsForGuide(guideSlug: string, limit = 2): Collection[] 
 /** Guides for a collection page, by the collection's own tag. */
 export function guidesForCollection(collection: Collection, limit = 3): Guide[] {
   return guidesForTag(collection.tag, limit);
+}
+
+/**
+ * The fourth direction of the clue trail — and the one that was missing.
+ *
+ * A guide tells a parent what to do ("your kid is scared of the dark, try
+ * X"). It already links to other guides and to the *shelf* that matches. But
+ * it never pointed at an actual *book* — so the 45 story pages, the thing a
+ * parent actually came to read, got almost no internal-link love from the
+ * advice layer. This closes that loop: guide → the specific stories tagged
+ * with the same themes the guide is filed under.
+ *
+ * Derived from the same TAG_GUIDES map (guide → its tags → stories tagged
+ * with those), so it can never name a story the theme doesn't cover, and it
+ * stays in lockstep with the other three directions. Deduplicated by slug and
+ * capped by `limit` so a guide with many tags doesn't flood the page.
+ */
+export function storiesForGuide(guideSlug: string, limit = 3): Story[] {
+  const tags = (Object.keys(TAG_GUIDES) as StoryTag[]).filter((tag) =>
+    (TAG_GUIDES[tag] ?? []).includes(guideSlug),
+  );
+  const seen = new Set<string>();
+  const out: Story[] = [];
+  for (const tag of tags) {
+    for (const s of storiesByTag(tag)) {
+      if (!seen.has(s.slug)) {
+        seen.add(s.slug);
+        out.push(s);
+      }
+      if (out.length >= limit) return out;
+    }
+  }
+  return out;
 }

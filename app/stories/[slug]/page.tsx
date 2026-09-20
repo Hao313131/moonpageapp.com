@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { StoryGrid } from "@/components/StoryGrid";
@@ -19,6 +20,7 @@ import { storyCoverSrc, storyCoverUrl } from "@/lib/storyCover";
 import { STORY_DATE } from "@/lib/content-dates";
 import { guidesForTag } from "@/lib/internalLinks";
 import { aggregateRatingNode, reviewNodes } from "@/lib/reviews";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { SITE, pageMetadata, storyMetaDescription, withSlash } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -138,32 +140,21 @@ export default async function StoryPage({ params }: { params: Params }) {
       : {}),
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Stories",
-        item: withSlash(`${SITE.domain}/stories`),
-      },
-      { "@type": "ListItem", position: 3, name: story.title, item: url },
-    ],
-  };
+  // One array drives both the visible trail and the BreadcrumbList markup, so
+  // the two can never drift apart — Google requires breadcrumb markup to
+  // describe a trail that is actually visible on the page.
+  const crumbs = [
+    { name: "Stories", path: "/stories" },
+    { name: story.title, path: `/stories/${story.slug}` },
+  ];
+  const breadcrumbLd = breadcrumbJsonLd(crumbs);
 
   return (
     <>
       <Header />
       <main>
         <div className="page-gutter mx-auto max-w-4xl py-10 sm:py-14 md:py-20">
-          <Link
-            href="/stories"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-link transition-colors hover:text-link-hover sm:text-base"
-          >
-            <span aria-hidden>←</span> All stories
-          </Link>
+          <Breadcrumbs trail={crumbs} />
 
           <div className="mt-5 grid gap-6 sm:mt-6 sm:gap-8 md:grid-cols-[minmax(0,360px)_minmax(0,1fr)]">
             {/* 4:3 landscape, same as the app's cover art and the grids. */}
@@ -304,7 +295,7 @@ export default async function StoryPage({ params }: { params: Params }) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
     </>
   );

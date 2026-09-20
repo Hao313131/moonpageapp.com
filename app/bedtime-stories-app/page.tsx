@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { HubLead } from "@/components/HubLead";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
 import { FaqList } from "@/components/FaqList";
@@ -122,6 +123,7 @@ export default function BedtimeStoriesAppPage() {
             a professional narrator, or in your own recorded voice.
           </p>
 
+          <HubLead path="/bedtime-stories-app" />
           <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <section className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2">

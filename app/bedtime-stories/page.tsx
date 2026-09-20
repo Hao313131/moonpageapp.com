@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { HubLead } from "@/components/HubLead";
 import { HubFaq } from "@/components/HubFaq";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
@@ -136,6 +137,7 @@ export default function BedtimeStoriesLandingPage() {
             stories.
           </p>
 
+          <HubLead path="/bedtime-stories" />
           <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <section className="mt-8 rounded-2xl border border-wood/20 bg-paper p-5 sm:rounded-3xl sm:p-7">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { HubLead } from "@/components/HubLead";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
 import { FaqList } from "@/components/FaqList";
@@ -89,6 +90,10 @@ export default function ReadAloudBedtimeStoriesPage() {
         name: "Toddler bedtime stories",
         url: `${SITE.domain}/toddler-bedtime-stories`,
       },
+      {
+        name: "Bedtime story ideas",
+        url: `${SITE.domain}/bedtime-story-ideas`,
+      },
     ],
   });
 
@@ -115,6 +120,7 @@ export default function ReadAloudBedtimeStoriesPage() {
             sleep. Works offline once stories are on the device.
           </p>
 
+          <HubLead path="/read-aloud-bedtime-stories" />
           <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <section className="mt-10 sm:mt-12">
@@ -172,6 +178,12 @@ export default function ReadAloudBedtimeStoriesPage() {
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
               >
                 Toddler bedtime stories
+              </Link>
+              <Link
+                href="/bedtime-story-ideas"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Bedtime story ideas
               </Link>
               {RELATED_GUIDES.map((g) => (
                 <Link

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { HubLead } from "@/components/HubLead";
 import { Footer } from "@/components/Footer";
 import { BackHomeLink } from "@/components/BackLink";
 import { FaqList } from "@/components/FaqList";
@@ -100,6 +101,7 @@ export default function SiblingsBedtimeStoriesPage() {
             doesn&apos;t push bedtime past tired.
           </p>
 
+          <HubLead path="/bedtime-stories-for-siblings" />
           <SampleShelfNotice className="mt-5 sm:mt-6" />
 
           <section className="mt-10 sm:mt-12">
@@ -120,8 +122,8 @@ export default function SiblingsBedtimeStoriesPage() {
             <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-ink-muted sm:grid-cols-2 sm:text-base">
               <li>Pick a simple arc that works at every age.</li>
               <li>Let them take turns with the device or the page.</li>
-              <li>Keep the order the same so it isn't a nightly negotiation.</li>
-              <li>A short story means the older child isn't kept up.</li>
+              <li>Keep the order the same so it isn&apos;t a nightly negotiation.</li>
+              <li>A short story means the older child isn&apos;t kept up.</li>
               <li>A recorded voice helps a child who needs their person.</li>
               <li>The routine, not the book, is what settles them.</li>
             </ul>

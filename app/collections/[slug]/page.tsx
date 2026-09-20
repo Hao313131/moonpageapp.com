@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { FaqList } from "@/components/FaqList";
 import { StoreButtons } from "@/components/StoreButtons";
@@ -11,6 +12,7 @@ import { COLLECTIONS, getCollection } from "@/lib/collections";
 import { guidesForCollection } from "@/lib/internalLinks";
 import { storiesByTag } from "@/lib/stories";
 import { storyCoverUrl } from "@/lib/storyCover";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { SITE, pageMetadata, pageKeywords, withSlash } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
@@ -86,21 +88,14 @@ export default async function CollectionPage({
     })),
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": `${url}#breadcrumb`,
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Collections",
-        item: withSlash(`${SITE.domain}/collections`),
-      },
-      { "@type": "ListItem", position: 3, name: collection.title, item: url },
-    ],
-  };
+  // One array drives both the visible trail and the BreadcrumbList markup, so
+  // the two can never drift apart — Google requires breadcrumb markup to
+  // describe a trail that is actually visible on the page.
+  const crumbs = [
+    { name: "Collections", path: "/collections" },
+    { name: collection.title, path: `/collections/${collection.slug}` },
+  ];
+  const breadcrumbLd = breadcrumbJsonLd(crumbs, `${url}#breadcrumb`);
 
   // The page itself, declared as what it actually is: a themed collection of
   // books. Before this, the 22 shelf pages emitted only an ItemList and a
@@ -157,12 +152,7 @@ export default async function CollectionPage({
       <Header />
       <main>
         <div className="page-gutter mx-auto max-w-6xl py-10 sm:py-14 md:py-20">
-          <Link
-            href="/collections"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-link transition-colors hover:text-link-hover sm:text-base"
-          >
-            <span aria-hidden>←</span> All collections
-          </Link>
+          <Breadcrumbs trail={crumbs} />
 
           <h1 className="mt-4 font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
             {collection.title}
@@ -263,7 +253,7 @@ export default async function CollectionPage({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {relatedGuidesJsonLd && (
         <script

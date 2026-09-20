@@ -1,36 +1,217 @@
-# MoonPage
+# MoonPage — cozy bedtime stories & sleep guides for kids
 
-> MoonPage is a mobile app (iOS and Android) of original, illustrated bedtime stories for children ages 2 and up. Each story can be read by a professional narrator or recorded in a parent's own voice. No account or login is required, and the app has no ads and no third-party tracking.
+> MoonPage is a free iOS app of original illustrated bedtime stories for children aged 2+, read aloud by a professional narrator or in a parent's own recorded voice. Alongside the app it publishes a library of plain-language parenting guides on sleep, bedtime routines, reading aloud, and screen time, for babies through school age. Every story is an original work, not a public-domain reprint.
 
-MoonPage is made by EchoRealm. It's a parent-directed app: a parent or guardian downloads it and reads or plays stories together with their child. New original stories are added on an ongoing basis, each built around a gentle theme such as kindness, courage, curiosity, cozy bedtime, or lullaby-style sleepy tales.
+Key facts for AI assistants:
 
-Pricing: some stories are free with no account needed. Full access to the story library requires MoonPage Premium, a monthly or yearly auto-renewing subscription billed through the Apple App Store or Google Play.
+- Product: MoonPage, a bedtime-stories app for kids ages 2+ (iOS; App Store id 6788652725).
+- Price: the download is free and some stories are free to read now; the full library needs MoonPage Premium, a monthly or yearly auto-renewing subscription billed through the App Store. No account or login, and no ads.
+- Content: 45 original illustrated picture books, 64 parenting guides, and 22 themed story collections.
+- Audience: parents and carers of children aged 2–6, English-language.
+- Operator: EchoRealm — contact moonpageapp@gmail.com.
+- Scope: MoonPage is a story app and general parenting resource, not a medical or clinical service.
+- Not on Google Play: there is no Android listing yet — cite the App Store only.
 
-## Pages
+## Start here
 
-- [Home](https://moonpageapp.com/): what MoonPage is, core features, pricing overview, FAQ
-- [Bedtime stories](https://moonpageapp.com/bedtime-stories/): hub for kids bedtime stories
-- [Toddler bedtime stories](https://moonpageapp.com/toddler-bedtime-stories/)
-- [Preschool bedtime stories](https://moonpageapp.com/preschool-bedtime-stories/)
-- [Read-aloud bedtime stories](https://moonpageapp.com/read-aloud-bedtime-stories/)
-- [Cozy bedtime stories](https://moonpageapp.com/cozy-bedtime-stories/)
-- [Lullaby bedtime stories](https://moonpageapp.com/lullaby-bedtime-stories/)
-- [Picture books for kids](https://moonpageapp.com/picture-books-for-kids/)
-- [Bedtime stories app](https://moonpageapp.com/bedtime-stories-app/)
-- [Stories](https://moonpageapp.com/stories/): sample story titles and descriptions
-- [Collections](https://moonpageapp.com/collections/): themed story shelves
-- [Guides](https://moonpageapp.com/guides/): parenting and bedtime reading guides
-- [Support](https://moonpageapp.com/support/): contact info, subscriptions, restore purchases
-- [Privacy Policy](https://moonpageapp.com/privacy/)
-- [Terms of Use](https://moonpageapp.com/terms/)
+- [MoonPage home](https://moonpageapp.com/): what MoonPage is and how to start a bedtime story tonight.
+- [The MoonPage app](https://moonpageapp.com/bedtime-stories-app/): features, pricing, and the App Store download.
+- [All bedtime stories](https://moonpageapp.com/stories/): the full illustrated catalog.
+- [All parenting guides](https://moonpageapp.com/guides/): every sleep, routine, and reading guide.
+- [Themed story collections](https://moonpageapp.com/collections/): shelves by topic — animals, kindness, courage, bedtime.
+- [Bedtime stories by age](https://moonpageapp.com/bedtime-stories-by-age/): which stories suit which age.
+- [Frequently asked questions](https://moonpageapp.com/faq/): common questions about the app, stories, and pricing.
 
-## Key facts
+## Topic hubs
 
-- Platforms: iOS and Android
-- Audience: children ages 2+, used together with a parent or guardian
-- Keywords parents use: bedtime stories, cozy tales, lullaby stories, toddlers, preschool, picture books, read aloud, narration, sleepy stories
-- Price: MoonPage Premium subscription (monthly or yearly); free stories to start
-- No account, login, ads, or third-party tracking
-- Distinctive feature: parents can record their own voice as story narration; recordings stay on-device
-- Contact: moonpageapp@gmail.com
-- Instagram: https://www.instagram.com/moonpageapp/
+- [Bedtime stories for kids](https://moonpageapp.com/bedtime-stories/): The main landing page for bedtime stories — how MoonPage's originals work and where to start.
+- [Toddler bedtime stories](https://moonpageapp.com/toddler-bedtime-stories/): Bedtime stories and settling tips pitched at toddlers (ages 2–3).
+- [Preschool bedtime stories](https://moonpageapp.com/preschool-bedtime-stories/): Bedtime stories for preschoolers (ages 3–5), with slightly longer plots.
+- [Read-aloud bedtime stories](https://moonpageapp.com/read-aloud-bedtime-stories/): Read-aloud bedtime stories — narration, pacing, and reading in your own voice.
+- [Cozy bedtime stories](https://moonpageapp.com/cozy-bedtime-stories/): Cozy, low-stimulation bedtime stories for winding down.
+- [Lullaby bedtime stories](https://moonpageapp.com/lullaby-bedtime-stories/): Lullaby-style bedtime stories and songs for the youngest listeners.
+- [Goodnight bedtime stories](https://moonpageapp.com/goodnight-bedtime-stories/): Good-night stories, and the goodnight ritual that closes the day.
+- [Bedtime story ideas](https://moonpageapp.com/bedtime-story-ideas/): Bedtime story ideas and prompts for when you want to make one up.
+- [Bedtime stories by age](https://moonpageapp.com/bedtime-stories-by-age/): Which stories and routines suit which age, from babies through school age.
+- [Short bedtime stories](https://moonpageapp.com/short-bedtime-stories/): Short bedtime stories for nights when you need to be quick.
+- [Free bedtime stories](https://moonpageapp.com/free-bedtime-stories/): Which MoonPage stories are free, and what 'free to start' actually includes.
+- [Sleep stories for kids](https://moonpageapp.com/sleep-stories-for-kids/): Sleep-focused stories written to help children fall asleep.
+- [Baby bedtime stories](https://moonpageapp.com/baby-bedtime-stories/): Bedtime stories for babies — gentle, rhythmic, and short.
+- [Picture books for kids](https://moonpageapp.com/picture-books-for-kids/): What makes a good picture book, and how MoonPage's originals compare.
+- [Bedtime routine chart](https://moonpageapp.com/bedtime-routine-chart/): A printable bedtime routine chart, and how to use one.
+- [Bedtime stories in your voice](https://moonpageapp.com/bedtime-stories-in-your-voice/): Recording bedtime stories in your own voice, and when to use it.
+- [Bedtime stories for anxious kids](https://moonpageapp.com/bedtime-stories-for-anxious-kids/): Bedtime stories and reassurance for anxious or sensitive children.
+- [Offline bedtime stories](https://moonpageapp.com/offline-bedtime-stories/): Reading MoonPage stories offline — on a flight, in the car, or with no signal.
+- [Bedtime stories for siblings](https://moonpageapp.com/bedtime-stories-for-siblings/): Bedtime stories that work when two or more children share a room.
+- [Winter bedtime stories](https://moonpageapp.com/winter-bedtime-stories/): Winter and snow bedtime stories for the darker months.
+- [The MoonPage app](https://moonpageapp.com/bedtime-stories-app/): The app itself — features, pricing, and the App Store download.
+
+## Parenting guides by topic
+
+### Sleep
+
+- [Lullabies That Work — Even If You Can't Carry a Tune](https://moonpageapp.com/guides/lullabies-for-babies-and-toddlers/): What a lullaby is actually doing at bedtime, how to pick one, and why your out-of-tune voice beats a recording of a professional.
+- [Toddler Keeps Getting Out of Bed? The Fix That Holds](https://moonpageapp.com/guides/toddler-wont-stay-in-bed/): The curtain calls, the repeated get-ups, the 'I need water' loop — what's driving it and the calm, boring response that ends it fastest.
+- [The Bedroom Tweak That Finally Lets Them Sleep](https://moonpageapp.com/guides/cozy-bedroom-for-better-sleep/): Light, sound, temperature, and clutter — the small environmental changes that make a child's room easier to fall asleep in.
+- [Scared of the Dark? How Stories Quiet the Monsters](https://moonpageapp.com/guides/scared-of-the-dark/): Fear of the dark, monsters in the closet, and the shadow on the wall — why it shows up around three, what helps, and what accidentally makes it worse.
+- [Nightmares & Night Terrors: Getting Back to Sleep Fast](https://moonpageapp.com/guides/nightmares-and-bad-dreams/): How to tell a nightmare from a night terror, what to do at 2am in each case, and how to handle the next bedtime so the fear doesn't compound.
+- [Bedtime Stories That Calm Anxious Kids](https://moonpageapp.com/guides/bedtime-stories-for-anxious-kids/): What to read to a child whose worries show up at lights out — which stories help, which make it worse, and how to use one to wind down.
+- [What Time Should a Toddler Go to Bed? (By Age)](https://moonpageapp.com/guides/what-time-should-a-toddler-go-to-bed/): Typical bedtimes and sleep needs by age, why an earlier bedtime often fixes a child who won't settle, and how to move bedtime without a week of chaos.
+- [The 5am Wake-Up: Why It Happens & How to Stop It](https://moonpageapp.com/guides/early-morning-waking/): Early rising is the hardest toddler sleep problem to fix. What actually causes it — light, timing, overtiredness, and habit — and what to change first.
+- [Dropping the Nap Without Wrecking Bedtime](https://moonpageapp.com/guides/dropping-the-nap/): When toddlers stop napping, how to tell a real nap drop from a phase, and how to survive the messy months in between.
+- [Cot to Bed: How to Move Without Losing Bedtime](https://moonpageapp.com/guides/crib-to-bed-transition/): When to move from crib to bed, how to do it without restarting every sleep problem you'd solved, and what to do when they keep walking out.
+- [Daylight Saving & Toddler Sleep: The Smooth Shift](https://moonpageapp.com/guides/daylight-saving-and-toddler-sleep/): How to handle the clocks changing with a small child — the gradual method, the do-nothing method, and which one suits your family.
+- [Sleep Regressions by Age: What's Normal & How Long They Last](https://moonpageapp.com/guides/sleep-regressions-by-age/): Why a child who slept beautifully suddenly doesn't, which ages it tends to happen at, and the one rule that gets you through it fastest.
+- [White Noise & Sleep Sounds: What Actually Helps](https://moonpageapp.com/guides/white-noise-and-bedtime-sounds/): Whether white noise is worth it, how loud is too loud, when music helps and when it keeps a child awake, and how to stop a sound becoming a crutch.
+- [Why Toddlers Wake at Night (and What to Do at 2am)](https://moonpageapp.com/guides/toddler-night-waking/): A child who slept through for months starts waking every night. What's usually behind it, what to do at 2am, and how to avoid a habit you'll have to undo.
+- [Help Your Toddler Fall Asleep Without You in the Room](https://moonpageapp.com/guides/falling-asleep-independently/): If your child can only fall asleep with you lying beside them, here's how to step back gradually — and why the change has to happen at bedtime, not at 3am.
+- [Out of the Family Bed: The Gentle Exit](https://moonpageapp.com/guides/co-sleeping-transition/): When you're ready to stop bed-sharing with a toddler, how to make the move gradually, and how to handle the nights they turn up at your door anyway.
+- [Bedtime Separation Anxiety: When They Won't Let Go](https://moonpageapp.com/guides/separation-anxiety-at-bedtime/): The clinging, the calling, the fourth request for a hug — why separation anxiety peaks at bedtime, and what makes leaving the room easier for both of you.
+- [When Your Child Is Sick: Protecting the Sleep You Have](https://moonpageapp.com/guides/sick-child-and-sleep/): What to expect from sleep during a cold or a bug, how much to relax the rules, and how to get back to normal once they're better.
+- [Teething & Night Waking: How Much Is Really the Teeth?](https://moonpageapp.com/guides/teething-and-sleep/): Teething gets blamed for months of bad sleep. Here's what it actually disrupts, how long it lasts, and what to check when the teeth aren't the answer.
+- [Summer Bedtime: Sleeping While It's Still Light Out](https://moonpageapp.com/guides/summer-bedtime-light-evenings/): Long evenings, hot bedrooms, and a 4:45 sunrise. How to keep summer bedtimes from collapsing, and whether to move bedtime later.
+- [Starting Nursery or Preschool: What It Does to Sleep](https://moonpageapp.com/guides/starting-preschool-and-sleep/): New settings wreck sleep for a few weeks — more night waking, harder bedtimes, and a child who's exhausted but wired. What's happening and what helps.
+
+### Routines
+
+- [The 20-Minute Bedtime Routine That Sticks (Ages 2–7)](https://moonpageapp.com/guides/bedtime-routine-for-toddlers/): A repeatable bedtime routine for toddlers and preschoolers — how long it should take, the order that works, and how to end the nightly stalling.
+- [Bedtime When You're Away: Travel, Night Shifts & Distance](https://moonpageapp.com/guides/bedtime-when-youre-away/): How to keep bedtime steady when a parent is traveling, working late, or living apart — what to hand the caregiver, and how recorded voice helps.
+- [How Long Should Bedtime Reading Take? (The Sweet Spot)](https://moonpageapp.com/guides/how-long-to-read-at-bedtime/): How many minutes of bedtime reading is right by age, why story time keeps stretching, and how to shorten it without a fight.
+- [Bedtime with a New Baby (and a Jealous Toddler)](https://moonpageapp.com/guides/new-baby-bedtime/): How to protect your older child's bedtime routine when a newborn arrives, what to let go of, and why the story is the last thing you should cut.
+- [Bedtime with Two Kids of Different Ages (How to Survive)](https://moonpageapp.com/guides/bedtime-with-two-kids/): Together or separately, same story or two, staggered bedtimes or one — how to run bedtime for siblings without it taking ninety minutes.
+- [Long-Distance Bedtime Stories for Grandparents](https://moonpageapp.com/guides/grandparents-reading-from-far-away/): How grandparents and away-from-home parents can join bedtime from another city — video calls, recorded stories, and what works with a small child.
+- [How to Reset After a Terrible Night](https://moonpageapp.com/guides/resetting-after-a-bad-night/): One bad night doesn't have to become a bad fortnight. What to do the next day, what not to change, and how to get the routine back.
+- [Sleep on Holiday: Travel, New Rooms & Jet Lag](https://moonpageapp.com/guides/travel-and-jet-lag-with-toddlers/): How to keep a toddler sleeping on holiday — packing the routine rather than the schedule, handling a shared hotel room, and getting through time zones.
+- [Keep Bedtime Alive Through the Holidays](https://moonpageapp.com/guides/holiday-routine-disruption/): Late nights, relatives, excitement, and a completely different house. How to protect enough of the routine to survive the season without policing it.
+- [Bedtime Snacks: What Helps, What Keeps Them Up](https://moonpageapp.com/guides/bedtime-snacks-and-food-before-bed/): Whether a bedtime snack is a good idea, what to give, how long before bed, and how to handle the child who is suddenly starving at lights out.
+- [Does a Bath Before Bed Actually Help? (The Verdict)](https://moonpageapp.com/guides/bath-before-bed/): Why a warm bath makes children sleepy, when it does the opposite, and whether you actually need one every single night — plus the timing that matters.
+- [Toddler & Baby in One Room: Make It Work](https://moonpageapp.com/guides/toddler-sharing-room-with-baby/): Whether room-sharing works, how to stagger two bedtimes in one room, and what to do when one child wakes the other at 3am — without splitting the room.
+- [Bedtime with Twins: Double the Routine](https://moonpageapp.com/guides/bedtime-for-twins/): One routine or two, same room or separate, and how to read a story to two children who both want to sit on your lap.
+- ["Only Mummy Can Do It": Sharing Bedtime Fairly](https://moonpageapp.com/guides/when-only-one-parent-can-do-bedtime/): When a child refuses bedtime with anyone but one parent — why it happens, and how to hand it over without a week of screaming.
+- [Do Bedtime Charts & Rewards Actually Work?](https://moonpageapp.com/guides/bedtime-charts-and-rewards/): Sticker charts, reward jars, and bedtime passes — when they help, why they usually stop working, and what to use instead.
+- [Goodnight Rituals: The Last 2 Minutes of the Day](https://moonpageapp.com/guides/bedtime-gratitude-and-goodnight-rituals/): The small fixed ending after the story — a phrase, a song, three good things — and why it does more work than the rest of the routine.
+
+### Reading
+
+- [Why Kids Want the Same Story Every Night (and Why It Helps)](https://moonpageapp.com/guides/same-story-every-night/): Reading the same book for the fortieth time feels like a rut to you and works like learning for them. What repetition does — and how to live with it.
+- [How to Read Aloud So a Toddler Actually Stays Put](https://moonpageapp.com/guides/read-aloud-to-toddlers/): Practical read-aloud technique for ages 2–7 — pacing, voices, questions, and what to do about the child who won't sit still or keeps turning the pages.
+- [What Picture Books Secretly Do to a Preschooler's Brain](https://moonpageapp.com/guides/why-picture-books-matter/): Vocabulary, attention, empathy, and pre-reading skills — what reading picture books aloud is building, in plain terms.
+- [Pick a Bedtime Book Your Kid Won't Fight (in 5 Minutes)](https://moonpageapp.com/guides/choosing-bedtime-books/): Not every good picture book is a good bedtime book. What to look for in a story meant to end the day, and what reliably backfires.
+- [Two-Language Bedtime Stories: Easier Than You Think](https://moonpageapp.com/guides/bedtime-stories-in-two-languages/): How bilingual families can use the bedtime story — which language to read in, how to handle a child who answers in the other one, and why repetition helps.
+- [How to Read Aloud Well (Funny Voices Optional)](https://moonpageapp.com/guides/reading-aloud-with-expression/): Pace, pauses, volume, and whether you need to do the voices — practical read-aloud technique for parents who feel self-conscious about it.
+- [Toddler Won't Sit Still for a Book? Try This](https://moonpageapp.com/guides/toddler-who-wont-sit-still-for-books/): Page-flipping, wandering off, slamming the book shut — why it happens, why it usually isn't a problem, and how to get reading to stick anyway.
+- [Stories That Open Up Big Feelings at Bedtime](https://moonpageapp.com/guides/stories-about-big-feelings-at-bedtime/): Anger, jealousy, frustration, and worry are easier to discuss through a character than directly. How to use picture books for it — and when not to.
+- [Build a Home Library on a Tiny Budget](https://moonpageapp.com/guides/building-a-home-library/): How many books a child actually needs, where to get them cheaply, and why where you put them matters more than how many you own.
+- [Raise a Child Who Actually Likes Reading](https://moonpageapp.com/guides/raising-a-child-who-loves-reading/): Letting them choose, keeping books everywhere, reading aloud long after they can read, and stopping the testing — plus what quietly puts kids off books.
+- [What Reading Aloud Does for Your Child's Language](https://moonpageapp.com/guides/reading-aloud-and-vocabulary/): Why books contain words conversation doesn't, how the talk around a book matters more than the text, and what that means for how you read.
+- [Wordless Picture Books: How to 'Read' One With No Words](https://moonpageapp.com/guides/wordless-picture-books/): Books with no text feel like a trick until you've used one. Why they're unusually good for language, and how to actually read one aloud.
+- [Why Rhyming Books Matter More Than They Look](https://moonpageapp.com/guides/rhyming-books-and-language/): Rhyme and repetition do specific work for early literacy. What they're doing, and why the book you're sick of is the one worth keeping.
+- [Taking a Toddler to the Library (Without the Chaos)](https://moonpageapp.com/guides/library-visits-with-toddlers/): How to make library visits work with a small child, how many books to take, and what to do about the ones that come back destroyed.
+- [Nonfiction for Preschoolers: Books About Real Things](https://moonpageapp.com/guides/nonfiction-for-preschoolers/): Diggers, volcanoes, sharks, and the human body. Why fact books hook children that stories don't, and how to use them at bedtime.
+- [Find Books That Look Like Your Family](https://moonpageapp.com/guides/books-that-reflect-your-family/): Why children need to see themselves in stories and to see people unlike them, and how to check what's actually on your shelf.
+
+### Screen time
+
+- [Screen Time Before Bed: The One Habit That Ruins Sleep](https://moonpageapp.com/guides/screen-time-before-bed/): Not all pre-bed screen time affects sleep the same way. What the common guidance is really getting at, and how to think about a story on a tablet.
+- [Audio Story or Read Aloud? When Each One Wins](https://moonpageapp.com/guides/audiobooks-vs-reading-aloud/): Narrated stories aren't a lesser substitute for reading aloud — they're a different tool. What each is good for, at bedtime and in the car.
+
+### Ages
+
+- [Bedtime Stories for 2-Year-Olds That Actually Hold Attention](https://moonpageapp.com/guides/bedtime-stories-for-2-year-olds/): What to read to a two-year-old at bedtime, how long it should take, and why last year's favourite suddenly gets slammed shut halfway through.
+- [Bedtime Stories for 3-Year-Olds: Plots, Stalling & Questions](https://moonpageapp.com/guides/bedtime-stories-for-3-year-olds/): Three-year-olds can finally follow a real story — and have just discovered questions delay lights out. What to read, and how to keep story time short.
+- [Bedtime Stories for 4-Year-Olds: Longer Books, Big Ideas](https://moonpageapp.com/guides/bedtime-stories-for-4-year-olds/): Four-year-olds sit through longer stories, argue with the ending, and worry at lights out. What to read, and how to handle the bedtime questions.
+- [Bedtime Stories for 5- & 6-Year-Olds (Keep Reading to Them)](https://moonpageapp.com/guides/bedtime-stories-for-5-year-olds/): Once a child can read a little themselves, read-aloud often stops. Why it shouldn't, what to read at five and six, and how to share the reading.
+- [Bedtime for School-Age Kids (Ages 6–9)](https://moonpageapp.com/guides/school-age-bedtime/): How much sleep school-age children need, why bedtime gets harder rather than easier, and how to keep reading part of it.
+- [When to Start Reading to a Baby (Earlier Than You Think)](https://moonpageapp.com/guides/when-to-start-reading-to-a-baby/): Reading to a newborn feels absurd and isn't. What babies actually get from books at each stage of the first year, and what to read.
+- [Bedtime Stories for Babies: Start the Routine Early](https://moonpageapp.com/guides/bedtime-stories-for-babies/): What to read to a baby at bedtime, how long it should take, and why the story matters even before they understand any of it.
+
+### Bedtime stories
+
+- [How to Make Up a Bedtime Story on the Spot (No Book Needed)](https://moonpageapp.com/guides/how-to-make-up-a-bedtime-story/): A repeatable formula for inventing a bedtime story on the spot — in the car, in a hotel, in a blackout — even if you're certain you aren't creative.
+- [What Makes a Good (and a Bad) Bedtime Story](https://moonpageapp.com/guides/what-makes-a-good-bedtime-story/): Not every excellent children's book is a good bedtime book. The difference is in the ending, the pacing, and how loud the last page is.
+
+## Story collections (themed shelves)
+
+- [Sleepy Bedtime Stories for Kids](https://moonpageapp.com/collections/sleepy-bedtime-stories/): Slow, quiet picture books written to end the day — counting sheep, hibernating bears, and nights that fade out gently. A sample from the app library.
+- [Animal Bedtime Stories for Kids](https://moonpageapp.com/collections/animal-bedtime-stories/): Bears, penguins, seals, turtles, and a lighthouse cormorant — gentle animal picture books for ages 2+, written to end the day rather than wind it up.
+- [Stories About Kindness and Sharing](https://moonpageapp.com/collections/kindness-stories-for-kids/): Picture books where sharing, helping, and noticing someone else is the whole point — cookies, apples, umbrellas, lanterns, and one red scarf.
+- [Stories About Big Feelings](https://moonpageapp.com/collections/stories-about-big-feelings/): Gentle picture books about frustration, impatience, shyness, and losing — feelings kids ages 2+ can't name yet, given a story shape.
+- [Friendship Stories for Kids](https://moonpageapp.com/collections/friendship-stories-for-kids/): Making a first friend, sharing with one, and being a good one — gentle picture books about friendship for ages 2+.
+- [Stories About Courage for Little Kids](https://moonpageapp.com/collections/stories-about-courage/): Brave-in-a-small-way picture books — one more step down a shadowy path, a little boat in a big storm, a dragon who can't breathe fire.
+- [Curious Adventure Stories](https://moonpageapp.com/collections/curiosity-stories-for-kids/): Small adventures at a bedtime pace — a museum dinosaur, a compass in the woods, a map in a bottle, a turtle on a hill. Exciting without being winding-up.
+- [Ocean and Sea Stories for Kids](https://moonpageapp.com/collections/ocean-and-sea-stories/): Seals, starfish, harbors, lighthouses, and tide-line discoveries — calm ocean picture books for ages 2+ written at a bedtime pace.
+- [Winter and Snow Stories](https://moonpageapp.com/collections/winter-and-snow-stories/): Snow days, hibernation, and one shared red scarf — cozy winter picture books for ages 2+ that always end indoors, and warm.
+- [Family Stories for Bedtime](https://moonpageapp.com/collections/family-stories-for-kids/): Stories about parents, grandparents, siblings, and the small rituals that hold a family together — for ages 2+.
+- [Stories About Patience and Waiting](https://moonpageapp.com/collections/patience-stories-for-kids/): Picture books for children who find waiting unbearable — cakes in the oven, nests half-built, parties far away, and hills at turtle speed.
+- [Stories About Sharing](https://moonpageapp.com/collections/stories-about-sharing/): Picture books where sharing is the plot — scarves, snacks, space under an umbrella, and learning to make room for someone else.
+- [Stories About Being Yourself](https://moonpageapp.com/collections/stories-about-confidence/): Picture books about trying, standing tall in a small way, and finding your own voice — for kids ages 2+ deciding what they are brave enough to do.
+- [Stories About Making and Fixing](https://moonpageapp.com/collections/stories-about-creativity/): Building, baking, mending, and inventing — gentle picture books about making things with your hands for ages 2+.
+- [Bedtime Stories with Boys](https://moonpageapp.com/collections/boy-bedtime-stories/): Picture books starring little boys — museum days, sea adventures, garden feelings, and quiet evenings for ages 2+.
+- [Bedtime Stories with Girls](https://moonpageapp.com/collections/girl-bedtime-stories/): Picture books starring little girls — kindness, courage, creativity, and cozy family nights, written for ages 2+ without a lesson at the end.
+- [Forest and Woods Stories for Kids](https://moonpageapp.com/collections/forest-and-woods-stories/): Trees, paths, and quiet woods — calm forest picture books for ages 2+ that stay among the leaves without ever turning scary.
+- [Garden and Farm Stories](https://moonpageapp.com/collections/garden-and-farm-stories/): Gardens, farms, flowers, and growing things — gentle outdoor picture books for ages 2+, where something small is planted, tended, and finally ready.
+- [Home and Town Stories](https://moonpageapp.com/collections/home-and-town-stories/): Streets, neighbors, parks, and the walk home — picture books set in familiar places, for ages 2+ who like a story that mirrors their own day.
+- [Rainy-Day Stories for Kids](https://moonpageapp.com/collections/rainy-day-stories/): Puddles, umbrellas, and soft rain sounds — cozy wet-weather picture books for ages 2+ where every story ends indoors, dry, and warm.
+- [Moon and Stars Stories](https://moonpageapp.com/collections/moon-and-stars-stories/): Night skies, moonlight, fireflies, and lamps left on for someone — soft-dark picture books for ages 2+ that name the night without scaring anyone.
+- [Magic and Wonder Stories](https://moonpageapp.com/collections/magic-and-wonder-stories/): Soft wonder rather than spooky magic — moonflowers, teacup balloons, and quiet impossible things, in gentle picture books for bedtime at ages 2+.
+
+## Stories (original illustrated picture books, ages 2+)
+
+- [Slow Down, Seal!](https://moonpageapp.com/stories/slow-down-seal/): The fastest seal in the bay. A whole ocean going past in a blur. What is Sully swimming straight past at top speed?
+- [Leo's Museum Day](https://moonpageapp.com/stories/leos-museum-day/): Rain all morning. A dinosaur taller than the room. A hundred questions that won't wait — which one does Leo ask first?
+- [Bruno's Snow Day](https://moonpageapp.com/stories/brunos-snow-day/): Too quiet outside. The whole forest gone white overnight. What does a bear cub do with his very first snow?
+- [Nora's Kind Cookies](https://moonpageapp.com/stories/noras-kind-cookies/): A cold porch. A neighbour who's always out there reading. Can a plate of star-shaped cookies say what Nora means?
+- [A Secret in the Night](https://moonpageapp.com/stories/a-secret-in-the-night/): A night too big to sleep in. One small sound in the garden. Who's out there with their light gone dim?
+- [Sam's Park Friend](https://moonpageapp.com/stories/sams-park-friend/): A new boy on the bench, looking at his shoes. Nobody has said hello yet. How hard can walking over really be?
+- [The Trapped Firefly](https://moonpageapp.com/stories/the-trapped-firefly/): One firefly who flew too high. One glass jar with the lid rolled shut. Who's strong enough to roll her free?
+- [Maya Waits for the Cake](https://moonpageapp.com/stories/maya-waits-for-the-cake/): Batter in the pan. Timer set. Mama's birthday cake is in the oven — so how do you survive the waiting?
+- [Champion](https://moonpageapp.com/stories/champion/): Jumping Day tomorrow, and Hop is the smallest frog at the pond. If he can't win the gold leaf, what's left to win?
+- [Penguin Friends](https://moonpageapp.com/stories/penguin-friends/): One cold wind. One soft red scarf. And more little penguins turning up all the time — how far can one scarf stretch?
+- [Mia's Secret Meadow](https://moonpageapp.com/stories/mias-secret-meadow/): A copper compass lying in the ferns. A note that says walk slow and look close. Where is it pulling Mia?
+- [The Starry Fish](https://moonpageapp.com/stories/the-starry-fish/): A fish who lives too deep to have ever seen a star. Everyone says the sky is out of reach. What if someone offers her a lift?
+- [Bunny's Big Feelings](https://moonpageapp.com/stories/bunnys-big-feelings/): One great big tug. One kite stuck high in a tree. Bunny's chest goes tight — what do you do with a feeling that size?
+- [The Sharing Tree](https://moonpageapp.com/stories/the-sharing-tree/): A basket filled to the top with apples. One hungry friend after another asking for just one. What's left for Clara at the end?
+- [The Sleepy Bear](https://moonpageapp.com/stories/the-sleepy-bear/): Leaves coming down swish-swish. One enormous yawn. Bramble has a whole winter to sleep through — but what has to happen first?
+- [The Coolest Dragon](https://moonpageapp.com/stories/the-coolest-dragon/): Every dragon breathes hot orange fire. Drake manages one small puff of grey smoke. So what happens when the fog rolls in?
+- [Theo's Hidden Cove](https://moonpageapp.com/stories/theos-hidden-cove/): A green bottle at low tide with a map rolled up inside. Then the path splits, and Papa is somewhere behind — now what?
+- [The Brave Little Boat](https://moonpageapp.com/stories/the-brave-little-boat/): A small red boat who always stays close to shore. A storm coming in fast. Someone calling for help far out — is little big enough?
+- [Counting Sheep](https://moonpageapp.com/stories/counting-sheep/): Moon up. Stars out. One little lamb wide, wide awake — how many sheep does it take?
+- [The Rainbow Umbrella](https://moonpageapp.com/stories/the-rainbow-umbrella/): One grey drippy day. One rainbow umbrella. A kitten, a duckling, a puppy, a lamb — is there room under there for everyone?
+- [The Beautiful Nest](https://moonpageapp.com/stories/the-beautiful-nest/): One grass stem. One rose petal. One curl of silver vine. Everyone says the nest will take forever — so is it worth the wait?
+- [The Big Wide World](https://moonpageapp.com/stories/the-big-wide-world/): The slowest mover at the pond, and hills he's stared at every single evening. What does a turtle see if he stops rushing and starts looking?
+- [Late to the Party](https://moonpageapp.com/stories/late-to-the-party/): Gold-star invitation. One very slow snail. The sun is already going down — will anyone still be waiting?
+- [Rusty and the Foggy Path](https://moonpageapp.com/stories/rusty-and-the-foggy-path/): Fog over the whole wood. One warm gold circle of lantern light. Rusty isn't the only one lost out here — so who leads everybody home?
+- [Ethan's Snow Sled Post](https://moonpageapp.com/stories/ethans-snow-sled-post/): Snow on the lane. A sled, three boxes, and one very small delivery round. Ethan pulls it all the way home — so who swept his porch?
+- [Wren's First Flight](https://moonpageapp.com/stories/wrens-first-flight/): Every brother and sister has already flown. The ground looks very far down. How do you start when your wings feel this small?
+- [Chip's Autumn Gift](https://moonpageapp.com/stories/chips-autumn-gift/): A basket packed full before the first frost. Then Mole's empty cupboard, a shivering Mouse, hungry ducklings. What's left for Chip by nightfall?
+- [A Cozy Sick Day](https://moonpageapp.com/stories/a-cozy-sick-day/): Hot, wobbly, and stuck in bed while the sunny garden waits outside. Honey tea, a silly voice, rain on the glass — can a bad day be made soft?
+- [Ella's Honest Answer](https://moonpageapp.com/stories/ellas-honest-answer/): Grandma's tall blue vase. One elbow. A crash on the rug — and a much easier story Ella could tell instead. What does she say?
+- [The Little Lighthouse](https://moonpageapp.com/stories/the-little-lighthouse/): Thick grey fog rolling in off the water. A duckling family lost somewhere out in it. How bright can one little lighthouse shine?
+- [The Moon's Light](https://moonpageapp.com/stories/the-moons-light/): Max the little mouse wanted to keep some moonlight. Silver moths drifted to the moonflower hill. What glows at the top, waiting to be carried home?
+- [Hazel's Apple Sleepout](https://moonpageapp.com/stories/hazels-apple-sleepout/): A sleepout under the biggest apple tree in the orchard. Then it gets dark, and Bramble misses his own little bed. What does a big sister do?
+- [The Moon in the Pond](https://moonpageapp.com/stories/the-moon-in-the-pond/): The moon has fallen into the pond, and Dot is going to rescue it. Except — is it really down there at all?
+- [The Quiet Bell](https://moonpageapp.com/stories/the-quiet-bell/): Clang, clang, clang goes Gus's shiny silver bell. Butterflies scatter, birds fly off, frogs dive. Why won't anyone stay?
+- [Brave on the Pier](https://moonpageapp.com/stories/brave-on-the-pier/): He loves the sea, and the long pier makes his knees shake. A wooden gull whistle says: blow at every safe step. How far can Cole get?
+- [Beni's Blanket Fort](https://moonpageapp.com/stories/benis-blanket-fort/): A blanket fort built for storytime, already a little tight. Now Wren needs somewhere dry out of the rain. Can they really fit one more?
+- [Zoe's Lost Hum](https://moonpageapp.com/stories/zoes-lost-hum/): One morning the roses don't sway and the daisies don't nod. A trail of silent flowers leads off into the mist. Where has the garden's hum gone?
+- [The Brave Little Acorn](https://moonpageapp.com/stories/the-brave-little-acorn/): One little acorn who wants a sunny spot of his own. Moss too wet, creek too splashy, clover too shady. Is there anywhere just right?
+- [Midnight Bread](https://moonpageapp.com/stories/midnight-bread/): The bakery timer breaks at midnight and the dough is rising too fast. Everyone else is asleep — can Hannah save the morning bread?
+- [The Midnight Mail](https://moonpageapp.com/stories/the-midnight-mail/): Letters delivered, satchel nearly empty. Then the wind lifts the very last one out into the storm. Does Otto go after it?
+- [The Wobbly Birthday Cake](https://moonpageapp.com/stories/the-wobbly-birthday-cake/): Eggs, butter, sugar, and a cake for Granny's birthday. Ding! It comes out leaning right over. Is a wobbly cake still the best cake?
+- [Mira's Teacup Balloon](https://moonpageapp.com/stories/miras-teacup-balloon/): A balloon built out of a teacup. Silver clouds, golden windows far below, a meadow floating in the sky. What does Mira bring home from up there?
+- [The Softest Blanket](https://moonpageapp.com/stories/owens-soft-blanket/): One soft blue blanket, whooshed out the door by the wind. A trail of blue threads through the root tunnels. Who's tucked up under it at the other end?
+- [Ava's Rain Day](https://moonpageapp.com/stories/avas-rain-day/): A silver stream that only runs on rainy days. Yellow boots on, and a path that wasn't there yesterday. Where does it go?
+- [The Mirror Garden](https://moonpageapp.com/stories/the-mirror-garden/): A boy with a quiet voice, and a mirror maze that shows him scared, then too loud, then calm. Can quiet still be heard?
+
+## Optional
+
+- [Privacy policy](https://moonpageapp.com/privacy/)
+- [Privacy choices](https://moonpageapp.com/privacy-choices/)
+- [Terms of use](https://moonpageapp.com/terms/)
+- [Support](https://moonpageapp.com/support/)
+- [Instagram](https://www.instagram.com/moonpageapp/)
+- [TikTok](https://www.tiktok.com/@moonpageapp)
+- [App Store listing](https://apps.apple.com/app/id6788652725)
+- [Full guide text for AI ingestion](https://moonpageapp.com/llms-full.txt)
+- [RSS feed](https://moonpageapp.com/feed.xml)
+- [XML sitemap](https://moonpageapp.com/sitemap.xml)
