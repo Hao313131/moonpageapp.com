@@ -142,3 +142,71 @@ p {
 .page-gutter {
   padding-inline: clamp(1rem, 0.6rem + 1.5vw, 1.25rem);
 }
+
+/* ── Printable sheets ────────────────────────────────────────────────────────
+   /printable-bedtime-stories/ ships real paper output: a routine chart and a
+   sheet of story-starter cards. Printing the whole marketing page would spend
+   the paper on nav, footer and CTAs, so each printable region carries
+   [data-print-id] and PrintButton sets data-print="<id>" on <html> for the
+   duration of the print dialog. Everything outside the chosen region is
+   hidden and only that region is revealed.
+
+   Without data-print the page prints as an ordinary page — a parent who hits
+   Ctrl+P themselves still gets something sane rather than a blank sheet. */
+@media print {
+  html[data-print] header,
+  html[data-print] footer,
+  html[data-print] .no-print {
+    display: none !important;
+  }
+
+  html[data-print] .print-block {
+    display: none !important;
+  }
+
+  /* Same specificity as the hide rule above, so these must stay *after* it. */
+  html[data-print="routine-chart"] [data-print-id="routine-chart"],
+  html[data-print="story-cards"] [data-print-id="story-cards"] {
+    display: block !important;
+  }
+
+  html[data-print] {
+    background: #fff;
+  }
+
+  html[data-print] body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  html[data-print] .print-block {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  /* Keep a card whole — half a story prompt on the back of a sheet is useless. */
+  .print-card,
+  .print-sheet {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* The chart wants the full sheet; the cards want a tight 2-up grid. */
+  html[data-print="story-cards"] .print-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+
+  html[data-print] .print-title {
+    font-size: 18pt;
+    margin: 0 0 4mm;
+  }
+
+  html[data-print] .print-note {
+    font-size: 9pt;
+    color: #444;
+  }
+}

@@ -243,11 +243,30 @@ export default function BedtimeStoryIdeasPage() {
             </p>
           </section>
 
+          <p className="mt-10 max-w-prose text-sm leading-relaxed text-ink-muted sm:mt-12 sm:text-base">
+            Prefer to have the ideas on paper rather than in your head? Ten of
+            the starters above are on{" "}
+            <Link
+              href="/printable-bedtime-stories"
+              className="font-medium text-link underline hover:text-link-hover"
+            >
+              printable bedtime story cards
+            </Link>{" "}
+            — cut them out, keep them in a jar, and draw one when nobody can
+            think of anything.
+          </p>
+
           <section className="mt-10 sm:mt-12">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               More story ideas
             </h2>
             <div className="mt-3 flex flex-wrap gap-2">
+              <Link
+                href="/printable-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Printable bedtime stories
+              </Link>
               <Link
                 href="/bedtime-stories-in-your-voice"
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"

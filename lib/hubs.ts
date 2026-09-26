@@ -125,6 +125,13 @@ export const HUBS: Hub[] = [
     blurb: "A printable bedtime routine chart, and how to use one.",
   },
   {
+    path: "/printable-bedtime-stories",
+    name: "Printable bedtime stories",
+    footerLabel: "Printable bedtime stories",
+    blurb:
+      "Two free printables — a routine chart to tick and ten story-starter cards to cut out.",
+  },
+  {
     path: "/bedtime-stories-in-your-voice",
     name: "Bedtime stories in your voice",
     footerLabel: "Stories in your voice",
