@@ -250,11 +250,28 @@ export default function FreeBedtimeStoriesPage() {
             </p>
           </section>
 
+          <p className="mt-10 max-w-3xl text-sm leading-relaxed text-ink-muted sm:mt-12 sm:text-base">
+            One more thing that costs nothing and needs no screen:{" "}
+            <Link
+              href="/printable-bedtime-stories"
+              className="font-medium text-link underline hover:text-link-hover"
+            >
+              printable bedtime story cards and a routine chart
+            </Link>
+            , free to print straight from the page.
+          </p>
+
           <section className="mt-10 sm:mt-12">
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               Related hubs &amp; guides
             </h2>
             <div className="mt-3 flex flex-wrap gap-2">
+              <Link
+                href="/printable-bedtime-stories"
+                className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"
+              >
+                Printable bedtime stories
+              </Link>
               <Link
                 href="/bedtime-stories"
                 className="rounded-full border border-wood/30 bg-paper px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-link sm:text-sm"

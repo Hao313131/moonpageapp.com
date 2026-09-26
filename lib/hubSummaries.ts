@@ -47,6 +47,8 @@ export const HUB_SUMMARIES: Record<string, string> = {
     "Baby bedtime stories are the simplest kind: very short, rhythmic, and repetitive, often more song than story. What matters at this age is the sound of a familiar voice and the same small ritual each night, not the plot — so the same two or three books on repeat work perfectly.",
   "/bedtime-routine-chart":
     "A bedtime routine chart turns the nightly sequence into a picture checklist a child can follow themselves — bath, pyjamas, teeth, story, lights out. The chart does not change the routine; it hands the running of it to the child, which is what reduces the nightly negotiation.",
+  "/printable-bedtime-stories":
+    "Printable bedtime stories are prompts and routine sheets you print once and keep beside the bed. This page gives you two free ones: a six-step routine chart a child ticks themselves, and ten story-starter cards to cut out. Nothing to sign up for, nothing to download.",
   "/bedtime-stories-in-your-voice":
     "MoonPage lets a parent record their own voice reading a story, so a child can hear a familiar voice even when you cannot be there — on a night shift, a work trip, or at a grandparent's house. Recordings play in the app alongside the professional narration.",
   "/bedtime-stories-for-anxious-kids":
