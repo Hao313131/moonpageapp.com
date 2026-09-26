@@ -51,6 +51,11 @@ const FAQS = [
     a: "MoonPage is on the App Store now for iPhone and iPad. An Android version is in development — Google Play will be linked here the day it goes live.",
     category: "Devices & offline" as const,
   },
+  {
+    q: "How is MoonPage different from the free bedtime story websites?",
+    a: "Free story sites are usually ad-funded, so the page around the story is doing something other than helping your child settle — autoplaying video, moving banners, or a pop-up mid-sentence. MoonPage has no ads and no third-party trackers, the illustrations are made for the story rather than reused clip art, and the whole thing works with no signal once the stories are on the device.",
+    category: "Getting started" as const,
+  },
 ];
 
 const FEATURES = [
@@ -140,6 +145,84 @@ export default function BedtimeStoriesAppPage() {
                 </p>
               </div>
             ))}
+          </section>
+
+          <section className="mt-10 sm:mt-12">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+              What a bedtime with MoonPage actually looks like
+            </h2>
+            <ol className="mt-3 max-w-3xl list-decimal space-y-3 pl-5 text-sm leading-relaxed text-ink-muted sm:text-base">
+              <li>
+                <span className="font-semibold text-ink">
+                  You open the shelf and pick one story.
+                </span>{" "}
+                Every title is built to be finished in one sitting, so there is
+                no &ldquo;one more chapter&rdquo; negotiation baked into the
+                format — the story ends when it ends.
+              </li>
+              <li>
+                <span className="font-semibold text-ink">
+                  It plays as narration, or you read it aloud.
+                </span>{" "}
+                If you have recorded your own voice over a story, that is what
+                plays — which is the version that still works on a night you are
+                travelling, working late, or simply out of words.
+              </li>
+              <li>
+                <span className="font-semibold text-ink">
+                  Then it stops.
+                </span>{" "}
+                No feed, no autoplay of the next thing, no reward loop pulling
+                them back to the screen. The last thing on the screen is the end
+                of the story.
+              </li>
+              <li>
+                <span className="font-semibold text-ink">Lights out.</span>{" "}
+                Tomorrow the same shelf is waiting in the same order, which is
+                most of the reason a routine holds. If you want that order on
+                paper too, the{" "}
+                <Link
+                  href="/printable-bedtime-stories"
+                  className="font-medium text-link underline hover:text-link-hover"
+                >
+                  printable bedtime routine chart
+                </Link>{" "}
+                is free to print.
+              </li>
+            </ol>
+          </section>
+
+          <section className="mt-10 sm:mt-12">
+            <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
+              Who MoonPage is for — and who it isn&apos;t
+            </h2>
+            <div className="mt-3 grid max-w-3xl gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-wood/20 bg-paper p-5">
+                <h3 className="font-display text-base font-semibold text-ink">
+                  A good fit if
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted sm:text-base">
+                  you want the last ten minutes of the day to be calm and
+                  repeatable, your child is two or older, and you would rather
+                  not hand over a device that keeps asking for attention. It
+                  suits families who read together — the app is the story, not
+                  a substitute for the lap.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-wood/20 bg-paper p-5">
+                <h3 className="font-display text-base font-semibold text-ink">
+                  Not the right tool if
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted sm:text-base">
+                  you are looking for a learn-to-read programme, phonics drills,
+                  or animated episodes — MoonPage is deliberately none of those,
+                  and the point is that nothing on the screen competes with the
+                  story. Plenty of families also keep reading paper books most
+                  nights and open the app on the nights the routine is about to
+                  fall apart.
+                </p>
+              </div>
+            </div>
           </section>
 
           <section className="mt-10 sm:mt-12">
@@ -237,7 +320,7 @@ export default function BedtimeStoriesAppPage() {
           <SeoHubCta
             campaign="bedtime_stories_app"
             title="Download the MoonPage bedtime stories app"
-            body="Free on the App Store and Google Play. Start with free stories tonight — Premium unlocks the full library."
+            body="Free on the App Store for iPhone and iPad — Android is in development. Start with free stories tonight; Premium unlocks the full library."
           />
         </div>
       </main>
