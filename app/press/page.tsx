@@ -91,9 +91,9 @@ const ASSETS: { name: string; href: string; detail: string }[] = [
   { name: "App icon", href: "/icon.png", detail: "PNG, 1024×1024" },
   { name: "App icon (small)", href: "/icon-192.png", detail: "PNG, 192×192" },
   { name: "Social card", href: "/og-image.png", detail: "PNG, 1200×630 — the image used when MoonPage is shared" },
-  { name: "Hero illustration", href: "/hero/wp_b01_31_night_slow.webp", detail: "WebP — the night scene used on the homepage" },
-  { name: "Cover sample — The Blue Sea", href: "/covers/wp_b01_1_blue_sea_cover.webp", detail: "WebP — one of the 45 story covers" },
-  { name: "Cover sample — The Window Moon", href: "/covers/wp_b05_1_window_moon_cover.webp", detail: "WebP — one of the 45 story covers" },
+  { name: "Hero illustration", href: "/hero/wp_b01_31_night_slow.webp", detail: "WebP, 1024×768 — the night scene used on the homepage" },
+  { name: "Cover sample — The Blue Sea", href: "/covers/wp_b01_1_blue_sea_cover.webp", detail: "WebP, 800×588 — one of the 45 story covers" },
+  { name: "Cover sample — The Window Moon", href: "/covers/wp_b05_1_window_moon_cover.webp", detail: "WebP, 800×588 — one of the 45 story covers" },
 ];
 
 /** Naming rules. Small, but a press page that does not state them gets its
