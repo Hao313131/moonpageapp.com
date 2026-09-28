@@ -128,6 +128,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/press" className="hover:text-white">
+                  Press &amp; media kit
+                </Link>
+              </li>
+              <li>
                 <Link href="/sitemap" className="hover:text-white">
                   Site map
                 </Link>

@@ -13,7 +13,7 @@ export const ROUTE_DATES: Record<string, string> = {
   "/bedtime-stories-by-age": "2026-09-20",
   "/cozy-bedtime-stories": "2026-09-20",
   "/lullaby-bedtime-stories": "2026-09-20",
-  "/bedtime-stories-app": "2026-09-20",
+  "/bedtime-stories-app": "2026-09-26",
   "/picture-books-for-kids": "2026-09-20",
   "/stories": "2026-09-20",
   "/collections": "2026-09-20",

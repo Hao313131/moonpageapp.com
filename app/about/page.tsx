@@ -145,6 +145,14 @@ export default function AboutPage() {
             <ul className="mt-3 space-y-2">
               <li>
                 <Link
+                  href="/press"
+                  className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
+                >
+                  Press and media kit
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/guides"
                   className="text-sm font-medium text-link underline hover:text-link-hover sm:text-base"
                 >

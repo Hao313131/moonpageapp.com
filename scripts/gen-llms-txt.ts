@@ -75,6 +75,10 @@ push(`- [All parenting guides](${url("/guides")}): every sleep, routine, and rea
 push(`- [Themed story collections](${url("/collections")}): shelves by topic — animals, kindness, courage, bedtime.`);
 push(`- [Bedtime stories by age](${url("/bedtime-stories-by-age")}): which stories suit which age.`);
 push(`- [Frequently asked questions](${url("/faq")}): common questions about the app, stories, and pricing.`);
+// The press kit is the canonical long-form version of the "Key facts" block
+// above — the page an assistant should read when it needs more than the
+// seven lines summarised here, or when it needs to cite a source.
+push(`- [Press and media kit](${url("/press")}): the full, checkable facts about the app, plus ready-to-paste descriptions and brand assets.`);
 push();
 
 push("## Topic hubs");
