@@ -29,7 +29,31 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - name: Build
+        # next/font/google downloads the webfonts from fonts.gstatic.com at build
+        # time, so the build has a hard dependency on Google's CDN. When that
+        # fetch fails it surfaces as a Turbopack
+        # "Module not found: @vercel/turbopack-next/internal/font/google/font"
+        # error and takes the whole deploy down with it — 3 of the last 60 runs
+        # died this way. Because a failed run leaves the PREVIOUS build live,
+        # the push looked fine while the site silently stayed stale. That is the
+        # dangerous part: it is invisible unless you read the run status.
+        #
+        # The failure is transient (one pair failed at 09:07 and succeeded at
+        # 09:12 on identical code), so retry. Two extra minutes beats a silent
+        # no-op deploy. The permanent fix is next/font/local with the woff2
+        # files vendored into the repo — see docs/你现在要做的.md.
+        run: |
+          for attempt in 1 2 3; do
+            if npm run build; then
+              echo "Build succeeded on attempt ${attempt}."
+              exit 0
+            fi
+            echo "::warning::Build attempt ${attempt} of 3 failed — retrying."
+            sleep 15
+          done
+          echo "::error::Build failed on all 3 attempts. The live site is still on the previous build."
+          exit 1
         env:
           # Search-engine / webmaster verification tags (layout.tsx reads these).
           # Add the secrets in repo Settings → Secrets once you have each token;
