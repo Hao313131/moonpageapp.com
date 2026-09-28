@@ -44,6 +44,7 @@ const ROUTES = [
   "/faq",
   "/guides",
   "/about",
+  "/press",
   "/privacy",
   "/privacy-choices",
   "/terms",
@@ -88,6 +89,10 @@ const ROUTE_META: Record<string, { priority: number; changeFrequency: Freq }> = 
   // Trust page — low priority, but it's the "who is behind this" node the
   // E-E-A-T signal hangs off, so it belongs in the sitemap.
   "/about": { priority: 0.5, changeFrequency: "yearly" },
+  // Press kit — the landing page outreach emails point at, so it is worth
+  // recrawling more often than the other trust pages even though it will not
+  // rank for anything on its own.
+  "/press": { priority: 0.6, changeFrequency: "monthly" },
   "/privacy": { priority: 0.3, changeFrequency: "yearly" },
   "/privacy-choices": { priority: 0.3, changeFrequency: "yearly" },
   "/terms": { priority: 0.3, changeFrequency: "yearly" },
