@@ -16,9 +16,19 @@ export const SITE = {
   /** Short social-proof line used in the hero and near download CTAs. */
   trustLine:
     "Trusted by thousands of moms for calmer bedtime routines and cozy stories.",
-  /** App Store subtitle (30 char limit). Deliberately shares no words with
-   * `title` above — repeated terms buy nothing in Apple's search index. */
-  subtitle: "Sleepy Picture Storybooks",
+  /**
+   * A record of the live App Store subtitle (30 char limit), so the repo does
+   * not drift from what is actually shipped. Deliberately shares no words with
+   * `title` above — repeated terms buy nothing in Apple's search index.
+   *
+   * ⚠️ App Store Connect is the source of truth for this string; this field is
+   * a mirror and is not rendered anywhere. It previously held an older draft
+   * value ("Sleepy Picture Storybooks") that was never shipped, which is the
+   * same class of bug as the stale "Free on Google Play" copy: a string in the
+   * codebase asserting something untrue about the live app. If the subtitle
+   * changes in App Store Connect, change it here in the same breath.
+   */
+  subtitle: "Read Aloud Picture Books",
   /**
    * The homepage meta/OG description — the snippet under the title in search
    * results and the caption on a shared link, so it has to sell on its own.
