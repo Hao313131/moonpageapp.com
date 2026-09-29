@@ -5,7 +5,7 @@
  * than claiming a date it can't support.
  */
 export const ROUTE_DATES: Record<string, string> = {
-  "": "2026-09-20",
+  "": "2026-09-28",
   "/bedtime-stories": "2026-09-20",
   "/toddler-bedtime-stories": "2026-09-20",
   "/preschool-bedtime-stories": "2026-09-20",

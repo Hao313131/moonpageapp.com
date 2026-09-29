@@ -22,7 +22,7 @@ export function Trust() {
             key={f}
             className="flex items-start gap-3 rounded-2xl bg-paper p-4 text-sm text-ink-muted sm:p-5 sm:text-base"
           >
-            <span className="mt-0.5 shrink-0 text-accent-strong" aria-hidden>
+            <span className="mt-0.5 shrink-0 text-accent-text" aria-hidden>
               ✓
             </span>
             <span className="min-w-0">{f}</span>

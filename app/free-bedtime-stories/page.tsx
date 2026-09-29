@@ -132,8 +132,14 @@ export default function FreeBedtimeStoriesPage() {
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               What&apos;s free in MoonPage, and what isn&apos;t
             </h2>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full min-w-[34rem] border-collapse text-left text-sm sm:text-base">
+              {/* Keyboard users must be able to reach the table and scroll it. */}
+              <div
+                className="mt-4 overflow-x-auto"
+                role="region"
+                aria-label="What is free in MoonPage, and what is not"
+                tabIndex={0}
+              >
+                <table className="w-full min-w-[34rem] border-collapse text-left text-sm sm:text-base">
                 <thead>
                   <tr className="border-b border-wood/30">
                     <th className="py-2 pr-4 font-display font-semibold text-ink">

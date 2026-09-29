@@ -121,8 +121,14 @@ export default function BabyBedtimeStoriesPage() {
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               What works at each stage
             </h2>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full min-w-[38rem] border-collapse text-left text-sm sm:text-base">
+              {/* Keyboard users must be able to reach the table and scroll it. */}
+              <div
+                className="mt-4 overflow-x-auto"
+                role="region"
+                aria-label="What works at each stage"
+                tabIndex={0}
+              >
+                <table className="w-full min-w-[38rem] border-collapse text-left text-sm sm:text-base">
                 <thead>
                   <tr className="border-b border-wood/30">
                     <th className="py-2 pr-4 font-display font-semibold text-ink">

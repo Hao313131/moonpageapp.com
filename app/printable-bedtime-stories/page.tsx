@@ -209,7 +209,15 @@ export default function PrintableBedtimeStoriesPage() {
                   you finish the whole step.
                 </p>
 
-                <div className="mt-5 overflow-x-auto">
+                {/* A 30rem-wide table in a ~20rem phone viewport: the wrapper
+                    scrolls, so a keyboard user has to be able to reach it and
+                    scroll with the arrow keys (axe: scrollable-region-focusable). */}
+                <div
+                  className="mt-5 overflow-x-auto"
+                  role="region"
+                  aria-label="My bedtime routine chart"
+                  tabIndex={0}
+                >
                   <table className="w-full min-w-[30rem] border-collapse text-left text-xs sm:text-sm">
                     <caption className="sr-only">
                       A week of bedtime routine steps with a tick box for each
@@ -294,7 +302,7 @@ export default function PrintableBedtimeStoriesPage() {
                     key={card.title}
                     className="print-card rounded-xl border border-wood/30 bg-cream/40 p-4"
                   >
-                    <p className="text-xs font-semibold uppercase tracking-wide text-accent-strong">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-accent-text">
                       Card {i + 1}
                     </p>
                     <p className="mt-1 font-display text-sm font-semibold text-ink sm:text-base">

@@ -27,7 +27,7 @@ export function GuidePreview() {
             href={`/guides/${g.slug}`}
             className="group flex min-w-0 flex-col rounded-2xl border border-wood/20 bg-paper p-5 transition-colors hover:border-accent sm:rounded-3xl sm:p-6"
           >
-            <span className="text-xs font-semibold uppercase tracking-wide text-accent-strong">
+            <span className="text-xs font-semibold uppercase tracking-wide text-accent-text">
               {g.category}
             </span>
             <h3 className="mt-2 font-display text-base font-semibold leading-snug text-ink group-hover:text-link sm:text-lg">

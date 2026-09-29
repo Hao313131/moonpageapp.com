@@ -16,8 +16,18 @@ export function HubLead({ path }: { path: string }) {
   const summary = HUB_SUMMARIES[path];
   if (!summary) return null;
   return (
-    <aside className="mt-6 rounded-2xl border border-accent/30 bg-paper p-5 sm:mt-8 sm:p-6">
-      <p className="text-xs font-semibold uppercase tracking-wide text-accent-strong">
+    // The label matters: hub pages render this alongside SampleShelfNotice,
+    // and two unnamed <aside>s are two identical `complementary` landmarks —
+    // axe flags that as landmark-unique. Naming one is not enough; both are
+    // named, this one after its own visible heading.
+    <aside
+      aria-labelledby="hub-lead-heading"
+      className="mt-6 rounded-2xl border border-accent/30 bg-paper p-5 sm:mt-8 sm:p-6"
+    >
+      <p
+        id="hub-lead-heading"
+        className="text-xs font-semibold uppercase tracking-wide text-accent-text"
+      >
         The short version
       </p>
       <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink sm:text-lg">

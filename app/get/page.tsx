@@ -61,8 +61,14 @@ export default function GetPage() {
           No ads. No login. Just open, read, and lights out.
         </p>
 
-        {/* phone: horizontal scroll strip · tablet+: 3-up grid */}
-        <div className="-mx-1 mt-10 flex w-full max-w-3xl gap-3 overflow-x-auto px-1 pb-2 sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0">
+        {/* phone: horizontal scroll strip · tablet+: 3-up grid. On phones the
+            strip scrolls, so a keyboard user has to be able to reach it. */}
+        <div
+          className="-mx-1 mt-10 flex w-full max-w-3xl gap-3 overflow-x-auto px-1 pb-2 sm:mx-0 sm:mt-14 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0"
+          role="region"
+          aria-label="App screenshots"
+          tabIndex={0}
+        >
           {SHOTS.map((s) => (
             <div
               key={s.file}
