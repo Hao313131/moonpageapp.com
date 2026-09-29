@@ -7,12 +7,17 @@ import { BackHomeLink } from "@/components/BackLink";
 import { SampleShelfNotice } from "@/components/SampleShelfNotice";
 import { collectionsWithStories } from "@/lib/collections";
 import { SITE, pageMetadata, withSlash } from "@/lib/site";
+import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
+
+// One source for both the meta description and the CollectionPage description,
+// so the two can't drift.
+const DESCRIPTION =
+  "Browse children's bedtime stories by theme — animals, kindness, feelings, friendship, courage, family, sea, forest, night, and more.";
 
 export const metadata: Metadata = pageMetadata({
   path: "/collections",
   title: "Children's Bedtime Stories by Theme",
-  description:
-    "Browse children's bedtime stories by theme — animals, kindness, feelings, friendship, courage, family, sea, forest, night, and more.",
+  description: DESCRIPTION,
   keywords: [
     "bedtime stories by theme",
     "kids story collections",
@@ -24,32 +29,54 @@ export const metadata: Metadata = pageMetadata({
 
 export default function CollectionsPage() {
   const collections = collectionsWithStories();
+  const url = withSlash(`${SITE.domain}/collections`);
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: withSlash(SITE.domain) },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Collections",
-        item: withSlash(`${SITE.domain}/collections`),
-      },
-    ],
-  };
+  // No visible trail is rendered on this page, and that is deliberate rather
+  // than an oversight: it is a depth-1 hub whose whole trail is "Home /
+  // Collections", which the BackHomeLink above the heading already covers.
+  // Google's BreadcrumbList doc documents the markup and the on-page HTML
+  // breadcrumb separately and treats the visual block as an optional part of
+  // the design — it never requires the trail to be visible. So this is not a
+  // policy problem; it just may not earn the breadcrumb rich result.
+  const breadcrumbLd = breadcrumbJsonLd(
+    [{ name: "Collections", path: "/collections" }],
+    `${url}#breadcrumb`,
+  );
 
+  // The directory of shelves, with an `@id` so the CollectionPage below can
+  // reference it. The 22 shelf pages wire `mainEntity` / `breadcrumb` by `@id`;
+  // this page — their parent — was the one place that did not. It used to
+  // declare `["ItemList", "CollectionPage"]` on a single node carrying no
+  // `name`, no `url` and no `@id`, which left the CollectionPage half a typed
+  // entity with nothing in it that a consumer could resolve or merge.
   const itemListJsonLd = {
     "@context": "https://schema.org",
-    // Both types: ItemList (a directory of links) and CollectionPage (a
-    // themed index of story collections) — covers more rich-result surfaces.
-    "@type": ["ItemList", "CollectionPage"],
+    "@type": "ItemList",
+    "@id": `${url}#collections`,
+    name: "Children's Bedtime Stories by Theme",
     itemListElement: collections.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
       url: withSlash(`${SITE.domain}/collections/${c.slug}`),
       name: c.title,
     })),
+  };
+
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Children's Bedtime Stories by Theme",
+    description: DESCRIPTION,
+    url,
+    inLanguage: "en",
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE.name,
+      url: withSlash(SITE.domain),
+    },
+    audience: { "@type": "PeopleAudience", suggestedMinAge: 2 },
+    mainEntity: { "@id": `${url}#collections` },
+    breadcrumb: { "@id": `${url}#breadcrumb` },
   };
 
   return (
@@ -116,11 +143,15 @@ export default function CollectionsPage() {
       <Footer />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
     </>
   );
