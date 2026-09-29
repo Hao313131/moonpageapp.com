@@ -123,8 +123,14 @@ export default function BedtimeRoutineChartPage() {
               Four to six steps, always the same order, always ending the same
               way. The column on the right is the part parents forget.
             </p>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full min-w-[38rem] border-collapse text-left text-sm sm:text-base">
+              {/* Keyboard users must be able to reach the table and scroll it. */}
+              <div
+                className="mt-4 overflow-x-auto"
+                role="region"
+                aria-label="The bedtime routine chart"
+                tabIndex={0}
+              >
+                <table className="w-full min-w-[38rem] border-collapse text-left text-sm sm:text-base">
                 <thead>
                   <tr className="border-b border-wood/30">
                     <th className="py-2 pr-4 font-display font-semibold text-ink">

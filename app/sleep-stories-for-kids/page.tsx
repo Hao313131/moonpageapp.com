@@ -133,11 +133,21 @@ export default function SleepStoriesForKidsPage() {
             <h2 className="font-display text-lg font-semibold text-ink sm:text-xl">
               Sleep story or bedtime story — which does your child need?
             </h2>
-            <div className="mt-4 overflow-x-auto">
-              <table className="w-full min-w-[36rem] border-collapse text-left text-sm sm:text-base">
+              {/* Keyboard users must be able to reach the table and scroll it. */}
+              <div
+                className="mt-4 overflow-x-auto"
+                role="region"
+                aria-label="Sleep story or bedtime story"
+                tabIndex={0}
+              >
+                <table className="w-full min-w-[36rem] border-collapse text-left text-sm sm:text-base">
                 <thead>
                   <tr className="border-b border-wood/30">
                     <th className="py-2 pr-4 font-display font-semibold text-ink">
+                      {/* This column holds the row labels (Shape, Pace, Ending…).
+                          A bare &nbsp; reads as an empty header cell to axe
+                          (empty-table-header), so it carries a real name. */}
+                      <span className="sr-only">What to compare</span>
                       &nbsp;
                     </th>
                     <th className="py-2 pr-4 font-display font-semibold text-ink">

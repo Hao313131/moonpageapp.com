@@ -165,7 +165,7 @@ export default async function GuidePage({ params }: { params: Params }) {
         <article className="page-gutter mx-auto max-w-2xl py-10 sm:py-14 md:py-20">
           <Breadcrumbs trail={crumbs} />
 
-          <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-accent-strong">
+          <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-accent-text">
             {guide.category}
           </p>
           <h1 className="mt-2 font-display text-[1.625rem] font-semibold leading-[1.15] text-ink sm:text-3xl md:text-4xl">
@@ -196,8 +196,14 @@ export default async function GuidePage({ params }: { params: Params }) {
           </div>
 
           {summary && (
-            <aside className="mt-6 rounded-2xl border border-accent/30 bg-paper p-5 sm:mt-8 sm:p-6">
-              <p className="text-xs font-semibold uppercase tracking-wide text-accent-strong">
+            <aside
+              aria-labelledby="guide-summary-heading"
+              className="mt-6 rounded-2xl border border-accent/30 bg-paper p-5 sm:mt-8 sm:p-6"
+            >
+              <p
+                id="guide-summary-heading"
+                className="text-xs font-semibold uppercase tracking-wide text-accent-text"
+              >
                 The short version
               </p>
               <p className="mt-2 text-base leading-relaxed text-ink sm:text-lg">

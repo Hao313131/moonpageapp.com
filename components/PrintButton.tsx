@@ -51,7 +51,7 @@ export function PrintButton({
       onClick={handlePrint}
       className={
         className ??
-        "no-print inline-flex items-center gap-2 rounded-full bg-accent-strong px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-link focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link sm:text-base"
+        "no-print inline-flex items-center gap-2 rounded-full bg-accent-cta px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-link focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link sm:text-base"
       }
     >
       {children}

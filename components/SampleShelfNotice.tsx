@@ -8,7 +8,12 @@ type Props = {
  */
 export function SampleShelfNotice({ className = "" }: Props) {
   return (
+    // Named so it is distinguishable from the hub's HubLead <aside>: both are
+    // `complementary` landmarks, and two unnamed ones on one page is a
+    // landmark-unique violation. There is no short visible heading to point
+    // `aria-labelledby` at, so this carries its own label.
     <aside
+      aria-label="About the sample library"
       className={`flex items-start gap-3 rounded-2xl border-2 border-accent bg-paper p-4 sm:gap-4 sm:p-5 ${className}`}
     >
       <span aria-hidden className="text-xl sm:text-2xl">

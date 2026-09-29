@@ -24,6 +24,25 @@
   --color-accent: #f6b15a;
   --color-accent-dark: #e09a3a;
   --color-accent-strong: #f07a2d;
+  /* Small orange TEXT — eyebrow labels ("Routines", "The short version") and
+     the FAQ accordion's "+" glyph. `accent-strong` is a FILL colour: it only
+     needs 3:1 against the white/cream label sitting on it, and it delivers
+     exactly that (2.79:1 white, 1.69:1 cream). Reused as text it fails badly —
+     2.36:1 on paper, 1.69:1 on cream — against the 4.5:1 WCAG AA requires for
+     text this size (12px semibold is "normal text", not "large text").
+     One token cannot serve both roles, so this is the text-only twin. It
+     clears AA on every background those labels sit on:
+     paper 7.95:1 · cream 5.68:1 · cream-deep 4.71:1 · white 9.40:1.
+     Do NOT use it for buttons — keep `accent-strong` there. */
+  --color-accent-text: #7a2f00;
+  /* Fill for CTA buttons that carry WHITE text (print button, review submit,
+     search submit). `accent-strong` cannot do this job either: white on it is
+     2.79:1 and cream on it is 1.69:1, both far below 4.5:1 for 14–16px text.
+     This is the deepest orange that still reads as orange (hue 27°, a hair off
+     accent-strong's 23.7°) while clearing AA with white: 5.13:1. Hover goes to
+     `--color-link` (7.80:1 with white), so both states pass.
+     NOT a text colour — use `--color-accent-text` for that. */
+  --color-accent-cta: #b35100;
   /* Text links on cream — darker than accent-strong so orange CTAs stay readable. */
   --color-link: #8a3a0e;
   --color-link-hover: #5c3a21;

@@ -180,7 +180,7 @@ export function ReviewForm({
         <button
           type="submit"
           disabled={rating < 1 || status === "sending"}
-          className="rounded-full bg-accent-strong px-5 py-2 text-sm font-semibold text-cream transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
+          className="rounded-full bg-accent-cta px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 sm:text-base"
         >
           {status === "sending" ? "Sending…" : "Submit review"}
         </button>

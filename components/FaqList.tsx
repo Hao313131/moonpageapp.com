@@ -26,7 +26,7 @@ export function FaqList({
           <summary className="cursor-pointer list-none font-display text-sm font-semibold text-ink marker:hidden sm:text-base">
             <span className="flex items-start justify-between gap-3 sm:items-center sm:gap-4">
               <span className="min-w-0">{f.q}</span>
-              <span className="shrink-0 text-accent-strong transition-transform group-open:rotate-45">
+              <span className="shrink-0 text-accent-text transition-transform group-open:rotate-45">
                 +
               </span>
             </span>

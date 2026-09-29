@@ -116,7 +116,7 @@ export function SearchClient() {
         />
         <button
           type="submit"
-          className="shrink-0 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-strong"
+          className="shrink-0 rounded-xl bg-accent-cta px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-link"
         >
           Search
         </button>
@@ -178,7 +178,7 @@ export function SearchClient() {
                   <p className="mt-1 text-sm leading-relaxed text-ink-muted">
                     {r.snippet}
                   </p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-accent-strong">
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-accent-text">
                     <Link
                       href={KIND_HREF[r.kind]}
                       className="hover:underline"
