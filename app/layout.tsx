@@ -318,6 +318,12 @@ export default function RootLayout({
           href="https://cloud.umami.is"
           crossOrigin="anonymous"
         />
+        {/* Warm up the PostHog connection early (same rationale as Umami above). */}
+        <link
+          rel="preconnect"
+          href="https://us.i.posthog.com"
+          crossOrigin="anonymous"
+        />
         {/* Umami Cloud Analytics — website-id is public by design (same as GA measurement ID).
             The tracker is injected by the inline bootstrap below instead of being a plain
             <Script src>, so browser automation can be dropped before it sends anything.
@@ -373,6 +379,47 @@ export default function RootLayout({
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "yaucjablh2");`}
+        </Script>
+        {/*
+          PostHog — product analytics. Loads the library from the CDN (no npm
+          dependency, which keeps `output: "export"` clean) and enables
+          autocapture, so pageviews, link/button clicks and form submits are
+          collected with zero extra code. See the conversion-event guide for
+          the handful of NAMED events worth layering on top of autocapture.
+
+          Mounted with the same fail-open filter as Umami: real visitors on the
+          production custom domain (moonpageapp.com) are always tracked; the
+          gate only drops local dev, *.github.io preview URLs, and browser
+          automation / headless crawlers. If the filter throws, it FAILS OPEN
+          and still loads — a bug here must never be able to silently stop
+          collecting real visits.
+        */}
+        <Script id="posthog-loader" strategy="lazyOnload">
+          {`(function () {
+  var LOCAL_HOST = /^(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0|\\[::1\\]|::1)$/i;
+  var NON_PROD_HOST = /\\.local$|\\.localhost$|\\.github\\.io$/i;
+  var BOT_UA = /bot[\\/\\s;)]|bot$|crawl|spider|slurp|headless|lighthouse|pagespeed|puppet|playwright|selenium|phantomjs|gtmetrix/i;
+  var skip;
+  try {
+    skip =
+      navigator.webdriver === true ||
+      location.protocol === "file:" ||
+      LOCAL_HOST.test(location.hostname) ||
+      NON_PROD_HOST.test(location.hostname) ||
+      BOT_UA.test(navigator.userAgent || "");
+  } catch (e) {
+    skip = false;
+  }
+  if (skip) return;
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog&&window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}p||((p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="du fu pu gu bu init Vu Gu zu Uu Ku el Wu Xu qu rc oc ac lc uc cc capture getExtension Qu cu fc calculateEventProperties dc register register_once register_for_session unregister unregister_for_session bc Bu gc getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys onActiveMatchingSurveysChanged renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset wc shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty mc ec createPersonProfile setInternalOrTestUser yc Su wu opt_in_capturing opt_out_capturing ku has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Yu debug il Os getPageViewId captureTraceFeedback captureTraceMetric Ou".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_qzDj5Z3WtaNM7UTXSCUFbwjHV85gdQvyzH7ymBKoguLy', {
+    api_host: 'https://us.i.posthog.com',
+    defaults: '2026-05-30',
+    person_profiles: 'identified_only',
+    capture_pageview: true,
+    autocapture: true
+  });
+})();`}
         </Script>
         <script
           type="application/ld+json"
