@@ -7,7 +7,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Footer } from "@/components/Footer";
 import { StoreButtons } from "@/components/StoreButtons";
 import { StoryGrid } from "@/components/StoryGrid";
-import { ReviewSection } from "@/components/ReviewSection";
 import { COLLECTIONS } from "@/lib/collections";
 import {
   STORIES,
@@ -19,7 +18,6 @@ import {
 import { storyCoverSrc, storyCoverUrl } from "@/lib/storyCover";
 import { STORY_DATE } from "@/lib/content-dates";
 import { guidesForTag } from "@/lib/internalLinks";
-import { aggregateRatingNode, reviewNodes } from "@/lib/reviews";
 import { breadcrumbJsonLd } from "@/lib/breadcrumbs";
 import { SITE, pageMetadata, storyMetaDescription, withSlash } from "@/lib/site";
 
@@ -128,16 +126,6 @@ export default async function StoryPage({ params }: { params: Params }) {
       availability: "https://schema.org/InStock",
       url,
     },
-    // First-party reviews only — see lib/reviews.ts for why we never lift App
-    // Store ratings into our own markup. Emitted only when this story actually
-    // has reviews, and always paired with the visible <ReviewSection> below
-    // (Google requires a marked-up rating to be visible on the page).
-    ...(aggregateRatingNode(story.slug)
-      ? {
-          aggregateRating: aggregateRatingNode(story.slug),
-          review: reviewNodes(story.slug),
-        }
-      : {}),
   };
 
   // One array drives both the visible trail and the BreadcrumbList markup, so
@@ -284,8 +272,6 @@ export default async function StoryPage({ params }: { params: Params }) {
               </ul>
             </section>
           )}
-
-          <ReviewSection reviewKey={story.slug} title={story.title} />
         </div>
       </main>
       <Footer />

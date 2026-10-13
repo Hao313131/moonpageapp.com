@@ -58,7 +58,7 @@ export function Footer() {
         <div className="grid gap-6 pt-6 text-xs text-night-muted sm:gap-8 sm:pt-8 sm:text-sm md:grid-cols-3">
           <nav aria-label="Stories">
             <p className="font-semibold text-night-ink">Stories</p>
-            <ul className="mt-2 space-y-1.5">
+            <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5 sm:gap-x-6">
               {/* Driven by lib/hubs.ts so a new hub can never be forgotten
                   here — see the note in that file. */}
               {HUBS.map((h) => (
