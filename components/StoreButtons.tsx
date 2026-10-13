@@ -71,12 +71,23 @@ const STORE_LINK_PROPS = {
  * site's only real conversion, so every badge reports which store it sent to
  * and which block on the page it was in — otherwise the analytics can say how
  * many people arrived but nothing about what made them download.
+ *
+ * The same event is mirrored onto PostHog via `data-ph-*` attributes. PostHog
+ * autocapture already records every badge click as a generic `$autocapture`
+ * event, but a named `download_click` with explicit `store`/`placement`
+ * properties is what lets you build funnels and break conversion down by
+ * placement (hero vs sticky bar vs footer). These attributes are inert unless
+ * PostHog is loaded, so they're safe even if the tracker fails to initialise.
  */
 function trackProps(store: "ios" | "android", campaign: string) {
   return {
     "data-umami-event": "download-click",
     "data-umami-event-store": store,
     "data-umami-event-placement": campaign,
+    "data-ph-capture": "click",
+    "data-ph-event": "download_click",
+    "data-ph-store": store,
+    "data-ph-placement": campaign,
   };
 }
 
