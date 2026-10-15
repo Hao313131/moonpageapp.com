@@ -52,13 +52,16 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Three real link columns rather than one flat row: this is the
-            site's deepest internal linking, and it's how the collection and
-            guide pages get crawled from every page on the site. */}
-        <div className="grid gap-6 pt-6 text-xs text-night-muted sm:gap-8 sm:pt-8 sm:text-sm md:grid-cols-3">
-          <nav aria-label="Stories">
+        {/* Five equal-width columns from md up: Stories is three of them
+            (its own list renders as three sub-columns), For parents and
+            Company one each — so every column on the row is the same width.
+            This block is the site's deepest internal linking, and it's how
+            the collection and guide pages get crawled from every page on
+            the site. */}
+        <div className="grid gap-6 pt-6 text-xs text-night-muted sm:gap-8 sm:pt-8 sm:text-sm md:grid-cols-5">
+          <nav aria-label="Stories" className="md:col-span-3">
             <p className="font-semibold text-night-ink">Stories</p>
-            <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5 sm:gap-x-6">
+            <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5 sm:gap-x-8 md:grid-cols-3">
               {/* Driven by lib/hubs.ts so a new hub can never be forgotten
                   here — see the note in that file. */}
               {HUBS.map((h) => (
