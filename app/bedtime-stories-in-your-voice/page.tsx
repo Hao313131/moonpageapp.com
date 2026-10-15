@@ -200,6 +200,7 @@ export default function VoiceBedtimeStoriesPage() {
 
           <SeoHubCta
             campaign="bedtime_stories_in_your_voice"
+            voiceIntent
             title="Your voice, every night"
             body="Download is free and some stories are free to read now. Record your own narration so your child hears you even when you're away."
           />

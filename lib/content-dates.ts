@@ -5,7 +5,7 @@
  * than claiming a date it can't support.
  */
 export const ROUTE_DATES: Record<string, string> = {
-  "": "2026-09-29",
+  "": "2026-10-14",
   "/bedtime-stories": "2026-09-20",
   "/toddler-bedtime-stories": "2026-09-20",
   "/preschool-bedtime-stories": "2026-09-20",
@@ -15,7 +15,7 @@ export const ROUTE_DATES: Record<string, string> = {
   "/lullaby-bedtime-stories": "2026-09-20",
   "/bedtime-stories-app": "2026-09-26",
   "/picture-books-for-kids": "2026-09-20",
-  "/stories": "2026-09-20",
+  "/stories": "2026-10-14",
   "/collections": "2026-09-29",
   "/faq": "2026-09-18",
   "/guides": "2026-09-29",
@@ -26,5 +26,5 @@ export const ROUTE_DATES: Record<string, string> = {
 };
 
 /** Story and collection pages are generated from a single data file each. */
-export const STORY_DATE = "2026-09-20";
+export const STORY_DATE = "2026-10-14";
 export const COLLECTION_DATE = "2026-09-29";

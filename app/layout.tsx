@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Source_Serif_4, Fredoka, Nunito } from "next/font/google";
 import Script from "next/script";
 import { StickyCta } from "@/components/StickyCta";
+import { ScrollDepth } from "@/components/ScrollDepth";
 import { APP_JSONLD_ID } from "@/lib/reviews";
 import { OG_IMAGE, SITE } from "@/lib/site";
 import "./globals.css";
@@ -437,6 +438,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-cream text-ink">
         {children}
         <StickyCta />
+        <ScrollDepth />
       </body>
     </html>
   );
