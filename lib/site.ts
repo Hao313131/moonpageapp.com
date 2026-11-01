@@ -15,7 +15,7 @@ export const SITE = {
   title: "MoonPage: Cozy Bedtime Stories App for Kids",
   /** Short social-proof line used in the hero and near download CTAs. */
   trustLine:
-    "Trusted by thousands of moms for calmer bedtime routines and cozy stories.",
+    "Original stories for the last twenty minutes of the day.",
   /**
    * A record of the live App Store subtitle (30 char limit), so the repo does
    * not drift from what is actually shipped. Deliberately shares no words with

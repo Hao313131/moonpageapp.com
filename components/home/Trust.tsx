@@ -14,7 +14,7 @@ export function Trust() {
   return (
     <section className="page-gutter mx-auto max-w-6xl py-12 sm:py-16 md:py-20">
       <h2 className="max-w-3xl font-display text-xl font-semibold text-ink sm:text-2xl md:text-3xl">
-        Trusted by thousands of moms for calmer bedtime routines and cozy stories.
+        Original stories for the last twenty minutes of the day.
       </h2>
       <ul className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4">
         {FACTS.map((f) => (

@@ -133,8 +133,7 @@ export default function BedtimeStoriesLandingPage() {
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-muted sm:mt-4 sm:text-base">
             MoonPage collects cozy bedtime tales, sleepy picture storybooks,
             and gentle children&apos;s stories for families with little kids.
-            Trusted by thousands of moms for calmer bedtime routines and cozy
-            stories.
+            Original stories for the last twenty minutes of the day.
           </p>
 
           <HubLead path="/bedtime-stories" />

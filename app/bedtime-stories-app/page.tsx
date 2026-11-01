@@ -120,8 +120,7 @@ export default function BedtimeStoriesAppPage() {
             down? MoonPage is a phone and tablet storybook app for toddlers,
             preschoolers, and little kids — original cozy picture books,
             lullaby-style sleepy tales, and read-aloud narration parents can
-            trust. Trusted by thousands of moms for calmer bedtime routines and
-            cozy stories.
+            trust. Original stories for the last twenty minutes of the day.
           </p>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted sm:text-base">
             Free to download. No ads. No login. Works offline. Hear stories by
