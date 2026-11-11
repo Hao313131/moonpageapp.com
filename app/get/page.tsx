@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ResponsiveCover } from "@/components/ResponsiveCover";
 import { Header } from "@/components/Header";
 import { StoreButtons } from "@/components/StoreButtons";
 import { MinimalFooter } from "@/components/Footer";
-import { storyCoverSrc } from "@/lib/storyCover";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -69,17 +68,21 @@ export default function GetPage() {
           aria-label="App screenshots"
           tabIndex={0}
         >
-          {SHOTS.map((s) => (
+          {SHOTS.map((s, i) => (
             <div
               key={s.file}
               className="relative aspect-[4/3] w-[72vw] max-w-xs shrink-0 overflow-hidden rounded-2xl shadow-md sm:w-auto sm:max-w-none"
             >
-              <Image
-                src={storyCoverSrc(s.file)}
+              <ResponsiveCover
+                file={s.file}
                 alt={s.alt}
-                fill
                 sizes="(min-width: 640px) 33vw, 72vw"
-                className="object-cover"
+                // Only the first shot can be the LCP element. Marking all
+                // three `priority` put three fetchpriority="high" images in
+                // competition on the critical path; the other two are picked
+                // up normally (and immediately, since they are in-viewport).
+                priority={i === 0}
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
           ))}

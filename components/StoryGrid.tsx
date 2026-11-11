@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ResponsiveCover } from "@/components/ResponsiveCover";
 import type { Story } from "@/lib/stories";
-import { storyCoverSrc } from "@/lib/storyCover";
 
 /** Cover grid shared by /stories, the story pages and the collection pages.
  * Every cover links to its own story page — that's what makes those pages
@@ -23,12 +22,11 @@ export function StoryGrid({
             {/* 4:3 landscape, matching the app's own cover art — the covers
                 are 800×588, so a portrait crop cut them off. */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
-              <Image
-                src={storyCoverSrc(s.file)}
+              <ResponsiveCover
+                file={s.file}
                 alt={`Cover art for the children's picture book "${s.title}"`}
-                fill
                 sizes="(min-width: 640px) 31vw, 46vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <figcaption className="mt-2">

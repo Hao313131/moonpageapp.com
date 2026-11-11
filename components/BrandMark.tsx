@@ -32,11 +32,17 @@ export function BrandMark({
       <Image
         // 192px source, not the 1024px /icon.png: images are unoptimized in
         // static export, so the big one shipped 1.5 MB for a 56px logo.
+        // Deliberately NOT `priority`: that emitted a high-priority
+        // <link rel="preload" as="image"> for a 27 KB decorative 56px mark on
+        // every page, competing with the actual LCP image (the hero / story
+        // cover) for the same connection. Chrome still fetches this eagerly
+        // because it sits in the viewport — it just no longer outranks the LCP
+        // candidate. The wordmark text beside it is the accessible label, so
+        // this stays alt="".
         src="/icon-192.png"
         alt=""
         width={icon}
         height={icon}
-        priority
         className={iconClass}
       />
       <span className={`${nameClass} ${color}`}>{SITE.name}</span>

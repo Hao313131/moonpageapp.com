@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { COLLECTIONS } from "@/lib/collections";
 import { GUIDES } from "@/lib/guides";
 import { STORIES, TAG_LABELS } from "@/lib/stories";
-import { storyCoverSrc } from "@/lib/storyCover";
+import { coverVariantSrc } from "@/lib/storyCover";
 
 type Result = {
   kind: "Story" | "Guide" | "Collection";
@@ -42,7 +42,8 @@ export function SearchClient() {
       title: s.title,
       href: `/stories/${s.slug}`,
       snippet: s.hook,
-      cover: storyCoverSrc(s.file),
+      // 64x48 CSS px — the 800px original was ~12x too wide here.
+      cover: coverVariantSrc(s.file),
     }));
     const guideHits: Result[] = GUIDES.filter(
       (g) =>

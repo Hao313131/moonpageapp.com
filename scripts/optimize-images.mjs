@@ -28,7 +28,11 @@ const ICON_WIDTH = 1024;
 
 async function optimizeCovers() {
   const dir = join(PUBLIC, "covers");
-  const files = readdirSync(dir).filter((f) => f.endsWith(".webp"));
+  // Derived -480.webp variants are already optimally encoded for their slot;
+  // re-encoding a lossy WebP a second time only costs quality.
+  const files = readdirSync(dir).filter(
+    (f) => f.endsWith(".webp") && !f.endsWith("-480.webp"),
+  );
   let before = 0;
   let after = 0;
   let touched = 0;

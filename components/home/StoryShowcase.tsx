@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ResponsiveCover } from "@/components/ResponsiveCover";
 import { SectionCtaButton } from "@/components/SectionCtaButton";
 import { FEATURED_STORIES as STORIES } from "@/lib/stories";
-import { storyCoverSrc } from "@/lib/storyCover";
 
 /** Cover art, titles and hooks all come from lib/stories.ts, which the
  * /stories page and the themed collections share. */
@@ -18,12 +17,11 @@ export function StoryShowcase() {
           <figure key={s.file} className="group min-w-0">
             <Link href={`/stories/${s.slug}`} className="block">
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md sm:rounded-2xl">
-                <Image
-                  src={storyCoverSrc(s.file)}
+                <ResponsiveCover
+                  file={s.file}
                   alt={`Cover art for "${s.title}"`}
-                  fill
                   sizes="(min-width: 640px) 31vw, 46vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <figcaption className="mt-2">
