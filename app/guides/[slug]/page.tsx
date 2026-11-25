@@ -87,10 +87,20 @@ export default async function GuidePage({ params }: { params: Params }) {
       width: 1200,
       height: 630,
     },
-    author: { "@type": "Organization", name: SITE.operator },
+    // Google's generative-AI attribution guidance (2026) says to give readers
+    // "background about the author or your site (for example, through author
+    // pages or an About page)" so AI features can attribute sources correctly.
+    // Linking the author entity to the real About page makes that relationship
+    // explicit instead of leaving a bare name with no resolvable identity.
+    author: {
+      "@type": "Organization",
+      name: SITE.operator,
+      url: withSlash(`${SITE.domain}/about`),
+    },
     publisher: {
       "@type": "Organization",
       name: SITE.operator,
+      url: SITE.domain,
       logo: { "@type": "ImageObject", url: `${SITE.domain}/icon.png` },
     },
   };

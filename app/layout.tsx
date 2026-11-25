@@ -97,22 +97,11 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
-  keywords: [
-    "moonpage",
-    "bedtime stories for kids",
-    "bedtime stories ages 2+",
-    "cozy bedtime stories",
-    "kids storybook app",
-    "bedtime stories app",
-    "read aloud picture books",
-    "toddler bedtime stories",
-    "preschool bedtime stories",
-    "lullaby bedtime tales",
-    "children narration app",
-    "parent child bedtime routine",
-    "children's picture storybooks",
-    "sleepy stories for kids",
-  ],
+  // No `keywords`: Google Search Central states it does not use the keyword
+  // meta tag ("元关键字：Google 搜索不使用关键字元标记"). Emitting one on all
+  // 169 pages was dead bytes and a standing temptation to stuff terms. Topic
+  // relevance comes from the visible copy and the schema.org `keywords` on
+  // Article nodes, both of which we keep.
   // Trailing slash matches the sitemap (output: "export" + trailingSlash:true).
   // `languages` mirrors `pageMetadata()`: the homepage is the one page that
   // doesn't go through that helper, so without this it was the only indexable

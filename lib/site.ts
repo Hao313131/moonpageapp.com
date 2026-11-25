@@ -211,14 +211,10 @@ export const ASO_KEYWORDS = {
 } as const;
 
 /**
- * Build a comprehensive, content-grounded keyword list for the `keywords` meta
- * tag. Every page gets the brand + category + audience + intent baseline so the
- * tag is never empty (a missing/threadbare keywords meta is the classic "5/10"
- * failure), plus any page-specific terms for relevance. Deduplicated and capped
- * so we never cross into stuffing (which trips a mild spam signal). Google
- * ignores the tag for ranking, but a complete, relevant one is what a "10/10"
- * keywords-meta audit expects, and the same terms double as a checklist for the
- * visible copy.
+ * Build a short, de-duplicated keyword list for schema.org `keywords` on
+ * Article nodes — NOT for a meta tag. Google explicitly does not use the
+ * keyword meta tag, so `pageMetadata` no longer emits one; these terms stay
+ * useful only as Article-level topic hints and as a copy checklist.
  */
 export function pageKeywords(extra: string[] = []): string[] {
   const base = [
@@ -387,12 +383,13 @@ export function pageMetadata({
 }) {
   const url = `${SITE.domain}${path}`;
   const images = image ? [image] : [OG_IMAGE];
+  // `keywords` is accepted for backwards compatibility with callers but is
+  // deliberately NOT emitted: Google Search Central states the keyword meta
+  // tag is not used, so shipping it on every page was dead weight.
+  void keywords;
   return {
     title,
     description,
-    // Guarantee a complete, relevant keywords meta on EVERY page: baseline
-    // brand/category/audience/intent terms merged with any page-specific ones.
-    keywords: pageKeywords(keywords ?? []),
     // `en` + `x-default` are the same URL — MoonPage is English-only, but
     // declaring it stops aggregators from guessing a locale, and x-default is
     // what Google falls back to when it can't match a searcher's language.
